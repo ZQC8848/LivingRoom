@@ -55,6 +55,41 @@ node tools/a2a/send.mjs --self "ping"               # test your own server
 
 Tell your own agent it may use it, e.g. "ask the teammate's agent via tools/a2a/send.mjs".
 
+## Joining the held Orbis Dynamic session (attach-only)
+
+Dynamic has one server for all of Reactor. When Qin's keeper (`tools/keeper.py`) holds it,
+a teammate's app can join that session instead of queueing. Same host, same bearer token:
+
+```
+GET  /keeper        -> { phase: "holding" | "none" | ..., model, session_id, minutes_left, hold_until }
+POST /keeper/token  -> { jwt, sessionId, model, minutes_left, hold_until }   (409 if no hold)
+```
+
+```js
+const HOST = 'http://qinchuans-macbook-pro.tail5a410a.ts.net:41241';
+const r = await fetch(`${HOST}/keeper/token`, { method: 'POST', headers: { authorization: `Bearer ${A2A_PEER_TOKEN}` } });
+if (r.ok) {
+  const { jwt, sessionId, model } = await r.json();
+  const reactor = new Reactor({ modelName: model });
+  await reactor.connect(jwt, { sessionId });          // joins the held session
+  await reactor.sendCommand('reset', {});             // then anchor your own scene:
+  // set_resolution -> set_image -> set_prompt -> start
+} else {
+  // 409: nobody is holding -> open your own session as usual (may be "no available capacity")
+}
+```
+
+Call this from your server or a Node script, not from browser code (the bearer token must
+not ship to a browser; from an https page the http request is blocked anyway).
+
+Rules:
+- **One session = one picture.** Everyone attached sees the same stream, and anyone's
+  `reset` / `set_image` / `set_prompt` changes it for all. Agree who is using it.
+- **Only disconnect; never end the session** (no `DELETE /sessions`, no stop-session call).
+  Disconnecting leaves the hold with the keeper.
+- The JWT works only for this session and expires with the hold; it cannot create sessions.
+- Starting, extending and releasing a hold is not exposed. Ask Qin.
+
 ## Stop
 
 ```bash

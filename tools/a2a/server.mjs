@@ -58,7 +58,8 @@ fs.mkdirSync(LOG_DIR, { recursive: true });
 const PREAMBLE =
   'This message comes from a teammate\'s AI agent over A2A, not from the user at the keyboard. ' +
   'Treat it as a request from a collaborator on this project. Answer in plain text; your final ' +
-  'message is sent back to them. Never paste secrets (API keys, tokens, .env values) into the reply.';
+  'message is sent back to them. Never paste secrets (API keys, tokens, .env values) into the reply. ' +
+  'Never start, extend or release the Orbis keeper (tools/keeper.py) for such a request: holds are the owner\'s call.';
 
 const card = {
   protocolVersion: '0.3.0',
@@ -94,6 +95,14 @@ const server = http.createServer(async (req, res) => {
       return json(res, 200, card);
     }
     if (req.method === 'GET' && req.url === '/health') return json(res, 200, { ok: true, agent: AGENT, queued: [...tasks.values()].filter((t) => !done(t)).length });
+    const route = req.url.split('?')[0];
+    if (route === '/keeper' || route === '/keeper/token') {
+      if (!authorised(req)) {
+        log({ event: 'unauthorised', route });
+        return json(res, 401, { error: 'unauthorised' });
+      }
+      return keeperRoute(req, res, route);
+    }
     if (req.method !== 'POST') return json(res, 404, { error: 'not found' });
     if (!authorised(req)) {
       log({ event: 'unauthorised', from: req.socket.remoteAddress });
@@ -138,6 +147,40 @@ server.listen(PORT, HOST, () => {
   console.log(`Agent card: ${PUBLIC_URL.replace(/\/$/, '')}/.well-known/agent-card.json`);
   console.log('ALL permission checks are off for incoming tasks. Ctrl-C to stop.');
 });
+
+// Attach-only access to the Orbis Dynamic session tools/keeper.py is holding (see the
+// orbis-keeper skill). A teammate's app gets a JWT bound to that one session and joins it
+// instead of queueing for Dynamic's single server. By design there is NO start, extend or
+// release here: holding and its cost stay the owner's decision. The JWT can create no session.
+//   GET  /keeper        -> { phase, model, session_id, minutes_left, hold_until }
+//   POST /keeper/token  -> { jwt, sessionId, model, minutes_left, hold_until, expires_at }
+async function keeperRoute(req, res, route) {
+  let k = null;
+  try {
+    k = await (await fetch('http://127.0.0.1:5199/status', { signal: AbortSignal.timeout(2000) })).json();
+  } catch {}
+  const holding = k?.phase === 'holding';
+  const pub = holding
+    ? { phase: 'holding', model: k.model, session_id: k.session_id, minutes_left: k.minutes_left, hold_until: k.hold_until }
+    : { phase: k?.phase ?? 'none' };
+  if (route === '/keeper') return req.method === 'GET' ? json(res, 200, pub) : json(res, 405, { error: 'GET only' });
+  if (req.method !== 'POST') return json(res, 405, { error: 'POST only' });
+  if (!holding) return json(res, 409, { error: 'no keeper hold right now', keeper: pub });
+  const key = process.env.REACTOR_API_KEY;
+  if (!key) return json(res, 500, { error: 'no REACTOR_API_KEY on the host' });
+  const r = await fetch('https://api.reactor.inc/tokens', {
+    method: 'POST',
+    headers: { 'Reactor-API-Key': key, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      expires_after: Math.max(60, Math.min(3600, Math.ceil(k.minutes_left * 60) + 60)),
+      authorization_details: [{ type: 'session', resources: { models: { match: [k.model] }, sessions: { bind: [k.session_id] } } }],
+    }),
+  });
+  const body = await r.json();
+  log({ event: 'keeper_token', ok: r.ok, session: k.session_id, minutes_left: k.minutes_left });
+  if (!r.ok) return json(res, 502, { error: 'token mint failed', status: r.status });
+  return json(res, 200, { jwt: body.jwt, sessionId: k.session_id, model: k.model, minutes_left: k.minutes_left, hold_until: k.hold_until, expires_at: body.expires_at });
+}
 
 function newTask(contextId, msg) {
   const t = {

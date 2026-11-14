@@ -16,10 +16,16 @@ export async function startDemo(sceneName, manifest) {
   const base = `scenes/${sceneName}/media/`;
   // Paths live in manifest.media (strings); manifest.files carries sha256 etc. and is not read here.
   const strings = (o) => Object.fromEntries(Object.entries(o ?? {}).filter(([, v]) => typeof v === 'string'));
-  const files = { heaven: 'heaven.mp4', hell: 'hell.mp4', poster: 'poster.jpg', hell_poster: 'hell-poster.jpg', ...strings(manifest.files), ...strings(manifest.media) };
+  const media = strings(manifest.media);
+  const files = { heaven: 'heaven.mp4', hell: 'hell.mp4', poster: 'poster.jpg', hell_poster: 'hell-poster.jpg', ...media };
+  if (media.hellPoster) files.hell_poster = media.hellPoster; // both spellings are accepted
   const reveal = { ...REVEAL, ...manifest.reveal };
   const proj = manifest.projection ?? {};
-  const fps = manifest.fps ?? 30;
+  const video = manifest.video ?? {};
+  const fps = video.fps ?? manifest.media?.fps ?? manifest.fps ?? 30;
+  const frameCount = video.frame_count ?? manifest.frames;
+  const loop = manifest.media?.loop ?? true;
+  const yawDeg = proj.front_yaw_deg ?? manifest.orientation?.front_longitude_degrees ?? 0;
 
   const ui = { hud: document.getElementById('hud'), status: document.getElementById('status') };
   for (const id of ['live', 'events', 'steer']) document.getElementById(id)?.closest('.row')?.remove();
@@ -35,7 +41,7 @@ export async function startDemo(sceneName, manifest) {
   renderer.xr.setReferenceSpaceType('local');
   renderer.xr.setFoveation(1);
   document.body.appendChild(renderer.domElement);
-  document.body.appendChild(VRButton.createButton(renderer));
+  document.body.appendChild(VRButton.createButton(renderer, { optionalFeatures: ['hand-tracking'] }));
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.05, 100);
   scene.add(camera);
@@ -55,7 +61,7 @@ export async function startDemo(sceneName, manifest) {
     Object.assign(document.createElement('video'), {
       src: assetUrl(base + file),
       muted: true,
-      loop: true,
+      loop,
       playsInline: true,
       preload: 'auto',
       crossOrigin: 'anonymous',
@@ -68,7 +74,7 @@ export async function startDemo(sceneName, manifest) {
     hellPoster,
     heaven: prep(new THREE.VideoTexture(heaven)),
     hell: prep(new THREE.VideoTexture(hell)),
-    yawDeg: proj.front_yaw_deg ?? 0,
+    yawDeg,
     edgeCrop: proj.edge_crop ?? 0,
     seamBand: proj.seam_band ?? 0,
     reveal,
@@ -86,7 +92,8 @@ export async function startDemo(sceneName, manifest) {
       if (Math.abs(heaven.videoWidth / heaven.videoHeight - 2) > 0.01) p.push(`not 2:1 (${heaven.videoWidth}x${heaven.videoHeight})`);
     }
     if (heaven.duration && hell.duration && Math.abs(heaven.duration - hell.duration) > 1.5 / fps) p.push(`duration mismatch ${heaven.duration.toFixed(3)}s vs ${hell.duration.toFixed(3)}s`);
-    if (manifest.frames && heaven.duration && Math.abs(heaven.duration * fps - manifest.frames) > 1.5) p.push(`manifest says ${manifest.frames} frames, video has ~${Math.round(heaven.duration * fps)}`);
+    if (frameCount && heaven.duration && Math.abs(heaven.duration * fps - frameCount) > 1.5) p.push(`manifest says ${frameCount} frames, video has ~${Math.round(heaven.duration * fps)}`);
+    if (video.width && heaven.videoWidth && (video.width !== heaven.videoWidth || video.height !== heaven.videoHeight)) p.push(`manifest says ${video.width}x${video.height}, video is ${heaven.videoWidth}x${heaven.videoHeight}`);
     info.problems = p;
     if (p.length) console.warn('[demo] media problems:', p);
   };
@@ -100,7 +107,7 @@ export async function startDemo(sceneName, manifest) {
       startOverlay?.remove();
       startOverlay = null;
     } catch {
-      showStartOverlay(); // autoplay blocked: needs one tap
+      if (!info.problems.some((q) => q.startsWith('cannot'))) showStartOverlay(); // autoplay blocked: needs one tap (not for a load error)
     }
   }
   function showStartOverlay() {
@@ -160,6 +167,13 @@ export async function startDemo(sceneName, manifest) {
       state.open(slot, new THREE.Vector3(Math.sin(lon) * Math.cos(lat), Math.sin(lat), -Math.cos(lon) * Math.cos(lat)));
     },
     close: (slot = 0) => state.close(slot),
+    focus(name, slot = 0) {
+      const f = manifest.focus?.[name];
+      if (!f) return false;
+      this.lookAt(f.longitude_degrees, f.latitude_degrees);
+      this.openAt(f.longitude_degrees, f.latitude_degrees, slot);
+      return true;
+    },
     lookAt(lonDeg, latDeg) { camera.rotation.set(THREE.MathUtils.degToRad(latDeg), -THREE.MathUtils.degToRad(lonDeg), 0, 'YXZ'); },
   };
 

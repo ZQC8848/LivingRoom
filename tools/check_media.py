@@ -41,7 +41,8 @@ def main():
     strs = lambda o: {k: v for k, v in (o or {}).items() if isinstance(v, str)}
     files = {"heaven": "heaven.mp4", "hell": "hell.mp4", "poster": "poster.jpg", **strs(man.get("files")), **strs(man.get("media"))}
     meta = {**{k: man[k] for k in ("fps", "frames") if k in man}, **(man.get("video") or {})}
-    declared = {k: (v.get("sha256") if isinstance(v, dict) else None) for k, v in (man.get("files") or {}).items()}
+    declared = {k: (v.get("sha256") if isinstance(v, dict) else None) for k, v in (man.get("files") or {}).items()}  # keyed by file name
+    files.setdefault("hell_poster", files.get("hellPoster", "hell-poster.jpg"))
     info = {}
     for k in ("heaven", "hell"):
         p = d / files[k]
@@ -78,10 +79,12 @@ def main():
         if fr and fr != a["frames"]: err(f"manifest frames {fr} != video {a['frames']}")
         for k in ("width", "height"):
             if meta.get(k) and meta[k] != a["w" if k == "width" else "h"]: err(f"manifest {k} {meta[k]} != video")
-    for k, want in declared.items():
-        if want and (d / files.get(k, "")).is_file():
-            got = hashlib.sha256((d / files[k]).read_bytes()).hexdigest()
-            if got != want: err(f"{files[k]}: sha256 {got[:16]}... != manifest {want[:16]}...")
+    for name, want in declared.items():
+        if not (d / name).is_file(): err(f"manifest lists {name} but it is missing"); continue
+        got = hashlib.sha256((d / name).read_bytes()).hexdigest()
+        if want and got != want: err(f"{name}: sha256 {got[:16]}... != manifest {want[:16]}...")
+    hp = d / files["hell_poster"]
+    if hp.exists() and (pr := probe(hp)) and pr["streams"][0]["width"] != 2 * pr["streams"][0]["height"]: err("hell poster is not 2:1")
     pp = d / files["poster"]
     if not pp.exists(): err(f"{files['poster']} missing")
     else:
