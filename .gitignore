@@ -1,0 +1,26 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# os / editors
+.DS_Store
+.vscode/
+.idea/
+
+# node
+node_modules/
+dist/
+.vite/
+
+# python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# local captures and generated media (keep out of git; big)
+recordings/
+captures/
+*.mp4
+*.webm
