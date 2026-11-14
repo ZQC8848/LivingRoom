@@ -23,8 +23,16 @@ python3 tools/check_media.py "$MEDIA"
 STAGE="$(pwd)/web/.static-public"
 rm -rf "$STAGE" web/dist
 mkdir -p "$STAGE/scenes/$SCENE/media"
-cp "$MEDIA"/{heaven.mp4,hell.mp4,poster.jpg,manifest.json} "$STAGE/scenes/$SCENE/media/"
-[ -f "$MEDIA/hell-poster.jpg" ] && cp "$MEDIA/hell-poster.jpg" "$STAGE/scenes/$SCENE/media/"
+# Stage exactly the files the manifest names for its mode (packed: paired.mp4 only, no dual videos).
+python3 - "$MEDIA" "$STAGE/scenes/$SCENE/media" <<'PY'
+import json, shutil, sys, pathlib
+src, dst = map(pathlib.Path, sys.argv[1:3])
+m = json.loads((src / "manifest.json").read_text())["media"]
+names = {"manifest.json", m.get("poster", "poster.jpg"), m.get("hellPoster") or "hell-poster.jpg"}
+names |= {m["packed"]} if m.get("packed") else {m.get("heaven", "heaven.mp4"), m.get("hell", "hell.mp4")}
+for n in sorted(names):
+    if (src / n).is_file(): shutil.copy2(src / n, dst / n)
+PY
 (cd web && VITE_STATIC=1 VITE_DEFAULT_SCENE="$SCENE" LR_PUBLIC_DIR="$STAGE" npx vite build)
 rm -rf "$STAGE"
 cat > web/dist/_headers <<'H'

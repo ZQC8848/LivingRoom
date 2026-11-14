@@ -28,6 +28,9 @@ const fragmentShader = /* glsl */ `
   uniform sampler2D uHellPoster;
   uniform sampler2D uHeaven;
   uniform sampler2D uHell;
+  uniform vec2 uHeavenY;        // video v = x + y * uv.y : (offset, scale) of the heaven pane
+  uniform vec2 uHellY;          // same for the hell pane (packed: 0.5/0.5 and 0/0.5; dual: 0/1 for both)
+  uniform float uPadV;          // half a video texel in v, keeps bilinear taps inside a packed pane
   uniform float uVideoMix;      // 0 = poster on both layers, 1 = the two videos
   uniform float uYaw;           // radians added to the longitude (manifest front_yaw_deg)
   uniform float uEdgeCrop;
@@ -37,16 +40,22 @@ const fragmentShader = /* glsl */ `
   uniform float uRim;
   varying vec3 vDir;
 
-  vec3 layer(sampler2D poster, sampler2D vid, vec2 uv) {
+  // Custom ShaderMaterials get no automatic decode for VideoTexture (three only defines
+  // DECODE_VIDEO_TEXTURE for its built-in map chunk), so the sRGB video sample is decoded here
+  // and colorspace_fragment re-encodes once at the end. The poster is a normal sRGB texture
+  // that the GPU already decodes; it must NOT go through the EOTF again.
+  vec3 layer(sampler2D poster, sampler2D vid, vec2 pane, vec2 uv) {
     uv.x = uEdgeCrop + uv.x * (1.0 - 2.0 * uEdgeCrop);
-    return mix(texture2D(poster, uv).rgb, texture2D(vid, uv).rgb, uVideoMix);
+    vec2 vuv = vec2(uv.x, clamp(pane.x + uv.y * pane.y, pane.x + uPadV, pane.x + pane.y - uPadV));
+    vec3 v = sRGBTransferEOTF(texture2D(vid, vuv)).rgb;
+    return mix(texture2D(poster, uv).rgb, v, uVideoMix);
   }
-  vec3 seamless(sampler2D poster, sampler2D vid, vec2 uv) {
-    vec3 a = layer(poster, vid, uv);
+  vec3 seamless(sampler2D poster, sampler2D vid, vec2 pane, vec2 uv) {
+    vec3 a = layer(poster, vid, pane, uv);
     if (uSeamBand <= 0.0) return a;
     float s = uv.x < 0.5 ? uv.x : uv.x - 1.0;
     if (abs(s) >= uSeamBand) return a;
-    vec3 b = layer(poster, vid, vec2(fract(-s + 1.0), uv.y));
+    vec3 b = layer(poster, vid, pane, vec2(fract(-s + 1.0), uv.y));
     return mix(a, b, 0.5 * (1.0 - abs(s) / uSeamBand));
   }
 
@@ -68,14 +77,14 @@ const fragmentShader = /* glsl */ `
       rim = max(rim, exp(-d * d));
     }
 
-    vec3 col = mix(seamless(uPoster, uHeaven, uv), seamless(uHellPoster, uHell, uv), mask);
+    vec3 col = mix(seamless(uPoster, uHeaven, uHeavenY, uv), seamless(uHellPoster, uHell, uHellY, uv), mask);
     col += rim * uRim * uVideoMix;
     gl_FragColor = vec4(col, 1.0);
     #include <colorspace_fragment>
   }
 `;
 
-export function createRevealSphere({ poster, hellPoster = poster, heaven, hell, yawDeg = 0, edgeCrop = 0, seamBand = 0, reveal = REVEAL }) {
+export function createRevealSphere({ poster, hellPoster = poster, heaven, hell, packed = false, videoHeight = 1024, yawDeg = 0, edgeCrop = 0, seamBand = 0, reveal = REVEAL }) {
   const slots = Array.from({ length: REVEAL.maxSlots }, () => new THREE.Vector4(0, 0, -1, 0));
   const material = new THREE.ShaderMaterial({
     vertexShader,
@@ -87,6 +96,9 @@ export function createRevealSphere({ poster, hellPoster = poster, heaven, hell, 
       uHellPoster: { value: hellPoster },
       uHeaven: { value: heaven },
       uHell: { value: hell },
+      uHeavenY: { value: packed ? new THREE.Vector2(0.5, 0.5) : new THREE.Vector2(0, 1) }, // Three flipY: top of the file = v 1
+      uHellY: { value: packed ? new THREE.Vector2(0, 0.5) : new THREE.Vector2(0, 1) },
+      uPadV: { value: 0.5 / videoHeight },
       uVideoMix: { value: 0 },
       uYaw: { value: THREE.MathUtils.degToRad(yawDeg) },
       uEdgeCrop: { value: edgeCrop },

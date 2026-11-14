@@ -17,6 +17,8 @@ export async function startDemo(sceneName, manifest) {
   // Paths live in manifest.media (strings); manifest.files carries sha256 etc. and is not read here.
   const strings = (o) => Object.fromEntries(Object.entries(o ?? {}).filter(([, v]) => typeof v === 'string'));
   const media = strings(manifest.media);
+  const packedFile = media.packed || null; // single-decoder mode: paired.mp4, heaven on top, hell below
+  if (packedFile && (media.packedLayout || 'heaven-top-hell-bottom') !== 'heaven-top-hell-bottom') throw new Error(`unsupported packedLayout ${media.packedLayout}`);
   const files = { heaven: 'heaven.mp4', hell: 'hell.mp4', poster: 'poster.jpg', hell_poster: 'hell-poster.jpg', ...media };
   if (media.hellPoster) files.hell_poster = media.hellPoster; // both spellings are accepted
   const reveal = { ...REVEAL, ...manifest.reveal };
@@ -52,6 +54,7 @@ export async function startDemo(sceneName, manifest) {
     t.colorSpace = THREE.SRGBColorSpace;
     t.minFilter = THREE.LinearFilter;
     t.generateMipmaps = false; // no mipmaps: the u = 0/1 seam would bleed through them
+    t.wrapS = THREE.RepeatWrapping; // the 2:1 panoramas already match at the back seam
     return t;
   };
   const loadPoster = (f) => new THREE.TextureLoader().loadAsync(assetUrl(base + f)).then(prep);
@@ -66,14 +69,20 @@ export async function startDemo(sceneName, manifest) {
       preload: 'auto',
       crossOrigin: 'anonymous',
     });
-  const heaven = makeVideo(files.heaven);
-  const hell = makeVideo(files.hell);
-  for (const v of [heaven, hell]) v.setAttribute('webkit-playsinline', '');
+  // Packed: ONE <video> and ONE VideoTexture; heaven and hell are aliases of the same objects,
+  // so they share a clock and can never drift. Dual: two videos, kept in lockstep by resync().
+  const heaven = makeVideo(packedFile || files.heaven);
+  const hell = packedFile ? heaven : makeVideo(files.hell);
+  for (const v of new Set([heaven, hell])) v.setAttribute('webkit-playsinline', '');
+  const heavenTex = prep(new THREE.VideoTexture(heaven));
+  const hellTex = packedFile ? heavenTex : prep(new THREE.VideoTexture(hell));
   const sphere = createRevealSphere({
     poster,
     hellPoster,
-    heaven: prep(new THREE.VideoTexture(heaven)),
-    hell: prep(new THREE.VideoTexture(hell)),
+    heaven: heavenTex,
+    hell: hellTex,
+    packed: !!packedFile,
+    videoHeight: video.height ? (packedFile ? video.height * 2 : video.height) : 1024,
     yawDeg,
     edgeCrop: proj.edge_crop ?? 0,
     seamBand: proj.seam_band ?? 0,
@@ -83,27 +92,35 @@ export async function startDemo(sceneName, manifest) {
   const state = createRevealState(sphere.slots, reveal);
 
   // ---- video: start, validate, keep the pair in lockstep -------------------------------------
-  const info = { problems: [], playing: false, driftFrames: 0, resyncs: 0 };
+  const info = { problems: [], playing: false, driftFrames: 0, resyncs: 0, videoMode: packedFile ? 'packed' : 'dual', everPlayed: false, loadError: false };
   let startOverlay = null;
+  // Pane = one 2:1 panorama: the whole frame (dual) or half of it (packed, 2048x2048 -> 2 x 2048x1024).
+  const pane = () => ({ w: heaven.videoWidth, h: packedFile ? heaven.videoHeight / 2 : heaven.videoHeight });
   const check = () => {
     const p = [];
-    if (heaven.videoWidth && hell.videoWidth) {
-      if (heaven.videoWidth !== hell.videoWidth || heaven.videoHeight !== hell.videoHeight) p.push(`size mismatch ${heaven.videoWidth}x${heaven.videoHeight} vs ${hell.videoWidth}x${hell.videoHeight}`);
-      if (Math.abs(heaven.videoWidth / heaven.videoHeight - 2) > 0.01) p.push(`not 2:1 (${heaven.videoWidth}x${heaven.videoHeight})`);
+    if (heaven.videoWidth) {
+      const { w, h } = pane();
+      if (Math.abs(w / h - 2) > 0.01) p.push(`${packedFile ? 'pane' : 'video'} is ${w}x${h}, not 2:1 (file ${heaven.videoWidth}x${heaven.videoHeight})`);
+      sphere.material.uniforms.uPadV.value = 0.5 / heaven.videoHeight;
+      if (!packedFile && hell.videoWidth && (heaven.videoWidth !== hell.videoWidth || heaven.videoHeight !== hell.videoHeight)) p.push(`size mismatch ${heaven.videoWidth}x${heaven.videoHeight} vs ${hell.videoWidth}x${hell.videoHeight}`);
+      // manifest.video.width/height may describe the file or one pane; either is accepted
+      if (video.width && !((video.width === heaven.videoWidth && video.height === heaven.videoHeight) || (video.width === w && video.height === h))) p.push(`manifest says ${video.width}x${video.height}, video is ${heaven.videoWidth}x${heaven.videoHeight}`);
     }
-    if (heaven.duration && hell.duration && Math.abs(heaven.duration - hell.duration) > 1.5 / fps) p.push(`duration mismatch ${heaven.duration.toFixed(3)}s vs ${hell.duration.toFixed(3)}s`);
+    if (!packedFile && heaven.duration && hell.duration && Math.abs(heaven.duration - hell.duration) > 1.5 / fps) p.push(`duration mismatch ${heaven.duration.toFixed(3)}s vs ${hell.duration.toFixed(3)}s`);
     if (frameCount && heaven.duration && Math.abs(heaven.duration * fps - frameCount) > 1.5) p.push(`manifest says ${frameCount} frames, video has ~${Math.round(heaven.duration * fps)}`);
-    if (video.width && heaven.videoWidth && (video.width !== heaven.videoWidth || video.height !== heaven.videoHeight)) p.push(`manifest says ${video.width}x${video.height}, video is ${heaven.videoWidth}x${heaven.videoHeight}`);
     info.problems = p;
     if (p.length) console.warn('[demo] media problems:', p);
   };
   heaven.addEventListener('loadedmetadata', check);
-  hell.addEventListener('loadedmetadata', check);
-  for (const v of [heaven, hell]) v.addEventListener('error', () => (info.problems = [...info.problems, `cannot load ${v === heaven ? 'heaven' : 'hell'} video (${v.error?.message || v.error?.code})`]));
+  if (!packedFile) hell.addEventListener('loadedmetadata', check);
+  for (const v of new Set([heaven, hell])) v.addEventListener('error', () => {
+    info.loadError = true;
+    info.problems = [...info.problems, `cannot load ${packedFile ? 'packed' : v === heaven ? 'heaven' : 'hell'} video (${v.error?.message || v.error?.code})`];
+  });
 
   async function startVideos() {
     try {
-      await Promise.all([heaven.play(), hell.play()]);
+      await Promise.all([...new Set([heaven, hell])].map((v) => v.play()));
       startOverlay?.remove();
       startOverlay = null;
     } catch {
@@ -118,7 +135,8 @@ export async function startDemo(sceneName, manifest) {
     document.body.appendChild(startOverlay);
   }
   startVideos();
-  setInterval(() => {
+  // Dual mode only: a packed video has one clock, nothing to resync.
+  if (!packedFile) setInterval(() => {
     if (heaven.paused || hell.paused || heaven.readyState < 2 || hell.readyState < 2) return;
     let d = hell.currentTime - heaven.currentTime;
     const dur = heaven.duration || 0;
@@ -161,6 +179,8 @@ export async function startDemo(sceneName, manifest) {
 
   // Test / debug hook: open a cap by longitude/latitude (degrees; lon 0 = front, +90 = right).
   window.__reveal = {
+    videoMode: info.videoMode,
+    packedVideo: packedFile ? heaven : null,
     state, sphere, heaven, hell, info, renderer, camera,
     openAt(lonDeg, latDeg, slot = 0) {
       const lon = THREE.MathUtils.degToRad(lonDeg), lat = THREE.MathUtils.degToRad(latDeg);
@@ -185,13 +205,17 @@ export async function startDemo(sceneName, manifest) {
     controllers.forEach((c, i) => state.isOpen(i) && renderer.xr.isPresenting && state.move(i, rayDir(c)));
     state.update(dt);
     const u = sphere.material.uniforms;
-    const ready = !heaven.paused && !hell.paused && heaven.readyState >= 2 && hell.readyState >= 2 && !info.problems.some((p) => p.startsWith('cannot'));
-    info.playing = ready;
+    // Latch: once both layers have shown real frames, a short seeking/buffering dip (readyState
+    // < 2) keeps the last video texture; only a real load error drops back to the poster.
+    const nowOk = !heaven.paused && !hell.paused && heaven.readyState >= 2 && hell.readyState >= 2;
+    if (nowOk && !info.loadError) info.everPlayed = true;
+    const ready = !info.loadError && (nowOk || info.everPlayed);
+    info.playing = nowOk;
     u.uVideoMix.value = THREE.MathUtils.clamp(u.uVideoMix.value + (ready ? dt : -dt) / 0.8, 0, 1);
     const open = state.radiiDeg().map((r) => r.toFixed(0)).join('/');
     log.lines = [
       manifest.title ?? sceneName,
-      info.problems.length ? `⚠ ${info.problems.join('; ')}` : ready ? `playing · ${heaven.videoWidth}x${heaven.videoHeight} · t=${heaven.currentTime.toFixed(2)}s` : 'loading video… (showing poster)',
+      info.problems.length ? `⚠ ${info.problems.join('; ')}` : ready ? `${info.videoMode} · ${heaven.videoWidth}x${heaven.videoHeight} · t=${heaven.currentTime.toFixed(2)}s` : 'loading video… (showing poster)',
     ];
     log.debug = `caps ${open}° · drift ${info.driftFrames.toFixed(2)} fr · resyncs ${info.resyncs}${lastPoint ? ` · last lon ${lastPoint.lonDeg.toFixed(0)}° lat ${lastPoint.latDeg.toFixed(0)}°` : ''}`;
     if (performance.now() - hintAt > 9000 && !params.has('debug') && !info.problems.length) ui.hud.style.display = 'none';
