@@ -10,6 +10,7 @@
     "dev:local": "LR_HTTP=1 vite"
   },
   "dependencies": {
+    "@reactor-team/js-sdk": "3.3.0",
     "three": "0.170.0"
   },
   "devDependencies": {

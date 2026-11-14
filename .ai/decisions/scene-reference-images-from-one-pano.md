@@ -1,6 +1,6 @@
 # Each face's Orbis reference image is projected from one Marble panorama
 
-**2026-11-14 ・ status: standing ・ scope: how first frames are made; not what each face's prompt says (that follows from the images)**
+**2026-11-14 ・ status: superseded in part by [single-stream-panorama](single-stream-panorama.md) ・ scope: how first frames are made; not what each face's prompt says (that follows from the images)**
 
 ## What forced the choice
 
@@ -48,3 +48,7 @@ Floor/ceiling quality is whatever the pano's poles give. Wall references are ups
 
 Floor/ceiling references stay unusable after 2–3 pano attempts → generate those two faces
 separately. A higher-resolution pano option appears → raise `--width` and re-check.
+
+## Superseded 2026-11-14
+
+Steps 1 and 3 still hold (Marble text-to-pano; yaw picks the front). The per-face eye-point projection is gone: the whole pano, rotated and squashed to 1664×960, is the one reference (`tools/pano_reference.py`). The tool `project_pano.py` was removed; it is in git history.

@@ -1,6 +1,6 @@
 # The world is shown on the walls of a box, not on a 360° sphere
 
-**2026-11-14 ・ status: standing ・ scope: display geometry only; not how walls are generated**
+**2026-11-14 ・ status: superseded by [single-stream-panorama](single-stream-panorama.md) ・ scope: display geometry only; not how walls are generated**
 
 ## What forced the choice
 
@@ -39,3 +39,7 @@ Floor/ceiling waste 44% of their frame.
 
 The single-wall test shows Orbis keeps a squashed equirect frame stable for > 2 min —
 then a sphere becomes the cheaper option again.
+
+## Superseded 2026-11-14
+
+Replaced by one Orbis Dynamic stream on a 360° sphere. The reasoning above was sound for its question — *how to show several streams* — but its premise failed: Dynamic serves one session at a time across all of Reactor, and Stable (which has capacity) does not hold the reference. With one stream, the sphere's only hard risk (projection drift) is the one Dynamic's strong image anchoring is best placed to resist; that is still to be verified.

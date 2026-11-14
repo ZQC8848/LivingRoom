@@ -1,62 +1,75 @@
 # Living Room
 
-A VR room where every wall is alive. The player stands inside a box whose walls are
-real-time AI video streams, touches a wall to make it ripple, and speaks or gestures to
-change the world outside.
+A VR panorama that is alive. The viewer stands inside a 360° world streamed in real time by
+Orbis, points at the sky to send ripples through it, and changes the world with words —
+golden hour, evening, rain, night.
 
 Built for the **Visko · Living Worlds** track (Orbis real-time video, Reactor platform).
 Demo: Sunday, 2026-11-15.
 
-## The room
+## How it works
 
-| Face | Size | Aspect | Content | Source |
-|---|---|---|---|---|
-| Front / back / left / right walls | 4.8 m × 2.7 m | 16:9, native, no crop | The world seen from that side | 1 Orbis session each, first frame cut from one Marble panorama at yaw 0 / 180 / 270 / 90 |
-| Floor | 4.8 m × 4.8 m | 1:1 | Overhead water / ground, slow in-place motion only | Orbis, 16:9 centre-cropped to 1:1 — or static |
-| Ceiling | 4.8 m × 4.8 m | 1:1 | Sky looking up, mirrored horizontally | Orbis, centre-cropped — or static |
+```
+Marble text-to-pano (2:1)  →  tools/pano_reference.py  →  reference.png 1664×960 (squashed)
+                                                              │ set_image + opening prompt
+                                                              ▼
+                                   ONE Orbis Dynamic session (Reactor, WebRTC, 2k, 18 fps)
+                                                              │
+                                                              ▼
+            browser: full frame mapped back to 360°×180° on a head-locked sphere (WebXR)
+```
 
-The player stands at the centre of the floor, eye height 1.6 m, 2.4 m from every wall.
-From the centre each wall spans 90° horizontally and about 59° vertically, which is the
-view of an ordinary perspective camera — the format Orbis was trained on.
+- **One stream on purpose.** Orbis Dynamic is the only model that holds the reference and a
+  still camera, and it serves one session at a time for everyone on Reactor.
+- **The sphere sits at infinity** (view translation dropped), so head movement never
+  distorts it. The left/right edges of the frame meet behind the viewer and are
+  cross-blended; the poles fade to colours sampled from the picture.
+- **Pointing, not touching:** trigger / pinch in VR, click on desktop, makes a ripple where
+  you point.
+- **Events:** Golden hour steers the running picture; Morning, Evening, Rain and Night
+  re-anchor the same session to a pre-made reference (`events/*.png`, edited copies of the
+  reference with the same layout) behind a freeze-frame transition, ~9 s.
+- **Still first:** the Marble pano shows until the stream arrives, and whenever Dynamic is
+  busy (the page retries every 10 s).
+- The Mac's dev server keeps the API key and mints short-lived JWTs (`/api/token`); it can
+  end any session by id (`/api/end-session/<id>`).
 
-## How it works (short)
-
-- **Mac** mints Reactor JWTs (the API key never reaches the browser), holds the Orbis
-  sessions, composites the walls and relays one video stream to the headset.
-- **Quest 3** (WebXR) renders the room, runs the ripple shader locally, and sends head
-  and hand poses back to the Mac.
-- Interaction has three time scales: shader ripple (ms), `set_prompt` world change
-  (3–6 s), and freeze-frame re-anchor / scene transition (~5 s).
-
-Details: [.ai/architecture.md](.ai/architecture.md). Why it is built this way:
-[.ai/decisions/](.ai/decisions/). Current state: [.ai/handoff.md](.ai/handoff.md).
+Why it is built this way: [.ai/decisions/single-stream-panorama.md](.ai/decisions/single-stream-panorama.md).
+Current state: [.ai/handoff.md](.ai/handoff.md). Platform facts and limits: [CLAUDE.md](CLAUDE.md).
 
 ## Setup
 
 ```bash
-cp .env.example .env   # then put the Reactor key in it — never commit it
-cd web && npm install
+cp .env.example .env          # put REACTOR_API_KEY (and WORLDLABS_API_KEY) in it — never commit it
+cd web && npm install && cd ..
+uv venv --python 3.12 tools/.venv && uv pip install --python tools/.venv/bin/python -r tools/requirements.txt reactor-sdk
 ```
 
-## Run the WebXR room
+Scene media lives in `~/Assets/LivingRoom/scenes/<scene>/` (symlinked into `web/public/scenes`):
 
-Desktop check (plain HTTP on localhost; drag to look, click a wall to ripple):
+```bash
+tools/.venv/bin/python tools/marble_pano.py hillside --world e60f6310-08a9-4e1a-84ab-044b02844ffe
+```
+
+```bash
+cd tools && ../tools/.venv/bin/python pano_reference.py hillside
+```
+
+## Run
+
+Desktop (plain HTTP on localhost): drag to look, click to ripple, **Go live** to stream.
 
 ```bash
 npm --prefix web run dev:local
 ```
 
-On the Quest 3 (HTTPS with a self-signed certificate, reachable over LAN):
+Quest 3 (HTTPS, self-signed): open `https://<mac-lan-ip>:5174`, accept the certificate,
+press **Go live**, then **Enter VR**.
 
 ```bash
 npm --prefix web run dev
 ```
 
-Open `https://<mac-lan-ip>:5174` in the Quest browser, accept the certificate warning,
-press **Enter VR**. Touch a wall with a fingertip (hand tracking) or point and pull the
-trigger. Until the relay exists the walls show a labelled test pattern laid out like the
-relay's 3×2 atlas; `?video=<url>` plays a 3×2 atlas video instead.
-
-Code map: `web/src/config.js` (room size, atlas layout, per-face orientation),
-`room.js` (geometry, trim), `wallMaterial.js` (atlas sampling + ripple shader),
-`touch.js` (fingertip / controller / mouse), `atlas.js` (test pattern, video swap).
+`?model=stable` swaps in Orbis Stable to test the plumbing when Dynamic is busy (its camera
+drifts, so it is not the look). Live sessions are billed per second from `ready`; **Stop**
+or closing the tab ends them, and the token caps any session at 15 minutes.

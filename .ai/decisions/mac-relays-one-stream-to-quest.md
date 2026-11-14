@@ -1,6 +1,6 @@
 # The Mac holds the sessions and sends the headset one composited stream
 
-**2026-11-14 ・ status: standing ・ scope: demo topology**
+**2026-11-14 ・ status: superseded by [single-stream-panorama](single-stream-panorama.md) ・ scope: demo topology**
 
 ## What forced the choice
 
@@ -37,3 +37,7 @@ seconds-scale and head rotation is rendered locally.
 
 `getStats` on the Quest shows hardware decode of 4 streams with no dropped frames —
 then connect directly and drop the relay.
+
+## Superseded 2026-11-14
+
+With a single stream there is nothing to composite: the headset receives the Orbis stream directly and the Mac only mints JWTs (`/api/token`) and can end sessions by id (`/api/end-session`). The decode-budget reasoning above is moot at one stream.

@@ -1,4 +1,4 @@
-"""Contact sheet for one orbis_wall_test.py run: reference + first frame + timed snapshots.
+"""Contact sheet for one orbis_test.py run: reference + first frame + timed snapshots.
 
     tools/.venv/bin/python tools/contact_sheet.py <test-folder> [<test-folder> ...]
 
@@ -15,11 +15,10 @@ W, H, BAR = 640, 360, 24
 
 
 def sheet(test_dir: Path):
-    face = test_dir.name.split("-")[0]
-    ref = test_dir.parent.parent / "faces" / f"{face}.png"
+    ref = test_dir.parent.parent / "reference.png"
     frames = sorted((test_dir / "frames").glob("*.png"))
     items = [(ref, "reference")] + [(f, f.stem.lstrip("t").replace("-first", " first") + "s") for f in frames]
-    items = items[:12]
+    items = items[:15]
     cols = 3
     rows = (len(items) + cols - 1) // cols
     out = Image.new("RGB", (W * cols, (H + BAR) * rows), "black")
@@ -31,7 +30,7 @@ def sheet(test_dir: Path):
     report = test_dir / "report.json"
     if report.exists():
         r = json.loads(report.read_text())
-        title = f"{r.get('model', '')}  passthrough={r.get('passthrough')}  variant={r.get('variant')}"
+        title = f"{r.get('model', '')}  passthrough={r.get('passthrough')}"
         d.text((W * cols - 8 - 7 * len(title), 5), title, fill="yellow")
     out.save(test_dir / "contact.jpg", quality=88)
     return test_dir / "contact.jpg"

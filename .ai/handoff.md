@@ -1,93 +1,57 @@
 # Current state
 
-**Last updated: 2026-11-14**
+**Last updated: 2026-11-14 10:45 PST**
 
-> This file **expires** — update it at the end of each working session.
+> This file **expires** — update it at the end of each working session. Earlier test logs
+> (per-wall Stable/Dynamic runs, four-wall capacity failure) are in git history; their
+> conclusions are in CLAUDE.md and `decisions/`.
 
 ## Where things stand
 
 | Item | State |
 |---|---|
-| Design (room, topology, transitions) | Decided — see `decisions/` |
-| Scene `hillside` reference images | Marble draft pano (world `e60f6310…`) projected to 6 faces, yaw 12°; walls join cleanly. Floor smeared, ceiling has sky artifacts, pano only 2304 px wide. View: `?scene=hillside` |
-| Reactor key access | Verified: Orbis Stable + Dynamic only |
-| Concurrency | Verified to 8 idle sessions; generating-at-once untested |
-| WebXR room shell (`web/`) | Done on branch `feat/webxr-room`: 6 faces from one 3×2 atlas, trim, ripple shader, fingertip / controller / mouse touch. Verified on desktop only — **not yet on a Quest** |
-
-## Latest result (2026-11-14): front wall on Orbis
-
-`tools/orbis_wall_test.py hillside front` — 80 s, Stable, reference image + 98-word prompt.
-
-| Check | Result |
-|---|---|
-| Opening matches reference | **No.** First frame (4.2 s) keeps the layout cues (sun upper left, hut right, slope) but the camera is near the grass and the sheep are big in the foreground |
-| Static camera | **No.** Viewpoint keeps moving among the sheep |
-| Long-run quality | Degrades from ~45 s: ground turns into green tufts on grey, lens looks wider |
-| "Golden light" steer at 35 s | Not visible by 50 s |
-| fps / size / warm-up | 18 fps, 2560×1440, first frame 4.2 s |
-
-### Follow-up: three variables, 40–45 s each, no steering
-
-| Run | Opening vs reference | Camera | Ground at 40 s |
-|---|---|---|---|
-| Stable + `passthrough` | Close (sheep small on crest, hut right) — diff 33 | Cuts between framings every ~10 s | OK |
-| Stable + `env_first` prompt | Sheep pulled into foreground — diff 26 | Low, moving | Tufts-on-grey again |
-| **Dynamic**, default prompt | **≈ identical — diff 5.7** | **Static: horizon, sun, crest, hut fixed** | OK, colours drift greener |
-
-Dynamic added one large sheep grazing in the foreground (not in the reference). Contact
-sheets: `~/Assets/LivingRoom/scenes/hillside/tests/*/contact.jpg` (`tools/contact_sheet.py`).
-
-### Dynamic, 120 s with three steers (35 s golden light, 60 s one sheep bleats, 90 s evening)
-
-- **Camera holds** for the whole run; by 70–80 s the crest line sits a little lower and the
-  framing has crept, but no cuts and no ground breakdown.
-- **Steering works.** Golden light builds gradually from ~40 s and is strong by 70 s;
-  "evening" sent at 90 s gives a violet sky and dark hillside by 100 s. The bleat cannot be
-  judged from stills.
-- **Drift:** colour saturates steadily (grey-green → vivid green → yellow) even before the
-  golden steer; a faint vertical light stripe appears near the left edge at 70–80 s; the
-  extra foreground sheep from ~10 s stays all run.
-- Diff vs reference climbs 5.8 → 25 (10 s) → 39 (40 s) → 44 (80 s) → 53 (100 s, evening).
-- 18 fps steady after the first 5 s; first frame 5.9 s.
-
-### Four walls at once: blocked by Dynamic capacity
-
-`tools/orbis_room_test.py hillside` opened `left`, then `front` got 429 `no available
-capacity` six times in a minute. Probe afterwards: one Dynamic session opens, a second is
-refused every time while the first is open (see CLAUDE.md). **The four-wall design does
-not run on Dynamic with our current access.**
+| Design | **One Orbis Dynamic stream on a 360° head-locked sphere** — `decisions/single-stream-panorama.md`. The box-room / per-wall design is superseded (git history before this change) |
+| Scene `hillside` | Marble draft pano (world `e60f6310…`), front = pano lon 12°, `reference.png` 1664×960 from `tools/pano_reference.py` |
+| Web app (`web/`) | Sphere shader (seam blend, pole fade, still→live crossfade, ripples), pointing input, Reactor live connection with busy-retry, event buttons + prompt box, `/api/token` and `/api/end-session` |
+| Verified | Still pano orientation and the seam behind the viewer on desktop; **live pipeline end to end on Orbis Stable** (2560×1440, 15–18 fps on the sphere) |
+| Dynamic on the panorama | **First run 10:47 (~40 s, then stopped):** opening matched the reference, then the frame pushed in like a perspective shot (sheep and oak growing) and by ~27 s the seam behind the viewer showed unrelated content on each side |
+| Panorama prompt test (11:00, Dynamic, 40 s each) | **Time-lapse wording keeps the layout for 30 s** and is now the opening prompt; see `scenes/hillside/scene.json` variants_notes |
+| 90 s run (11:05, time-lapse prompt, steers at 35 s and 67 s) | Layout held to 70 s; Golden hour = gentle warming, layout kept; **Evening re-composed the scene** (flat horizon, oak gone by 88 s). Frames: `~/Assets/LivingRoom/scenes/hillside/tests/pano-20261114-110529-long90/contact.jpg` |
+| Event re-anchoring (11:15) | **Built and verified live on Dynamic**: Evening = reset + `set_image(events/evening.png)` on the same session; 8.8 s from click to the new picture fully faded in, frozen frame shown throughout, layout intact front and back. Offline, an event swaps the still instantly. References `events/{evening,rain,night}.png` made by editing `reference.png` with Codex image gen (layout kept), normalised with `pano_reference.py --event` |
+| LingBot World 2 fallback (11:55, personal account) | **Works**: Dynamic busy → LingBot live in 7.5 s; Evening re-anchor 2.4 s; quiet re-anchor every 40 s fired; ~50 fps. Switching back to Dynamic when it frees up is built but **not yet seen** (Dynamic stayed busy) |
+| Not verified | Fallback → Dynamic switch-over; Rain / Night / Morning re-anchors live; seam after the edge-crop + 3% blend change (a thin light line showed at the seam in the Evening run); Quest headset; audio; steering on the sphere; whether re-anchoring every 15–20 s keeps the layout |
 
 ## Next step
 
-One live Orbis wall, recorded on the Mac: 16:9 first frame, static-camera prompt, three
-state-change prompts over 2–3 min. Read actual fps, `delivered` resolution,
-`available_resolutions`, warm-up time. **This is cheap and can invalidate the room design,
-so it goes first.**
+One live run through Morning → Evening → Rain → Night in the page, looking behind after each
+to check the seam fix. Then the Quest: `npm --prefix web run dev`, Go live, Enter VR.
 
-Then: run the room on the Quest (`npm --prefix web run dev`) and check fingertip contact
-distance and ripple strength in-headset → 4 sessions generating at once → floor
-(overhead) drift test → Mac relay feeding the atlas.
+## Orbis keeper (2026-11-14 11:40)
+
+`tools/keeper.py` + skill `orbis-keeper`: holds the one Dynamic session for 1 h (extend =
+reset to 1 h from now, user's call each time; 3 h hard session ceiling); the web page adopts
+the held session via a bound token (`/api/token?attach=1`) and its Stop leaves the session
+to the keeper. **Verified:** waiting/retrying while Dynamic is busy, clean give-up with no
+session after the wait limit. **Not verified:** holding, extend, page attach, release — Dynamic
+was busy for every attempt 11:33–11:40. A second keeper started from another shell at
+11:38 (`start --wait-minutes 30`, pid 32025) was still waiting at 11:40; it was left alone.
 
 ## In flight / undecided
 
-- **Dynamic concurrency = 1 for all of Reactor** — confirmed with a key from a second,
-  unrelated account (refused while ours held one, fine alone). Only Visko can add servers.
-  Our long tests block every other user of Dynamic while they run. If not, pick a fallback: front wall live on Dynamic and the
-  other faces as projected stills animated in the shader and colour-graded to follow the
-  front wall's tone; or Stable (+ passthrough) on the side walls, which drifts.
-
-- Floor and ceiling: live Orbis or static? Depends on the drift test and on decode budget.
-- Wall content theme (e.g. boat on a misty river) not chosen.
-- "Moving forward" via per-wall prompts (front dolly, back pull-back, sides tracking) is
-  an experiment, not a commitment. Keep the floor static if it causes motion sickness.
-- Video-to-video "shadow mirror" idea is parked: the key has no V2V model.
+- **Dynamic is one server for all of Reactor.** It was taken by someone else on every
+  attempt this morning. Ask Visko to add capacity or reserve it for demos.
+- Layout holds ~70 s unsteered; pressing the current event again (e.g. Morning) re-anchors and
+  pulls it back. An automatic re-anchor every ~60 s is not built.
+- In VR the HUD is invisible: Go live / prompts must be pressed before Enter VR, or driven
+  from the Mac by attaching a second connection to the same session (Reactor supports it).
+- Sky artifacts from the draft pano (dark shapes above the horizon) are in the reference.
 
 ## Things that will bite you
 
-- `.env` holds the real key and is not in git; a fresh clone needs it from a teammate.
-- Opening sessions in a burst trips `sessions_per_minute` = 10 — stagger by ~6 s.
-- Port 5173 on this Mac is often held by another project's Vite server; the room uses
-  5174 with `strictPort`.
-- Ripple tuning (`RIPPLE` in `web/src/config.js`) was judged on a desktop screen; 5 cm
-  amplitude may be too strong or weak at 2.4 m in a headset.
-- The key also appears in the original chat transcript; rotate it after the event.
+- **Billing runs from `ready`, idle or not.** Always Stop. Up to four orphaned Stable
+  sessions from the 403 bug (10:33) ran until their 15-min cap (~10:48).
+- A session-scoped JWT only acts on sessions it created — mint one per connection and reuse
+  it (fixed in `web/src/live.js`).
+- `.env` is not in git; a fresh clone needs the keys from a teammate.
+- Port 5173 is often held by another project's Vite; this app uses 5174 (`strictPort`).
+- Rotate the hackathon keys after the event; they appear in the chat transcript.

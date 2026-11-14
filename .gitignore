@@ -27,3 +27,6 @@ captures/
 
 # generated scene media lives in ~/Assets/LivingRoom (symlinked for the dev server)
 web/public/scenes
+
+# orbis session keeper state and log
+.keeper/

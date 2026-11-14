@@ -7,8 +7,13 @@ maintains it — use it when writing down a finding or a decision).
 ## Secrets
 
 - `REACTOR_API_KEY` lives only in `.env` (git-ignored). Never put it in browser code:
-  the Mac mints a JWT via `POST https://api.reactor.inc/tokens` with header
-  `Reactor-API-Key` and hands the JWT to the client.
+  the Vite dev server mints a JWT (`/api/token`, `web/vite.config.js`) via
+  `POST https://api.reactor.inc/tokens` with header `Reactor-API-Key`.
+- **A session-scoped JWT can only act on sessions it created.** Mint one per connection and
+  pass the same string to `connect()`. A resolver that mints per request gets 403 on
+  `get session` right after creating it — and that session keeps running, billed, with no
+  handle to end it (happened 2026-11-14). The API key itself, as `Authorization: Bearer`,
+  can `DELETE /sessions/{id}` for any session on the account (`/api/end-session/<id>`).
 
 ## Platform constraints (verified 2026-11-14 unless marked)
 
@@ -69,6 +74,17 @@ Reactor / Visko Orbis — docs: https://docs.reactor.inc/model-api-reference/vis
   everyone on Reactor at a time**. Whoever holds it blocks all other users and teams. More
   keys or accounts do not help; only Visko adding instances does. At 09:06 we were refused
   with none of ours open — someone else held it.
+- **Balances and quotas are readable:** `GET /me` → `account_id`, then
+  `GET /accounts/{id}/credits` (`balance_usd`) and `GET /accounts/{id}/quotas`, with
+  `Reactor-API-Key`. Hackathon account 11:40: **$84,913**, `concurrent_sessions` 125, no
+  per-model quota — a shared event account. Personal account: $5.00, concurrent 5.
+- **Who holds Dynamic is visible by elimination** (11:40–11:43, 15 s samples): every drop in
+  the hackathon balance was an exact multiple of $0.0097 = one Stable-second (30–100 Stable-
+  seconds per 15 s, i.e. other teams running ~2–6 Stable sessions). A Dynamic-second is
+  $0.0209 and 209 is coprime with 97, so no Dynamic usage posted to this account while
+  Dynamic was busy -> the holder was on another account. Assumes billing posts in near real
+  time (the steady drops suggest it does); the personal account stayed at $5.0000 after its
+  ~15 s Dynamic test at 10:06, so small/odd sessions may post late or not at all.
 - `REACTOR_API_KEY_ALT` (a personal account, $5 starter credit) can also open SANA-Streaming
   and LingBot World 2, which the hackathon key cannot.
 - The hackathon key's account looks shared beyond our team: `sessions_per_minute` showed
@@ -99,8 +115,24 @@ World Labs Marble API — `WORLDLABS_API_KEY` in `.env`, header `WLT-Api-Key`
   Pano generation is billed 80 credits on every model, so a pricier model may not give a
   better pano — unverified.
 
+Other Reactor models on the panorama (2026-11-14, personal account `REACTOR_API_KEY_ALT`,
+60 s each, `tools/alt_model_test.py`; frames in ~/Assets/.../tests/{helios,lingbot-world-2}-*)
+
+- **LingBot World 2** ($0.42/min, 1664×960 native, 48 fps, first frame 0.7 s): camera axes idle =
+  a truly locked camera; every landmark stayed put for 60 s (diff vs reference ≤ 20, seam ≤ 9 —
+  best of all models). But it keeps the reference's flaws (sky artifacts), adds wandering
+  animals (a black cow, walking sheep), the bottom edge degrades after ~50 s, dark lines at the
+  frame edges, and "Golden hour" barely registered.
+- **Helios** ($0.102/min, 640×384 native, 1280×768 at default 2× SR, first frame 3.1 s; it
+  centre-crops to 5:3, so feed it a 5:3 *squashed* reference): drifts within 8 s — blown-out sun,
+  changing hill shape, seam up to 93 by 34 s. But `set_conditioning` (new image + prompt) mid-run
+  switched to the Evening reference on the next chunk with the layout intact (diff 4.6, seam 4.2)
+  — no `reset`, no warm-up.
+
 Quest 3 / WebXR
 
 - WebXR exposes head + hands only; body is IK-inferred.
 - Quest Link / Air Link do not run on macOS — there is no PC-tethered fallback on this
-  team's hardware. Keep headset load to one decoded stream (see architecture).
+  team's hardware. The single-stream design keeps the headset at one decoded stream.
+- The panorama is a head-locked sphere (skybox trick), so it cannot be touched; input is
+  pointing (`selectstart` from controllers or hand pinch).
