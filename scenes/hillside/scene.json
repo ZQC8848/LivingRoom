@@ -52,9 +52,10 @@
     },
     "variants": {
       "front": {
-        "env_first": "Static tripod shot at eye level; the frame never moves. Wide landscape view with deep depth of field. A broad grassy hill crest rises gently from left to right under a pale hazy sky, a pale sun high in the upper left and hazy mountains far off on the left. Far away on the crest, a few tiny white sheep graze slowly in the distance. The corner of a small dark hut stands at the far right edge. The grass ripples softly in the breeze. Soft hazy morning light, muted desaturated greens."
+        "env_first": "Static tripod shot at eye level; the frame never moves. Wide landscape view with deep depth of field. A broad grassy hill crest rises gently from left to right under a pale hazy sky, a pale sun high in the upper left and hazy mountains far off on the left. Far away on the crest, a few tiny white sheep graze slowly in the distance. The corner of a small dark hut stands at the far right edge. The grass ripples softly in the breeze. Soft hazy morning light, muted desaturated greens.",
+        "cinemagraph": "A cinemagraph: a still photograph of a grassy hill crest under a pale hazy sky, taken at eye level from a fixed tripod; the frame never moves. The hill rises gently from left to right, a pale sun hangs upper left and hazy mountains lie far off left. A few tiny white sheep stand still far away on the crest, and the corner of a small dark hut stands at the far right edge. Only the grass sways softly in the wind and thin haze drifts slowly across the sky. Soft hazy morning light, muted greens."
       }
     },
-    "variants_notes": "Experimental opening prompts, selected with tools/orbis_wall_test.py --variant <name>. env_first: environment before subject, sheep 'tiny, far away', stronger camera lock."
+    "variants_notes": "Experimental opening prompts, selected with tools/orbis_wall_test.py --variant <name>. env_first: environment before subject, sheep 'tiny, far away', stronger camera lock. cinemagraph: frames the shot as a still photo with local motion, fixed tripod, sheep tiny and still, only wind and haze move."
   }
 }

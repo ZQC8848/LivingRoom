@@ -12,6 +12,17 @@ maintains it — use it when writing down a finding or a decision).
 
 ## Platform constraints (verified 2026-11-14 unless marked)
 
+Reactor billing (docs.reactor.inc/resources/billing, read 2026-11-14)
+
+- **Billed per second from `ready` until the session is terminated — even idle, even with no
+  `start`.** "Connect-only" probes are not free. `connecting`/`waiting` are free.
+- Per minute: Orbis **Stable $0.582**, Orbis **Dynamic $1.254**, Helios / LongLive 2 /
+  SANA-Streaming $0.102, LingBot $0.300, LingBot World 2 $0.420, Vidu S2-Editing $0.420,
+  FastH3 $2.100. Live rates: `GET https://api.reactor.inc/pricing` (no auth).
+- Docs call Stable and Dynamic "two versions of the same model"; the only documented
+  difference is that Dynamic accepts `set_resolution` at any time (Stable reads it at
+  `start`). The better image anchoring we measured on Dynamic is not documented.
+
 Reactor / Visko Orbis — docs: https://docs.reactor.inc/model-api-reference/visko-orbis-stable/overview
 
 - **The hackathon key can only open `reactor/visko-orbis-stable` and
@@ -45,13 +56,34 @@ Reactor / Visko Orbis — docs: https://docs.reactor.inc/model-api-reference/vis
 - **Dynamic gives us only ONE concurrent session** (2026-11-14, 09:23 PST): with one
   Dynamic session open, a second got 429 `no available capacity` 4/4 tries over 25 s;
   closing it made the next open succeed. Stable opened fine at the same moment. Re-checked
-  09:38–09:44: 11/11 attempts to hold two at once got exactly one. **It is the shared
-  pool, not a per-key cap**: with key 1 holding one Dynamic session, a second key
-  (`REACTOR_API_KEY_2`, same model access) was refused too, and opened fine on its own once
-  key 1 let go (09:46). More keys do not buy more Dynamic sessions.
+  09:38–09:44: 11/11 attempts to hold two at once got exactly one. A second key
+  (`REACTOR_API_KEY_2`) was refused too while key 1 held a session — **but both keys are on
+  the same Reactor account and user** (`GET /me`), so that alone does not separate "pool"
+  from "account". What does: account limits come back as `quota_exceeded` with a `limit`
+  (as `sessions_per_minute` did), while this is `no available capacity: no available
+  servers`, and Reactor docs say a model without `workers` serves **one session per
+  instance**. **Settled 10:06 with a key from a separate Reactor account**
+  (`REACTOR_API_KEY_ALT`, different `account_id`): while the hackathon account held one
+  Dynamic session, the other account got the same `no available capacity`; alone, it opened
+  at once. So it is the model's server pool — effectively **one Dynamic session for
+  everyone on Reactor at a time**. Whoever holds it blocks all other users and teams. More
+  keys or accounts do not help; only Visko adding instances does. At 09:06 we were refused
+  with none of ours open — someone else held it.
+- `REACTOR_API_KEY_ALT` (a personal account, $5 starter credit) can also open SANA-Streaming
+  and LingBot World 2, which the hackathon key cannot.
+- The hackathon key's account looks shared beyond our team: `sessions_per_minute` showed
+  `current=10` after 3 of our own creates. Treat the 10/min and concurrent quotas as shared.
 - **An unclosed session keeps its server until its max duration.** A crashed script's
   session blocked all Dynamic opens for ~5 min. Always disconnect in `finally`, and keep
   `max_session_duration_seconds` tight in tests.
+- **Stable cannot be prompt-locked** (2026-11-14, four 40 s runs, cinemagraph / fixed-tripod
+  prompt): with or without passthrough and with another seed, the *first frame* already
+  re-composes the reference (low wide shot, big sky, horizon dropped; diff vs reference
+  21–38, Dynamic 5.7), then the camera keeps moving. So re-anchoring Stable with `reset` does
+  not help either — it never starts on the reference.
+- **A steering prompt is scene content, not an instruction.** "The camera stays fixed on its
+  tripod." sent mid-run (passthrough) put a camera on a tripod into the shot and the scene
+  collapsed within 10 s. Never name the camera, lens or rig in a prompt.
 - `download_recording` right after `pause` timed out (playlist not ready after 60 s).
 - `prompt_accepted` echoes the prompt as sent; the server-side rewrite (passthrough
   false) is not visible to the client.

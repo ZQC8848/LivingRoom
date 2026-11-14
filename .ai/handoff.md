@@ -70,8 +70,9 @@ distance and ripple strength in-headset → 4 sessions generating at once → fl
 
 ## In flight / undecided
 
-- **Dynamic concurrency = 1, and it is the shared pool** (a second key is refused too while
-  the first holds a session). Only Visko can add servers. If not, pick a fallback: front wall live on Dynamic and the
+- **Dynamic concurrency = 1 for all of Reactor** — confirmed with a key from a second,
+  unrelated account (refused while ours held one, fine alone). Only Visko can add servers.
+  Our long tests block every other user of Dynamic while they run. If not, pick a fallback: front wall live on Dynamic and the
   other faces as projected stills animated in the shader and colour-graded to follow the
   front wall's tone; or Stable (+ passthrough) on the side walls, which drifts.
 

@@ -41,6 +41,11 @@ STEERING = {
 }
 
 
+def top(img_small):
+    """Upper 38% of a small frame: sky and far mountains, which should not change if the camera is still."""
+    return img_small[: int(img_small.shape[0] * 0.38)]
+
+
 def small(img, size=(208, 120)):
     return np.asarray(Image.fromarray(img).convert("RGB").resize(size, Image.BILINEAR), dtype=np.float32)
 
@@ -55,6 +60,11 @@ async def main():
     ap.add_argument("--variant", help="use orbis.variants.<face>.<name> from scene.json instead of the compiled prompt")
     ap.add_argument("--no-steer", action="store_true", help="do not send the mid-run steering prompts")
     ap.add_argument("--tag", default="", help="suffix for the output folder")
+    ap.add_argument("--record", action="store_true",
+                    help="after the run, wait for the server recording (the session stays billed while waiting)")
+    ap.add_argument("--seed", type=int, help="set_seed before start (server default 42)")
+    ap.add_argument("--steer-every", type=float, help="re-send --steer-text every N seconds")
+    ap.add_argument("--steer-text", default="The camera stays fixed on its tripod.")
     args = ap.parse_args()
     model = f"reactor/visko-orbis-{args.model}"
 
@@ -119,6 +129,7 @@ async def main():
             stats["snapshots"][f"{now:.0f}"] = {
                 "diff_vs_reference": round(float(np.abs(s - ref_small).mean()), 1),
                 "diff_vs_first_frame": round(float(np.abs(s - first_small["img"]).mean()), 1),
+                "sky_diff_vs_first_frame": round(float(np.abs(top(s) - top(first_small["img"])).mean()), 1),
             }
 
     print(f"connecting to {model} (passthrough={args.passthrough}, variant={args.variant}) ...", flush=True)
@@ -138,6 +149,8 @@ async def main():
     r.track("main_video").on_frame(on_frame)
     print(f"session {r.get_session_id()}", flush=True)
 
+    if args.seed is not None:
+        await r.send_command("set_seed", {"seed": args.seed})
     ref = await r.upload_file(ref_path)
     await r.send_command("set_image", {"image": ref})
     await r.send_command("set_prompt", {"prompt": prompt, "passthrough": args.passthrough})
@@ -145,11 +158,18 @@ async def main():
     t_start = time.time()
     await r.send_command("start", {})
 
-    for at, text in ([] if args.no_steer else STEERING.get(args.face, [])):
+    schedule = [] if args.no_steer else list(STEERING.get(args.face, []))
+    if args.steer_every:
+        t = args.steer_every
+        while t < args.seconds:
+            schedule.append((t, args.steer_text))
+            t += args.steer_every
+        schedule.sort()
+    for at, text in schedule:
         if at >= args.seconds:
             break
         await asyncio.sleep(max(0, at - (time.time() - t_start)))
-        await r.send_command("set_prompt", {"prompt": text})
+        await r.send_command("set_prompt", {"prompt": text, "passthrough": args.passthrough})
         log.write(json.dumps({"t": since(), "sent_prompt": text}) + "\n")
         print(f"[{since()}] steer: {text}", flush=True)
     await asyncio.sleep(max(0, args.seconds - (time.time() - t_start)))
@@ -162,16 +182,19 @@ async def main():
     stats["model"] = model
     stats["passthrough"] = args.passthrough
     stats["variant"] = args.variant
+    stats["seed"] = args.seed
+    stats["steer_every"] = args.steer_every
     stats["seconds"] = args.seconds
     (out / "report.json").write_text(json.dumps(stats, indent=1))
     print(json.dumps({k: v for k, v in stats.items() if k not in ("prompt", "steering")}, indent=1), flush=True)
 
-    try:
-        await r.send_command("pause", {})
-        await asyncio.wait_for(r.download_recording(out / "recording.mp4", ready_timeout=60), 120)
-        print(f"recording -> {out / 'recording.mp4'}", flush=True)
-    except Exception as e:  # recorder may be disabled on this deployment
-        print(f"no recording: {type(e).__name__}: {e}", flush=True)
+    if args.record:  # billed while waiting; the recording was never ready within 60 s on 2026-11-14
+        try:
+            await r.send_command("pause", {})
+            await asyncio.wait_for(r.download_recording(out / "recording.mp4", ready_timeout=60), 120)
+            print(f"recording -> {out / 'recording.mp4'}", flush=True)
+        except Exception as e:
+            print(f"no recording: {type(e).__name__}: {e}", flush=True)
     await r.disconnect()
     log.close()
     print(f"output -> {out}", flush=True)
