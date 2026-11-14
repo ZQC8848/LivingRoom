@@ -24,6 +24,7 @@ STAGE="$(pwd)/web/.static-public"
 rm -rf "$STAGE" web/dist
 mkdir -p "$STAGE/scenes/$SCENE/media"
 cp "$MEDIA"/{heaven.mp4,hell.mp4,poster.jpg,manifest.json} "$STAGE/scenes/$SCENE/media/"
+[ -f "$MEDIA/hell-poster.jpg" ] && cp "$MEDIA/hell-poster.jpg" "$STAGE/scenes/$SCENE/media/"
 (cd web && VITE_STATIC=1 VITE_DEFAULT_SCENE="$SCENE" LR_PUBLIC_DIR="$STAGE" npx vite build)
 rm -rf "$STAGE"
 cat > web/dist/_headers <<'H'

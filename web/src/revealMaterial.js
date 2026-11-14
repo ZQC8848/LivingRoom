@@ -25,6 +25,7 @@ const fragmentShader = /* glsl */ `
   #define PI 3.14159265
   #define SLOTS ${REVEAL.maxSlots}
   uniform sampler2D uPoster;
+  uniform sampler2D uHellPoster;
   uniform sampler2D uHeaven;
   uniform sampler2D uHell;
   uniform float uVideoMix;      // 0 = poster on both layers, 1 = the two videos
@@ -36,16 +37,16 @@ const fragmentShader = /* glsl */ `
   uniform float uRim;
   varying vec3 vDir;
 
-  vec3 layer(sampler2D vid, vec2 uv) {
+  vec3 layer(sampler2D poster, sampler2D vid, vec2 uv) {
     uv.x = uEdgeCrop + uv.x * (1.0 - 2.0 * uEdgeCrop);
-    return mix(texture2D(uPoster, uv).rgb, texture2D(vid, uv).rgb, uVideoMix);
+    return mix(texture2D(poster, uv).rgb, texture2D(vid, uv).rgb, uVideoMix);
   }
-  vec3 seamless(sampler2D vid, vec2 uv) {
-    vec3 a = layer(vid, uv);
+  vec3 seamless(sampler2D poster, sampler2D vid, vec2 uv) {
+    vec3 a = layer(poster, vid, uv);
     if (uSeamBand <= 0.0) return a;
     float s = uv.x < 0.5 ? uv.x : uv.x - 1.0;
     if (abs(s) >= uSeamBand) return a;
-    vec3 b = layer(vid, vec2(fract(-s + 1.0), uv.y));
+    vec3 b = layer(poster, vid, vec2(fract(-s + 1.0), uv.y));
     return mix(a, b, 0.5 * (1.0 - abs(s) / uSeamBand));
   }
 
@@ -67,14 +68,14 @@ const fragmentShader = /* glsl */ `
       rim = max(rim, exp(-d * d));
     }
 
-    vec3 col = mix(seamless(uHeaven, uv), seamless(uHell, uv), mask);
+    vec3 col = mix(seamless(uPoster, uHeaven, uv), seamless(uHellPoster, uHell, uv), mask);
     col += rim * uRim * uVideoMix;
     gl_FragColor = vec4(col, 1.0);
     #include <colorspace_fragment>
   }
 `;
 
-export function createRevealSphere({ poster, heaven, hell, yawDeg = 0, edgeCrop = 0, seamBand = 0, reveal = REVEAL }) {
+export function createRevealSphere({ poster, hellPoster = poster, heaven, hell, yawDeg = 0, edgeCrop = 0, seamBand = 0, reveal = REVEAL }) {
   const slots = Array.from({ length: REVEAL.maxSlots }, () => new THREE.Vector4(0, 0, -1, 0));
   const material = new THREE.ShaderMaterial({
     vertexShader,
@@ -83,6 +84,7 @@ export function createRevealSphere({ poster, heaven, hell, yawDeg = 0, edgeCrop 
     depthWrite: false,
     uniforms: {
       uPoster: { value: poster },
+      uHellPoster: { value: hellPoster },
       uHeaven: { value: heaven },
       uHell: { value: hell },
       uVideoMix: { value: 0 },

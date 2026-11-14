@@ -14,7 +14,9 @@ export const assetUrl = (p) => new URL(import.meta.env.BASE_URL + p, location.hr
 export async function startDemo(sceneName, manifest) {
   const params = new URLSearchParams(location.search);
   const base = `scenes/${sceneName}/media/`;
-  const files = { heaven: 'heaven.mp4', hell: 'hell.mp4', poster: 'poster.jpg', ...manifest.files };
+  // Paths live in manifest.media (strings); manifest.files carries sha256 etc. and is not read here.
+  const strings = (o) => Object.fromEntries(Object.entries(o ?? {}).filter(([, v]) => typeof v === 'string'));
+  const files = { heaven: 'heaven.mp4', hell: 'hell.mp4', poster: 'poster.jpg', hell_poster: 'hell-poster.jpg', ...strings(manifest.files), ...strings(manifest.media) };
   const reveal = { ...REVEAL, ...manifest.reveal };
   const proj = manifest.projection ?? {};
   const fps = manifest.fps ?? 30;
@@ -46,7 +48,9 @@ export async function startDemo(sceneName, manifest) {
     t.generateMipmaps = false; // no mipmaps: the u = 0/1 seam would bleed through them
     return t;
   };
-  const poster = prep(await new THREE.TextureLoader().loadAsync(assetUrl(base + files.poster)));
+  const loadPoster = (f) => new THREE.TextureLoader().loadAsync(assetUrl(base + f)).then(prep);
+  const poster = await loadPoster(files.poster);
+  const hellPoster = await loadPoster(files.hell_poster).catch(() => poster); // optional
   const makeVideo = (file) =>
     Object.assign(document.createElement('video'), {
       src: assetUrl(base + file),
@@ -61,6 +65,7 @@ export async function startDemo(sceneName, manifest) {
   for (const v of [heaven, hell]) v.setAttribute('webkit-playsinline', '');
   const sphere = createRevealSphere({
     poster,
+    hellPoster,
     heaven: prep(new THREE.VideoTexture(heaven)),
     hell: prep(new THREE.VideoTexture(hell)),
     yawDeg: proj.front_yaw_deg ?? 0,

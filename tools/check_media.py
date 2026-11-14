@@ -38,7 +38,10 @@ def main():
     else:
         try: man = json.loads(mp.read_text())
         except Exception as e: err(f"manifest.json invalid: {e}")
-    files = {"heaven": "heaven.mp4", "hell": "hell.mp4", "poster": "poster.jpg", **man.get("files", {})}
+    strs = lambda o: {k: v for k, v in (o or {}).items() if isinstance(v, str)}
+    files = {"heaven": "heaven.mp4", "hell": "hell.mp4", "poster": "poster.jpg", **strs(man.get("files")), **strs(man.get("media"))}
+    meta = {**{k: man[k] for k in ("fps", "frames") if k in man}, **(man.get("video") or {})}
+    declared = {k: (v.get("sha256") if isinstance(v, dict) else None) for k, v in (man.get("files") or {}).items()}
     info = {}
     for k in ("heaven", "hell"):
         p = d / files[k]
@@ -70,8 +73,15 @@ def main():
             if a[f] != b[f]: err(f"heaven/hell {f} differ: {a[f]} vs {b[f]}")
         if abs(a["dur"] - b["dur"]) > 0.02: err(f"heaven/hell duration differ: {a['dur']} vs {b['dur']}")
         if a["color"] != b["color"]: warn(f"colour tags differ: {a['color']} vs {b['color']}")
-        if man.get("fps") and abs(man["fps"] - a["fps"]) > 0.01: err(f"manifest fps {man['fps']} != video {a['fps']}")
-        if man.get("frames") and man["frames"] != a["frames"]: err(f"manifest frames {man['frames']} != video {a['frames']}")
+        if meta.get("fps") and abs(meta["fps"] - a["fps"]) > 0.01: err(f"manifest fps {meta['fps']} != video {a['fps']}")
+        fr = meta.get("frames") or meta.get("frame_count")
+        if fr and fr != a["frames"]: err(f"manifest frames {fr} != video {a['frames']}")
+        for k in ("width", "height"):
+            if meta.get(k) and meta[k] != a["w" if k == "width" else "h"]: err(f"manifest {k} {meta[k]} != video")
+    for k, want in declared.items():
+        if want and (d / files.get(k, "")).is_file():
+            got = hashlib.sha256((d / files[k]).read_bytes()).hexdigest()
+            if got != want: err(f"{files[k]}: sha256 {got[:16]}... != manifest {want[:16]}...")
     pp = d / files["poster"]
     if not pp.exists(): err(f"{files['poster']} missing")
     else:
