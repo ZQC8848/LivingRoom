@@ -26,7 +26,7 @@ static). Seams at the room edges are covered by visible trim, not hidden.
 
 | Assumption | Status | Evidence, or the check that would settle it |
 |---|---|---|
-| A 90°-HFOV perspective wall is something Orbis holds stably | unverified | Run one wall 2–3 min with a static-camera prompt; look for drift |
+| A 90°-HFOV perspective wall is something Orbis holds stably | **failed on first try** (2026-11-14) | Front wall, Stable, 80 s: by the first frame the camera had dropped to grass level and pushed in on the sheep; it kept moving, and from ~45 s the ground degraded into green tufts on grey. **Then held with Orbis Dynamic**: same image + prompt, first frame ≈ reference, camera static through 40 s (Stable with passthrough or an environment-first prompt still drifted). A 120 s Dynamic run held the camera throughout (slight framing creep after ~70 s) and took steering prompts within ~10 s; colour saturates over time. Frames: `~/Assets/LivingRoom/scenes/hillside/tests/front-20261114-085345/contact.jpg` |
 | Overhead floor shots hold (no horizon appearing) | unverified | Same test on the floor prompt; centre crop discards edges where intrusions start |
 | Visible seams are acceptable as design | unverified | Show it to two people |
 

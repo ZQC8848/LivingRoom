@@ -30,8 +30,31 @@ Reactor / Visko Orbis — docs: https://docs.reactor.inc/model-api-reference/vis
 - Prompt changes land at the next 33-frame chunk boundary (~1.83 s) and take 2–4 s to
   settle. Steering faster than that queues competing morphs. (docs)
 - First chunk after `start` emits 0 frames; picture arrives around chunk 2. (docs)
-- Docs disagree on fps (18 in the track table, 24 in a `generation_started` example) —
-  **unverified**, read it from a live run.
+- **Measured 2026-11-14 (front-wall run, Stable, image + prompt):** 18 fps; delivery
+  defaults to `2k` = 2560×1440; `available_resolutions` = 1080p / 2k / 4k (no native 832
+  tier); chunk 0 emits 0 frames at ~2.3 s, first frame at ~4.2 s; then a 33-frame chunk
+  every ~1.84 s (real time). `image_accepted` reports the uploaded size (1664×936).
+- **Use `visko-orbis-dynamic` for walls, not Stable** (2026-11-14, one 40–80 s run each,
+  same front-wall image + prompt): Dynamic's first frame matched the reference (mean abs
+  diff 5.7/255 vs 26–33 for Stable variants) and the camera stayed put for 40 s; Stable
+  pushed in to grass level from the first frame and kept moving, with or without
+  passthrough or an environment-first prompt. The names are misleading.
+- Dynamic's first frame came later (~6.4 s vs ~4 s) and fps ramped 14 → 17 over the first
+  15 s. A Dynamic session once failed with 429 `no available capacity` (server-side, not
+  our rate limit) — retry after a few seconds.
+- **Dynamic gives us only ONE concurrent session** (2026-11-14, 09:23 PST): with one
+  Dynamic session open, a second got 429 `no available capacity` 4/4 tries over 25 s;
+  closing it made the next open succeed. Stable opened fine at the same moment. Re-checked
+  09:38–09:44: 11/11 attempts to hold two at once got exactly one. **It is the shared
+  pool, not a per-key cap**: with key 1 holding one Dynamic session, a second key
+  (`REACTOR_API_KEY_2`, same model access) was refused too, and opened fine on its own once
+  key 1 let go (09:46). More keys do not buy more Dynamic sessions.
+- **An unclosed session keeps its server until its max duration.** A crashed script's
+  session blocked all Dynamic opens for ~5 min. Always disconnect in `finally`, and keep
+  `max_session_duration_seconds` tight in tests.
+- `download_recording` right after `pause` timed out (playlist not ready after 60 s).
+- `prompt_accepted` echoes the prompt as sent; the server-side rewrite (passthrough
+  false) is not visible to the client.
 - Write motion as what the camera sees ("trunks slide from right to left"), not intent
   words. For lateral walls use tracking, never "pan" (pan = rotation, no parallax).
 

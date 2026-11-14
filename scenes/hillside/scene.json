@@ -3,10 +3,58 @@
   "marble": {
     "model": "marble-1.0-draft",
     "seed": 42,
+    "world_id": "e60f6310-08a9-4e1a-84ab-044b02844ffe",
     "prompt": "A photorealistic 360-degree view from eye level on top of a gentle grassy hill in soft morning light. Rolling green meadows slope away in every direction under a clear pale sky with a few thin clouds. A flock of white sheep grazes in the middle distance on one side of the hill. On another side stands a small stone shepherd's hut with a chimney. On a third side a lone old oak tree stands on the slope. On the fourth side the hill falls toward a calm lake with snowy mountains far beyond."
   },
   "projection": {
     "yaw_deg": 12,
     "notes": "yaw_deg rotates which pano direction becomes the front wall. Pick it from seams.jpg so wall boundaries do not cut sheep."
+  },
+  "orbis": {
+    "notes": "Written from faces/<face>.png after projection (yaw 12). Describe only what each image shows; motion is only for things already in the image. Prompt = camera + scene + motion + look. tools/scene_prompts.py compiles and word-counts them.",
+    "camera": {
+      "wall": "Eye-level wide shot, static locked-off camera, deep depth of field.",
+      "floor": "Overhead shot looking straight down at the ground, static locked-off camera.",
+      "ceiling": "Low-angle shot looking straight up at the sky, static locked-off camera."
+    },
+    "look": "Soft hazy morning light, muted desaturated greens under a pale grey-beige sky.",
+    "faces": {
+      "front": {
+        "camera": "wall",
+        "scene": "A grassy hill crest rises gently from left to right. Just right of centre, five white sheep stand together on the crest. Hazy distant mountains lie on the left. A pale sun glows high in the upper left of the sky. The corner of a small dark wooden hut sits at the far right edge.",
+        "motion": "The sheep graze in place with their heads down; one occasionally lifts its head. The grass ripples softly in the breeze."
+      },
+      "right": {
+        "camera": "wall",
+        "scene": "A large lone oak tree stands on the hill crest in the left third of the frame, casting a long dark shadow down the slope to the right. A small dark wooden hut with a pointed roof sits at the far left edge. On the right the slope falls away into a hazy valley.",
+        "motion": "The oak's leaves stir gently in the breeze. Thin haze drifts slowly across the valley."
+      },
+      "back": {
+        "camera": "wall",
+        "scene": "The hillside falls away to a wide calm blue lake ringed by low green hills and short cliffs along the far shore. A pale weathered log and a few brown boulders lie in the grass on the near shore at the lower right.",
+        "motion": "Small ripples shimmer across the lake surface and catch the light. The grass in the foreground sways gently."
+      },
+      "left": {
+        "camera": "wall",
+        "scene": "A range of green mountains with snow-capped peaks stretches across the frame beyond a still lake inlet. A darker forested ridge rises on the left. A grassy slope fills the foreground and climbs toward the right. Above the peaks is an open hazy sky.",
+        "motion": "Low wisps of cloud drift slowly over the snowy peaks. The lake surface shimmers faintly."
+      },
+      "floor": {
+        "camera": "floor",
+        "scene": "Short dense olive-green meadow grass covers the whole frame, with a few lighter patches and tiny wildflowers.",
+        "motion": "The grass blades sway gently in place in a light breeze."
+      },
+      "ceiling": {
+        "camera": "ceiling",
+        "scene": "An even pale grey-beige hazy sky fills the frame, brighter where the sun glows near the top edge. A few leafy oak branches reach in at the upper left corner.",
+        "motion": "Thin veils of haze drift very slowly across the sky."
+      }
+    },
+    "variants": {
+      "front": {
+        "env_first": "Static tripod shot at eye level; the frame never moves. Wide landscape view with deep depth of field. A broad grassy hill crest rises gently from left to right under a pale hazy sky, a pale sun high in the upper left and hazy mountains far off on the left. Far away on the crest, a few tiny white sheep graze slowly in the distance. The corner of a small dark hut stands at the far right edge. The grass ripples softly in the breeze. Soft hazy morning light, muted desaturated greens."
+      }
+    },
+    "variants_notes": "Experimental opening prompts, selected with tools/orbis_wall_test.py --variant <name>. env_first: environment before subject, sheep 'tiny, far away', stronger camera lock."
   }
 }
