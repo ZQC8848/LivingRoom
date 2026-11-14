@@ -33,3 +33,6 @@ web/public/scenes
 
 # a2a request log
 .a2a/
+
+# staged static-site media (tools/build_static.sh)
+web/.static-public/

@@ -120,6 +120,10 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, ROOT, '');
   return {
     plugins: [...(plainHttp ? [] : [basicSsl()]), livingRoomApi(env)],
+    // Static deploy build (tools/build_static.sh): publicDir is a staging folder holding only the
+    // demo scene, so the symlinked ~/Assets scenes (test captures, GBs) never reach dist.
+    base: process.env.VITE_STATIC === '1' ? './' : '/',
+    publicDir: process.env.LR_PUBLIC_DIR || 'public',
     server: { host: true, port: 5174, strictPort: true },
     build: { target: 'es2022' }, // main.js uses top-level await
   };

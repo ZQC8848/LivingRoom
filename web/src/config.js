@@ -27,3 +27,20 @@ export const LIVE = {
   retrySeconds: 10, // Dynamic answers 429 "no available capacity" while anyone else holds it
   resolution: '2k',
 };
+
+// Paired-video reveal demo (scenes with media/manifest.json, e.g. bosch-demo). Every value can be
+// overridden by the manifest's "reveal" / "projection" objects. See .ai/decisions/paired-video-reveal.md.
+export const REVEAL = {
+  radiusDeg: 38, // angular radius of the revealed cap at full size
+  featherDeg: 14, // soft edge, measured inward from the radius
+  growSeconds: 0.7, // time to open from nothing
+  shrinkSeconds: 0.5, // time to close after release
+  maxSlots: 2, // two controllers / hands at once
+  rimGlow: 0.18, // faint light on the edge so the boundary reads in both layers
+  desktopHoldSeconds: 0, // 0 = a desktop click toggles; >0 = a click opens it for that long
+};
+export const DEMO = {
+  defaultScene: 'bosch-demo',
+  driftToleranceFrames: 1.5, // hell is re-synced to heaven beyond this many frames of difference
+  syncIntervalMs: 400,
+};
