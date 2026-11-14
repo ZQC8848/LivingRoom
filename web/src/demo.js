@@ -62,7 +62,7 @@ export async function startDemo(sceneName, manifest) {
   const hellPoster = await loadPoster(files.hell_poster).catch(() => poster); // optional
   const makeVideo = (file) =>
     Object.assign(document.createElement('video'), {
-      src: assetUrl(base + file),
+      ...(file ? { src: assetUrl(base + file) } : {}), // packed: src is set from a fully downloaded Blob
       muted: true,
       loop,
       playsInline: true,
@@ -71,7 +71,7 @@ export async function startDemo(sceneName, manifest) {
     });
   // Packed: ONE <video> and ONE VideoTexture; heaven and hell are aliases of the same objects,
   // so they share a clock and can never drift. Dual: two videos, kept in lockstep by resync().
-  const heaven = makeVideo(packedFile || files.heaven);
+  const heaven = makeVideo(packedFile ? null : files.heaven);
   const hell = packedFile ? heaven : makeVideo(files.hell);
   for (const v of new Set([heaven, hell])) v.setAttribute('webkit-playsinline', '');
   const heavenTex = prep(new THREE.VideoTexture(heaven));
@@ -92,7 +92,7 @@ export async function startDemo(sceneName, manifest) {
   const state = createRevealState(sphere.slots, reveal);
 
   // ---- video: start, validate, keep the pair in lockstep -------------------------------------
-  const info = { problems: [], playing: false, driftFrames: 0, resyncs: 0, videoMode: packedFile ? 'packed' : 'dual', everPlayed: false, loadError: false };
+  const info = { problems: [], playing: false, driftFrames: 0, resyncs: 0, videoMode: packedFile ? 'packed' : 'dual', everPlayed: false, loadError: false, storageMode: packedFile ? 'loading' : 'url', fullyBuffered: false };
   let startOverlay = null;
   // Pane = one 2:1 panorama: the whole frame (dual) or half of it (packed, 2048x2048 -> 2 x 2048x1024).
   const pane = () => ({ w: heaven.videoWidth, h: packedFile ? heaven.videoHeight / 2 : heaven.videoHeight });
@@ -124,7 +124,7 @@ export async function startDemo(sceneName, manifest) {
       startOverlay?.remove();
       startOverlay = null;
     } catch {
-      if (!info.problems.some((q) => q.startsWith('cannot'))) showStartOverlay(); // autoplay blocked: needs one tap (not for a load error)
+      if (!info.loadError && heaven.src) showStartOverlay(); // autoplay blocked: needs one tap (not for a load error or while downloading)
     }
   }
   function showStartOverlay() {
@@ -134,7 +134,41 @@ export async function startDemo(sceneName, manifest) {
     startOverlay.addEventListener('click', startVideos);
     document.body.appendChild(startOverlay);
   }
-  startVideos();
+  // Packed mode: download the whole (small) file first and play it from a Blob URL. A plain
+  // <video src> on a host without Range support is not seekable (seekable [0,0]: seeks snap back
+  // to 0), which breaks loop/seek; a Blob is always fully buffered and seekable. The poster stays
+  // on screen meanwhile; a failure keeps it and reports "cannot load packed video".
+  const MAX_PACKED_BYTES = 64 * 1024 * 1024;
+  async function loadPacked() {
+    const meta = manifest.files?.[packedFile];
+    const fail = (why) => {
+      info.loadError = true;
+      info.storageMode = 'failed';
+      info.problems = [...info.problems, `cannot load packed video (${why})`];
+    };
+    try {
+      const url = assetUrl(base + packedFile) + (meta?.sha256 ? `?v=${meta.sha256.slice(0, 12)}` : ''); // new release = new cache key
+      const r = await fetch(url); // no Range header: the full file
+      if (!r.ok) return fail(`HTTP ${r.status}`);
+      const declared = Number(r.headers.get('content-length')) || 0;
+      if (declared > MAX_PACKED_BYTES || (meta?.bytes && declared > meta.bytes * 1.01 + 1024)) return fail(`file too large: ${declared} bytes`);
+      const data = await r.arrayBuffer();
+      if (data.byteLength > MAX_PACKED_BYTES) return fail(`file too large: ${data.byteLength} bytes`);
+      if (meta?.bytes && data.byteLength !== meta.bytes) return fail(`size ${data.byteLength} != manifest ${meta.bytes}`);
+      if (meta?.sha256 && crypto?.subtle) {
+        const h = [...new Uint8Array(await crypto.subtle.digest('SHA-256', data))].map((x) => x.toString(16).padStart(2, '0')).join('');
+        if (h !== meta.sha256) return fail('sha256 mismatch');
+      }
+      heaven.src = URL.createObjectURL(new Blob([data], { type: 'video/mp4' }));
+      info.storageMode = 'blob';
+      info.fullyBuffered = true;
+      startVideos();
+    } catch (e) {
+      fail(e?.message || String(e));
+    }
+  }
+  if (packedFile) loadPacked();
+  else startVideos();
   // Dual mode only: a packed video has one clock, nothing to resync.
   if (!packedFile) setInterval(() => {
     if (heaven.paused || hell.paused || heaven.readyState < 2 || hell.readyState < 2) return;
@@ -147,8 +181,9 @@ export async function startDemo(sceneName, manifest) {
       info.resyncs++;
     }
   }, DEMO.syncIntervalMs);
-  document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && startVideos());
-  renderer.xr.addEventListener('sessionstart', startVideos);
+  const resume = () => heaven.src && !info.loadError && startVideos();
+  document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && resume());
+  renderer.xr.addEventListener('sessionstart', resume);
 
   // ---- pointing: one cap per controller / hand, plus the mouse --------------------------------
   const rayDir = (obj) => {
@@ -181,6 +216,8 @@ export async function startDemo(sceneName, manifest) {
   window.__reveal = {
     videoMode: info.videoMode,
     packedVideo: packedFile ? heaven : null,
+    get storageMode() { return info.storageMode; },
+    get fullyBuffered() { return info.fullyBuffered; },
     state, sphere, heaven, hell, info, renderer, camera,
     openAt(lonDeg, latDeg, slot = 0) {
       const lon = THREE.MathUtils.degToRad(lonDeg), lat = THREE.MathUtils.degToRad(latDeg);
