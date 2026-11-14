@@ -23,3 +23,13 @@ static host.
 
 ## Checks
 `tools/check_media.py <dir>` (h264/yuv420p, 2:1, equal size/fps/frames/duration, faststart).
+
+## Packed single-decoder mode (2026-11-14)
+`manifest.media.packed = paired.mp4`, `packedLayout = heaven-top-hell-bottom`: one 2048x2048 file,
+one `<video>`, one `VideoTexture`; heaven and hell are the same object, so they cannot drift (two
+videos drifted up to 5.2 frames under load in QA). Heaven v = 0.5 + 0.5*uv.y, hell v = 0.5*uv.y
+(Three flipY), clamped half a texel inside each pane. Needs H.264 level >= 5.0 (16384
+macroblocks). Custom ShaderMaterials get **no** video sRGB decode: the shader applies
+`sRGBTransferEOTF` to video samples only (not the poster). After the first good frames,
+`uVideoMix` stays at 1 through pause/seek/buffering; only a media error falls back to the poster.
+Dual mode (heaven.mp4 + hell.mp4 + resync) is kept.
