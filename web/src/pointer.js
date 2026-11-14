@@ -2,18 +2,19 @@ import * as THREE from 'three';
 
 // The sphere sits at infinity, so it cannot be touched. Interaction is by pointing:
 //   - XR: controller trigger, or hand-tracking pinch (Quest reports it as select on the
-//     hand's target-ray space), at whatever the ray points to
+//     hand's target-ray space), along wherever the ray points
 //   - desktop: click (a drag turns the view instead; see main.js)
-// Every gesture ends in onPoint(direction, source) with a world-space unit direction.
+// Every gesture ends in onSelect(ray, source) with a world-space THREE.Ray; the caller decides
+// whether it pressed the VR panel or points at the sky. Grip calls onSqueeze (re-centre panel).
 
-export function createPointerInput({ renderer, camera, onPoint }) {
+export function createPointerInput({ renderer, camera, onSelect, onSqueeze }) {
   const controllers = [0, 1].map((i) => {
     const c = renderer.xr.getController(i);
     c.add(makeRay());
-    c.addEventListener('selectstart', () => {
-      const dir = new THREE.Vector3(0, 0, -1).transformDirection(c.matrixWorld);
-      onPoint(dir, 'xr');
-    });
+    c.addEventListener('selectstart', () => onSelect(rayOf(c), 'xr'));
+    c.addEventListener('squeezestart', () => onSqueeze?.());
+    c.addEventListener('connected', (e) => (c.userData.inputSource = e.data));
+    c.addEventListener('disconnected', () => (c.userData.inputSource = null));
     return c;
   });
 
@@ -23,10 +24,22 @@ export function createPointerInput({ renderer, camera, onPoint }) {
     const r = renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
     raycaster.setFromCamera(ndc, camera);
-    onPoint(raycaster.ray.direction.clone(), 'mouse');
+    onSelect(raycaster.ray.clone(), 'mouse');
   });
 
-  return { controllers };
+  return {
+    controllers,
+    // Current rays of the connected controllers / hands, for hover highlighting.
+    rays() {
+      return controllers.filter((c) => c.userData.inputSource).map(rayOf);
+    },
+  };
+}
+
+function rayOf(obj) {
+  const origin = new THREE.Vector3().setFromMatrixPosition(obj.matrixWorld);
+  const dir = new THREE.Vector3(0, 0, -1).transformDirection(obj.matrixWorld);
+  return new THREE.Ray(origin, dir);
 }
 
 // Direction -> panorama frame coordinates (same convention as panoMaterial.js).

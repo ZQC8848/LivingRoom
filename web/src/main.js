@@ -4,6 +4,7 @@ import { SPHERE } from './config.js';
 import { createPanoSphere, measurePoles } from './panoMaterial.js';
 import { createPointerInput, directionToUv } from './pointer.js';
 import { createLive } from './live.js';
+import { createVrPanel } from './vrPanel.js';
 
 const sceneName = new URLSearchParams(location.search).get('scene') || 'hillside';
 
@@ -28,7 +29,11 @@ const ui = {
   prompt: document.getElementById('prompt'),
 };
 const lines = { scene: '', live: 'still panorama', stream: '', last: '' };
-const render = () => (ui.status.textContent = [lines.scene, lines.live, lines.stream, lines.last].filter(Boolean).join('\n'));
+let vrPanel = null; // the in-VR copy of the HUD, created once the scene's events are known
+const render = () => {
+  ui.status.textContent = [lines.scene, lines.live, lines.stream, lines.last].filter(Boolean).join('\n');
+  vrPanel?.set({ status: lines.live.replace(/^live: /, '') || 'still panorama', detail: lines.last || lines.stream });
+};
 
 const config = await (await fetch(`/api/scene/${sceneName}`)).json();
 // ?model=stable swaps in Orbis Stable (has spare capacity; its camera drifts) to test the pipeline.
@@ -113,6 +118,8 @@ const live = createLive({
     lines.live = `live: ${s}${detail ? ` — ${detail}` : ''}`;
     if (s === 'stopped' || s === 'busy' || s === 'error' || s === 'disconnected') liveTarget = 0;
     setButtonsBusy(s === 'reanchoring');
+    vrPanel?.set({ disabled: s === 'reanchoring' });
+    vrPanel?.setButtonLabel('live', live?.active ? 'Stop' : 'Go live');
     ui.live.textContent = live?.active ? 'Stop' : 'Go live';
     render();
   },
@@ -122,6 +129,7 @@ const live = createLive({
     countFrames();
   },
   onFrames(anchor, model) {
+    vrPanel?.set({ highlight: anchor.label === 'opening' ? 'Morning' : anchor.label });
     liveTarget = 1; // the new run (opening, re-anchor or line switch) has picture again: fade in
     lines.last = `live picture: ${anchor.label} · ${model}`;
     render();
@@ -142,11 +150,13 @@ const live = createLive({
   },
 });
 
-ui.live.addEventListener('click', () => {
+function toggleLive() {
   if (live.active) live.stop();
   else live.start();
   ui.live.textContent = live.active ? 'Stop' : 'Go live';
-});
+  vrPanel?.setButtonLabel('live', live.active ? 'Stop' : 'Go live');
+}
+ui.live.addEventListener('click', toggleLive);
 const eventButtons = [];
 for (const ev of config.events) {
   const b = Object.assign(document.createElement('button'), {
@@ -154,9 +164,13 @@ for (const ev of config.events) {
     type: 'button',
     title: ev.mode === 'reanchor' ? 're-anchor to a new reference (~6 s transition)' : 'steer the running picture',
   });
-  b.addEventListener('click', () => (ev.mode === 'reanchor' ? reanchor(ev) : steer(ev.prompt)));
+  b.addEventListener('click', () => runEvent(ev));
   ui.events.appendChild(b);
   eventButtons.push(b);
+}
+function runEvent(ev) {
+  if (ev.mode === 'reanchor') vrPanel?.set({ highlight: ev.label });
+  return ev.mode === 'reanchor' ? reanchor(ev) : steer(ev.prompt);
 }
 function setButtonsBusy(on) {
   for (const b of eventButtons) b.disabled = on;
@@ -188,10 +202,43 @@ async function steer(text) {
   return ok;
 }
 
+// In VR the HTML HUD is invisible: the same controls float on a panel in front of the viewer.
+vrPanel = createVrPanel({
+  buttons: [{ id: 'live', label: 'Go live' }, ...config.events.map((e) => ({ id: e.label, label: e.label }))],
+  onPress(id) {
+    if (id === 'live') return toggleLive();
+    const ev = config.events.find((e) => e.label === id);
+    if (ev) runEvent(ev);
+  },
+});
+scene.add(vrPanel.mesh);
+vrPanel.draw();
+render();
+const panelOnDesktop = new URLSearchParams(location.search).has('panel'); // check the panel without a headset
+let panelPlaced = false;
+let xrFrames = 0;
+renderer.xr.addEventListener('sessionstart', () => {
+  panelPlaced = false;
+  xrFrames = 0;
+});
+renderer.xr.addEventListener('sessionend', () => {
+  vrPanel.mesh.visible = panelOnDesktop;
+  if (panelOnDesktop) vrPanel.placeInFront(camera);
+});
+if (panelOnDesktop) {
+  camera.updateMatrixWorld();
+  vrPanel.placeInFront(camera);
+}
+
 const pointer = createPointerInput({
   renderer,
   camera,
-  onPoint(dir, source) {
+  onSqueeze() {
+    vrPanel.placeInFront(renderer.xr.isPresenting ? renderer.xr.getCamera() : camera); // grip: bring the panel back in front
+  },
+  onSelect(ray, source) {
+    if (vrPanel.select(ray)) return; // pressed a panel button
+    const dir = ray.direction.clone();
     pano.addRipple(dir, clock.getElapsedTime());
     const { lonDeg, latDeg } = directionToUv(dir);
     lines.last = `ripple at lon ${lonDeg.toFixed(0)}°, lat ${latDeg.toFixed(0)}° (${source})`;
@@ -202,7 +249,7 @@ const pointer = createPointerInput({
 for (const c of pointer.controllers) scene.add(c);
 
 installDesktopLook(camera, renderer);
-if (import.meta.env.DEV) window.__lr = { THREE, scene, camera, renderer, pano, live, video };
+if (import.meta.env.DEV) window.__lr = { THREE, scene, camera, renderer, pano, live, video, vrPanel };
 
 let lastPoleProbe = 0;
 renderer.setAnimationLoop(() => {
@@ -225,6 +272,14 @@ renderer.setAnimationLoop(() => {
     }
   }
   void dt;
+  if (renderer.xr.isPresenting) {
+    // Place the panel once the headset pose has settled (a few frames into the session).
+    if (!panelPlaced && ++xrFrames > 10) {
+      vrPanel.placeInFront(renderer.xr.getCamera());
+      panelPlaced = true;
+    }
+    vrPanel.hover(pointer.rays());
+  }
   renderer.render(scene, camera);
 });
 

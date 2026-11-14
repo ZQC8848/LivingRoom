@@ -30,3 +30,6 @@ web/public/scenes
 
 # orbis session keeper state and log
 .keeper/
+
+# a2a request log
+.a2a/

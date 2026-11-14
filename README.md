@@ -63,12 +63,25 @@ Desktop (plain HTTP on localhost): drag to look, click to ripple, **Go live** to
 npm --prefix web run dev:local
 ```
 
-Quest 3 (HTTPS, self-signed): open `https://<mac-lan-ip>:5174`, accept the certificate,
-press **Go live**, then **Enter VR**.
+**Quest 3 over USB (no LAN needed, recommended).** One-time: developer mode on the Quest
+(Meta Horizon app), `brew install android-platform-tools`, a USB-C data cable, accept
+"Allow USB debugging" in the headset. Then:
 
 ```bash
-npm --prefix web run dev
+tools/quest.sh
 ```
+
+It forwards the Quest's `localhost:5174` to this Mac over USB (`adb reverse`) and starts the
+dev server. In the headset open `http://localhost:5174` and press **Enter VR** — localhost
+counts as secure, so no certificate is needed. The Quest still needs its own internet for the
+video stream. Debug the headset's page at `chrome://inspect` on the Mac.
+
+**In VR** a panel floats in front of you: **Go live / Stop** and every scene event. Point and
+pull the trigger (or pinch) to press; pointing anywhere else ripples the sky. Squeeze grip to
+bring the panel back in front of you. `?panel=1` shows the panel on desktop for checking.
+
+Quest over Wi-Fi (HTTPS, self-signed) still works when the LAN allows it:
+`npm --prefix web run dev`, then `https://<mac-lan-ip>:5174`.
 
 `?model=stable` swaps in Orbis Stable to test the plumbing when Dynamic is busy (its camera
 drifts, so it is not the look). Live sessions are billed per second from `ready`; **Stop**
