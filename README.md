@@ -35,4 +35,28 @@ Details: [.ai/architecture.md](.ai/architecture.md). Why it is built this way:
 
 ```bash
 cp .env.example .env   # then put the Reactor key in it — never commit it
+cd web && npm install
 ```
+
+## Run the WebXR room
+
+Desktop check (plain HTTP on localhost; drag to look, click a wall to ripple):
+
+```bash
+npm --prefix web run dev:local
+```
+
+On the Quest 3 (HTTPS with a self-signed certificate, reachable over LAN):
+
+```bash
+npm --prefix web run dev
+```
+
+Open `https://<mac-lan-ip>:5174` in the Quest browser, accept the certificate warning,
+press **Enter VR**. Touch a wall with a fingertip (hand tracking) or point and pull the
+trigger. Until the relay exists the walls show a labelled test pattern laid out like the
+relay's 3×2 atlas; `?video=<url>` plays a 3×2 atlas video instead.
+
+Code map: `web/src/config.js` (room size, atlas layout, per-face orientation),
+`room.js` (geometry, trim), `wallMaterial.js` (atlas sampling + ripple shader),
+`touch.js` (fingertip / controller / mouse), `atlas.js` (test pattern, video swap).

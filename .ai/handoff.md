@@ -11,7 +11,7 @@
 | Design (room, topology, transitions) | Decided — see `decisions/` |
 | Reactor key access | Verified: Orbis Stable + Dynamic only |
 | Concurrency | Verified to 8 idle sessions; generating-at-once untested |
-| Code | Nothing yet |
+| WebXR room shell (`web/`) | Done on branch `feat/webxr-room`: 6 faces from one 3×2 atlas, trim, ripple shader, fingertip / controller / mouse touch. Verified on desktop only — **not yet on a Quest** |
 
 ## Next step
 
@@ -20,8 +20,9 @@ state-change prompts over 2–3 min. Read actual fps, `delivered` resolution,
 `available_resolutions`, warm-up time. **This is cheap and can invalidate the room design,
 so it goes first.**
 
-Then: 4 sessions generating at once → floor (overhead) drift test → WebXR room shell →
-Mac relay → ripple shader.
+Then: run the room on the Quest (`npm --prefix web run dev`) and check fingertip contact
+distance and ripple strength in-headset → 4 sessions generating at once → floor
+(overhead) drift test → Mac relay feeding the atlas.
 
 ## In flight / undecided
 
@@ -35,4 +36,8 @@ Mac relay → ripple shader.
 
 - `.env` holds the real key and is not in git; a fresh clone needs it from a teammate.
 - Opening sessions in a burst trips `sessions_per_minute` = 10 — stagger by ~6 s.
+- Port 5173 on this Mac is often held by another project's Vite server; the room uses
+  5174 with `strictPort`.
+- Ripple tuning (`RIPPLE` in `web/src/config.js`) was judged on a desktop screen; 5 cm
+  amplitude may be too strong or weak at 2.4 m in a headset.
 - The key also appears in the original chat transcript; rotate it after the event.
