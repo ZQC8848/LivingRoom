@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { ROOM, FACES, atlasRect } from './config.js';
-import { createWallMaterial } from './wallMaterial.js';
+import { ROOM, FACES, SEAMS, atlasRect } from './config.js';
+import { createWallMaterial, texelOf } from './wallMaterial.js';
 
 // Six inward-facing planes around the origin. The player starts at the origin
 // (local-floor reference space), facing -Z = the front wall.
@@ -27,7 +27,9 @@ export function createRoom(atlas) {
 
   for (const face of FACES) {
     const p = PLACEMENT[face.id];
-    const geometry = new THREE.PlaneGeometry(p.size[0], p.size[1]);
+    // Faces meet edge to edge. A hair of overlap (behind the neighbouring face, so never
+    // visible) stops the black background showing through rasterisation cracks.
+    const geometry = new THREE.PlaneGeometry(p.size[0] + SEAMS.overlap, p.size[1] + SEAMS.overlap);
     const material = createWallMaterial(
       atlas.texture,
       atlasRect(face),
@@ -54,10 +56,13 @@ export function createRoom(atlas) {
     });
   }
 
-  group.add(createTrim());
+  if (SEAMS.trim) group.add(createTrim());
 
   atlas.onChange = (texture) => {
-    for (const f of faces) f.material.uniforms.uAtlas.value = texture;
+    for (const f of faces) {
+      f.material.uniforms.uAtlas.value = texture;
+      f.material.uniforms.uTexel.value = texelOf(texture);
+    }
   };
 
   return { group, faces };

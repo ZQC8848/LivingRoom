@@ -35,6 +35,15 @@ Reactor / Visko Orbis — docs: https://docs.reactor.inc/model-api-reference/vis
 - Write motion as what the camera sees ("trunks slide from right to left"), not intent
   words. For lateral walls use tracking, never "pan" (pan = rotation, no parallax).
 
+World Labs Marble API — `WORLDLABS_API_KEY` in `.env`, header `WLT-Api-Key`
+
+- A finished `GET /operations/{id}` returns `response.assets.imagery.pano_url = null`;
+  `GET /worlds/{world_id}` has the URL. `tools/marble_pano.py --world <id>` re-downloads
+  without paying again. (2026-11-14)
+- `marble-1.0-draft` text prompt costs 230 credits; its pano was 2304×1152 (6.4 px/deg).
+  Pano generation is billed 80 credits on every model, so a pricier model may not give a
+  better pano — unverified.
+
 Quest 3 / WebXR
 
 - WebXR exposes head + hands only; body is IK-inferred.

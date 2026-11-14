@@ -38,6 +38,14 @@ export function atlasRect(face) {
   return { x, y, w, h: ch };
 }
 
+// How the faces meet. Default: no gap at all — faces join edge to edge and any content
+// mismatch between independently generated faces is simply visible (user's call, 2026-11-14).
+export const SEAMS = {
+  trim: false, // 5 cm bars along all 12 edges
+  edgeShade: 0, // 0..1, darkening within 12 cm of each face edge (was 0.45)
+  overlap: 0.002, // metres each face extends past its edge, hidden behind the neighbour
+};
+
 export const RIPPLE = {
   max: 8, // shader array size
   lifetime: 3.0, // seconds

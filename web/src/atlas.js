@@ -28,6 +28,16 @@ export function createAtlas() {
       atlas.mode = 'video';
       atlas.onChange?.(t);
     },
+    // A still 3x2 atlas, e.g. the projected Marble reference images of a scene.
+    setImage(url) {
+      return new THREE.TextureLoader().loadAsync(url).then((t) => {
+        t.colorSpace = THREE.SRGBColorSpace;
+        t.anisotropy = 4;
+        atlas.texture = t;
+        atlas.mode = `image ${url}`;
+        atlas.onChange?.(t);
+      });
+    },
     onChange: null,
     update(time) {
       if (atlas.mode === 'pattern') drawPattern(ctx, time, canvasTexture);

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { RIPPLE } from './config.js';
+import { RIPPLE, SEAMS } from './config.js';
 
 // One material per face. Samples its rectangle of the shared atlas and distorts it with
 // up to RIPPLE.max expanding rings. The ripple is local and instant; the generated video
@@ -26,6 +26,8 @@ const fragmentShader = /* glsl */ `
   uniform float uWavelength;
   uniform float uAmplitude;  // metres of image displacement at the crest
   uniform float uGlow;
+  uniform float uEdgeShade;  // 0 = faces meet with no darkening
+  uniform vec2 uTexel;       // 1 / atlas size in pixels
   varying vec2 vUv;
 
   void main() {
@@ -52,18 +54,29 @@ const fragmentShader = /* glsl */ `
 
     vec2 local = clamp(uv + offset, 0.0, 1.0);
     local = mix(local, 1.0 - local, uFlip);
-    vec3 col = texture2D(uAtlas, uRect.xy + local * uRect.zw).rgb;
+    // Stay 1.5 texels inside this face's atlas cell so filtering never pulls in the
+    // neighbouring cell (which would draw a thin line along the face edge).
+    vec2 inset = uTexel * 1.5;
+    vec2 cellUv = clamp(local * uRect.zw, inset, uRect.zw - inset);
+    vec3 col = texture2D(uAtlas, uRect.xy + cellUv).rgb;
     col += glow * uGlow;
 
     // Soft darkening toward the edges, where independently generated faces meet.
     vec2 e = min(vUv, 1.0 - vUv) * uSize;
     float edge = smoothstep(0.0, 0.12, min(e.x, e.y));
-    col *= mix(0.55, 1.0, edge);
+    col *= mix(1.0 - uEdgeShade, 1.0, edge);
 
     gl_FragColor = vec4(col, 1.0);
     #include <colorspace_fragment>
   }
 `;
+
+export function texelOf(texture) {
+  const img = texture.image;
+  const w = img?.videoWidth || img?.width || 1920;
+  const h = img?.videoHeight || img?.height || 720;
+  return new THREE.Vector2(1 / w, 1 / h);
+}
 
 export function createWallMaterial(atlasTexture, rect, face, sizeMetres) {
   const ripples = Array.from({ length: RIPPLE.max }, () => new THREE.Vector4(0, 0, 0, 0));
@@ -82,6 +95,8 @@ export function createWallMaterial(atlasTexture, rect, face, sizeMetres) {
       uWavelength: { value: RIPPLE.wavelength },
       uAmplitude: { value: RIPPLE.amplitude },
       uGlow: { value: RIPPLE.glow },
+      uEdgeShade: { value: SEAMS.edgeShade },
+      uTexel: { value: texelOf(atlasTexture) },
     },
   });
 

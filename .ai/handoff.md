@@ -9,6 +9,7 @@
 | Item | State |
 |---|---|
 | Design (room, topology, transitions) | Decided — see `decisions/` |
+| Scene `hillside` reference images | Marble draft pano (world `e60f6310…`) projected to 6 faces, yaw 12°; walls join cleanly. Floor smeared, ceiling has sky artifacts, pano only 2304 px wide. View: `?scene=hillside` |
 | Reactor key access | Verified: Orbis Stable + Dynamic only |
 | Concurrency | Verified to 8 idle sessions; generating-at-once untested |
 | WebXR room shell (`web/`) | Done on branch `feat/webxr-room`: 6 faces from one 3×2 atlas, trim, ripple shader, fingertip / controller / mouse touch. Verified on desktop only — **not yet on a Quest** |

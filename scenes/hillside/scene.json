@@ -1,0 +1,12 @@
+{
+  "name": "hillside",
+  "marble": {
+    "model": "marble-1.0-draft",
+    "seed": 42,
+    "prompt": "A photorealistic 360-degree view from eye level on top of a gentle grassy hill in soft morning light. Rolling green meadows slope away in every direction under a clear pale sky with a few thin clouds. A flock of white sheep grazes in the middle distance on one side of the hill. On another side stands a small stone shepherd's hut with a chimney. On a third side a lone old oak tree stands on the slope. On the fourth side the hill falls toward a calm lake with snowy mountains far beyond."
+  },
+  "projection": {
+    "yaw_deg": 12,
+    "notes": "yaw_deg rotates which pano direction becomes the front wall. Pick it from seams.jpg so wall boundaries do not cut sheep."
+  }
+}

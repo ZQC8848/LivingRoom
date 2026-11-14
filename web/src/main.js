@@ -50,8 +50,14 @@ const touch = createTouchInput({
 for (const c of touch.controllers) scene.add(c);
 for (const h of touch.hands) scene.add(h);
 
+// Optional: ?scene=<name> shows that scene's projected reference images
+// (tools/project_pano.py → ~/Assets/LivingRoom/scenes/<name>/atlas.jpg, symlinked into public/).
+const params = new URLSearchParams(location.search);
+const sceneName = params.get('scene');
+if (sceneName) atlas.setImage(`/scenes/${sceneName}/atlas.jpg`).catch((e) => console.warn('atlas failed', e));
+
 // Optional: ?video=<url> plays a 3×2 atlas video on the walls (stand-in for the relay).
-const videoUrl = new URLSearchParams(location.search).get('video');
+const videoUrl = params.get('video');
 if (videoUrl) {
   const video = Object.assign(document.createElement('video'), {
     src: videoUrl, loop: true, muted: true, playsInline: true, crossOrigin: 'anonymous',

@@ -24,3 +24,6 @@ recordings/
 captures/
 *.mp4
 *.webm
+
+# generated scene media lives in ~/Assets/LivingRoom (symlinked for the dev server)
+web/public/scenes
