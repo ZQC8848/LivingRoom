@@ -57,7 +57,14 @@
         "reanchor_every_seconds": 40,
         "probe_primary_every_seconds": 30,
         "notes": "Used only while Orbis Dynamic is busy (2026-11-14 test: locked camera, layout held 60 s, but wandering animals and the bottom edge degrade after ~50 s -> periodic re-anchor). Personal account, $0.42/min; sessions capped at 10 min by the dev server."
-      }
+      },
+      "loop": {
+        "live_seconds": 25,
+        "warmup_seconds": 9,
+        "fade_seconds": 3,
+        "notes": "Relay between the keeper's two Dynamic sessions (needs `keeper.py start --sessions 2`): each run is on the sphere ~live_seconds, the other session is anchored and started warmup_seconds before the hand-over, then a fade_seconds live-to-live cross-fade. Without a two-session hold this block is ignored."
+      },
+      "custom_prompt": "A fixed equirectangular 360-degree panorama time-lapse from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, weather and water change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. {change}"
     }
   }
 }

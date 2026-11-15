@@ -47,33 +47,51 @@ still.colorSpace = THREE.SRGBColorSpace;
 still.minFilter = THREE.LinearFilter; // no mipmaps: the u = 0/1 seam would bleed through them
 still.generateMipmaps = false;
 
-const video = Object.assign(document.createElement('video'), { muted: true, playsInline: true, autoplay: true });
-const liveTexture = new THREE.VideoTexture(video);
-liveTexture.colorSpace = THREE.SRGBColorSpace;
-liveTexture.minFilter = THREE.LinearFilter;
-liveTexture.generateMipmaps = false;
+// Two video "decks": normally only deck 0 plays. With the two-session relay (live.js) the
+// next run warms up on the other deck and the sphere cross-fades live -> live between them.
+const videos = [0, 1].map(() => Object.assign(document.createElement('video'), { muted: true, playsInline: true, autoplay: true }));
+const liveTextures = videos.map((v) => {
+  const t = new THREE.VideoTexture(v);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.minFilter = THREE.LinearFilter;
+  t.generateMipmaps = false;
+  return t;
+});
+let shown = 0; // the deck whose picture is (or is fading in as) the live picture
+let video = videos[0];
+let frozen = false; // uStill is a held frame of the outgoing picture (freezeLiveFrame)
+let fadeSeconds = SPHERE.liveFadeSeconds;
 const audio = Object.assign(document.createElement('audio'), { autoplay: true });
 
-const pano = createPanoSphere(still, liveTexture);
+const pano = createPanoSphere(still, liveTextures[0]);
 scene.add(pano.mesh);
 measurePoles(still.image, pano.material.uniforms.uZenith.value, pano.material.uniforms.uNadir.value);
 
 const clock = new THREE.Clock();
 let liveTarget = 0;
+let liveMix = 0; // linear 0..1; the shader gets it eased (see the animation loop)
+let fadeWhenFrame = Infinity; // fade the new run in once `frames` reaches this (see onFrames)
+let fadeDeadline = Infinity; // ...or at this clock time, if the video reports no frames
+let stillFade = null; // offline still -> still crossfade in progress: the texture fading in
 let frames = 0;
 let fpsWindow = { t: 0, n: 0, fps: 0 };
 
 // Counts decoded frames for the HUD. Fading the live picture in is driven by the model's
 // own "frames emitted" signal (onFrames), not by video frames, so a re-anchor's stale
 // frames never fade in early.
-function countFrames() {
-  if (!('requestVideoFrameCallback' in video)) return;
+function countFrames(deck) {
+  const v = videos[deck];
+  if (!('requestVideoFrameCallback' in v) || v.dataset.counting) return;
+  v.dataset.counting = '1'; // one callback chain per element, however often its stream changes
   const tick = () => {
-    frames++;
-    fpsWindow.n++;
-    video.requestVideoFrameCallback(tick);
+    if (deck === shown) {
+      frames++;
+      fpsWindow.n++;
+      if (frames >= fadeWhenFrame) startFadeIn();
+    }
+    v.requestVideoFrameCallback(tick);
   };
-  video.requestVideoFrameCallback(tick);
+  v.requestVideoFrameCallback(tick);
 }
 
 // The still the sphere falls back to: the scene pano, an event's reference while offline,
@@ -90,9 +108,37 @@ async function stillFor(url) {
   if (!stillCache.has(url)) stillCache.set(url, loader.loadAsync(url).then(prepStill));
   return stillCache.get(url);
 }
+// The new run's picture is really on the video element: cross-fade from the held frame to it.
+function startFadeIn() {
+  fadeWhenFrame = Infinity;
+  fadeDeadline = Infinity;
+  liveTarget = 1;
+}
+// Offline: cross-fade from the current still to another one, borrowing the live slot.
+function crossfadeStill(texture) {
+  const u = pano.material.uniforms;
+  if (liveTarget || liveMix > 0 || u.uStill.value === texture) {
+    u.uStill.value = texture; // live picture is (partly) up: just swap what is underneath
+    return;
+  }
+  u.uLive.value = texture;
+  stillFade = texture;
+}
+function endStillFade() {
+  if (!stillFade) return;
+  const u = pano.material.uniforms;
+  u.uStill.value = stillFade;
+  u.uLive.value = liveTextures[shown];
+  stillFade = null;
+  liveMix = 0;
+  u.uLiveMix.value = 0;
+}
 const freezeCanvas = document.createElement('canvas');
 const freezeTexture = prepStill(new THREE.CanvasTexture(freezeCanvas));
 function freezeLiveFrame() {
+  endStillFade();
+  fadeWhenFrame = Infinity;
+  fadeDeadline = Infinity;
   if (video.readyState < 2) return false;
   freezeCanvas.width = video.videoWidth;
   freezeCanvas.height = video.videoHeight;
@@ -100,7 +146,9 @@ function freezeLiveFrame() {
   freezeTexture.needsUpdate = true;
   pano.material.uniforms.uStill.value = freezeTexture;
   pano.material.uniforms.uLiveMix.value = 0; // identical picture, so no visible jump
+  liveMix = 0;
   liveTarget = 0;
+  frozen = true;
   return true;
 }
 function burst() {
@@ -123,14 +171,43 @@ const live = createLive({
     ui.live.textContent = live?.active ? 'Stop' : 'Go live';
     render();
   },
-  onVideo(stream) {
-    video.srcObject = stream;
-    video.play().catch(() => {});
-    countFrames();
+  onVideo(stream, deck = 0) {
+    videos[deck].srcObject = stream;
+    videos[deck].play().catch(() => {});
+    countFrames(deck);
   },
-  onFrames(anchor, model) {
+  // Relay: the line on this deck was handed over and reset; stop decoding its (black) stream.
+  onIdle(deck) {
+    if (deck !== shown) videos[deck].srcObject = null;
+  },
+  onFrames(anchor, model, deck = 0) {
     vrPanel?.set({ highlight: anchor.label === 'opening' ? 'Morning' : anchor.label });
-    liveTarget = 1; // the new run (opening, re-anchor or line switch) has picture again: fade in
+    // The model has emitted frames of the new run (opening, re-anchor or line switch), but
+    // they still have to travel and decode: until then the video element shows the old run's
+    // last frame. Keep the held picture until a few new frames have really arrived, then
+    // cross-fade -- never fade into the stale frame and pop.
+    endStillFade();
+    const u = pano.material.uniforms;
+    fadeSeconds = SPHERE.liveFadeSeconds;
+    if (deck !== shown) {
+      // The new run is on the other deck. Unless a frozen frame is already underneath, put the
+      // deck that is still playing underneath (same picture, so no jump) and fade the new one
+      // in over it: live -> live, nothing ever stands still.
+      if (!frozen && liveMix >= 1) {
+        u.uStill.value = liveTextures[shown];
+        fadeSeconds = config.loop?.fade_seconds ?? SPHERE.liveFadeSeconds;
+      } else if (!frozen) freezeLiveFrame();
+      u.uLive.value = liveTextures[deck];
+      u.uLiveMix.value = 0;
+      liveMix = 0;
+      liveTarget = 0;
+      shown = deck;
+      video = videos[deck];
+      frames = 0;
+    }
+    frozen = false;
+    fadeWhenFrame = frames + SPHERE.liveFadeAfterFrames;
+    fadeDeadline = clock.getElapsedTime() + 2.5;
     lines.last = `live picture: ${anchor.label} · ${model}`;
     render();
   },
@@ -175,7 +252,9 @@ function runEvent(ev) {
 function setButtonsBusy(on) {
   for (const b of eventButtons) b.disabled = on;
 }
+let currentReference = config.reference; // what the picture is anchored to; custom prompts edit this
 async function reanchor(ev) {
+  if (ev.reference) currentReference = ev.reference;
   burst();
   if (live.ready) {
     lines.last = `re-anchoring to ${ev.label}…`;
@@ -184,8 +263,9 @@ async function reanchor(ev) {
   } else {
     // Offline or busy: show the event's own reference as the still; a later Go live starts there.
     live.reanchor(ev);
-    pano.material.uniforms.uStill.value = await stillFor(ev.reference);
-    measurePoles(pano.material.uniforms.uStill.value.image, pano.material.uniforms.uZenith.value, pano.material.uniforms.uNadir.value);
+    const next = await stillFor(ev.reference);
+    crossfadeStill(next);
+    measurePoles(next.image, pano.material.uniforms.uZenith.value, pano.material.uniforms.uNadir.value);
     lines.last = `still: ${ev.label} (not live)`;
     render();
   }
@@ -193,8 +273,41 @@ async function reanchor(ev) {
 ui.steer.addEventListener('submit', (e) => {
   e.preventDefault();
   const text = ui.prompt.value.trim();
-  if (text) steer(text).then((ok) => ok && (ui.prompt.value = ''));
+  if (text) custom(text).then((ok) => ok && (ui.prompt.value = ''));
 });
+// A custom prompt is a scene change, and Orbis follows its reference image far more than its
+// prompt: so an image model first edits the current reference into the new scene (~4 s, the
+// dev server's /api/edit), then the page re-anchors on that picture like any event. The
+// current scene keeps playing meanwhile; with the two-session relay there is no frozen frame.
+let customBusy = false;
+async function custom(text) {
+  if (customBusy) return false;
+  customBusy = true;
+  ui.prompt.disabled = true;
+  lines.last = `painting "${text}"…`;
+  render();
+  vrPanel?.set({ detail: `painting "${text}"…` });
+  try {
+    const r = await fetch('/api/edit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ scene: config.name, base: currentReference, text }),
+    });
+    const ev = await r.json();
+    if (!r.ok) throw new Error(ev.error || `edit ${r.status}`);
+    console.info('[custom]', ev.cached ? 'cached' : `${ev.seconds}s`, ev.reference, '|', ev.seen);
+    await stillFor(ev.reference); // have the picture decoded before anything fades to it
+    await reanchor(ev);
+    return true;
+  } catch (e) {
+    lines.last = `could not paint "${text}": ${String(e?.message ?? e)}`;
+    render();
+    return false;
+  } finally {
+    customBusy = false;
+    ui.prompt.disabled = false;
+  }
+}
 async function steer(text) {
   const ok = await live.steer(text);
   lines.last = ok ? `sent: ${text}` : 'not live yet — prompt not sent';
@@ -249,16 +362,22 @@ const pointer = createPointerInput({
 for (const c of pointer.controllers) scene.add(c);
 
 installDesktopLook(camera, renderer);
-if (import.meta.env.DEV) window.__lr = { THREE, scene, camera, renderer, pano, live, video, vrPanel };
+if (import.meta.env.DEV) window.__lr = { THREE, scene, camera, renderer, pano, live, videos, get video() { return video; }, vrPanel };
 
 let lastPoleProbe = 0;
+let lastT = 0;
 renderer.setAnimationLoop(() => {
   const t = clock.getElapsedTime();
-  const dt = clock.getDelta();
+  const dt = Math.min(t - lastT, 0.1); // (Clock.getDelta() after getElapsedTime() is always ~0)
+  lastT = t;
   const u = pano.material.uniforms;
   u.uTime.value = t;
-  const step = 1 / (SPHERE.liveFadeSeconds * 60);
-  u.uLiveMix.value = THREE.MathUtils.clamp(u.uLiveMix.value + Math.sign(liveTarget - u.uLiveMix.value) * step, 0, 1);
+  if (t >= fadeDeadline) startFadeIn();
+  // Time-based (the headset runs at 72-90 Hz, the desktop at 60) and eased at both ends.
+  const target = stillFade ? 1 : liveTarget;
+  liveMix = THREE.MathUtils.clamp(liveMix + Math.sign(target - liveMix) * (dt / (stillFade ? SPHERE.liveFadeSeconds : fadeSeconds)), 0, 1);
+  u.uLiveMix.value = THREE.MathUtils.smoothstep(liveMix, 0, 1);
+  if (stillFade && liveMix >= 1) endStillFade();
   if (liveTarget && t - lastPoleProbe > 0.5 && video.readyState >= 2) {
     lastPoleProbe = t;
     measurePoles(video, u.uZenith.value, u.uNadir.value);

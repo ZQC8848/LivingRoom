@@ -74,6 +74,14 @@ Reactor / Visko Orbis — docs: https://docs.reactor.inc/model-api-reference/vis
   everyone on Reactor at a time**. Whoever holds it blocks all other users and teams. More
   keys or accounts do not help; only Visko adding instances does. At 09:06 we were refused
   with none of ours open — someone else held it.
+- **Update 14:56: a second Dynamic session opened** (hackathon key, 3.0 s) while the keeper
+  held one — capacity was added since the morning. Recheck before relying on it.
+  14:59, opening more one by one: the 2nd opened (4.3 s), the 3rd and 4th got `no available
+  capacity` → **2 Dynamic sessions at once at most** (that moment; others may hold more servers).
+- **Dynamic went from one server to two on the evening of 2026-11-14** (the user's report from
+  Visko; confirmed 18:59 PST: the keeper got two Dynamic sessions 2 s apart). Everything above about "one session for everyone" describes
+  the one-server time; read it as "two" now. `tools/keeper.py start --sessions 2` holds both
+  (tested on Stable only: two sessions held and released together).
 - **Balances and quotas are readable:** `GET /me` → `account_id`, then
   `GET /accounts/{id}/credits` (`balance_usd`) and `GET /accounts/{id}/quotas`, with
   `Reactor-API-Key`. Hackathon account 11:40: **$84,913**, `concurrent_sessions` 125, no

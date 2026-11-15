@@ -61,9 +61,13 @@ Dynamic has one server for all of Reactor. When Qin's keeper (`tools/keeper.py`)
 a teammate's app can join that session instead of queueing. Same host, same bearer token:
 
 ```
-GET  /keeper        -> { phase: "holding" | "none" | ..., model, session_id, minutes_left, hold_until }
-POST /keeper/token  -> { jwt, sessionId, model, minutes_left, hold_until }   (409 if no hold)
+GET  /keeper                -> { phase: "holding" | "none" | ..., model, session_ids, sessions, minutes_left, hold_until }
+POST /keeper/token[?slot=N] -> { jwt, sessionId, slot, sessions, model, minutes_left, hold_until }   (409 if no hold / no such slot)
 ```
+
+Dynamic now has two servers. When the keeper holds both (`sessions: 2`), the default slot
+for you is **2**: a session of your own, separate from the picture on Qin's page (slot 1).
+With a one-session hold there is only slot 1 and it is shared -- see the rules below.
 
 ```js
 const HOST = 'http://qinchuans-macbook-pro.tail5a410a.ts.net:41241';

@@ -152,20 +152,26 @@ server.listen(PORT, HOST, () => {
 // orbis-keeper skill). A teammate's app gets a JWT bound to that one session and joins it
 // instead of queueing for Dynamic's single server. By design there is NO start, extend or
 // release here: holding and its cost stay the owner's decision. The JWT can create no session.
-//   GET  /keeper        -> { phase, model, session_id, minutes_left, hold_until }
-//   POST /keeper/token  -> { jwt, sessionId, model, minutes_left, hold_until, expires_at }
+//   GET  /keeper              -> { phase, model, session_ids, sessions, minutes_left, hold_until }
+//   POST /keeper/token[?slot=N] -> { jwt, sessionId, slot, sessions, model, minutes_left, ... }
+// With a two-session hold the default slot for a teammate is 2, so they get a picture of
+// their own and the owner's page (slot 1) is left alone; ?slot=1 joins the owner's session.
 async function keeperRoute(req, res, route) {
   let k = null;
   try {
     k = await (await fetch('http://127.0.0.1:5199/status', { signal: AbortSignal.timeout(2000) })).json();
   } catch {}
   const holding = k?.phase === 'holding';
+  const ids = holding ? k.session_ids ?? [k.session_id] : [];
   const pub = holding
-    ? { phase: 'holding', model: k.model, session_id: k.session_id, minutes_left: k.minutes_left, hold_until: k.hold_until }
+    ? { phase: 'holding', model: k.model, session_id: k.session_id, session_ids: ids, sessions: ids.length, minutes_left: k.minutes_left, hold_until: k.hold_until }
     : { phase: k?.phase ?? 'none' };
   if (route === '/keeper') return req.method === 'GET' ? json(res, 200, pub) : json(res, 405, { error: 'GET only' });
   if (req.method !== 'POST') return json(res, 405, { error: 'POST only' });
   if (!holding) return json(res, 409, { error: 'no keeper hold right now', keeper: pub });
+  const slot = Number(new URL(req.url, 'http://x').searchParams.get('slot') || ids.length);
+  const sessionId = ids[slot - 1];
+  if (!sessionId) return json(res, 409, { error: `no slot ${slot}: the keeper holds ${ids.length} session(s)`, keeper: pub });
   const key = process.env.REACTOR_API_KEY;
   if (!key) return json(res, 500, { error: 'no REACTOR_API_KEY on the host' });
   const r = await fetch('https://api.reactor.inc/tokens', {
@@ -173,13 +179,13 @@ async function keeperRoute(req, res, route) {
     headers: { 'Reactor-API-Key': key, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       expires_after: Math.max(60, Math.min(3600, Math.ceil(k.minutes_left * 60) + 60)),
-      authorization_details: [{ type: 'session', resources: { models: { match: [k.model] }, sessions: { bind: [k.session_id] } } }],
+      authorization_details: [{ type: 'session', resources: { models: { match: [k.model] }, sessions: { bind: [sessionId] } } }],
     }),
   });
   const body = await r.json();
-  log({ event: 'keeper_token', ok: r.ok, session: k.session_id, minutes_left: k.minutes_left });
+  log({ event: 'keeper_token', ok: r.ok, slot, session: sessionId, minutes_left: k.minutes_left });
   if (!r.ok) return json(res, 502, { error: 'token mint failed', status: r.status });
-  return json(res, 200, { jwt: body.jwt, sessionId: k.session_id, model: k.model, minutes_left: k.minutes_left, hold_until: k.hold_until, expires_at: body.expires_at });
+  return json(res, 200, { jwt: body.jwt, sessionId, slot, sessions: ids.length, model: k.model, minutes_left: k.minutes_left, hold_until: k.hold_until, expires_at: body.expires_at });
 }
 
 function newTask(contextId, msg) {

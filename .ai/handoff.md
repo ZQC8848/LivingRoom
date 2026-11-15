@@ -1,6 +1,6 @@
 # Current state
 
-**Last updated: 2026-11-14 14:20 PST**
+**Last updated: 2026-11-14 19:24 PST**
 
 > This file **expires** — update it at the end of each working session. Earlier test logs
 > (per-wall Stable/Dynamic runs, four-wall capacity failure) are in git history; their
@@ -32,7 +32,7 @@ to check the seam fix. Then the Quest: `npm --prefix web run dev`, Go live, Ente
 `tools/keeper.py` + skill `orbis-keeper`: holds the one Dynamic session for 1 h (extend =
 reset to 1 h from now, user's call each time; 3 h hard session ceiling); the web page adopts
 the held session via a bound token (`/api/token?attach=1`) and its Stop leaves the session
-to the keeper. **Verified (12:52–12:55):** waiting/retrying while Dynamic is busy (it was busy 12:16–12:52), clean give-up after the wait limit, hold acquired at 12:52:46, the web page adopted the held session (live in 18 s, status "keeper, 59.1 min left") and its Stop left the keeper holding the same session. **Not yet exercised:** `extend`, `release`, expiry at the deadline.
+to the keeper. **Verified (12:52–12:55):** waiting/retrying while Dynamic is busy (it was busy 12:16–12:52), clean give-up after the wait limit, hold acquired at 12:52:46, the web page adopted the held session (live in 18 s, status "keeper, 59.1 min left") and its Stop left the keeper holding the same session. Expiry verified 13:52: warnings at 9/4/0 min in `.keeper/keeper.log`, released at the deadline after 60.0 min (~$75.26). **Not yet exercised:** `extend`, `release`.
 
 ## A2A with the teammate's agent (2026-11-14 14:15)
 
@@ -45,6 +45,34 @@ findings and the current plan were sent to it at 14:18. **Not verified:** Zoe ->
 (one 401 at 14:09, no successful request yet). Her Codex cannot run commands when called
 over A2A ("windows sandbox failed"), so it only answers from what it already knows.
 The server is a foreground process: it stops when the terminal/session that started it ends.
+
+## Two-session relay (2026-11-14 19:07)
+
+Dynamic has two servers now. `keeper.py start --sessions 2` holds both; with `orbis.pano.loop`
+in scene.json the live page runs a **relay**: the run on the sphere plays on one session
+while the other is anchored and started, then a 3 s live-to-live cross-fade and the roles
+swap (`web/src/live.js` relay section, two video decks in `liveMain.js`). No frozen frame.
+**Verified on desktop (19:01-19:07, both held Dynamic sessions):** timed loop, hand-overs at
+27 s and 57 s, old run kept playing under the fade; Evening pressed mid-run: Morning kept
+playing 7.5 s, then faded to Evening, and the loop continued on the Evening anchor.
+**Not verified:** in the headset (two 2560x1440 decodes overlap for ~10 s per hand-over);
+steers (Golden hour) are lost at the next hand-over; relay with a one-session hold falls
+back to the frozen-frame re-anchor, and that path has no timed loop.
+The page uses BOTH slots in relay mode, so a teammate attached to slot 2 gets reset by it.
+
+## Custom prompts paint a new reference (2026-11-14 19:24)
+
+Typing a change ("heavy snow covers everything") no longer steers: the dev server's
+`POST /api/edit` has `google/gemini-3.1-flash-lite-image` (OpenRouter, `OPENROUTER_API_KEY`)
+edit the **current** reference into the new scene (3-4 s, ~$0.034) while
+`anthropic/claude-haiku-5.5` turns the words into the scene sentence of the Orbis prompt
+(`orbis.pano.custom_prompt` in scene.json); the page then re-anchors on the result like any
+event. Results are cached in `<assets>/custom/<hash>.{jpg,json}` by (base image, text).
+Model choice: `tools/image_edit_test.py`, contact sheets in `tests/edit-20261114-19*/`.
+**Verified live (relay, desktop):** submit -> painted in 3.5 s -> hand-over 10.5 s after
+submit -> faded in by 13.8 s; the next timed hand-over kept the snow. **Not verified:** the
+seam behind the viewer on painted references; chains of edits (snow on top of evening);
+the model sometimes adds objects (extra sheep in a fog test). No text input in VR yet.
 
 ## In flight / undecided
 

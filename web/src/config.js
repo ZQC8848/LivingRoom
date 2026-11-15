@@ -11,7 +11,7 @@ export const SPHERE = {
   // Equirect poles are the least reliable pixels in both Marble's pano and Orbis' output.
   poleFadeStart: 68,
   poleFadeEnd: 84,
-  liveFadeSeconds: 1.5, // still pano -> live stream crossfade once the first frame arrives
+  liveFadeSeconds: 2, liveFadeAfterFrames: 4, // still pano -> live stream crossfade once the first frame arrives
 };
 
 export const RIPPLE = {
@@ -20,7 +20,7 @@ export const RIPPLE = {
   speed: 0.35, // rad/s the ring front travels across the sky
   wavelength: 0.045, // rad
   amplitude: 0.012, // rad of lookup displacement at the crest
-  glow: 0.3,
+  glow: 0, // white ring on the wave crest; 0 = refraction (image bending) only
 };
 
 export const LIVE = {

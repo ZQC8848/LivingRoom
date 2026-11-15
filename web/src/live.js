@@ -18,14 +18,27 @@ import { LIVE } from './config.js';
 // - Big scene-wide steers re-compose Orbis' panorama -> those events re-anchor instead.
 // - LingBot holds its layout ~50 s then its bottom edge degrades -> re-anchor it periodically
 //   (its warm-up is < 1 s).
+//
+// Relay (scene.loop, needs the keeper to hold BOTH Dynamic sessions): Orbis loses the
+// reference after ~25-30 s, and re-anchoring one session costs ~9 s of frozen picture. With
+// two sessions the second one ("standby", keeper slot 2) is anchored and started while the
+// first is still on the sphere; when it has frames the page cross-fades live -> live and the
+// first becomes the standby. No frozen frame, for the timed loop and for events alike. Each
+// line plays on its own video "deck" (0 or 1) so both can be decoded during the hand-over.
 
-export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFrames, onFreeze, onLine }) {
+export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFrames, onFreeze, onLine, onIdle }) {
   let line = null; // the line whose picture is on the sphere
   let wanted = false;
   let retryTimer = null;
   let probeTimer = null;
   let refreshTimer = null;
   let busy = false; // a re-anchor or switch is in progress
+  let standby = null; // relay: the idle Orbis line on the keeper's second session
+  let incoming = null; // relay: the standby while it warms up for a hand-over
+  let relayTimer = null;
+  let idleTimer = null;
+  let relayAgain = false; // an event arrived during a hand-over: relay once more when it is done
+  const loop = scene.loop;
   // What the picture is anchored to; a new line starts from the latest anchor, not the opening.
   let anchor = { reference: scene.reference, prompt: scene.opening, label: 'opening' };
   const fallback = scene.fallback;
@@ -34,8 +47,8 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
   const isOrbis = (model) => model.includes('visko-orbis');
   const label = (l) => (l ? (isOrbis(l.model) ? 'Orbis Dynamic' : 'LingBot World 2 (fallback)') : '');
 
-  async function token(model, attach) {
-    const r = await fetch(`/api/token?model=${encodeURIComponent(model)}${attach ? '&attach=1' : ''}`, { method: 'POST' });
+  async function token(model, attach, slot) {
+    const r = await fetch(`/api/token?model=${encodeURIComponent(model)}${attach ? `&attach=1&slot=${slot}` : ''}`, { method: 'POST' });
     const body = await r.json();
     if (!r.ok) throw new Error(body.error || `token ${r.status}`);
     return body;
@@ -53,22 +66,24 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
 
   // Open a line on `model`. Its tracks are held back until the line is promoted, so a probe
   // that connects never touches the picture until we decide to switch to it.
-  async function open(model) {
-    const l = { model, reactor: new Reactor({ modelName: model }), uploads: new Map(), awaitingFrames: false, tracks: {} };
+  async function open(model, slot = 1) {
+    const l = { model, deck: slot - 1, reactor: new Reactor({ modelName: model }), uploads: new Map(), awaitingFrames: false, tracks: {} };
     l.reactor.on('message', (m) => {
       if (l.awaitingFrames && m?.type === 'chunk_complete' && m.data?.frames_emitted > 0) {
         l.awaitingFrames = false;
-        if (l === line) onFrames?.(anchor, label(l));
+        if (l === line) onFrames?.(anchor, label(l), l.deck);
+        else if (l === incoming) handOver(l);
       }
       if (l === line) onMessage?.(m);
     });
     l.reactor.on('error', (e) => l === line && status('error', `${e.operation ?? ''} ${e.code ?? ''} ${e.message ?? e}`));
     l.reactor.on('trackReceived', (name, track, stream) => {
       l.tracks[name] = stream;
-      if (l === line) (name === 'main_video' ? onVideo : onAudio)?.(stream);
+      if (l === line) (name === 'main_video' ? onVideo : onAudio)?.(stream, l.deck);
     });
     const held = isOrbis(model) ? await keeper() : null;
-    const { jwt, sessionId } = await token(model, Boolean(held));
+    if (slot > 1 && (held?.session_ids?.length ?? 0) < slot) throw new Error(`keeper holds no slot ${slot}`);
+    const { jwt, sessionId } = await token(model, Boolean(held), slot);
     try {
       await l.reactor.connect(jwt, sessionId ? { sessionId } : undefined);
     } catch (e) {
@@ -118,8 +133,9 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     if (old) onFreeze?.(false);
     line = l;
     onLine?.(l.model);
-    if (l.tracks.main_video) onVideo?.(l.tracks.main_video);
-    if (l.tracks.main_audio) onAudio?.(l.tracks.main_audio);
+    dropRelay();
+    if (l.tracks.main_video) onVideo?.(l.tracks.main_video, l.deck);
+    if (l.tracks.main_audio) onAudio?.(l.tracks.main_audio, l.deck);
     await anchorAndStart(l);
     status('generating', `${anchor.label} · ${label(l)}${l.adopted ? ` · keeper, ${l.held.minutes_left} min left` : ''}`);
     for (const e of scene.events) if (e.mode === 'reanchor' && e.reference) fileRef(l, e.reference).catch(() => {});
@@ -128,6 +144,90 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     if (!isOrbis(l.model) && fallback?.reanchor_every_seconds) {
       refreshTimer = setInterval(() => reanchorTo(anchor, true), fallback.reanchor_every_seconds * 1000);
     }
+    if (isOrbis(l.model) && l.adopted && loop) armRelay(l);
+  }
+
+  // ---- relay between the keeper's two sessions ----
+
+  async function armRelay(first) {
+    if ((first.held?.session_ids?.length ?? 0) < 2) return; // one-session hold: no relay
+    try {
+      const l = await open(scene.model, first.deck === 0 ? 2 : 1);
+      if (line !== first || !wanted) return cleanup(l);
+      standby = l;
+      for (const e of scene.events) if (e.mode === 'reanchor' && e.reference) fileRef(l, e.reference).catch(() => {});
+      fileRef(l, anchor.reference).catch(() => {});
+      console.info('[live] relay armed: standby on keeper slot', l.deck + 1);
+      scheduleRelay();
+    } catch (e) {
+      console.warn('[live] relay not available:', String(e?.message ?? e));
+    }
+  }
+
+  function dropRelay() {
+    clearTimeout(relayTimer);
+    clearTimeout(idleTimer);
+    for (const l of [standby, incoming]) if (l && l !== line) cleanup(l);
+    standby = incoming = null;
+    relayAgain = false;
+  }
+
+  // The next timed hand-over: start warming the standby early enough that the line on the
+  // sphere has been visible for about loop.live_seconds when the new one takes over.
+  function scheduleRelay(sinceHandOver = 0) {
+    clearTimeout(relayTimer);
+    if (!standby || !loop?.live_seconds) return;
+    const lead = Math.max(1, loop.live_seconds - (loop.warmup_seconds ?? 9) - sinceHandOver);
+    relayTimer = setTimeout(() => relayTo(anchor, true), lead * 1000);
+  }
+
+  // Anchor and start the standby; handOver() runs when it has frames.
+  async function relayTo(next, quiet = false) {
+    anchor = next;
+    if (!standby || !line || !wanted) return false;
+    if (incoming || idleTimer) {
+      relayAgain = true; // one hand-over at a time; pick up the latest anchor afterwards
+      return true;
+    }
+    clearTimeout(relayTimer);
+    const to = standby;
+    incoming = to;
+    if (!quiet) status('reanchoring', `${next.label} · warming the second session`);
+    try {
+      if (to.tracks.main_video) onVideo?.(to.tracks.main_video, to.deck);
+      await anchorAndStart(to);
+    } catch (e) {
+      console.warn('[live] relay failed, falling back to a plain re-anchor:', String(e?.message ?? e));
+      incoming = null;
+      dropRelay();
+      return reanchorTo(next, quiet);
+    }
+    return true;
+  }
+
+  // The standby has picture: it becomes the line on the sphere (the page cross-fades from the
+  // old deck, which keeps playing), and the old line is reset once the fade is over.
+  function handOver(l) {
+    const old = line;
+    const settle = (loop?.fade_seconds ?? 3) + 4; // the page may wait ~2.5 s for decoded frames before fading
+    incoming = null;
+    line = l;
+    standby = old;
+    onLine?.(l.model);
+    if (l.tracks.main_audio) onAudio?.(l.tracks.main_audio, l.deck);
+    onFrames?.(anchor, label(l), l.deck);
+    status('generating', `${anchor.label} · ${label(l)} · relay, slot ${l.deck + 1}`);
+    idleTimer = setTimeout(async () => {
+      idleTimer = null;
+      try {
+        await old.reactor.sendCommand('reset', {}); // stop generating; the session stays held
+      } catch {}
+      onIdle?.(old.deck);
+      if (relayAgain) {
+        relayAgain = false;
+        relayTo(anchor, true);
+      } else scheduleRelay(settle);
+    }, settle * 1000);
   }
 
   const busyError = (e) => /capacity|RATE_LIMITED|429/i.test(String(e?.message ?? e));
@@ -182,6 +282,7 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
 
   async function reanchorTo(next, quiet = false) {
     anchor = next;
+    if (standby && line && isOrbis(line.model)) return relayTo(next, quiet);
     if (!line || line.reactor.getStatus() !== 'ready' || busy) return false;
     busy = true;
     try {
@@ -202,12 +303,28 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     clearInterval(refreshTimer);
     const l = line;
     line = null;
-    if (l) await cleanup(l);
+    for (const x of [standby, incoming]) {
+      if (!x || x === l) continue;
+      try {
+        await x.reactor.sendCommand('reset', {});
+      } catch {}
+    }
+    dropRelay();
+    if (l) {
+      if (l.adopted) {
+        try {
+          await l.reactor.sendCommand('reset', {}); // held session: stop generating, keep it
+        } catch {}
+      }
+      await cleanup(l);
+    }
     status('stopped');
   }
 
   // Never leave a billed session behind when the tab goes away.
-  window.addEventListener('pagehide', () => { if (line) line.reactor.disconnect(); });
+  window.addEventListener('pagehide', () => {
+    for (const l of [line, standby, incoming]) if (l) l.reactor.disconnect();
+  });
 
   const ready = () => line && line.reactor.getStatus() === 'ready';
 
@@ -217,6 +334,7 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     get active() { return wanted; },
     get ready() { return Boolean(ready()); },
     get model() { return line?.model ?? null; },
+    get relay() { return Boolean(standby || incoming); },
     async steer(prompt) {
       if (!ready()) return false;
       await line.reactor.sendCommand('set_prompt', { prompt });
