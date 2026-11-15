@@ -1,0 +1,125 @@
+{
+  "source": "source/Casting_Video_1794721792334.mp4",
+  "fps": 30,
+  "total_frames": 900,
+  "duration": 30,
+  "canvas": [
+    1080,
+    1920
+  ],
+  "camera_note": "No artificial camera motion or digital zoom added. Original head tracking retained.",
+  "segments": [
+    {
+      "id": "intro",
+      "start": 4.498,
+      "frames": 126,
+      "speed": 1,
+      "label": "QUEST CAPTURE · 1×",
+      "eyebrow": "A CLASSIC PAINTING, RECONSIDERED",
+      "title": "The Garden of\nConsequences",
+      "output_start": 0,
+      "output_duration": 4.2
+    },
+    {
+      "id": "reveal",
+      "start": 14.6,
+      "frames": 240,
+      "speed": 1,
+      "label": "QUEST CAPTURE · 1×",
+      "eyebrow": "01 / REVEAL",
+      "title": "One place.\nTwo possibilities.",
+      "body": "Point and pinch to reveal\nthe other side of the garden.",
+      "tech": "Aligned panoramic layers\n+ a gesture-controlled mask",
+      "output_start": 4.2,
+      "output_duration": 8.0
+    },
+    {
+      "id": "return",
+      "start": 23.428625,
+      "frames": 150,
+      "speed": 1,
+      "label": "QUEST CAPTURE · 1×",
+      "eyebrow": "02 / RETURN",
+      "title": "Let go.\nLook again.",
+      "body": "The garden returns.\nWhat you saw remains.",
+      "tech": "The interaction carries the story.\nThe composition stays aligned.",
+      "output_start": 12.2,
+      "output_duration": 5.0
+    },
+    {
+      "id": "garden-daynight",
+      "start": 31.8,
+      "frames": 56,
+      "speed": 3,
+      "label": "PREPARED LOOP · 3× PLAYBACK",
+      "eyebrow": "OPTIONAL MODE / 1 OF 4",
+      "title": "Garden\nDay / Night",
+      "body": "Time changes.\nThe painted world stays anchored.",
+      "tech": "Prepared day / night loop",
+      "output_start": 17.2,
+      "output_duration": 1.8666666666666667
+    },
+    {
+      "id": "hell-daynight",
+      "start": 46.5,
+      "frames": 56,
+      "speed": 3,
+      "label": "PREPARED LOOP · 3× PLAYBACK",
+      "eyebrow": "OPTIONAL MODE / 2 OF 4",
+      "title": "Aftermath\nDay / Night",
+      "body": "A different light\non the same consequences.",
+      "tech": "Prepared day / night loop",
+      "output_start": 19.066666666666666,
+      "output_duration": 1.8666666666666667
+    },
+    {
+      "id": "garden-seasons",
+      "start": 57.0,
+      "frames": 56,
+      "speed": 3,
+      "label": "PREPARED LOOP · 3× PLAYBACK",
+      "eyebrow": "OPTIONAL MODE / 3 OF 4",
+      "title": "Garden\nSeasons",
+      "body": "Abundance changes\nwith the passing seasons.",
+      "tech": "Prepared seasonal loop",
+      "output_start": 20.933333333333334,
+      "output_duration": 1.8666666666666667
+    },
+    {
+      "id": "hell-seasons",
+      "start": 69.5,
+      "frames": 56,
+      "speed": 3,
+      "label": "PREPARED LOOP · 3× PLAYBACK",
+      "eyebrow": "OPTIONAL MODE / 4 OF 4",
+      "title": "Aftermath\nSeasons",
+      "body": "Weather changes.\nThe ruined world remains.",
+      "tech": "Prepared seasonal loop",
+      "output_start": 22.8,
+      "output_duration": 1.8666666666666667
+    },
+    {
+      "id": "live",
+      "start": 124.5,
+      "frames": 160,
+      "speed": 1,
+      "label": "RECORDED LIVE LAB SESSION · 1×",
+      "eyebrow": "SECOND SCENARIO / LIVE LAB",
+      "title": "Prompt a\ndifferent world.",
+      "body": "Orbis Dynamic\nPrompt-steered generation",
+      "tech": "A separate, realistic scenario.\nRecorded session; waits omitted.",
+      "output_start": 24.666666666666668,
+      "output_duration": 5.333333333333333
+    }
+  ],
+  "audio": "Original recorded narration excerpts plus user-provided Suno music. Reveal voice shifted under an adjacent interaction excerpt.",
+  "subtitle_timing": "Sentence-level boundaries manually estimated after waveform alignment.",
+  "crop": {
+    "width": 810,
+    "height": 1440,
+    "x": 268,
+    "y": 0,
+    "fixed": true
+  },
+  "presentation": "Full-screen 9:16 headset recording; no editorial side panel. Brief artwork credit only at opening, mode/speed labels during optional studies and recorded Live Lab."
+}
