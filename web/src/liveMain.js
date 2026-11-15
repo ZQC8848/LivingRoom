@@ -1,21 +1,18 @@
 import * as THREE from 'three';
-import { VRButton } from 'three/addons/webxr/VRButton.js';
 import { SPHERE } from './config.js';
 import { createPanoSphere, measurePoles } from './panoMaterial.js';
 import { createPointerInput, directionToUv } from './pointer.js';
 import { createLive } from './live.js';
 import { createVrPanel } from './vrPanel.js';
+import { shell } from './shell.js';
+
+// The live hillside, one of the two experiences in the page (see shell.js): it borrows the
+// shell's renderer and XR session, and registers itself at the bottom of this file.
+const ID = 'hillside';
 
 const sceneName = new URLSearchParams(location.search).get('scene') || import.meta.env.VITE_DEFAULT_SCENE || 'hillside';
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.xr.enabled = true;
-renderer.xr.setReferenceSpaceType('local');
-renderer.xr.setFoveation(1);
-document.body.appendChild(renderer.domElement);
-document.body.appendChild(VRButton.createButton(renderer, { optionalFeatures: ['hand-tracking'] }));
+const renderer = shell.renderer;
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.05, 100);
@@ -261,6 +258,8 @@ function toggleLive() {
   vrPanel?.setButtonLabel('live', live.active ? 'Stop' : 'Go live');
 }
 ui.live.addEventListener('click', toggleLive);
+// Leave for the painted Garden without leaving VR (shell.js fades and swaps the scene).
+if (shell.has('garden')) ui.live.parentElement.appendChild(shell.switchButton('Garden ▸', 'garden'));
 const eventButtons = [];
 for (const ev of config.events) {
   const b = Object.assign(document.createElement('button'), {
@@ -349,9 +348,14 @@ async function steer(text) {
 
 // In VR the HTML HUD is invisible: the same controls float on a panel in front of the viewer.
 vrPanel = createVrPanel({
-  buttons: [{ id: 'live', label: 'Go live' }, ...config.events.map((e) => ({ id: e.label, label: e.label }))],
+  buttons: [
+    { id: 'live', label: 'Go live' },
+    ...config.events.map((e) => ({ id: e.label, label: e.label })),
+    ...(shell.has('garden') ? [{ id: 'garden', label: 'Garden ▸' }] : []),
+  ],
   onPress(id) {
     if (id === 'live') return toggleLive();
+    if (id === 'garden') return shell.switchTo('garden');
     const ev = config.events.find((e) => e.label === id);
     if (ev) runEvent(ev);
   },
@@ -389,9 +393,11 @@ const pointer = createPointerInput({
   renderer,
   camera,
   onSqueeze() {
+    if (!shell.is(ID)) return;
     vrPanel.placeInFront(renderer.xr.isPresenting ? renderer.xr.getCamera() : camera); // grip: bring the panel back in front
   },
   onSelect(ray, source) {
+    if (!shell.is(ID)) return; // the controllers and the canvas are shared with the other experience
     if (vrPanel.select(ray)) return; // pressed a panel button
     const dir = ray.direction.clone();
     pano.addRipple(dir, clock.getElapsedTime());
@@ -408,7 +414,7 @@ if (import.meta.env.DEV) window.__lr = { THREE, scene, camera, renderer, pano, l
 
 let lastPoleProbe = 0;
 let lastT = 0;
-renderer.setAnimationLoop(() => {
+function frame() {
   const t = clock.getElapsedTime();
   const dt = Math.min(t - lastT, 0.1); // (Clock.getDelta() after getElapsedTime() is always ~0)
   lastT = t;
@@ -442,13 +448,29 @@ renderer.setAnimationLoop(() => {
     }
     vrPanel.hover(pointer.rays());
   }
-  renderer.render(scene, camera);
-});
+}
 
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+shell.register(ID, {
+  title: 'Living Room',
+  scene,
+  camera,
+  frame,
+  ui: document.getElementById('hud'),
+  activate() {
+    for (const c of pointer.controllers) scene.add(c); // the other experience had them in its scene
+    panelPlaced = false; // put the panel in front of wherever the viewer looks now
+    xrFrames = 0;
+    if (panelOnDesktop && !renderer.xr.isPresenting) vrPanel.placeInFront(camera);
+  },
+  // Leaving: end the live sessions (they bill per second and hold Dynamic) and show the still.
+  async deactivate() {
+    if (live.active) {
+      await live.stop();
+      ui.live.textContent = 'Go live';
+      vrPanel.setButtonLabel('live', 'Go live');
+    }
+    vrPanel.mesh.visible = false;
+  },
 });
 
 // Desktop preview: drag to turn the head; a click without a drag points (ripple).

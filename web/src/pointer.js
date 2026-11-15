@@ -10,7 +10,10 @@ import * as THREE from 'three';
 export function createPointerInput({ renderer, camera, onSelect, onSqueeze }) {
   const controllers = [0, 1].map((i) => {
     const c = renderer.xr.getController(i);
-    c.add(makeRay());
+    if (!c.userData.ray) { // one ray line per controller, however many experiences use it
+      c.userData.ray = makeRay();
+      c.add(c.userData.ray);
+    }
     c.addEventListener('selectstart', () => onSelect(rayOf(c), 'xr'));
     c.addEventListener('squeezestart', () => onSqueeze?.());
     c.addEventListener('connected', (e) => (c.userData.inputSource = e.data));

@@ -1,6 +1,6 @@
 # Current state
 
-**Last updated: 2026-11-14 20:51 PST**
+**Last updated: 2026-11-14 21:33 PST**
 
 > This file **expires** — update it at the end of each working session. Earlier test logs
 > (per-wall Stable/Dynamic runs, four-wall capacity failure) are in git history; their
@@ -104,6 +104,28 @@ the prompt director, only typed prompts do. The page opens on the Morning still 
 Morning button highlighted. Snow / Asteroids / Saturn share a snowy night because they were
 stacked custom edits. **Verified:** buttons and stills offline. **Not verified:** Snow,
 Asteroids and Saturn live on Orbis (prompts untested); the seam behind the viewer on them.
+
+## Two experiences in one page (2026-11-14 21:33)
+
+The teammate's art-side app (**The Garden of Consequences**, `contributions/bosch-art/`,
+merged from `feat/bosch-art-handoff-20261114`, 1.4 GB via Git LFS) now runs **inside the same
+page** as the live hillside, so switching never leaves VR:
+- `web/src/shell.js` owns the one renderer, canvas, VR button and XR session; experiences
+  register `{scene, camera, frame, activate, deactivate, ui}`; `switchTo(id)` fades to black
+  (a sphere on the active camera), deactivates one, activates the other, fades in (~1.2-2 s).
+- `liveMain.js` registers `hillside` (deactivate = `live.stop()`, so its sessions end).
+- `web/src/garden/` is a port of her r6 `demo.js` / `demoModes.js` / `vrPanel.js` (changes
+  marked `shell:`); media comes from `/garden/` = symlink `web/public/garden` -> her `public/`.
+  It is preloaded 2.5 s after the hillside is up and stays paused until activated.
+- Switch controls: "Garden ▸" in the hillside HUD and VR panel, "◂ Hillside" in the Garden's
+  mode row and VR menu. `?exp=garden` opens on the Garden.
+- XR controllers and the canvas are shared: every input handler checks `shell.is(id)`.
+**Verified on desktop:** both experiences, reveal, a mode change, switching both ways,
+presets after switching back, live being stopped when leaving the hillside, both VR panels
+(`?panel=1`). **Not verified:** anything in the headset (the fade, panel placement after a
+switch, two sets of controller listeners, memory with both loaded); her sound after a switch;
+her Live Lab is not ported (needs her broker and tunnel). The standalone app in
+`contributions/.../bosch-demo` is untouched and still runs on its own (port 5182).
 
 ## In flight / undecided
 
