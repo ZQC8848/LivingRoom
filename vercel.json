@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm --prefix web ci",
+  "buildCommand": "VITE_DEPLOY=1 npm --prefix web run build",
+  "outputDirectory": "web/dist",
+  "headers": [
+    { "source": "/scenes/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }] }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+ "name": "hillside",
+ "model": "recorded",
+ "loop": {
+  "fade_seconds": 3
+ },
+ "events": [
+  {
+   "label": "Morning",
+   "mode": "reanchor",
+   "reference": "/scenes/hillside/reference.png",
+   "clip": "/scenes/hillside/clips/morning.mp4",
+   "seconds": 28.1
+  },
+  {
+   "label": "Snow",
+   "mode": "reanchor",
+   "reference": "/scenes/hillside/events/snow.jpg",
+   "clip": "/scenes/hillside/clips/snow.mp4",
+   "seconds": 27.9
+  },
+  {
+   "label": "Asteroids",
+   "mode": "reanchor",
+   "reference": "/scenes/hillside/events/asteroids.jpg",
+   "clip": "/scenes/hillside/clips/asteroids.mp4",
+   "seconds": 27.8
+  },
+  {
+   "label": "Saturn",
+   "mode": "reanchor",
+   "reference": "/scenes/hillside/events/saturn.jpg",
+   "clip": "/scenes/hillside/clips/saturn.mp4",
+   "seconds": 27.8
+  },
+  {
+   "label": "Rain",
+   "mode": "reanchor",
+   "reference": "/scenes/hillside/events/rain.png",
+   "clip": "/scenes/hillside/clips/rain.mp4",
+   "seconds": 27.8
+  }
+ ],
+ "reference": "/scenes/hillside/reference.png",
+ "still": "/scenes/hillside/pano_front.jpg",
+ "garden_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/"
+}
