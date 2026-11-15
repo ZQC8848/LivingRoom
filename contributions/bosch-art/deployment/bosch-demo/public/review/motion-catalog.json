@@ -1,0 +1,751 @@
+{
+  "source_dimensions": [
+    1774,
+    887
+  ],
+  "camera": "locked; no movement",
+  "period_seconds": 8,
+  "items": [
+    {
+      "id": "G01",
+      "layer": "garden",
+      "box": [
+        48,
+        96,
+        209,
+        248
+      ],
+      "action": "Complete rider, mounts and held branch sway together",
+      "method": "orbis",
+      "job": "aerial-creature",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "G02",
+      "layer": "garden",
+      "box": [
+        437,
+        125,
+        572,
+        217
+      ],
+      "action": "Complete fish/boat, tail, pole and fruit float together",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "G03",
+      "layer": "garden",
+      "box": [
+        617,
+        157,
+        664,
+        220
+      ],
+      "action": "Intentionally static: tiny uncertain detail disabled",
+      "method": "static",
+      "status": "intentionally static at user request",
+      "revision": "r4"
+    },
+    {
+      "id": "G04",
+      "layer": "garden",
+      "box": [
+        944,
+        120,
+        1263,
+        207
+      ],
+      "action": "Complete flock moves gently as one painted group",
+      "method": "flock",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "G05",
+      "layer": "garden",
+      "box": [
+        1092,
+        234,
+        1167,
+        275
+      ],
+      "action": "Roof fish gently rocks, building fixed",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G06",
+      "layer": "garden",
+      "box": [
+        1540,
+        114,
+        1644,
+        216
+      ],
+      "action": "Complete ornament including both wing tips and legs floats",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "G07",
+      "layer": "garden",
+      "box": [
+        1635,
+        185,
+        1734,
+        294
+      ],
+      "action": "Two complete birds; wing articulation anchored to the bodies",
+      "method": "orbis",
+      "job": "sky-birds",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "G08",
+      "layer": "garden",
+      "box": [
+        120,
+        285,
+        202,
+        417
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G09",
+      "layer": "garden",
+      "box": [
+        370,
+        334,
+        470,
+        388
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G10",
+      "layer": "garden",
+      "box": [
+        0,
+        383,
+        85,
+        490
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G11",
+      "layer": "garden",
+      "box": [
+        421,
+        401,
+        534,
+        461
+      ],
+      "action": "Deer make small slow steps inside this patch",
+      "method": "orbis",
+      "job": "herd",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G12",
+      "layer": "garden",
+      "box": [
+        533,
+        381,
+        650,
+        430
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G13",
+      "layer": "garden",
+      "box": [
+        558,
+        436,
+        612,
+        488
+      ],
+      "action": "Strawberry gently squashes and stretches",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G14",
+      "layer": "garden",
+      "box": [
+        404,
+        493,
+        478,
+        552
+      ],
+      "action": "Only the complete lower bank bird; broad silhouette and wing ruffle",
+      "method": "orbis",
+      "job": "bank-bird",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "G15",
+      "layer": "garden",
+      "box": [
+        477,
+        516,
+        545,
+        582
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G16",
+      "layer": "garden",
+      "box": [
+        636,
+        504,
+        757,
+        565
+      ],
+      "action": "Long neck gently sways, body stays near the bank",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G17",
+      "layer": "garden",
+      "box": [
+        780,
+        376,
+        816,
+        576
+      ],
+      "action": "Visible downward water ribbons, falling drops and splash rings",
+      "method": "waterfall",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G18",
+      "layer": "garden",
+      "box": [
+        1000,
+        377,
+        1048,
+        576
+      ],
+      "action": "Visible downward water ribbons, falling drops and splash rings",
+      "method": "waterfall",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G19",
+      "layer": "garden",
+      "box": [
+        1071,
+        460,
+        1120,
+        511
+      ],
+      "action": "Small waterbird ruffles its wings",
+      "method": "orbis",
+      "job": "waterbird-small",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G20",
+      "layer": "garden",
+      "box": [
+        1024,
+        484,
+        1140,
+        575
+      ],
+      "action": "Large waterbird raises a complete front wing and closes it twice",
+      "method": "orbis",
+      "job": "waterbird-large",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "G21",
+      "layer": "garden",
+      "box": [
+        1174,
+        415,
+        1221,
+        456
+      ],
+      "action": "Stag makes small planted steps",
+      "method": "orbis",
+      "job": "stag",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G22",
+      "layer": "garden",
+      "box": [
+        1168,
+        448,
+        1338,
+        495
+      ],
+      "action": "Bathers make small head and arm gestures in the pool",
+      "method": "orbis",
+      "job": "bathers",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G23",
+      "layer": "garden",
+      "box": [
+        1129,
+        600,
+        1225,
+        649
+      ],
+      "action": "Fish gently bobs in the water",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G24",
+      "layer": "garden",
+      "box": [
+        1692,
+        306,
+        1774,
+        425
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G25",
+      "layer": "garden",
+      "box": [
+        0,
+        587,
+        182,
+        724
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G26",
+      "layer": "garden",
+      "box": [
+        179,
+        675,
+        281,
+        762
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G27",
+      "layer": "garden",
+      "box": [
+        978,
+        712,
+        1063,
+        786
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G28",
+      "layer": "garden",
+      "box": [
+        1095,
+        745,
+        1198,
+        816
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G29",
+      "layer": "garden",
+      "box": [
+        1367,
+        620,
+        1453,
+        705
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G30",
+      "layer": "garden",
+      "box": [
+        1507,
+        578,
+        1563,
+        666
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G31",
+      "layer": "garden",
+      "box": [
+        1652,
+        579,
+        1774,
+        715
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G32",
+      "layer": "garden",
+      "box": [
+        1446,
+        756,
+        1525,
+        845
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G33",
+      "layer": "garden",
+      "box": [
+        1512,
+        704,
+        1598,
+        789
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G34",
+      "layer": "garden",
+      "box": [
+        1621,
+        694,
+        1692,
+        768
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G35",
+      "layer": "garden",
+      "box": [
+        552,
+        234,
+        579,
+        268
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G36",
+      "layer": "garden",
+      "box": [
+        561,
+        273,
+        603,
+        311
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G37",
+      "layer": "garden",
+      "box": [
+        724,
+        229,
+        766,
+        266
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G38",
+      "layer": "garden",
+      "box": [
+        724,
+        265,
+        766,
+        300
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "G39",
+      "layer": "garden",
+      "box": [
+        77,
+        370,
+        131,
+        409
+      ],
+      "action": "Small figures walk slowly within the group",
+      "method": "puppet",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H01",
+      "layer": "hell",
+      "box": [
+        437,
+        125,
+        572,
+        217
+      ],
+      "action": "Complete dark sky fish/boat floats",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "H02",
+      "layer": "hell",
+      "box": [
+        944,
+        115,
+        1186,
+        211
+      ],
+      "action": "Complete dark flock moves together",
+      "method": "flock",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "H03",
+      "layer": "hell",
+      "box": [
+        1540,
+        114,
+        1644,
+        216
+      ],
+      "action": "Complete dark ornament floats",
+      "method": "cutout",
+      "revision": "r4",
+      "status": "included in r4 review loop",
+      "delivered_method": "Complete original-paint polygon/card; coherent articulation; safe background margin"
+    },
+    {
+      "id": "H04",
+      "layer": "hell",
+      "box": [
+        62,
+        367,
+        101,
+        410
+      ],
+      "action": "Two small figures take slow small steps",
+      "method": "puppet",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H05",
+      "layer": "hell",
+      "box": [
+        0,
+        253,
+        106,
+        326
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H06",
+      "layer": "hell",
+      "box": [
+        383,
+        270,
+        440,
+        334
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H07",
+      "layer": "hell",
+      "box": [
+        458,
+        249,
+        545,
+        325
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H08",
+      "layer": "hell",
+      "box": [
+        749,
+        276,
+        837,
+        338
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H09",
+      "layer": "hell",
+      "box": [
+        938,
+        273,
+        1020,
+        339
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H10",
+      "layer": "hell",
+      "box": [
+        1247,
+        246,
+        1370,
+        331
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H11",
+      "layer": "hell",
+      "box": [
+        1624,
+        235,
+        1746,
+        328
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    },
+    {
+      "id": "H12",
+      "layer": "hell",
+      "box": [
+        0,
+        425,
+        1774,
+        691
+      ],
+      "action": "Dark river and pools ripple with moving fire reflections",
+      "method": "water",
+      "revision": "r4",
+      "status": "included in r4 review loop"
+    }
+  ],
+  "counterpart_effects": {
+    "G05": "Smoke rises from the ruined roof pipe in hell",
+    "G07": "Right city flames and smoke rise visibly",
+    "G08": "Left city flames and smoke rise visibly"
+  },
+  "intentionally_static": [
+    "G03"
+  ],
+  "annotations_are_not_model_inputs": true
+}

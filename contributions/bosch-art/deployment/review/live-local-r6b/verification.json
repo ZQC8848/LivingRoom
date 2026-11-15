@@ -1,0 +1,492 @@
+{
+  "base": "http://127.0.0.1:5183/",
+  "headsetVerified": false,
+  "startWasExplicit": true,
+  "initial": {
+    "phase": "idle",
+    "live": false,
+    "frames": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "XYZ"
+    ],
+    "mask": 0
+  },
+  "connected": {
+    "phase": "streaming",
+    "model": "reactor/visko-orbis-dynamic",
+    "frames": 1,
+    "events": [
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:41:48.822Z"
+      },
+      {
+        "type": "generation_started",
+        "at": "2026-11-15T04:41:48.850Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:50.911Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:52.732Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:54.550Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "first_received_frame",
+        "at": "2026-11-15T04:41:54.659Z"
+      }
+    ],
+    "commands": [
+      {
+        "command": "reset",
+        "sent_at": "2026-11-15T04:41:48.001Z",
+        "returned_at": "2026-11-15T04:41:48.031Z",
+        "reply": "generation_reset"
+      },
+      {
+        "command": "set_resolution",
+        "sent_at": "2026-11-15T04:41:48.031Z",
+        "returned_at": "2026-11-15T04:41:48.069Z",
+        "reply": "resolution_accepted"
+      },
+      {
+        "command": "set_image",
+        "sent_at": "2026-11-15T04:41:48.442Z",
+        "returned_at": "2026-11-15T04:41:48.796Z",
+        "reply": "image_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:41:48.796Z",
+        "prompt": "A wide open painterly atmosphere above an empty green foreground plain. Blue-green textured sky and grassy ground, in fine-grained early Netherlandish colours. No buildings, figures or animals. Soft daylight and thin drifting clouds in the sky. The foreground grass stirs in a light breeze. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:41:48.822Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "start",
+        "sent_at": "2026-11-15T04:41:48.822Z",
+        "returned_at": "2026-11-15T04:41:48.849Z"
+      }
+    ],
+    "live": true,
+    "error": null,
+    "sessionId": "93c66580-4bb2-4d87-91ed-1bbcd85085c4",
+    "started_at": "2026-11-15T04:41:48.001Z",
+    "ends_at": "2026-11-15T04:44:48.001Z",
+    "last_frame_at": "2026-11-15T04:41:54.659Z"
+  },
+  "stages": [
+    {
+      "id": "day",
+      "width": 1920,
+      "height": 1080,
+      "time": 0.427693,
+      "frames": 8,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "dusk",
+      "width": 1920,
+      "height": 1080,
+      "time": 10.065222,
+      "frames": 171,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "winter",
+      "width": 1920,
+      "height": 1080,
+      "time": 19.686773,
+      "frames": 337,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "rain",
+      "width": 1920,
+      "height": 1080,
+      "time": 29.304932,
+      "frames": 505,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "hell-rain",
+      "width": 1920,
+      "height": 1080,
+      "time": 46.743794,
+      "frames": 646,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    }
+  ],
+  "final": {
+    "phase": "streaming",
+    "model": "reactor/visko-orbis-dynamic",
+    "frames": 647,
+    "events": [
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:41:48.822Z"
+      },
+      {
+        "type": "generation_started",
+        "at": "2026-11-15T04:41:48.850Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:50.911Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:52.732Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:54.550Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "first_received_frame",
+        "at": "2026-11-15T04:41:54.659Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:56.377Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:41:56.384Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:41:56.384Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:41:58.230Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:00.052Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:01.880Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:03.713Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:05.553Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:42:05.554Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:42:05.554Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:07.398Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:09.230Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:11.064Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:12.897Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:14.740Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:42:14.741Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:42:14.741Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:16.571Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:18.399Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:20.235Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:22.066Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:23.892Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:25.720Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:42:26.904Z"
+      },
+      {
+        "type": "generation_started",
+        "at": "2026-11-15T04:42:26.938Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:28.992Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:30.829Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:32.668Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "first_received_frame",
+        "at": "2026-11-15T04:42:32.813Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:34.502Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:42:34.504Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:42:34.504Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:36.352Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:38.191Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:42:40.029Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      }
+    ],
+    "commands": [
+      {
+        "command": "reset",
+        "sent_at": "2026-11-15T04:41:48.001Z",
+        "returned_at": "2026-11-15T04:41:48.031Z",
+        "reply": "generation_reset"
+      },
+      {
+        "command": "set_resolution",
+        "sent_at": "2026-11-15T04:41:48.031Z",
+        "returned_at": "2026-11-15T04:41:48.069Z",
+        "reply": "resolution_accepted"
+      },
+      {
+        "command": "set_image",
+        "sent_at": "2026-11-15T04:41:48.442Z",
+        "returned_at": "2026-11-15T04:41:48.796Z",
+        "reply": "image_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:41:48.796Z",
+        "prompt": "A wide open painterly atmosphere above an empty green foreground plain. Blue-green textured sky and grassy ground, in fine-grained early Netherlandish colours. No buildings, figures or animals. Soft daylight and thin drifting clouds in the sky. The foreground grass stirs in a light breeze. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:41:48.822Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "start",
+        "sent_at": "2026-11-15T04:41:48.822Z",
+        "returned_at": "2026-11-15T04:41:48.849Z"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:41:55.253Z",
+        "prompt": "A wide open painterly atmosphere above an empty green foreground plain. Blue-green textured sky and grassy ground, in fine-grained early Netherlandish colours. No buildings, figures or animals. The open sky visibly turns deep violet and indigo dusk. Broad slow clouds cross the sky. Foreground grass darkens gently. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:41:56.384Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:42:04.861Z",
+        "prompt": "A wide open painterly atmosphere above an empty green foreground plain. Blue-green textured sky and grassy ground, in fine-grained early Netherlandish colours. No buildings, figures or animals. Overcast pale winter sky. Numerous tiny soft white specks of atmospheric snow drift downward. Thin pale snow settles across the empty foreground. Fine natural texture, no snowflake icons or large white shapes. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:42:05.554Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:42:14.489Z",
+        "prompt": "A wide open painterly atmosphere above an empty green foreground plain. Blue-green textured sky and grassy ground, in fine-grained early Netherlandish colours. No buildings, figures or animals. Dark rain clouds visibly move across the open sky. Fine thin translucent rain streaks descend through the air. The empty low foreground becomes wet. Fine atmospheric texture, no large drops, symbols or white shapes. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:42:14.741Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "reset",
+        "sent_at": "2026-11-15T04:42:24.054Z",
+        "returned_at": "2026-11-15T04:42:25.773Z",
+        "reply": "generation_reset"
+      },
+      {
+        "command": "set_resolution",
+        "sent_at": "2026-11-15T04:42:25.773Z",
+        "returned_at": "2026-11-15T04:42:25.801Z",
+        "reply": "resolution_accepted"
+      },
+      {
+        "command": "set_image",
+        "sent_at": "2026-11-15T04:42:26.102Z",
+        "returned_at": "2026-11-15T04:42:26.877Z",
+        "reply": "image_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:42:26.877Z",
+        "prompt": "A wide open painterly atmosphere above an empty brown ash foreground plain. Charcoal textured sky and scorched ground, in fine-grained early Netherlandish colours. No buildings, figures or animals. Soft daylight and thin drifting clouds in the sky. The foreground grass stirs in a light breeze. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:42:26.904Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "start",
+        "sent_at": "2026-11-15T04:42:26.904Z",
+        "returned_at": "2026-11-15T04:42:26.933Z"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:42:32.858Z",
+        "prompt": "A wide open painterly atmosphere above an empty brown ash foreground plain. Charcoal textured sky and scorched ground, in fine-grained early Netherlandish colours. No buildings, figures or animals. Dark rain clouds visibly move across the open sky. Fine thin translucent rain streaks descend through the air. The empty low foreground becomes wet. Fine atmospheric texture, no large drops, symbols or white shapes. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:42:34.504Z",
+        "reply": "prompt_accepted"
+      }
+    ],
+    "live": true,
+    "error": null,
+    "sessionId": "93c66580-4bb2-4d87-91ed-1bbcd85085c4",
+    "started_at": "2026-11-15T04:41:48.001Z",
+    "ends_at": "2026-11-15T04:44:48.001Z",
+    "last_frame_at": "2026-11-15T04:42:41.493Z"
+  },
+  "stopped": {
+    "phase": "stopped",
+    "live": false,
+    "session": null,
+    "mix": 0
+  },
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "pass": true
+}

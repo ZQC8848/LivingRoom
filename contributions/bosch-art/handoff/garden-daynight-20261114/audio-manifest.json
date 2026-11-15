@@ -1,0 +1,28 @@
+{
+  "language": "en",
+  "music": "User-exported Suno score, cyclic edit",
+  "ambience": "Existing authored garden sound bed",
+  "voice": "ElevenLabs George stock voice",
+  "narration": [
+    {
+      "id": "day",
+      "start_seconds": 0,
+      "text": "Everything seems to be in bloom. As though this moment could last forever.",
+      "duration_seconds": 5.016
+    },
+    {
+      "id": "dusk",
+      "start_seconds": 9,
+      "text": "Let the light fade. Look at what remains.",
+      "duration_seconds": 3.065
+    },
+    {
+      "id": "night",
+      "start_seconds": 18,
+      "text": "Night is not the garden's punishment. Even abundance needs a pause.",
+      "duration_seconds": 4.783
+    }
+  ],
+  "narration_policy": "Review movie includes narration; production proposal plays it once per encounter, not on every visual loop.",
+  "production_audio_modified": false
+}

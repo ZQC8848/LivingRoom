@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/ZQC8848/LivingRoom",
+  "branch": "feat/paired-video-reveal",
+  "commit": "a536ddae40071842912f5f5acdaf179dbaf8fa0f",
+  "media_release": "2026-11-14-r4",
+  "media_zip_sha256": "293117da80b48e2d4ae6abd7c22bf1d9ac5ba494da5d20817aedc9c8bd84d856",
+  "build": "Portable static build of the existing prototype; dev API and environment file loading excluded.",
+  "headset_verified": false,
+  "deployment_adaptations": [
+    "portable static build config",
+    "published title/share metadata",
+    "horizontal repeat sampling for the already-composed panorama",
+    "human-facing interaction instructions; playback diagnostics limited to debug mode",
+    "packed file fully buffered before video playback to support static-host seek behavior"
+  ],
+  "animation_review": "r4 user-requested complete object silhouettes; G03 intentionally static; G20 opens wing; stronger downward water and rising fire/smoke; camera and packed single-decoder reveal retained.",
+  "audio": "One Suno user-exported music source with bright/dark filter branches, ElevenLabs English stock-voice narration, authored environmental synthesis. Explicit opt-in, once-per-visit voice cues, static local files only. No keys in browser."
+}

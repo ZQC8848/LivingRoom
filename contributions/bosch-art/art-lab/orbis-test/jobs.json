@@ -1,0 +1,326 @@
+[
+  {
+    "id": "water",
+    "layer": "garden",
+    "label": "水面",
+    "support": [
+      0.34,
+      0.675,
+      0.585,
+      0.742
+    ],
+    "action": "Only the blue pond surface makes fine, shallow ripples that settle in place.",
+    "description": "The blue pond beneath the distant blue fountain, between painted grassy banks.",
+    "polygon": [
+      [
+        0.34,
+        0.69
+      ],
+      [
+        0.4,
+        0.68
+      ],
+      [
+        0.47,
+        0.675
+      ],
+      [
+        0.575,
+        0.68
+      ],
+      [
+        0.585,
+        0.715
+      ],
+      [
+        0.55,
+        0.742
+      ],
+      [
+        0.42,
+        0.738
+      ],
+      [
+        0.34,
+        0.725
+      ]
+    ],
+    "crop": [
+      408,
+      396,
+      1233,
+      861
+    ],
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "prompt": "Static camera, locked framing and deep focus throughout. The blue pond beneath the distant blue fountain, between painted grassy banks. Only the blue pond surface makes fine, shallow ripples that settle in place. The original painted brush texture, daylight, banks, buildings, horizon and every other figure remain fixed in their reference positions and shapes. The entire action stays inside the existing silhouette and its immediate surroundings. The opening and ending poses are nearly identical; the composition holds as a painted tableau.",
+    "model": "reactor/visko-orbis-dynamic",
+    "capture_seconds": 6
+  },
+  {
+    "id": "horse",
+    "layer": "garden",
+    "label": "白马低头",
+    "support": [
+      0.013,
+      0.545,
+      0.081,
+      0.624
+    ],
+    "action": "The small ivory unicorn gently dips its closed muzzle toward the grass once, then returns to its original pose; its long slender horn and four planted hooves keep their exact shapes. Its lips remain closed and its muzzle stays clean.",
+    "description": "A small ivory unicorn in an early Netherlandish painted garden.",
+    "polygon": [
+      [
+        0.013,
+        0.565
+      ],
+      [
+        0.025,
+        0.546
+      ],
+      [
+        0.049,
+        0.545
+      ],
+      [
+        0.071,
+        0.559
+      ],
+      [
+        0.08,
+        0.588
+      ],
+      [
+        0.081,
+        0.62
+      ],
+      [
+        0.065,
+        0.624
+      ],
+      [
+        0.047,
+        0.618
+      ],
+      [
+        0.023,
+        0.618
+      ],
+      [
+        0.013,
+        0.595
+      ]
+    ],
+    "crop": [
+      0,
+      429,
+      319,
+      608
+    ],
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "prompt": "Locked static camera, identical framing and original painted brush texture throughout. A small ivory unicorn in an early Netherlandish painted garden. The small ivory unicorn gently dips its closed muzzle toward the grass once, then returns to its original pose; its long slender horn and four planted hooves keep their exact shapes. Its lips remain closed and its muzzle stays clean. All surrounding architecture and ground remain fixed in their original positions.",
+    "model": "reactor/visko-orbis-dynamic",
+    "capture_seconds": 6
+  },
+  {
+    "id": "bird",
+    "layer": "garden",
+    "label": "鸟翼轻动",
+    "support": [
+      0.096,
+      0.596,
+      0.151,
+      0.718
+    ],
+    "action": "The standing blue bird lifts both wings halfway out from its body, makes one clear short wingbeat, and folds both wings back. Its two feet stay planted at the same points.",
+    "description": "One blue long-legged bird, with a cream neck and folded blue wings, in the supplied painting.",
+    "polygon": [
+      [
+        0.096,
+        0.643
+      ],
+      [
+        0.112,
+        0.626
+      ],
+      [
+        0.126,
+        0.6
+      ],
+      [
+        0.14,
+        0.596
+      ],
+      [
+        0.151,
+        0.61
+      ],
+      [
+        0.143,
+        0.637
+      ],
+      [
+        0.134,
+        0.662
+      ],
+      [
+        0.132,
+        0.718
+      ],
+      [
+        0.114,
+        0.718
+      ],
+      [
+        0.107,
+        0.681
+      ],
+      [
+        0.096,
+        0.665
+      ]
+    ],
+    "crop": [
+      36,
+      480,
+      402,
+      686
+    ],
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "prompt": "Locked static camera, identical framing and original painted brush texture throughout. One blue long-legged bird, with a cream neck and folded blue wings, in the supplied painting. The standing blue bird lifts both wings halfway out from its body, makes one clear short wingbeat, and folds both wings back. Its two feet stay planted at the same points. All surrounding architecture and ground remain fixed in their original positions.",
+    "model": "reactor/visko-orbis-dynamic",
+    "capture_seconds": 6
+  },
+  {
+    "id": "leaves",
+    "layer": "garden",
+    "label": "枝叶微风",
+    "support": [
+      0.576,
+      0.211,
+      0.648,
+      0.338
+    ],
+    "action": "A gentle breeze visibly bends the tree crown left and right by about one tenth of its width; leaf clusters move together while the trunk base holds its position.",
+    "description": "A green tree crown above the pink shell-shaped building in the supplied painting.",
+    "polygon": [
+      [
+        0.583,
+        0.23
+      ],
+      [
+        0.602,
+        0.211
+      ],
+      [
+        0.625,
+        0.216
+      ],
+      [
+        0.643,
+        0.239
+      ],
+      [
+        0.648,
+        0.278
+      ],
+      [
+        0.635,
+        0.316
+      ],
+      [
+        0.614,
+        0.338
+      ],
+      [
+        0.59,
+        0.316
+      ],
+      [
+        0.576,
+        0.28
+      ]
+    ],
+    "crop": [
+      895,
+      136,
+      1276,
+      350
+    ],
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "prompt": "Locked static camera, identical framing and original painted brush texture throughout. A green tree crown above the pink shell-shaped building in the supplied painting. A gentle breeze visibly bends the tree crown left and right by about one tenth of its width; leaf clusters move together while the trunk base holds its position. All surrounding architecture and ground remain fixed in their original positions.",
+    "model": "reactor/visko-orbis-dynamic",
+    "capture_seconds": 6
+  },
+  {
+    "id": "fire",
+    "layer": "hell",
+    "label": "地狱远城火光",
+    "support": [
+      0.68,
+      0.294,
+      0.83,
+      0.374
+    ],
+    "action": "Only the distant orange flames make a small in-place flicker behind the fixed dark skyline.",
+    "description": "A distant ruined city glows orange behind a dark ridge, with charred trees and a cracked shell-shaped building in the foreground.",
+    "polygon": [
+      [
+        0.68,
+        0.33
+      ],
+      [
+        0.72,
+        0.306
+      ],
+      [
+        0.77,
+        0.294
+      ],
+      [
+        0.83,
+        0.31
+      ],
+      [
+        0.83,
+        0.35
+      ],
+      [
+        0.77,
+        0.369
+      ],
+      [
+        0.71,
+        0.374
+      ],
+      [
+        0.68,
+        0.35
+      ]
+    ],
+    "crop": [
+      1087,
+      154,
+      1592,
+      438
+    ],
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "prompt": "Static camera, locked framing and deep focus throughout. A distant ruined city glows orange behind a dark ridge, with charred trees and a cracked shell-shaped building in the foreground. Only the distant orange flames make a small in-place flicker behind the fixed dark skyline. The original painted brush texture, daylight, banks, buildings, horizon and every other figure remain fixed in their reference positions and shapes. The entire action stays inside the existing silhouette and its immediate surroundings. The opening and ending poses are nearly identical; the composition holds as a painted tableau.",
+    "model": "reactor/visko-orbis-dynamic",
+    "capture_seconds": 6
+  }
+]

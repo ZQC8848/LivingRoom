@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "scene": "bosch-demo",
+  "release": "2026-11-14-r5",
+  "title": "The Garden of Consequences",
+  "subtitle": "A garden. A gesture. A consequence.",
+  "media": {
+    "heaven": "heaven.mp4",
+    "hell": "hell.mp4",
+    "poster": "poster.jpg",
+    "hellPoster": "hell-poster.jpg",
+    "fps": 30,
+    "loop": true,
+    "packed": "paired.mp4",
+    "packedLayout": "heaven-top-hell-bottom"
+  },
+  "video": {
+    "width": 2048,
+    "height": 1024,
+    "aspect_ratio": "2:1",
+    "projection": "equirectangular",
+    "fps": 30,
+    "frame_count": 240,
+    "duration_seconds": 8,
+    "codec": "h264",
+    "profile": "High",
+    "level": "4.0",
+    "pixel_format": "yuv420p",
+    "color_space": "BT.709",
+    "color_primaries": "BT.709",
+    "transfer": "BT.709",
+    "range": "limited",
+    "audio": false,
+    "faststart": true,
+    "gop_frames": 60
+  },
+  "orientation": {
+    "front_longitude_degrees": 0,
+    "front_u": 0.5,
+    "image_origin": "top-left",
+    "zenith_v": 0,
+    "nadir_v": 1,
+    "right_is_increasing_u": true,
+    "camera_motion": "none",
+    "already_projected": true,
+    "geometry": "head-locked sphere; translation removed"
+  },
+  "sampling": {
+    "notes": "Direct 2:1 equirect sampling. No 16:9 stretch, model edge crop, or new cylindrical-band projection. The sky/floor and narrow rear blend are already baked in. Apply texture flipY exactly once for Three.js UV convention.",
+    "paired_pixels_aligned": true
+  },
+  "loop": {
+    "method": "8-second authored periodic motion; eased forward/reverse generated motion fields and retained bird/fire source clips; model-native seamless looping is not claimed",
+    "native_model_loop": false
+  },
+  "production": {
+    "horse": "Fixed original painted head/closed muzzle and horn, small anchored nod. Mouth texture and alpha are not regenerated.",
+    "water": "Whole-river controlled travelling ripples and small elliptical rings, with architecture/islands/figures excluded.",
+    "bird": "Retained Orbis Dynamic poses, exposure matched object mattes.",
+    "fire": "Retained Orbis Stable flame shapes, keyed behind a fixed skyline.",
+    "new_model_calls": 0,
+    "headset_verified": false,
+    "new_generated_rgb_layers_accepted": 0,
+    "new_generated_flow_layers_accepted": [],
+    "marked_regions": 51,
+    "motion_catalog": "motion-catalog.json",
+    "method": "User-reviewed complete silhouettes; joined wing articulation; downward water/droplets; stronger rising flames, smoke and roof pipe smoke. Fixed camera. No environment warp.",
+    "prior_model_captures_reused": 8,
+    "prior_model_flow_layers_used": [
+      "herd",
+      "stag",
+      "bathers"
+    ],
+    "intentionally_static": [
+      "G03"
+    ]
+  },
+  "focus": {
+    "horse": {
+      "u": 0.07271702367531004,
+      "v": 0.7092182429417313,
+      "longitude_degrees": -153.8218714768884,
+      "latitude_degrees": -37.659283729511635
+    },
+    "bird": {
+      "u": 0.1245772266065389,
+      "v": 0.741020868660744,
+      "longitude_degrees": -135.15219842164598,
+      "latitude_degrees": -43.38375635893393
+    },
+    "water": {
+      "u": 0.52423900789177,
+      "v": 0.7672717524728203,
+      "longitude_degrees": 8.72604284103721,
+      "latitude_degrees": -48.10891544510767
+    },
+    "leaves": {
+      "u": 0.625140924464487,
+      "v": 0.32517731049635346,
+      "longitude_degrees": 45.05073280721532,
+      "latitude_degrees": 31.468084110656378
+    },
+    "fire": {
+      "u": 0.7536640360766629,
+      "v": 0.4251363106944212,
+      "longitude_degrees": 91.31905298759864,
+      "latitude_degrees": 13.475464075004185
+    }
+  },
+  "files": {
+    "heaven.mp4": {
+      "bytes": 3355413,
+      "sha256": "3438170dcaee05f63ef222719323b8cdcbcb4f45265c33a4280c8cb6ef0fc890"
+    },
+    "hell-poster.jpg": {
+      "bytes": 313327,
+      "sha256": "8e7ec2661e7abc7586562f155499f10888c53169413457d2b6ceb6af54446248"
+    },
+    "hell.mp4": {
+      "bytes": 2623919,
+      "sha256": "5c29d05ac0533d9ab635048edafc88e21ad8462e7ee813d92d6293916fc4cd22"
+    },
+    "motion-catalog.json": {
+      "bytes": 17657,
+      "sha256": "3ccb514a534de8c44a89ed90947a8ba5a06ead364119dc99ba0dbc76b228caa4"
+    },
+    "paired.mp4": {
+      "bytes": 5411193,
+      "sha256": "8db9a9e774c31e94b46cf0a782c5a8dfb3f3c287bad0c535f08afd8ac640ece2"
+    },
+    "poster.jpg": {
+      "bytes": 416072,
+      "sha256": "f4b016fb26f27ee2ba074c3173e4cc3acd34cf47638d6af25588908f9b8258c7"
+    }
+  },
+  "packed_video": {
+    "width": 2048,
+    "height": 2048,
+    "aspect_ratio": "1:1 packed container; each plane remains 2:1",
+    "projection": "equirectangular",
+    "fps": 30,
+    "frame_count": 240,
+    "duration_seconds": 8,
+    "codec": "h264",
+    "profile": "High",
+    "level": "5.1",
+    "pixel_format": "yuv420p",
+    "color_space": "BT.709",
+    "color_primaries": "BT.709",
+    "transfer": "BT.709",
+    "range": "limited",
+    "audio": false,
+    "faststart": true,
+    "gop_frames": 60,
+    "rows": 2,
+    "columns": 1,
+    "order": [
+      "heaven",
+      "hell"
+    ],
+    "pane_width": 2048,
+    "pane_height": 1024,
+    "decoder_count": 1,
+    "shared_clock": true
+  },
+  "audio": {
+    "manifest": "/audio/manifest-r5.json",
+    "opt_in": true,
+    "language": "en",
+    "separate_from_visual_loop": true,
+    "one_music_clock": true,
+    "music": "Suno user export",
+    "narration": "Eight mode-aware English cues; Lily stock voice; research integrated into narration",
+    "environmental_beds": "Authored procedural synthesis; unexported Suno SFX are not shipped"
+  },
+  "optional_modes_manifest": "../modes/manifest.json"
+}

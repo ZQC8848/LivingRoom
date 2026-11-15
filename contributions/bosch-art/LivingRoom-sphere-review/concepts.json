@@ -1,0 +1,785 @@
+[
+  {
+    "id": "01",
+    "title": "房子的四个年代",
+    "family": "时间与记忆",
+    "refs": [
+      "R1",
+      "R5"
+    ],
+    "grammar": "同址异时，整景逐渐改写",
+    "premise": "你站在一座房子的生命中，经历建造前、有人居住、荒废与森林归来。",
+    "interaction": "触摸记忆中的暖光，让它照亮下一段年代。转头寻找同一窗形留下的痕迹。",
+    "reveal": "最后房子消失，森林保留那扇窗形的阳光。",
+    "spatial": [
+      "环绕：旧屋连续长成森林",
+      "头顶：屋顶逐渐让位于天空",
+      "脚下：地毯、脚印与根系叠存"
+    ],
+    "style": "胶片写实，赭黄、苔绿与雨蓝",
+    "test": "先验证整景转变与窗形母题，年代数可压缩。",
+    "art": "A lived-in 1970s living room in honey sunlight gradually becomes an abandoned rain-soaked ruin reclaimed by roots, then opens into forest and meadow. A lace curtain and faded patterned rug persist as ghostly traces at the near left. Across the center and right peeling plaster dissolves into moss and trees, without any borders. The roof becomes seasonal sky, the ground layers rug patterns, footprints and roots. A warm window-shaped band of light survives in the forest. Photographic cinematic memory, analog film grain, nuanced ochre, moss green and cyan rain.",
+    "beats": [
+      "旧客厅以声音与光邀请你辨认一段生活。",
+      "触摸暖光，整片世界经历荒废与生长。",
+      "森林留下窗形阳光，房子的生命得到收束。"
+    ]
+  },
+  {
+    "id": "02",
+    "title": "未寄出的信",
+    "family": "时间与记忆",
+    "refs": [
+      "R2",
+      "R5"
+    ],
+    "grammar": "缺席的人物，重复的环境回应",
+    "premise": "海边小屋始终留着一把空椅，你沿风与灯光等待一个没有出现的人。",
+    "interaction": "触碰空椅前的光，窗帘先动，远处海面与灯塔随后回答。",
+    "reveal": "黎明到来，等待没有变成相遇，却获得一次温柔的回应。",
+    "spatial": [
+      "环绕：小屋、窗外海岸连成一景",
+      "头顶：纸纤维般的云层",
+      "脚下：墨迹慢慢化成水纹"
+    ],
+    "style": "蓝晒摄影与纸纹，群青配奶白",
+    "test": "依靠空椅、风和灯光，不要求文字或人物身份稳定。",
+    "art": "Inside a quiet coastal cottage that opens naturally onto a lonely sea, an empty wooden chair stands by a large open window in the foreground. White paper without legible writing and a translucent curtain stir in sea air. A distant lighthouse answers with a tiny amber light. The floor has subtle blue ink stains transitioning into reflected water, clouds resemble paper fibers. Cyanotype photographic dream collage, ultramarine blue, milk-white paper, small warm sunrise accents, intimate and poignant.",
+    "beats": [
+      "空椅与远处灯塔让你意识到有人缺席。",
+      "你触碰椅前的光，风把环境回应带回来。",
+      "晨光落在空椅上，等待平静结束。"
+    ]
+  },
+  {
+    "id": "03",
+    "title": "倒流的车站",
+    "family": "时间与记忆",
+    "refs": [
+      "R1",
+      "R2"
+    ],
+    "grammar": "同一场景里的不同时间速度",
+    "premise": "你在空车站等待一场已经发生的离别，雨与列车的方向逐渐倒流。",
+    "interaction": "伸手让车站慢下来，再次触碰让过去短暂重现。",
+    "reveal": "时间回到现在，唯一留下的是同时亮起的站灯。",
+    "spatial": [
+      "环绕：连续站台与伸向身后的铁轨",
+      "头顶：倒流的雨与变化的云",
+      "脚下：不动的水洼保存旧反光"
+    ],
+    "style": "复古未来主义，钴蓝、锈红与湿地反光",
+    "test": "以雨、光和速度表明倒流，避免依赖精确人物倒放。",
+    "art": "A continuous deserted railway platform wraps around the viewer, rails curve from foreground toward the distance behind. A red train is a distant softened memory, fine rain appears to lift upward and suspended leaves suggest reversed time. Station lamps all glow amber for one instant, puddles remain still and hold an older sunset reflection. Retro-futurist cinematic station, cobalt blue, rust red, beautiful glossy rain, stable eye-level horizon, empty signage with no readable words.",
+    "beats": [
+      "列车已离开，站台只留下声音。",
+      "你的手让时间倒流，离别的环境重新出现。",
+      "站灯同时亮起，车站回到当下。"
+    ]
+  },
+  {
+    "id": "04",
+    "title": "冰中的明天",
+    "family": "时间与记忆",
+    "refs": [
+      "R1",
+      "R5"
+    ],
+    "grammar": "由表层揭示时间的深度",
+    "premise": "冰湖里封存着旧村庄与尚未出现的森林，未来藏在同一片风景之下。",
+    "interaction": "让手掌停留在冰霜上，雾气散去，水下的另一种年代逐渐显露。",
+    "reveal": "融冰后出现可生长的湿地，远处仍保留尚未融化的过去。",
+    "spatial": [
+      "环绕：冰湖与旧村连成辽阔风景",
+      "头顶：冰晶薄云与极淡星光",
+      "脚下：冰下叶脉与水中的新芽"
+    ],
+    "style": "冰晶微距与风景，冷蓝配蜂蜜金",
+    "test": "验证解冻的可读性，未来用环境变化表达。",
+    "art": "Standing at the center of a frozen lake in an old northern village, translucent blue ice reveals preserved leaves and hints of a future green wetland underneath. A nearby patch of frost has cleared into warm amber water; distant wooden houses remain frozen while young reeds emerge closer by. Soft crystalline clouds overhead, extremely tactile ice bubbles near the feet. Contemplative photographic glacial world, blue and honey gold, no visible interface, no fragmented screens.",
+    "beats": [
+      "你先发现冰下保存的生命。",
+      "手掌唤起融水，湿地在同一地点慢慢出现。",
+      "新芽与冰封旧村共同留在风景中。"
+    ]
+  },
+  {
+    "id": "05",
+    "title": "回头之后",
+    "family": "时间与记忆",
+    "refs": [
+      "R2",
+      "R5"
+    ],
+    "grammar": "转头完成剪辑，回看发现经过的时间",
+    "premise": "一间普通的家在你转身观看的过程中慢慢经历一天。",
+    "interaction": "追随身后的生活声，回看熟悉物件时发现光线与生活痕迹已经改变。",
+    "reveal": "夜里只剩一盏灯，你意识到自己陪这间屋子度过了一天。",
+    "spatial": [
+      "环绕：卧室、厨房与走廊连通",
+      "头顶：日光沿屋顶缓慢移动",
+      "脚下：光斑与少量落叶积累"
+    ],
+    "style": "生活电影，奶油白、橄榄绿与钨丝灯",
+    "test": "先做可辨认的昼夜变化，再试细小的回看差异。",
+    "art": "Inside one continuous modest home, a bedroom opens toward a small kitchen and a long corridor curves out of view. A single teacup, a folded blanket and an empty dining chair suggest a lived day without visible people. Afternoon light transitions to early evening along the same interior, a warm lamp already glows deeper in the corridor. Faded olive, cream-white plaster, tobacco wood and soft analog film texture; domestic cinematic realism, natural eye-level view.",
+    "beats": [
+      "生活声引导你逐渐认识这间家。",
+      "每次转身，整景时间缓慢前进。",
+      "你与最后一盏灯一起进入夜晚。"
+    ]
+  },
+  {
+    "id": "06",
+    "title": "一滴雨的旅程",
+    "family": "因果与接力",
+    "refs": [
+      "R1",
+      "R2"
+    ],
+    "grammar": "一种物质连接不同空间尺度",
+    "premise": "你跟随水从一片叶子，经过森林溪流，抵达海洋与云层。",
+    "interaction": "抬手唤雨，触碰水纹让整个风景进入水循环的下一阶段。",
+    "reveal": "水汽回到头顶，最初的一滴雨再次落下。",
+    "spatial": [
+      "环绕：叶片、溪流与海岸连续演变",
+      "头顶：凝结与蒸发的云",
+      "脚下：土壤、根系和浅水"
+    ],
+    "style": "自然纪录片质感，翡翠绿与银蓝",
+    "test": "以流动和形态呼应串联，水滴无需始终保持同一外形。",
+    "art": "A magical but coherent rainforest stream flowing toward a distant ocean, with huge dew-covered leaves in the near foreground, winding silver water through the center, roots and porous soil at the viewer's feet. Farther out the stream opens into a bright estuary; vapor rises into luminous clouds overhead. Nature documentary photographic beauty with a gentle scale-transition quality, emerald green, dark wet stone and silver blue. Stable horizon, everything belongs to one surrounding ecosystem.",
+    "beats": [
+      "一滴雨让近处叶片与土壤醒来。",
+      "你触碰水纹，风景沿水的旅程逐渐转换。",
+      "云把雨送回起点，循环完成。"
+    ]
+  },
+  {
+    "id": "07",
+    "title": "借来的四季",
+    "family": "因果与接力",
+    "refs": [
+      "R1",
+      "R2"
+    ],
+    "grammar": "天气交换产生可见的得失",
+    "premise": "一个失衡的果园同时保留四季的痕迹，你能替它借来雨、光或风。",
+    "interaction": "选择带来融水或阳光，整个果园随之变化，也失去原先的一部分状态。",
+    "reveal": "结尾是一季带着其他季节痕迹的风景，保留你的选择。",
+    "spatial": [
+      "环绕：同一果园里季节渐变交融",
+      "头顶：共同的太阳和天气",
+      "脚下：花瓣、果实、落叶与残雪"
+    ],
+    "style": "精细手绘风景，共享纸纹与四季颜色",
+    "test": "四季用连续渐变呈现，先验证一种天气的得失。",
+    "art": "Standing within a single beautiful orchard whose trees gradually show buds, full green leaves, amber leaves and a little snow in overlapping natural gradients, not discrete regions. A gentle stream of meltwater nourishes new buds while the nearest snow thins. Petals, fallen fruit, leaves and fine ice coexist on the stable ground. One shared sun and cloud canopy. Sophisticated hand-painted landscape with consistent paper texture, seasonal color harmony, wide coherent perspective, no divisions.",
+    "beats": [
+      "果园显露干旱、寒冷或过热的痕迹。",
+      "你借来一种天气，观察整个世界付出的变化。",
+      "最终风景保留给予与失去的结果。"
+    ]
+  },
+  {
+    "id": "08",
+    "title": "一口气吹过世界",
+    "family": "因果与接力",
+    "refs": [
+      "R2",
+      "R3"
+    ],
+    "grammar": "同一动作在不同介质中接力",
+    "premise": "一阵风从窗帘进入草地、芦苇和云，慢慢绕回你的身边。",
+    "interaction": "挥手唤风，停手让它停留，再挥手邀请下一次环境回应。",
+    "reveal": "风从背后回来，整个世界完成一次共同的呼吸。",
+    "spatial": [
+      "环绕：敞窗小屋自然通向草地与湖岸",
+      "头顶：薄云随风缓慢改变",
+      "脚下：落叶和光影局部旋转"
+    ],
+    "style": "高调摄影，乳白、鼠尾草绿与银光",
+    "test": "验证先后顺序，避免环境始终等强运动。",
+    "art": "Inside an open airy lakeside pavilion with a sheer white curtain close to the viewer, continuous meadow grass, reeds and a shimmering lake surround the architecture. A visible gentle gust bends the curtain first, then grass, then reeds farther away, with clouds flowing overhead. A few leaves and soft local shadows on still ground. High-key cinematic photography, milky fabric, sage green, silver reflections and delicate natural textures, no framed video walls.",
+    "beats": [
+      "窗帘轻动，其他景物静静等待。",
+      "你让风穿过草与水，追随它的声音转头。",
+      "风绕回来，空间完成一次呼吸。"
+    ]
+  },
+  {
+    "id": "09",
+    "title": "城市停电之夜",
+    "family": "因果与接力",
+    "refs": [
+      "R2",
+      "R4"
+    ],
+    "grammar": "局部点亮，回应向周围扩散",
+    "premise": "你站在停电的街角，城市等待有人点起第一盏灯。",
+    "interaction": "触碰一个微亮处，灯光与生活声沿街道绕着你依次苏醒。",
+    "reveal": "城市恢复了温暖，头顶仍保留熄灯时才看见的星空。",
+    "spatial": [
+      "环绕：连续街道、商店与公寓",
+      "头顶：停电后显露的星空",
+      "脚下：湿路面收集灯光"
+    ],
+    "style": "夜景电影，深靛蓝与钠灯橙",
+    "test": "验证点亮顺序能否自然邀请转头。",
+    "art": "A continuous urban street corner at night during a blackout, dark apartment windows and a closed corner shop surround the viewer, a distant harbor light visible at the end of the street. One amber window has just awakened and a chain of small lamps is beginning to spread around the neighborhood. Wet black pavement reflects sparse warm lights, an unexpectedly rich starfield overhead. Moody cinematic city photography, deep indigo, sodium orange, subtle human warmth, blank unreadable signage.",
+    "beats": [
+      "黑暗中的生活声先让城市存在。",
+      "你点起第一处灯，回应逐渐绕过街角。",
+      "灯光与星空共同完成城市的夜晚。"
+    ]
+  },
+  {
+    "id": "10",
+    "title": "海拔之间",
+    "family": "因果与接力",
+    "refs": [
+      "R1",
+      "R5"
+    ],
+    "grammar": "流域变成可经历的时间链",
+    "premise": "雪山的一个变化，经过森林和城市，最终抵达海边。",
+    "interaction": "触摸冰雪唤起融水，整景依次进入下游风景，让后果慢慢抵达。",
+    "reveal": "头顶的水汽与脚下的储水层显露完整循环。",
+    "spatial": [
+      "环绕：雪山逐渐转成森林、河岸与海口",
+      "头顶：流动的水汽与降水",
+      "脚下：浅水映出地下岩层"
+    ],
+    "style": "地理史诗，岩灰、松绿与冰川青",
+    "test": "下游以整景阶段变化呈现，镜头运动保持克制。",
+    "art": "Standing at a spectacular river bend below an alpine glacier, distant snow mountains descend naturally through dense pine forest toward a river valley and far lowland lights. Near the viewer clear shallow water reveals layered rock and an aquifer-like glow, vapor rises into clouds above. At the key moment silver meltwater begins connecting the entire landscape. Epic topographic photographic cinema, rock grey, pine green, glacial turquoise and small warm lowland lights, stable viewpoint.",
+    "beats": [
+      "你在雪山下察觉一股尚未释放的水。",
+      "一次触摸让世界按下游阶段慢慢转变。",
+      "海与云让这次变化成为完整循环。"
+    ]
+  },
+  {
+    "id": "11",
+    "title": "一棵树的六个证人",
+    "family": "视角与关系",
+    "refs": [
+      "R2",
+      "R5"
+    ],
+    "grammar": "同一生命通过不同材料被理解",
+    "premise": "一棵树先后成为栖居处、木材、纸张与新生的土壤。",
+    "interaction": "触摸年轮或叶脉，整景揭示同一纹理在另一个生命阶段的形态。",
+    "reveal": "纸纤维与根系重合，土壤里长出一棵新芽。",
+    "spatial": [
+      "环绕：树冠、年轮与纤维连续转译",
+      "头顶：穿过叶片的光与种子",
+      "脚下：根系、菌丝与新芽"
+    ],
+    "style": "植物摄影与材料微距，棕绿、骨白与金光",
+    "test": "六个见证者作为时间段落，画面保持一个连续世界。",
+    "art": "Standing beside an immense ancient oak within a surrounding forest, beautifully detailed bark transitions through exposed annual rings into pale handmade paper fibers and then fine roots in one coherent surreal material landscape. A nest is hinted high among branches, seeds drift through sunlight, luminous fungal threads and a young sprout appear in rich earth near the feet. Botanical photographic material art, umber, forest green, bone white and warm gold, no text.",
+    "beats": [
+      "老树首先作为栖居之地出现。",
+      "你追随同一纹理进入木材、纸和土。",
+      "新芽生长，生命的关系重新闭合。"
+    ]
+  },
+  {
+    "id": "12",
+    "title": "洪水的两岸",
+    "family": "视角与关系",
+    "refs": [
+      "R1",
+      "R5"
+    ],
+    "grammar": "转身看到同一选择的不同后果",
+    "premise": "同一条河边，雨让湿地复苏，也让低处的家园接近水线。",
+    "interaction": "你呼唤雨滋养眼前芦苇，身后水声提醒你转头看见另一种影响。",
+    "reveal": "最后的河岸保留一次有代价的平衡，无法一键复原。",
+    "spatial": [
+      "环绕：连续河岸连接湿地与住宅",
+      "头顶：雨云与逐渐打开的光",
+      "脚下：稳定岸石与局部水纹"
+    ],
+    "style": "诗意纪实，铅灰天空与芦苇金",
+    "test": "让后果在同一全景中可见，地面不作整体滑动。",
+    "art": "Standing on a stable stone riverbank, a continuous landscape shows thirsty reed wetlands along one side and modest low-lying homes farther along the same bend. New rain has revived the reeds, but water approaches a home's threshold in the distance. Heavy clouds open to a narrow shaft of light, shallow local puddles reflect the sky near the feet. Poetic documentary cinematic realism, lead-grey, reed gold, deep green and slate water, emotionally nuanced without catastrophic spectacle.",
+    "beats": [
+      "你先看到干旱，选择带来雨。",
+      "身后水声让你发现雨对家园的影响。",
+      "你调节天气，结尾留下这次选择的痕迹。"
+    ]
+  },
+  {
+    "id": "13",
+    "title": "同一夜的六扇窗",
+    "family": "视角与关系",
+    "refs": [
+      "R4",
+      "R5"
+    ],
+    "grammar": "环绕场景里的人通过声音陪伴",
+    "premise": "一座庭院的几扇窗后各有人独处，生活声慢慢形成共同的夜晚。",
+    "interaction": "看向或触碰一扇亮窗，听见它的声音，另一处以光和环境动作回应。",
+    "reveal": "灯光变暖，隔着距离的你们共享同一夜晚。",
+    "spatial": [
+      "环绕：同一庭院四周的生活窗景",
+      "头顶：雨后共同的夜空",
+      "脚下：窗光投在湿地面上"
+    ],
+    "style": "生活电影，青蓝夜色与琥珀灯光",
+    "test": "用物件和声响表现人物存在，不要求多人面孔稳定。",
+    "art": "Standing inside one quiet enclosed residential courtyard after rain, several different apartment windows naturally surround the viewer: a desk lamp, a steaming cup in a kitchen, an attic piano, an all-night shop at the corner, curtains gently moving. No people visible, but all spaces carry evidence of life. Warm windows cast overlapping pools of amber light on wet paving under one shared blue-green night sky. Tender intimate cinematic photography, fine film grain, no screen frames or readable signage.",
+    "beats": [
+      "你在庭院听见互不相干的生活声。",
+      "关注一扇窗，远处另一扇窗回答。",
+      "共同的光温让独处成为陪伴。"
+    ]
+  },
+  {
+    "id": "14",
+    "title": "红色列车",
+    "family": "视角与关系",
+    "refs": [
+      "R2",
+      "R3"
+    ],
+    "grammar": "共同母题连接旅途的片段",
+    "premise": "红色列车的声音与反光，带你经过山村、城市与海岸。",
+    "interaction": "触碰红光选择停留，风景继续变化时寻找再次出现的旅途母题。",
+    "reveal": "列车离去，最后停留的地方保留一束红色余光。",
+    "spatial": [
+      "环绕：连贯铁路风景按段落演变",
+      "头顶：一天中的旅途天空",
+      "脚下：稳定站台与红色反光"
+    ],
+    "style": "平面构成与电影风景，朱红贯穿冷暖色调",
+    "test": "以声与颜色连接，不依赖列车精确绕场追踪。",
+    "art": "Standing on a coastal railway platform with a red train passing slowly in the middle distance, rails curve around a broad bay toward a mountain village and a softened far city. Vermilion reflections connect puddles, train windows and the evening sea. The viewer stays on stable stationary paving while landscape transitions are implied by atmosphere. Graphic cinematic photographic landscape, bold red motif, clean silhouettes, cool sea and warm village lights, no readable train text.",
+    "beats": [
+      "列车声开启几段不同风景。",
+      "你选择停留，寻找再次出现的红光。",
+      "列车离去，旅程留下一个被选择的地点。"
+    ]
+  },
+  {
+    "id": "15",
+    "title": "深海来信",
+    "family": "视角与关系",
+    "refs": [
+      "R4",
+      "R5"
+    ],
+    "grammar": "延迟的回应让距离成为情绪",
+    "premise": "你在深海发出一束光，等待水面与岸上遥远的回应。",
+    "interaction": "触碰生物光发出信号，声响与光沿不同深度慢慢回答。",
+    "reveal": "海底与岸上的光同频，遥远空间建立联系。",
+    "spatial": [
+      "环绕：连续深海、沉船与远处光源",
+      "头顶：从下方仰望遥远海面",
+      "脚下：安静海床与细沙纹理"
+    ],
+    "style": "深海摄影，黑蓝与珍珠荧光",
+    "test": "以光的呼应传达对话，不要求文字或复杂信号解码。",
+    "art": "Standing in a serene deep-sea environment beside an old shipwreck, delicate bioluminescent life glows cyan around the viewer, fine suspended particles reveal immense distance, a porthole emits a faint warm light like a remembered coastal window. Far above is the pale ocean surface and a tiny amber beacon, below quiet sand ripples. One soft blue pulse seems to receive an amber answer. Abyssal photographic surrealism, blue-black, pearl cyan, very small warm accents, no headset or divers.",
+    "beats": [
+      "海底光源像在等待远处的回应。",
+      "你发出信号，感受返回的时间。",
+      "蓝光与岸上的暖光短暂相遇。"
+    ]
+  },
+  {
+    "id": "16",
+    "title": "房间交响曲",
+    "family": "声音与合奏",
+    "refs": [
+      "R3",
+      "R4"
+    ],
+    "grammar": "环境材料承担不同声部",
+    "premise": "一片能发声的风景里，麦穗、纸、金属与海浪逐渐一起演奏。",
+    "interaction": "触碰一种材料唤醒其声部，再决定下一个加入或安静的声音。",
+    "reveal": "合奏散去，环境只留下你最后选择的那种声音。",
+    "spatial": [
+      "环绕：海边开放工作室连着麦田",
+      "头顶：缓慢变化的云与光",
+      "脚下：静止浅水上的局部滴落"
+    ],
+    "style": "材料微距与节奏光影，黑金配冷蓝",
+    "test": "先验证材质声部和视觉主次，节拍不依赖生成精确同步。",
+    "art": "Inside a continuous open coastal workshop blending naturally into golden wheat fields and a rocky sea, close paper sheets flutter, a corrugated metal canopy catches rain, waves tap black stones beyond, wheat moves at the side. Shallow water near the feet holds individual ripple rings, slow clouds overhead. Materials visibly answer one another through soft rhythmic lighting. Cinematic tactile material photography, gold, charcoal, steel blue, no musicians or musical notation.",
+    "beats": [
+      "风景先由一个清晰的声音开始。",
+      "你邀请不同材料加入同一段合奏。",
+      "最后只保留被选择的一个声部。"
+    ]
+  },
+  {
+    "id": "17",
+    "title": "雨的六重奏",
+    "family": "声音与合奏",
+    "refs": [
+      "R3",
+      "R4"
+    ],
+    "grammar": "同一场雨在不同材料上形成乐句",
+    "premise": "你站在临湖雨亭，雨在竹叶、玻璃、屋檐和水石之间演奏。",
+    "interaction": "触碰身边材料改变雨势和声部，节奏沿周围景物逐渐转移。",
+    "reveal": "雨停后，六种声音只以不同水迹留在环境里。",
+    "spatial": [
+      "环绕：竹林、玻璃雨亭与湖连成一景",
+      "头顶：屋檐、雨云与滴落",
+      "脚下：石板水洼的局部雨纹"
+    ],
+    "style": "极简雨景摄影，墨绿、银灰与柔光",
+    "test": "六重奏指六种材质声部，始终使用一个连续画面。",
+    "art": "Standing under a small open lakeside rain shelter, bamboo leaves surround a continuous view of the lake, a close glass pane carries droplets, weathered corrugated metal eaves catch rain above, dark paving stones and shallow puddles lie underfoot. Six tactile rain surfaces are present naturally in one coherent setting. Minimalist elegant rain photography, ink green, silver-grey, charcoal and soft reflected light, detailed material distinctions, no segmented panels or interfaces.",
+    "beats": [
+      "同一场雨先表现出不同材料的声音。",
+      "你改变听见的声部，雨势产生回应。",
+      "雨停，只剩水迹和最后几声滴落。"
+    ]
+  },
+  {
+    "id": "18",
+    "title": "等待最后一个音",
+    "family": "声音与合奏",
+    "refs": [
+      "R3",
+      "R4"
+    ],
+    "grammar": "等待和留白邀请观众完成结尾",
+    "premise": "空剧场似乎一直在排练，最后缺少的一个声音来自你。",
+    "interaction": "先听琴声与空间回应，当所有声音停下，用一次触碰或发声补上结尾。",
+    "reveal": "剧场的灯依次暗下，留给你面前的一束暖光。",
+    "spatial": [
+      "环绕：同一空剧场的舞台与座席",
+      "头顶：穹顶与悬挂剧场灯",
+      "脚下：木地板上的光与长影"
+    ],
+    "style": "剧场摄影，酒红、黑色与钨丝暖光",
+    "test": "以清楚的留白和光邀请参与，避免等待变得含糊。",
+    "art": "Standing on the wooden stage of one intimate empty theater, a grand piano waits nearby, empty seats arc around the space, deep burgundy curtains and an open backstage passage are visible, no performers. Warm suspended tungsten lamps under a domed ceiling gradually dim, one final pool of light stays in front of the viewer. Elegant cinematic theater photography, burgundy velvet, matte black, tobacco wood and gold, palpable attentive silence, no scores or lettering.",
+    "beats": [
+      "空剧场用零散的声音形成一次排练。",
+      "声音全部停下，为你留下清晰空位。",
+      "你完成最后一个音，剧场给予回应。"
+    ]
+  },
+  {
+    "id": "19",
+    "title": "呼吸温室",
+    "family": "声音与合奏",
+    "refs": [
+      "R1",
+      "R4"
+    ],
+    "grammar": "身体动作建立环境共同时间",
+    "premise": "温室里的叶、花、水汽与光逐渐跟随同一个缓慢节奏。",
+    "interaction": "张开和合拢双手引导光的扩张与收拢，环境以植物和雾气回应。",
+    "reveal": "动作停下后，温室仍保留你带来的光与余韵。",
+    "spatial": [
+      "环绕：蕨类、白花与树冠连成温室",
+      "头顶：玻璃上的水汽和散射光",
+      "脚下：静止苔藓与浅水根系"
+    ],
+    "style": "柔焦植物摄影，翡翠绿与珍珠光",
+    "test": "手势建立节奏，不假设精确测量人的呼吸。",
+    "art": "Standing inside an immense continuous lush greenhouse, ferns, white flowers, dewy leaves and tall trees surround the viewer in layered depth, misted glass canopy overhead catches diffuse sunlight, still moss and shallow clear water around roots underfoot. A soft luminous expansion suggests the entire environment breathing together. Beautiful botanical photographic concept art, emerald green, milk white, pearl highlights, delicate humidity, immersive inside view without visible screens or human silhouette.",
+    "beats": [
+      "温室各处有不同的微小动作。",
+      "你以手势邀请环境进入共同节奏。",
+      "动作停下，温室继续陪伴片刻。"
+    ]
+  },
+  {
+    "id": "20",
+    "title": "噪声花园",
+    "family": "声音与合奏",
+    "refs": [
+      "R3",
+      "R4"
+    ],
+    "grammar": "城市节奏逐渐显露自然对应",
+    "premise": "城市里的噪声在你关注时，逐渐转成昆虫、风和水的动作。",
+    "interaction": "选择一处城市声源，整个场景沿相似形状与节奏长出自然。",
+    "reveal": "城市仍在，你却能听见它与自然共享的节律。",
+    "spatial": [
+      "环绕：城市街道逐渐长成夜间花园",
+      "头顶：灯粒与萤火的对应",
+      "脚下：碎石与柏油上生出苔藓"
+    ],
+    "style": "摄影拼贴，霓虹紫逐渐交融苔绿",
+    "test": "建立可辨认的形态呼应，避免无目的随机变形。",
+    "art": "Standing in a continuous night city alley that is gradually growing into a lush nocturnal garden, ventilation cables echo plant stems, blurred traffic light trails become fireflies, asphalt and gravel acquire moss, reeds appear where machinery stood. Urban structure remains legible within new foliage. Sophisticated cinematic photographic collage, ultraviolet and neon magenta blending with moss green and black asphalt, textured light particles, no literal sound-wave graphics or text.",
+    "beats": [
+      "城市声占据最初的环境。",
+      "你发现一个声音在自然中的对应。",
+      "城市与花园共同保留一段新节奏。"
+    ]
+  },
+  {
+    "id": "21",
+    "title": "天空落在脚下",
+    "family": "尺度与身体",
+    "refs": [
+      "R1",
+      "R5"
+    ],
+    "grammar": "抬头与低头改变世界身份",
+    "premise": "你以为自己在岸边旧屋，后来发现整片风景沉在水下。",
+    "interaction": "触碰一处水纹，沿声音转头，再抬头与低头寻找空间的真实位置。",
+    "reveal": "头顶是遥远海面，脚下却倒映星空，记忆留在沉没的风景里。",
+    "spatial": [
+      "环绕：旧屋、草地与沉没建筑交融",
+      "头顶：从下方看见的海面",
+      "脚下：稳定镜面中的星空"
+    ],
+    "style": "超现实电影，海蓝、银色与苍白日光",
+    "test": "影像改变空间身份，避免持续翻转视野。",
+    "art": "Standing in a beautiful half-ruined coastal house slowly revealed to be underwater, open windows show submerged grass and distant sunken architecture in one continuous world. High above, the shimmering ocean surface is visible from below like a luminous sky; the perfectly still dark floor reflects a deep starfield. Fine suspended particles and pale silver daylight connect all surfaces naturally. Surreal cinematic photographic environment, ocean blue, silver, quiet impossible reflection, stable level horizon, no spherical shell visible.",
+    "beats": [
+      "旧屋的窗景起初像普通岸上风景。",
+      "水的线索逐渐改变你的理解。",
+      "抬头与低头完成沉没记忆的揭示。"
+    ]
+  },
+  {
+    "id": "22",
+    "title": "纸上的海",
+    "family": "尺度与身体",
+    "refs": [
+      "R2",
+      "R3"
+    ],
+    "grammar": "材料与地形互相转译",
+    "premise": "你周围的山、城与海都来自同一张纸的折痕与一滴墨。",
+    "interaction": "触碰纸纹，波动让山脉展开、海岸出现，整个世界逐渐显露材质。",
+    "reveal": "海浪缩回纸纤维中的一滴墨，你站在一幅尚未完成的画里。",
+    "spatial": [
+      "环绕：纸山、纸城与墨海连成地形",
+      "头顶：薄纸透光形成的云",
+      "脚下：放大的纤维与水渍"
+    ],
+    "style": "纸艺定格质感，奶白、墨蓝与朱红",
+    "test": "用共同纸纹形成连续世界，复杂地形变化作为探索。",
+    "art": "Standing within one continuous handcrafted paper landscape, folded cream-paper mountains rise around a miniature paper city and an indigo ink ocean flows into a torn-paper coast. Close foreground reveals enormous paper fibers and water stains; thin translucent paper above becomes backlit clouds. A wave's shape echoes the fold of a page, tiny vermilion accents guide attention. Exquisite tactile paper-art stop-motion aesthetics, all viewed from inside the world, no frames, text or panel divisions.",
+    "beats": [
+      "精美风景让你暂时忘记它的材质。",
+      "触摸暴露山、海与纸张的联系。",
+      "一滴墨让尺度发生最后一次反转。"
+    ]
+  },
+  {
+    "id": "23",
+    "title": "梦的考古",
+    "family": "尺度与身体",
+    "refs": [
+      "R2",
+      "R5"
+    ],
+    "grammar": "观看逐层揭开梦的来历",
+    "premise": "沙下的旧城、石中的海与模糊童年都来自同一件小物品。",
+    "interaction": "触碰尘埃像拂去一层梦，整景逐步显露另一层记忆。",
+    "reveal": "低头看见一只玩具船，所有宏大风景得到共同来历。",
+    "spatial": [
+      "环绕：沙城、石海与旧房间逐层演化",
+      "头顶：悬浮尘埃与星尘",
+      "脚下：沉积层中露出玩具船"
+    ],
+    "style": "考古摄影与梦境拼贴，沙金、炭灰与青铜绿",
+    "test": "靠船形和材料建立关联，不需要复杂解谜。",
+    "art": "Standing inside a dreamlike archaeological landscape where a sand-buried ancient city grows from fossilized ocean waves and weathered forest-shaped stone, a hazy childhood bedroom is suggested deep in one eroded archway. Suspended golden dust becomes stars overhead; a tiny worn toy boat is half-uncovered in sediment immediately at the viewer's feet. Tactile cinematic surrealism, sand gold, charcoal and oxidized bronze green, immense scale surrounding a small intimate object, continuous landscape.",
+    "beats": [
+      "梦像一处可以辨认的遗址。",
+      "你拂开尘埃，找到反复出现的船形。",
+      "脚边的玩具把整段体验连回童年。"
+    ]
+  },
+  {
+    "id": "24",
+    "title": "身体星图",
+    "family": "尺度与身体",
+    "refs": [
+      "R3",
+      "R4"
+    ],
+    "grammar": "微观与宇宙共享一组节律",
+    "premise": "叶脉、潮汐、细胞般的光与星云逐渐显露相似的生长方式。",
+    "interaction": "手势让光点聚散，环境沿共同纹理在微观和宇宙尺度间变化。",
+    "reveal": "光点在周围形成短暂星图，你感到自己也属于其中。",
+    "spatial": [
+      "环绕：枝状纹理逐渐化为潮汐与星云",
+      "头顶：开阔星空与柔和光流",
+      "脚下：稳定同心光纹"
+    ],
+    "style": "科学影像启发的抽象艺术，深紫与电蓝",
+    "test": "这是艺术联想，不作为生理或宇宙模拟。",
+    "art": "Standing inside an original abstract cosmic environment where luminous cellular branching textures evolve smoothly into plant veins, ocean tidal patterns and a vast nebula in one surrounding world. Stars open overhead, quiet concentric pearl-light patterns sit on a stable ground beneath. At a key moment branching lights align into a temporary constellation around the viewpoint. Scientifically inspired imaginative cinematic art, deep violet, electric blue, pearl white and faint magenta, no charts, labels or visible globe shell.",
+    "beats": [
+      "你发现不同尺度里的相似纹理。",
+      "手势让这些形态逐渐进入共同节律。",
+      "星图短暂形成，你被包含其中。"
+    ]
+  },
+  {
+    "id": "25",
+    "title": "一分钟，一万年",
+    "family": "尺度与身体",
+    "refs": [
+      "R1",
+      "R5"
+    ],
+    "grammar": "一个稳定地点容纳多种时间长度",
+    "premise": "一滴水形成的时间里，周围森林经历季节，山脉留下漫长侵蚀。",
+    "interaction": "触碰近处水滴让环境时间放慢，再释放它，看见不同尺度的变化。",
+    "reveal": "水滴落下时，山谷已经成为另一种风景。",
+    "spatial": [
+      "环绕：山谷与森林经历长短时间",
+      "头顶：日夜与星轨留下的光",
+      "脚下：稳定岩面与一滴水"
+    ],
+    "style": "延时摄影与矿物微距，铜绿、岩灰与星金",
+    "test": "整景逐步改变，保留稳定地平线和近处参照。",
+    "art": "Standing on a stable weathered rock ledge overlooking a vast valley, a single large dew droplet forms on a close leaf while the forest below carries overlapping traces of seasons and distant mountains reveal eroded strata. Subtle dusk-to-night sky with elegant faint star trails overhead. Time is visible in texture and atmospheric layers, not segmented zones. Cinematic time-lapse-inspired photographic concept art, mineral grey, copper green, warm gold and midnight blue, sharp intimate foreground and immense distance.",
+    "beats": [
+      "你先关注近处正在形成的水滴。",
+      "触碰让时间速度改变，周围显露漫长变化。",
+      "水滴落下，山谷完成它的另一种人生。"
+    ]
+  },
+  {
+    "id": "26",
+    "title": "记忆的火灾",
+    "family": "变形与选择",
+    "refs": [
+      "R1",
+      "R5"
+    ],
+    "grammar": "影像消退与选择性保存",
+    "premise": "一段旧日风景像胶片一样逐渐烧蚀，你只能让部分记忆继续存在。",
+    "interaction": "触碰仍清晰的光与颜色，把它保留在正在褪去的环境里。",
+    "reveal": "记忆化成灰烬，你留下的窗仍然明亮。",
+    "spatial": [
+      "环绕：旧屋与海岸的记忆整景消退",
+      "头顶：胶片烧蚀般的柔和光斑",
+      "脚下：稳定灰烬与少量影像碎片"
+    ],
+    "style": "胶片材料艺术，黑、余烬橙与褪色青",
+    "test": "烧蚀以缓慢材质变化表达，不依赖强闪烁。",
+    "art": "Inside one fading coastal living-room memory, window light reveals an old rug and a distant sea view while the image edges dissolve gently like warm analog film emulsion. One cyan window-shaped memory remains vivid amid charcoal textures and subtle ember-orange light. The floor carries still ash-like grain and a few glowing photographic fragments, overhead abstract soft film-burn patterns. Poetic cinematic analog collage, quiet rather than violent, no real fire in the central space, no text or frames.",
+    "beats": [
+      "记忆逐渐失去细节。",
+      "你选择触碰一个仍然清晰的片段。",
+      "最终只有被保存的窗光留在世界里。"
+    ]
+  },
+  {
+    "id": "27",
+    "title": "六次日落",
+    "family": "变形与选择",
+    "refs": [
+      "R3",
+      "R5"
+    ],
+    "grammar": "同一事件串联六段风景",
+    "premise": "同一次日落带你经过海岸、屋顶、沙漠、雪山、草原与小屋。",
+    "interaction": "触碰余光可以延长当前黄昏，松手则让整景进入下一个地方。",
+    "reveal": "最后停留的地点保留黄昏，其余地点成为水中的颜色。",
+    "spatial": [
+      "环绕：六段连续出现的日落风景",
+      "头顶：始终可辨认的同一片晚霞",
+      "脚下：稳定反光收集旅途色彩"
+    ],
+    "style": "宽幅电影风景，琥珀、玫瑰与深靛蓝",
+    "test": "六次指六个段落，始终只播放一条全景视频。",
+    "art": "Standing on a tranquil coast at sunset, a weathered small cabin and distant rooftops blend naturally into a broad bay, warm rose clouds connect the sea with distant snowy mountains and a golden plain. One chosen landscape is fully present while previous sunset colors linger only in perfectly still foreground water. Photographic cinematic wide landscape, amber, rose, violet and deep indigo, gentle atmospheric memory transitions, one shared continuous horizon, no split-screen or montage borders.",
+    "beats": [
+      "六段日落风景依次出现。",
+      "你决定延长或离开当前的余光。",
+      "最后留下的地点成为属于你的黄昏。"
+    ]
+  },
+  {
+    "id": "28",
+    "title": "边界融化",
+    "family": "变形与选择",
+    "refs": [
+      "R1",
+      "R3"
+    ],
+    "grammar": "同一世界的材质互相借用",
+    "premise": "沙漠逐渐学会海浪的动作，森林长出云，熟悉的自然规律开始交换。",
+    "interaction": "触碰某种材质，让整片风景逐渐借用另一种材质的颜色与运动。",
+    "reveal": "结尾世界保留多种材质，观众认出它们共同的节奏。",
+    "spatial": [
+      "环绕：沙、海、森林与云连续互相转译",
+      "头顶：材质交融后的轻雾",
+      "脚下：稳定黑色镜面保存颜色"
+    ],
+    "style": "大胆色域与超现实材料，红蓝绿白黑",
+    "test": "先验证一对材质转译，再扩展混合顺序。",
+    "art": "Standing inside one seamless surreal landscape where red desert dunes gradually take on the motion and texture of a blue ocean, the far dunes become lush green forest and white cloud mist rises among trees. All transitions are organic and continuous, never divided into panels or quadrants. A still black reflective foreground anchors the viewer, delicate multi-colored fog overhead. Bold cinematic material art, clear red-blue-green-white color relationships, refined painterly photoreal textures, stable horizon.",
+    "beats": [
+      "一个清晰可辨认的自然环境建立规则。",
+      "你的触碰让它借用另一种材质。",
+      "混合后的世界留下共同节奏与不同纹理。"
+    ]
+  },
+  {
+    "id": "29",
+    "title": "你未选择的房间",
+    "family": "变形与选择",
+    "refs": [
+      "R2",
+      "R5"
+    ],
+    "grammar": "选择通过整景改写保留未发生的可能",
+    "premise": "同一扇窗通向几种可能的生活，你决定让哪一种继续。",
+    "interaction": "触碰窗外一种光，整间屋子进入对应的生活，旧选择以微弱痕迹留下。",
+    "reveal": "最终房间属于你的选择，窗影里仍保留另外几种可能。",
+    "spatial": [
+      "环绕：同一间屋子随选择整体演变",
+      "头顶：不同日光留下的叠影",
+      "脚下：窗光与曾有物件的痕迹"
+    ],
+    "style": "电影场景设计，四种色温共享胶片纹理",
+    "test": "生活通过环境状态表达，不需要复杂角色和分支对白。",
+    "art": "Inside one beautiful room with a large open window, the chosen life is a warm solitary seaside cabin, while faint environmental traces hint at other possibilities: a softened city reflection in glass, forest light across the dining table, a station-like shadow near the doorway. These are subtle layered memories within one coherent interior, not separate panels. Pools of differently colored window light on wood floor, soft cloud reflections overhead. Cinematic production design with fine analog grain and carefully nuanced color temperatures.",
+    "beats": [
+      "同一间屋子显露几种生活的开场。",
+      "你选择一种光，让对应生活继续。",
+      "房间成形，未选择的生活保留轻微痕迹。"
+    ]
+  },
+  {
+    "id": "30",
+    "title": "最后一间放映室",
+    "family": "变形与选择",
+    "refs": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5"
+    ],
+    "grammar": "观众通过触碰与观看编排一条全景影片",
+    "premise": "晨光、城市、森林与海是散落的电影记忆，你让它们找到共同的结尾。",
+    "interaction": "关注或触碰一个母题，整景以相似颜色、动作或声音进入下一段。",
+    "reveal": "所有母题在同一世界短暂相遇，最后停在你选择的画面。",
+    "spatial": [
+      "环绕：单一风景按母题连续演变",
+      "头顶：胶片颗粒逐渐化成星空",
+      "脚下：稳定倒影保留经过的颜色"
+    ],
+    "style": "电影诗与材料拼贴，黑白逐渐显现暖色",
+    "test": "先用有限段落验证参与感，再试自由编排。",
+    "art": "Standing within one dreamlike coastal landscape where a shaft of morning window light, rain-soaked city traces, wind-blown forest and a quiet sea have found a coherent visual meeting point. Formerly monochrome textures are slowly blooming into warm color; analog film grain becomes faint stars overhead, still dark water at the feet holds the passed colors. Poetic expanded-cinema photographic collage, rich silver-black, delicate amber and sea green, one continuous immersive world, no screens, panels or movie projector.",
+    "beats": [
+      "几个电影母题在风景里等待关联。",
+      "你的触碰让一个母题以形与声接到下一段。",
+      "完整世界短暂成形，留下最后的选择。"
+    ]
+  }
+]

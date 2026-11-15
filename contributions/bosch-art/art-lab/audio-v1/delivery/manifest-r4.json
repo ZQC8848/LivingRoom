@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "release": "2026-11-14-r4",
+  "language": "en",
+  "music": {
+    "file": "music.mp3",
+    "title": "A Garden Without a Price",
+    "provider": "Suno",
+    "source": "User-exported original music; one continuous source feeds bright and dark filter branches.",
+    "loop_crossfade_seconds": 4
+  },
+  "ambience": {
+    "garden": {
+      "file": "garden-ambience.mp3",
+      "provider": "Authored procedural sound design",
+      "description": "Falling fountain water, sparse distant chirps and light wind"
+    },
+    "hell": {
+      "file": "hell-ambience.mp3",
+      "provider": "Authored procedural sound design",
+      "description": "Quiet ember crackles, low wind and hollow resonance"
+    }
+  },
+  "narration": [
+    {
+      "id": "arrival",
+      "trigger": "sound enabled, once per visit",
+      "text": "A garden offers everything. Clear water. Ripe fruit. Life without end. Look closely. Nothing here seems to ask a price.",
+      "file": "arrival.mp3",
+      "seconds": 9.334416666666666
+    },
+    {
+      "id": "reveal",
+      "trigger": "first reveal, after arrival speech ends",
+      "text": "Is this another world, or the cost of this one?",
+      "file": "reveal.mp3",
+      "seconds": 3.2507916666666667
+    },
+    {
+      "id": "return",
+      "trigger": "first return after reveal speech, once per visit",
+      "text": "Gone from sight is not the same as gone.",
+      "file": "return.mp3",
+      "seconds": 2.6935208333333334
+    }
+  ],
+  "voice": {
+    "provider": "ElevenLabs",
+    "stock_voice": "George - Warm, Captivating Storyteller",
+    "model": "eleven_multilingual_v2",
+    "no_voice_cloning": true
+  },
+  "attribution": "Music created in Suno. Narration generated with ElevenLabs. Environmental beds synthesized specifically for this prototype.",
+  "audio_assets": {
+    "music": {
+      "seconds": 115.9335,
+      "peak_dbfs": -9.799602508544922,
+      "target_lufs": -22,
+      "decoded_all_finite": true,
+      "bytes": 1855916,
+      "sha256": "4ba0b1bd1ec20632ff10c935690fb3321afe162acb9839df2730b41caf721ad0"
+    },
+    "garden-ambience": {
+      "seconds": 22.0,
+      "peak_dbfs": -14.351688385009766,
+      "target_lufs": -25,
+      "decoded_all_finite": true,
+      "bytes": 352940,
+      "sha256": "3225a1daba48a1aa72b19a4812d6add06aed61a4f226decd299157e9fb642460"
+    },
+    "hell-ambience": {
+      "seconds": 22.0,
+      "peak_dbfs": -13.84378433227539,
+      "target_lufs": -25,
+      "decoded_all_finite": true,
+      "bytes": 352940,
+      "sha256": "d3d9344da551da5017fda923d00fcb2da4f0202167f7cb9c4a67507013a2a086"
+    },
+    "arrival": {
+      "seconds": 9.334416666666666,
+      "peak_dbfs": -6.160070419311523,
+      "target_lufs": -18,
+      "decoded_all_finite": true,
+      "bytes": 150188,
+      "sha256": "233dcdba34318407c09bd683eb15f7c42c8b38bcd339310402e9c1a38355e8fa"
+    },
+    "reveal": {
+      "seconds": 3.2507916666666667,
+      "peak_dbfs": -6.409562110900879,
+      "target_lufs": -18,
+      "decoded_all_finite": true,
+      "bytes": 53036,
+      "sha256": "5b8711b74de8962a15922bdfc93cace4ea94998cd6a4b29a300db6383e5ca6b4"
+    },
+    "return": {
+      "seconds": 2.6935208333333334,
+      "peak_dbfs": -6.423266410827637,
+      "target_lufs": -18,
+      "decoded_all_finite": true,
+      "bytes": 44204,
+      "sha256": "82bf62aa83138cbd688437fc2941f9cae155b27c746556e9b2721f8d56778bd0"
+    }
+  },
+  "key_present": false,
+  "notes": "One continuous score, independently looping authored environmental beds, and once-per-encounter English narration."
+}

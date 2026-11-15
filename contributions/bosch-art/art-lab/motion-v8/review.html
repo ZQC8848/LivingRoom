@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>欲望的两面 · 动作审阅</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#151b18;color:#e6e9dd}*{box-sizing:border-box}body{margin:0;padding:24px;max-width:1680px;margin-inline:auto}header{display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-bottom:18px}h1{font:500 clamp(20px,3vw,30px) Georgia,serif;margin:0}a{color:#bfd9b4}p{color:#acb9ac;font-size:14px;line-height:1.6}button,select,input{font:inherit}button,select{background:#28362c;color:#e6e9dd;border:1px solid #4b604e;padding:9px 12px;border-radius:6px}button{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #c4dfa9;outline-offset:3px}.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}input{min-width:130px;flex:1;accent-color:#b7d99a}label{font-size:14px}.views{display:grid;grid-template-columns:1fr 1fr;gap:16px}figure{margin:0;min-width:0}canvas{width:100%;display:block;background:#0a100d;border:1px solid #334337;border-radius:4px;aspect-ratio:2}figcaption{padding:8px 0;color:#bdcbb9}#detail{color:#cfddc6;margin-bottom:16px;min-height:22px}#status{color:#b6c49b;font-size:13px}@media(max-width:800px){body{padding:14px}.views{grid-template-columns:1fr}select{max-width:100%}}
+</style>
+<header><h1>欲望的两面 · 动作审阅</h1><a href="/">打开全景体验 ↗</a></header>
+<p>这是便于逐处检查的平面原画循环。选择圈选编号可放大对应区域；回复编号即可继续调整动作。全景体验仍使用原来的手势揭示。</p>
+<div class="controls"><button id="play">播放</button><label for="region">查看</label><select id="region"><option value="">完整画面</option></select><label for="rate">速度</label><select id="rate"><option value="1">原速</option><option value="0.5">半速</option></select><input aria-label="播放位置" id="seek" type="range" min="0" max="8" step="0.033" value="0"><span id="time">0.0 / 8.0 s</span></div>
+<div id="detail">完整画面 · 8 秒循环</div><div class="views"><figure><canvas id="garden" width="1776" height="888"></canvas><figcaption>天堂</figcaption></figure><figure><canvas id="hell" width="1776" height="888"></canvas><figcaption>地狱</figcaption></figure></div><p id="status" role="status">正在载入审阅影片…</p>
+<video id="video" hidden muted loop playsinline preload="auto"></video>
+<script type="module">
+const $=id=>document.getElementById(id),v=$('video'),select=$('region'),seek=$('seek');
+const names={wind:'植物 · 微风',flock:'鸟群 · 小幅飞行',water:'水面',waterfall:'喷泉 · 水流','fire-smoke':'远城 · 火与烟',puppet:'人物 · 小步移动'};
+const labels={G01:'空中骑手 · 原位飞行',G02:'空中船 · 浮动',G03:'透明翼 · 扇动',G05:'屋顶鱼 · 轻转',G06:'空中饰物 · 浮动',G07:'双鸟 · 扇翼',G11:'鹿群 · 小步',G13:'草莓 · 弹性变形',G14:'岸边鸟 · 扇翼',G16:'长颈生物 · 摇动',G19:'小水鸟 · 翼动',G20:'大水鸟 · 翼动',G21:'小鹿 · 小步',G22:'池中人物 · 微动作',G23:'鱼 · 浮动',H01:'暗夜空中船 · 浮动',H03:'暗夜饰物 · 浮动'};
+const response=await fetch('motion-catalog.json');const catalog=await response.json();
+for(const it of catalog.items){const o=document.createElement('option');o.value=it.id;o.textContent=`${it.id} · ${labels[it.id]||names[it.method]||it.action}`;select.append(o)}
+let region=null;
+select.onchange=()=>{region=catalog.items.find(i=>i.id===select.value)||null;$('detail').textContent=region?`${region.id} · ${labels[region.id]||names[region.method]||region.action}`:'完整画面 · 8 秒循环';draw()};
+function draw(){if(v.readyState<2)return;for(const [id,row] of [['garden',0],['hell',1]]){const c=$(id),ctx=c.getContext('2d');let box=region?.box;if(box){let [a,b,d,e]=box;let w=Math.min(1774,Math.max(210,(d-a)*1.7,(e-b)*3.4)),h=w/2,x=Math.min(1774-w,Math.max(0,(a+d-w)/2)),y=Math.min(887-h,Math.max(0,(b+e-h)/2));ctx.drawImage(v,x/1774*1776,row*888+y/887*888,w/1774*1776,h/887*888,0,0,c.width,c.height)}else ctx.drawImage(v,0,row*888,1776,888,0,0,c.width,c.height)}seek.value=v.currentTime;$('time').textContent=`${v.currentTime.toFixed(1)} / 8.0 s`}
+function tick(){draw();v.requestVideoFrameCallback?.(tick)}
+$('play').onclick=async()=>{if(v.paused){try{await v.play()}catch{$('status').textContent='点击播放后再试一次。'}}else v.pause()};
+v.onplay=()=>{$('play').textContent='暂停';$('status').textContent='正在播放 · 点击“查看”可逐处检查'};v.onpause=()=>{$('play').textContent='播放';$('status').textContent='已暂停 · 可拖动进度逐处检查'};
+$('rate').onchange=()=>v.playbackRate=Number($('rate').value);seek.oninput=()=>{v.currentTime=Number(seek.value)};v.onseeked=draw;
+try{const r=await fetch('review.mp4');if(!r.ok)throw Error('load');v.src=URL.createObjectURL(new Blob([await r.arrayBuffer()],{type:'video/mp4'}));v.addEventListener('loadeddata',()=>{draw();if(v.requestVideoFrameCallback)v.requestVideoFrameCallback(tick);else setInterval(draw,33);v.play().catch(()=>{$('status').textContent='已载入 · 点击播放开始审阅'})},{once:true})}catch{$('status').textContent='影片载入失败，请刷新页面。'}
+</script></html>

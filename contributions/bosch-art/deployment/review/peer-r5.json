@@ -1,0 +1,28 @@
+{
+  "task_id": "8cefec08-a13c-4a76-bff5-bfe887453c37",
+  "context_id": "7f34ded1-fd8a-4a36-84ea-9a2653501810",
+  "status": "completed",
+  "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/",
+  "source_commit": "c1361b7e343c3c97a9e90d1a2dba63e3f2461118",
+  "environment": "Independent macOS Chrome 157 / SwiftShader, DevTools automation",
+  "checks": {
+    "default_reveal": true,
+    "five_options": true,
+    "four_modes_played": true,
+    "return_to_reveal": true,
+    "same_video_and_textures": true,
+    "camera_quaternion_unchanged": true,
+    "four_mode_sha256": true,
+    "dimensions_and_fps": true,
+    "eight_lily_voice_files_available": true,
+    "research_attribution_present": true,
+    "simulated_vr_panel_selection": true,
+    "no_model_or_external_requests": true
+  },
+  "limits": [
+    "Physical Quest and hand tracking not tested",
+    "Audio playback, sync, mute/resume and artistic quality not auditioned by peer",
+    "Loop seams not visually assessed by peer"
+  ],
+  "mutations": "No keeper/model calls, no code or deployment changes; owned browser stopped."
+}

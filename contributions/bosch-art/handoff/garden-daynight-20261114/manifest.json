@@ -1,0 +1,29 @@
+{
+  "kind": "Authored 30-second fixed-viewpoint hybrid loop",
+  "seconds": 30,
+  "fps": 30,
+  "frames": 900,
+  "camera_transform": "Constant approved panorama mapping; no frame-dependent camera transform.",
+  "plates": "Original day + imagegen night relighting reference. Matched feature median shift about 1 original pixel.",
+  "model_role": "Fresh Orbis day/night temporal water-detail variation, constrained by the water matte. Full raw model geometry is excluded.",
+  "authored_parts": [
+    "day/night dissolve timing",
+    "fixed structural plates",
+    "bounded water compositing",
+    "cyclic overlap",
+    "sky/floor projection and rear-seam feather"
+  ],
+  "motion_changed_values_outside_water_mask": 0,
+  "maximum_rear_seam_channel_delta": 4,
+  "not_live_playback": true,
+  "live_evidence": "reanchor-evidence.mp4",
+  "reanchor_latency_seconds": {
+    "day": 6.36,
+    "night": 6.25,
+    "day-return": 6.516
+  },
+  "raw_model_limitation": "Re-anchor preserves time-of-day but does not guarantee intact architecture; raw captures still reinterpret buildings.",
+  "headset_verified": false,
+  "production_reveal_modified": false,
+  "owned_session_disconnected": true
+}

@@ -1,0 +1,192 @@
+{
+  "job": "bird",
+  "model": "reactor/visko-orbis-stable",
+  "prompt": "A flat early-Netherlandish oil painting holds the exact composition and fine painted brushwork of the reference image. The blue long-legged bird keeps both feet planted and makes one small folded-wing ruffle, then settles into the same pose. Every painted building, figure, animal, bank and branch holds its established shape and position; the painting stays flat, with the original mineral colors. Static camera, locked frame, identical framing throughout. A tiny local painted movement, with the rest of the painting still.",
+  "requested_capture_seconds": 6.0,
+  "frames": 109,
+  "events": [
+    {
+      "t": 2.813,
+      "type": "state"
+    },
+    {
+      "t": 2.813,
+      "type": "image_accepted"
+    },
+    {
+      "t": 2.828,
+      "type": "state"
+    },
+    {
+      "t": 2.828,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 2.859,
+      "type": "state"
+    },
+    {
+      "t": 2.891,
+      "type": "generation_started"
+    },
+    {
+      "t": 2.891,
+      "type": "state"
+    },
+    {
+      "t": 4.906,
+      "type": "state"
+    },
+    {
+      "t": 6.625,
+      "type": "state"
+    },
+    {
+      "t": 8.328,
+      "type": "state"
+    },
+    {
+      "t": 10.125,
+      "type": "state"
+    },
+    {
+      "t": 11.953,
+      "type": "state"
+    },
+    {
+      "t": 13.797,
+      "type": "state"
+    },
+    {
+      "t": 13.813,
+      "type": "state"
+    }
+  ],
+  "errors": [],
+  "attempt": "stable-01",
+  "connect_seconds": 1.875,
+  "first_frame_latency_seconds": 4.141,
+  "delivered_pixels": [
+    2560,
+    1440
+  ],
+  "captured_seconds": 6.047,
+  "available_resolutions": [
+    "1080p",
+    "2k",
+    "4k"
+  ],
+  "status": "captured",
+  "client_elapsed_seconds": 13.969,
+  "received_timestamps_seconds": [
+    0.0,
+    0.156,
+    0.203,
+    0.25,
+    0.281,
+    0.297,
+    0.328,
+    0.359,
+    0.39,
+    0.422,
+    0.469,
+    0.515,
+    0.562,
+    0.609,
+    0.656,
+    0.719,
+    0.781,
+    0.828,
+    0.89,
+    0.953,
+    1.0,
+    1.062,
+    1.156,
+    1.219,
+    1.281,
+    1.328,
+    1.39,
+    1.437,
+    1.5,
+    1.562,
+    1.687,
+    1.765,
+    1.844,
+    1.906,
+    1.969,
+    2.031,
+    2.078,
+    2.125,
+    2.187,
+    2.219,
+    2.281,
+    2.344,
+    2.375,
+    2.437,
+    2.484,
+    2.547,
+    2.578,
+    2.64,
+    2.687,
+    2.734,
+    2.781,
+    2.844,
+    2.89,
+    2.953,
+    3.0,
+    3.047,
+    3.109,
+    3.156,
+    3.219,
+    3.265,
+    3.328,
+    3.375,
+    3.437,
+    3.5,
+    3.562,
+    3.625,
+    3.672,
+    3.734,
+    3.797,
+    3.844,
+    3.906,
+    3.953,
+    4.015,
+    4.062,
+    4.14,
+    4.187,
+    4.234,
+    4.297,
+    4.344,
+    4.406,
+    4.453,
+    4.515,
+    4.578,
+    4.64,
+    4.687,
+    4.734,
+    4.797,
+    4.859,
+    4.922,
+    4.969,
+    5.031,
+    5.078,
+    5.14,
+    5.203,
+    5.25,
+    5.297,
+    5.359,
+    5.422,
+    5.5,
+    5.547,
+    5.609,
+    5.656,
+    5.719,
+    5.765,
+    5.828,
+    5.875,
+    5.937,
+    5.984,
+    6.047
+  ]
+}

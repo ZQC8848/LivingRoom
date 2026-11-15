@@ -1,0 +1,17 @@
+[
+  {
+    "id": "arrival",
+    "trigger": "sound enabled, once per visit",
+    "text": "A garden offers everything. Clear water. Ripe fruit. Life without end. Look closely. Nothing here seems to ask a price."
+  },
+  {
+    "id": "reveal",
+    "trigger": "first reveal, after arrival speech ends",
+    "text": "Is this another world, or the cost of this one?"
+  },
+  {
+    "id": "return",
+    "trigger": "first return after reveal speech, once per visit",
+    "text": "Gone from sight is not the same as gone."
+  }
+]

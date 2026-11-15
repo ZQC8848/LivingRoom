@@ -1,0 +1,10 @@
+{
+  "authenticated": true,
+  "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+  "voice_name": "George - Warm, Captivating Storyteller",
+  "voice_category": "premade",
+  "speech_model": "eleven_multilingual_v2",
+  "language": "en",
+  "narration_characters": 206,
+  "sfx_seconds": 24
+}

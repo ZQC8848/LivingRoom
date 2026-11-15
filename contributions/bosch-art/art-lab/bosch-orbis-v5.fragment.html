@@ -1,0 +1,105 @@
+<div id="bosch-orbis-test">
+  <style>
+    #bosch-orbis-test{--bo-bg:light-dark(#eae7dc,#141913);--bo-fg:light-dark(#253026,#e6e8da);--bo-muted:light-dark(#54634f,#b0baa4);--bo-line:light-dark(#bbc7b3,#394632);--bo-active:light-dark(#d0ddc4,#2b3b25);--bo-accent:light-dark(#587140,#b1cb89);background:var(--bo-bg);color:var(--bo-fg);font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif;width:100%;box-sizing:border-box;color-scheme:light dark}
+    #bosch-orbis-test *{box-sizing:border-box}#bosch-orbis-test [hidden]{display:none!important}
+    #bosch-orbis-test button,#bosch-orbis-test select,#bosch-orbis-test input{font:inherit;color:inherit}
+    #bosch-orbis-test button,#bosch-orbis-test select{background:var(--bo-bg);border:1px solid var(--bo-line);padding:7px 11px;border-radius:4px;min-height:38px}
+    #bosch-orbis-test button{cursor:var(--cursor-interaction,pointer)}
+    #bosch-orbis-test button:hover,#bosch-orbis-test button[aria-pressed=true]{background:var(--bo-active);border-color:var(--bo-accent)}
+    #bosch-orbis-test button:focus-visible,#bosch-orbis-test select:focus-visible,#bosch-orbis-test input:focus-visible{outline:2px solid var(--bo-accent);outline-offset:3px}
+    #bosch-orbis-test header{padding:17px 21px;padding-right:95px;border-bottom:1px solid var(--bo-line);display:flex;align-items:center;justify-content:space-between;gap:15px}
+    #bosch-orbis-test header strong{font:500 24px/1.3 Georgia,"Songti SC","SimSun",serif;letter-spacing:1px}
+    #bosch-orbis-test header small{font:11px/1.5 ui-monospace,monospace;letter-spacing:1.3px;color:var(--bo-muted)}
+    #bosch-orbis-test .body{padding:18px 20px}#bosch-orbis-test .toolbar,#bosch-orbis-test .controls,#bosch-orbis-test .foot{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+    #bosch-orbis-test .toolbar{margin-bottom:12px}#bosch-orbis-test .projection{margin-left:auto}
+    #bosch-orbis-test .stage{position:relative;height:500px;overflow:hidden;background:#1c271d;touch-action:none;isolation:isolate}
+    #bosch-orbis-test[data-flat=true] .stage{height:auto;aspect-ratio:2/1}
+    #bosch-orbis-test[data-raw=true] .stage{height:500px;aspect-ratio:auto}
+    #bosch-orbis-test canvas{display:block;width:100%;height:100%;cursor:grab}#bosch-orbis-test canvas:active{cursor:grabbing}
+    #bosch-orbis-test .corner{position:absolute;top:12px;left:13px;right:13px;display:flex;justify-content:space-between;gap:10px;font:11px/1.5 ui-monospace,monospace;color:#e2e7d4;pointer-events:none;text-shadow:0 1px 5px #000}
+    #bosch-orbis-test .corner span{background:#172013b5;padding:4px 6px}
+    #bosch-orbis-test .caption{position:absolute;bottom:18px;left:8%;right:8%;text-align:center;color:#edf0df;font:15px/1.8 Georgia,"Songti SC","SimSun",serif;pointer-events:none;text-shadow:0 2px 8px #10180f}
+    #bosch-orbis-test .caption span{background:#1720139c;padding:4px 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+    #bosch-orbis-test[data-flat=true] .caption{display:none}
+    #bosch-orbis-test .hint{display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px;color:var(--bo-muted);font-size:11px;margin-top:8px}
+    #bosch-orbis-test .controls{gap:8px;margin-top:15px}#bosch-orbis-test .controls button{padding:5px 10px;font-size:12px;min-height:34px}
+    #bosch-orbis-test .gain{display:flex;align-items:center;gap:8px;color:var(--bo-muted);font-size:12px;margin-left:auto}
+    #bosch-orbis-test .gain input{width:100px;accent-color:var(--bo-accent)}
+    #bosch-orbis-test .foot{justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid var(--bo-line);font-size:11px;color:var(--bo-muted)}
+    #bosch-orbis-test .foot button{font-size:11px;min-height:30px;padding:3px 8px}
+    #bosch-orbis-test .notes{margin-top:12px;color:var(--bo-muted);font-size:12px}#bosch-orbis-test .notes p{margin:0 0 8px}
+    #bosch-orbis-test .raw-panel{position:absolute;inset:0;background:var(--bo-bg);z-index:4;padding:12px;display:grid;grid-template-rows:auto 1fr auto;gap:9px}
+    #bosch-orbis-test .raw-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}#bosch-orbis-test .raw-controls label{display:flex;align-items:center;gap:7px}
+    #bosch-orbis-test .raw-media{position:relative;min-height:0;background:#10160f;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    #bosch-orbis-test .raw-media video,#bosch-orbis-test .raw-media img{width:100%;height:100%;object-fit:contain;min-height:0}
+    #bosch-orbis-test .raw-status{font-size:12px;color:var(--bo-muted)}
+    #bosch-orbis-test .error{position:absolute;inset:15px;padding:15px;background:var(--bo-bg);color:var(--bo-fg);z-index:8}
+    @media(max-width:650px){#bosch-orbis-test header{padding:14px 13px;padding-right:95px}#bosch-orbis-test header strong{font-size:21px}#bosch-orbis-test header small{display:none}#bosch-orbis-test .body{padding:12px}#bosch-orbis-test .stage{height:390px}#bosch-orbis-test .projection{margin-left:0}#bosch-orbis-test .gain{margin-left:0}#bosch-orbis-test[data-raw=true] .stage{height:440px}#bosch-orbis-test .caption{font-size:14px}}
+  </style>
+  <header><strong>欲望的两面 · 微动实测</strong><small>ORBIS / FIXED VIEWPOINT / 6s</small></header>
+  <div class="body">
+    <div class="toolbar" aria-label="画中状态"><button type="button" data-layer="0" aria-pressed="true">花园</button><button type="button" data-layer="1" aria-pressed="false">举手揭示</button><button type="button" data-layer="2" aria-pressed="false">地狱</button><button type="button" class="play" aria-pressed="true">暂停微动</button><button type="button" class="raw-toggle" aria-pressed="false">看模型原始输出</button><button type="button" class="projection" aria-pressed="false">查看 2:1 排版</button></div>
+    <div class="stage">
+      <canvas class="viewer" role="img" aria-label="采用真实 Orbis 视频动势合成的环绕花园与地狱，拖动转头，移动手势蒙版揭示另一层"></canvas>
+      <div class="corner"><span class="source-tag">载入 Orbis 合成试片</span><span class="bearing">转头 / 000°</span></div>
+      <div class="caption" aria-live="polite"><span>同一片水岸，两种代价。</span></div>
+      <div class="raw-panel" hidden>
+        <div class="raw-controls"><label>原始试片 <select class="raw-select" aria-label="选择模型原始试片"><option value="water">水面</option><option value="leaves">树叶</option><option value="fire">远城火光</option><option value="horse">白马低头</option><option value="bird">鸟翼轻动</option></select></label><button type="button" class="raw-reference" aria-pressed="false">看输入参考图</button></div>
+        <div class="raw-media"><video class="raw-video" muted playsinline loop controls aria-label="未经局部合成的 Orbis 原始视频"></video><img class="raw-image" hidden alt="发送给 Orbis 的原始局部参考图"></div>
+        <div class="raw-status" aria-live="polite"></div>
+      </div>
+      <div class="error" hidden role="alert"></div>
+    </div>
+    <div class="hint"><span>拖动转头；举手后移动鼠标或轻触</span><span class="resolution-note">视频正在载入</span></div>
+    <div class="controls" aria-label="查看动作与方向"><button type="button" data-look="horse">看白马</button><button type="button" data-look="bird">看鸟翼</button><button type="button" data-look="water">看水面</button><button type="button" data-look="leaves">看枝叶</button><button type="button" data-look="fire">看火光</button><button type="button" data-look="front">前方</button><button type="button" data-look="back">身后</button><button type="button" data-look="up">天空</button><button type="button" data-look="down">脚下</button><label class="gain">动势 <input type="range" class="motion" min="0" max="1" step="0.01" value="1"><output class="motion-value">100%</output></label></div>
+    <div class="foot"><span>新版 Dynamic · 白马 / 鸟翼 / 树冠已接入</span><button type="button" class="show-notes" aria-expanded="false">实测与处理说明</button></div>
+    <div class="notes" hidden><p>本轮实际调用 Orbis Dynamic，重新生成白马、鸟翼和树冠动作。水面与地狱火光沿用上一版。</p><p>白马和鸟使用稳像后的局部 RGB 回贴，鸟翼活动范围已扩大；树冠保留原画颜色和笔触，仅转移模型动作，运动放大四倍，上限七个原图像素。全景基底、天地与相机仍固定。</p><p>六秒循环经过时间重采样与往返处理；尚需头显观看验收。原始输出入口提供本轮真实片段，旧版另行保留。</p></div>
+  </div>
+  <script>
+  (()=>{
+    const root=document.getElementById('bosch-orbis-test'),$=s=>root.querySelector(s),$$=s=>[...root.querySelectorAll(s)];
+    const MEDIA=/*__MEDIA__*/;
+    const PI=Math.PI,TAU=PI*2;
+    let state={kind:'bosch-orbis-v5',layer:0,flat:false,playing:!matchMedia('(prefers-reduced-motion: reduce)').matches,motion:1,yaw:-2.5,pitch:-.68,handU:.5,handV:.5,raw:false,rawJob:'bird',rawReference:false};
+    const previous=window.openai?.widgetState?.modelContent;if(previous?.kind===state.kind)Object.assign(state,previous.controls);
+    const canvas=$('.viewer'),gl=canvas.getContext('webgl',{alpha:false,antialias:false,preserveDrawingBuffer:true});
+    const videos={},posters={},textures={},rawVideo=$('.raw-video');let ready=0,frames=0,last=0,dirty=true,drag=null,program,uniforms;
+    function save(){window.openai?.setWidgetState?.({modelContent:{kind:state.kind,controls:{...state}},privateContent:null}).catch(()=>{});}
+    function error(e){$('.error').hidden=false;$('.error').textContent=String(e.message||e);}
+    const vertex='attribute vec2 p;varying vec2 v;void main(){v=p;gl_Position=vec4(p,0.,1.);}';
+    const fragment=`precision highp float;varying vec2 v;uniform sampler2D garden;uniform sampler2D hell;uniform sampler2D gardenStill;uniform sampler2D hellStill;uniform vec2 view;uniform vec2 hand;uniform float aspect;uniform float projectionMode;uniform float layer;uniform float gain;const float PI=3.141592653589793;const float TAU=6.283185307179586;
+    vec3 direction(float lon,float lat){return vec3(sin(lon)*cos(lat),sin(lat),cos(lon)*cos(lat));}
+    void main(){vec3 ray;float lon;float lat;
+      if(projectionMode>.5){lon=v.x*PI;lat=v.y*PI*.5;ray=direction(lon,lat);}else{float f=tan(34.*PI/180.);ray=normalize(vec3(v.x*aspect*f,v.y*f,1.));float cp=cos(view.y),sp=sin(view.y);ray=vec3(ray.x,ray.y*cp+ray.z*sp,-ray.y*sp+ray.z*cp);float cy=cos(view.x),sy=sin(view.x);ray=vec3(ray.x*cy+ray.z*sy,ray.y,-ray.x*sy+ray.z*cy);lon=atan(ray.x,ray.z);lat=asin(clamp(ray.y,-1.,1.));}
+      vec2 uv=vec2(lon/TAU+.5,.5-lat/PI);vec3 d=mix(texture2D(gardenStill,uv).rgb,texture2D(garden,uv).rgb,gain);vec3 h=mix(texture2D(hellStill,uv).rgb,texture2D(hell,uv).rgb,gain);
+      vec3 hd=direction((hand.x-.5)*TAU,(.5-hand.y)*PI);float a=acos(clamp(dot(ray,hd),-1.,1.));float reveal=layer>1.5?1.:layer>.5?1.-smoothstep(.24,.30,a):0.;gl_FragColor=vec4(mix(d,h,reveal),1.);
+    }`;
+    function compile(type,code){const s=gl.createShader(type);gl.shaderSource(s,code);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
+    function texture(name,index,source){gl.activeTexture(gl.TEXTURE0+index);const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,source);gl.uniform1i(gl.getUniformLocation(program,name),index);textures[name]=t;}
+    function init(){program=gl.createProgram();gl.attachShader(program,compile(gl.VERTEX_SHADER,vertex));gl.attachShader(program,compile(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);const p=gl.getAttribLocation(program,'p');gl.enableVertexAttribArray(p);gl.vertexAttribPointer(p,2,gl.FLOAT,false,0,0);uniforms=Object.fromEntries(['view','hand','aspect','projectionMode','layer','gain'].map(n=>[n,gl.getUniformLocation(program,n)]));texture('garden',0,posters.garden);texture('hell',1,posters.hell);texture('gardenStill',2,posters.garden);texture('hellStill',3,posters.hell);}
+    function draw(){gl.useProgram(program);['garden','hell','gardenStill','hellStill'].forEach((name,i)=>{gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,textures[name]);if(i<2&&videos[name].readyState>=2)gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,videos[name]);});gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(uniforms.view,state.yaw,state.pitch);gl.uniform2f(uniforms.hand,state.handU,state.handV);gl.uniform1f(uniforms.aspect,canvas.width/canvas.height);gl.uniform1f(uniforms.projectionMode,state.flat?1:0);gl.uniform1f(uniforms.layer,state.layer);gl.uniform1f(uniforms.gain,state.motion);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);frames++;dirty=false;}
+    function playback(){for(const video of Object.values(videos)){if(state.playing&&!state.raw)video.play().catch(()=>{$('.source-tag').textContent='点击“播放微动”启动视频';});else video.pause();}if(state.raw&&!state.rawReference)rawVideo.play().catch(()=>{});else rawVideo.pause();}
+    function raw(){const m=MEDIA.raw[state.rawJob];if(rawVideo.dataset.job!==state.rawJob){rawVideo.src=m.video;rawVideo.dataset.job=state.rawJob;$('.raw-image').src=m.reference;}rawVideo.hidden=state.rawReference;$('.raw-image').hidden=!state.rawReference;$('.raw-select').value=state.rawJob;$('.raw-reference').setAttribute('aria-pressed',state.rawReference);$('.raw-reference').textContent=state.rawReference?'回到原始视频':'看输入参考图';$('.raw-status').textContent=m.status;}
+    function ui(){root.dataset.flat=state.flat;root.dataset.raw=state.raw;$$('[data-layer]').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.layer)===state.layer));$('.projection').textContent=state.flat?'回到画中视角':'查看 2:1 排版';$('.projection').setAttribute('aria-pressed',state.flat);$('.play').textContent=state.playing?'暂停微动':'播放微动';$('.play').setAttribute('aria-pressed',state.playing);$('.raw-toggle').textContent=state.raw?'回到全景合成':'看模型原始输出';$('.raw-toggle').setAttribute('aria-pressed',state.raw);$('.raw-panel').hidden=!state.raw;$('.motion').value=state.motion;$('.motion-value').textContent=Math.round(state.motion*100)+'%';$('.caption span').textContent=state.layer===1?'举起手，看繁盛如何成为荒芜。':state.layer===2?'花园的结构仍在，曾经的繁盛已经消失。':'同一片水岸，两种代价。';if(state.raw)raw();playback();dirty=true;}
+    function resize(){const r=$('.stage').getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.5);canvas.width=Math.max(1,Math.round(r.width*d));canvas.height=Math.max(1,Math.round(r.height*d));dirty=true;}
+    function uv(e){const r=canvas.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width*2-1,ny=1-(e.clientY-r.top)/r.height*2;if(state.flat)return {u:(nx+1)/2,v:(1-ny)/2};const f=Math.tan(34*PI/180);let x=nx*r.width/r.height*f,y=ny*f,z=1;const yy=y*Math.cos(state.pitch)+z*Math.sin(state.pitch);z=-y*Math.sin(state.pitch)+z*Math.cos(state.pitch);y=yy;const xx=x*Math.cos(state.yaw)+z*Math.sin(state.yaw);z=-x*Math.sin(state.yaw)+z*Math.cos(state.yaw);x=xx;return {u:(Math.atan2(x,z)/TAU+.5+1)%1,v:.5-Math.asin(y/Math.hypot(x,y,z))/PI};}
+    function centerHand(){state.handU=(state.yaw/TAU+.5+1)%1;state.handV=.5-state.pitch/PI;}
+    $$('[data-layer]').forEach(b=>b.addEventListener('click',()=>{state.raw=false;state.layer=Number(b.dataset.layer);centerHand();ui();resize();save()}));
+    $('.play').addEventListener('click',()=>{state.playing=!state.playing;ui();save()});
+    $('.projection').addEventListener('click',()=>{state.raw=false;state.flat=!state.flat;ui();requestAnimationFrame(resize);save()});
+    $('.raw-toggle').addEventListener('click',()=>{state.raw=!state.raw;state.rawReference=false;ui();requestAnimationFrame(resize);save()});
+    $('.raw-select').addEventListener('change',e=>{state.rawJob=e.target.value;state.rawReference=false;raw();playback();save()});
+    $('.raw-reference').addEventListener('click',()=>{state.rawReference=!state.rawReference;raw();playback();save()});
+    $('.motion').addEventListener('input',e=>{state.motion=Number(e.target.value);ui();save()});
+    $('.show-notes').addEventListener('click',()=>{const open=$('.notes').hidden;$('.notes').hidden=!open;$('.show-notes').setAttribute('aria-expanded',open)});
+    $$('[data-look]').forEach(b=>b.addEventListener('click',()=>{state.raw=false;state.flat=false;const look=b.dataset.look;if(look==='horse'){state.yaw=-2.827;state.pitch=-.64;state.layer=0;}else if(look==='bird'){state.yaw=-2.325;state.pitch=-.75;state.layer=0;}else if(look==='water'){state.yaw=-.22;state.pitch=-.68;state.layer=0;}else if(look==='leaves'){state.yaw=.68;state.pitch=.59;state.layer=0;}else if(look==='fire'){state.yaw=1.58;state.pitch=.10;state.layer=2;}else if(look==='up')state.pitch=PI*.44;else if(look==='down')state.pitch=-PI*.44;else{state.yaw=look==='back'?PI:0;state.pitch=-.20;}centerHand();ui();requestAnimationFrame(resize);save()}));
+    canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);drag={x:e.clientX,y:e.clientY,total:0};const p=uv(e);state.handU=p.u;state.handV=p.v;dirty=true;});
+    canvas.addEventListener('pointermove',e=>{if(drag){const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.total+=Math.abs(dx)+Math.abs(dy);if(!state.flat){state.yaw-=dx*.0035;state.pitch=Math.max(-PI*.49,Math.min(PI*.49,state.pitch+dy*.0035));}drag.x=e.clientX;drag.y=e.clientY;dirty=true;}else if(state.layer===1){const p=uv(e);state.handU=p.u;state.handV=p.v;dirty=true;}});
+    canvas.addEventListener('pointerup',e=>{if(drag&&drag.total<7){const p=uv(e);state.handU=p.u;state.handV=p.v;}drag=null;dirty=true;save()});canvas.addEventListener('pointercancel',()=>{drag=null});
+    window.addEventListener('openai:set_globals',e=>{const s=e.detail?.globals?.widgetState?.modelContent;if(s?.kind===state.kind){Object.assign(state,s.controls);ui();resize();}});
+    function tick(t){if(program&&ready===2&&!state.raw&&(dirty||state.playing)&&t-last>50){draw();last=t;let deg=((Math.round(state.yaw*180/PI)%360)+360)%360;$('.bearing').textContent=state.flat?'360° × 180° / 2:1':'转头 / '+String(deg).padStart(3,'0')+'°';}requestAnimationFrame(tick);}
+    try{if(!gl)throw Error('当前环境无法使用 WebGL。');let images=0;for(const name of ['garden','hell']){const image=new Image();image.onload=()=>{posters[name]=image;images++;if(images===2){init();dirty=true;}};image.onerror=()=>error('静帧载入失败');image.src=MEDIA[name].poster;const video=document.createElement('video');video.muted=true;video.loop=true;video.playsInline=true;video.preload='auto';video.addEventListener('loadeddata',()=>{ready++;$('.source-tag').textContent='Orbis 动势 / 原画合成';$('.resolution-note').textContent=MEDIA.edition==='preview'?'压缩预览 · 6 秒循环':'2048 × 1024 · 6 秒循环';dirty=true;playback();},{once:true});video.addEventListener('error',()=>error('视频解码失败，请打开本地浏览器版本。'));video.src=MEDIA[name].video;videos[name]=video;}new ResizeObserver(resize).observe($('.stage'));ui();resize();requestAnimationFrame(tick);}catch(e){error(e);}
+    root.orbisTest={state:()=>({...state,ready,frames,videoTimes:Object.fromEntries(Object.entries(videos).map(([n,v])=>[n,{currentTime:v.currentTime,paused:v.paused,width:v.videoWidth,height:v.videoHeight}])),actualOrbisGeneration:true,model:'Orbis Dynamic revisions',animalAnimationsAccepted:true}),set:next=>{Object.assign(state,next);ui();resize();},seek:async t=>{for(const v of Object.values(videos)){v.pause();v.currentTime=t;await new Promise(resolve=>v.addEventListener('seeked',resolve,{once:true}));}state.playing=false;dirty=true;}};
+  })();
+  </script>
+</div>

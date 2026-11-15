@@ -1,0 +1,40 @@
+{
+  "media": {
+    "overview-19s.mp4": {
+      "seconds": 19.0,
+      "fps": 24.0,
+      "middle_decoded": true
+    },
+    "garden-light-flat.mp4": {
+      "seconds": 12.0,
+      "fps": 24.0,
+      "middle_decoded": true
+    },
+    "hell-light-flat.mp4": {
+      "seconds": 12.0,
+      "fps": 24.0,
+      "middle_decoded": true
+    },
+    "garden-season-flat.mp4": {
+      "seconds": 8.0,
+      "fps": 24.0,
+      "middle_decoded": true
+    },
+    "hell-season-flat.mp4": {
+      "seconds": 8.0,
+      "fps": 24.0,
+      "middle_decoded": true
+    }
+  },
+  "camera_note": "Static panorama mapping; no time-dependent viewpoint transform.",
+  "live_generation": false,
+  "garden_motion_at_equal_light": {
+    "mean_channel_difference_on_motion_support": 11.680813789367676,
+    "pixels_changed_over_5": 80100
+  },
+  "hell_motion_at_equal_light": {
+    "mean_channel_difference_on_motion_support": 9.65756893157959,
+    "pixels_changed_over_5": 48937
+  },
+  "pass": true
+}

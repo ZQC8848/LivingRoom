@@ -1,0 +1,10 @@
+{
+  "kind": "actual-received-live-generation",
+  "model": "reactor/visko-orbis-dynamic",
+  "session_owned": true,
+  "hard_session_limit_seconds": 240,
+  "jobs": [],
+  "note": "Recordings of live hot prompt changes, not a currently connected live viewer. No generated-frame interpolation or post color animation.",
+  "error": "RateLimitedError: connect: [RATE_LIMITED] unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n",
+  "elapsed_seconds": 1.125
+}

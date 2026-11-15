@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+**/.a2a/
+**/node_modules/
+**/dist/
+**/.venv*/
+**/venv/
+**/__pycache__/
+**/.sites-runtime/
+**/.vite/
+*.pyc
+*.exe
+*.log

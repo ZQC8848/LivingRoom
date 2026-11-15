@@ -1,0 +1,512 @@
+{
+  "base": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/",
+  "voice": "Lily — Velvety Actress",
+  "realCompletedCuePlayback": true,
+  "defaultAutoplayPolicy": true,
+  "results": [
+    {
+      "mode": "core",
+      "ids": [
+        "arrival",
+        "reveal",
+        "return"
+      ],
+      "before": {
+        "enabled": false,
+        "ready": false,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [],
+        "completed": [],
+        "oneMusicClock": true,
+        "contextState": "not-started",
+        "assets": 0,
+        "mode": "reveal",
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0,
+        "audioTime": 0,
+        "bufferSeconds": {}
+      },
+      "done": {
+        "enabled": true,
+        "ready": true,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [
+          "arrival",
+          "reveal",
+          "return"
+        ],
+        "completed": [
+          "arrival",
+          "reveal",
+          "return"
+        ],
+        "oneMusicClock": true,
+        "contextState": "running",
+        "assets": 11,
+        "mode": "reveal",
+        "gainTargets": {
+          "bright": 0.44,
+          "dark": 0,
+          "garden": 0.45,
+          "hell": 0
+        },
+        "narrationId": null,
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0.008929080831173542,
+        "audioTime": 25.861333333333334,
+        "bufferSeconds": {
+          "garden-ambience.mp3": 22,
+          "hell-ambience.mp3": 22,
+          "r5-arrival.mp3": 11.331333333333333,
+          "r5-return.mp3": 4.922645833333333,
+          "r5-reveal.mp3": 7.3375208333333335,
+          "r5-mode-garden-light.mp3": 10.402541666666666,
+          "r5-mode-hell-light.mp3": 9.891708333333334,
+          "r5-mode-garden-season.mp3": 10.913375,
+          "r5-mode-hell-season.mp3": 10.8669375,
+          "r5-research.mp3": 14.48925,
+          "music.mp3": 115.9335
+        }
+      },
+      "muted": {
+        "enabled": false,
+        "userMuted": true,
+        "contextState": "suspended"
+      },
+      "resumed": {
+        "enabled": true,
+        "contextState": "running"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "mode": "garden-light",
+      "ids": [
+        "mode-garden-light"
+      ],
+      "before": {
+        "enabled": false,
+        "ready": false,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [],
+        "completed": [],
+        "oneMusicClock": true,
+        "contextState": "not-started",
+        "assets": 0,
+        "mode": "garden-light",
+        "narrationId": null,
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0,
+        "audioTime": 0,
+        "bufferSeconds": {}
+      },
+      "done": {
+        "enabled": true,
+        "ready": true,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 1,
+        "played": [
+          "mode-garden-light"
+        ],
+        "completed": [
+          "mode-garden-light"
+        ],
+        "oneMusicClock": true,
+        "contextState": "running",
+        "assets": 11,
+        "mode": "garden-light",
+        "narrationId": null,
+        "gainTargets": {
+          "bright": 0.19799999999999998,
+          "dark": 0.24200000000000002,
+          "garden": 0.315,
+          "hell": 0
+        },
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0.009748338699210383,
+        "audioTime": 11.032,
+        "bufferSeconds": {
+          "r5-reveal.mp3": 7.3375208333333335,
+          "r5-return.mp3": 4.922645833333333,
+          "hell-ambience.mp3": 22,
+          "garden-ambience.mp3": 22,
+          "r5-arrival.mp3": 11.331333333333333,
+          "r5-mode-garden-season.mp3": 10.913375,
+          "r5-mode-garden-light.mp3": 10.402541666666666,
+          "r5-mode-hell-light.mp3": 9.891708333333334,
+          "r5-mode-hell-season.mp3": 10.8669375,
+          "r5-research.mp3": 14.48925,
+          "music.mp3": 115.9335
+        }
+      },
+      "muted": {
+        "enabled": false,
+        "userMuted": true,
+        "contextState": "suspended"
+      },
+      "resumed": {
+        "enabled": true,
+        "contextState": "running"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "mode": "hell-light",
+      "ids": [
+        "mode-hell-light"
+      ],
+      "before": {
+        "enabled": false,
+        "ready": false,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [],
+        "completed": [],
+        "oneMusicClock": true,
+        "contextState": "not-started",
+        "assets": 0,
+        "mode": "hell-light",
+        "narrationId": null,
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0,
+        "audioTime": 0,
+        "bufferSeconds": {}
+      },
+      "done": {
+        "enabled": true,
+        "ready": true,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 1,
+        "night": 0,
+        "played": [
+          "mode-hell-light"
+        ],
+        "completed": [
+          "mode-hell-light"
+        ],
+        "oneMusicClock": true,
+        "contextState": "running",
+        "assets": 11,
+        "mode": "hell-light",
+        "narrationId": null,
+        "gainTargets": {
+          "bright": 0,
+          "dark": 0.44,
+          "garden": 0,
+          "hell": 0.48
+        },
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0.011261852600791732,
+        "audioTime": 10.72,
+        "bufferSeconds": {
+          "r5-reveal.mp3": 7.3375208333333335,
+          "garden-ambience.mp3": 22,
+          "hell-ambience.mp3": 22,
+          "r5-return.mp3": 4.922645833333333,
+          "r5-arrival.mp3": 11.331333333333333,
+          "r5-mode-garden-season.mp3": 10.913375,
+          "r5-mode-garden-light.mp3": 10.402541666666666,
+          "r5-mode-hell-light.mp3": 9.891708333333334,
+          "r5-mode-hell-season.mp3": 10.8669375,
+          "r5-research.mp3": 14.48925,
+          "music.mp3": 115.9335
+        }
+      },
+      "muted": {
+        "enabled": false,
+        "userMuted": true,
+        "contextState": "suspended"
+      },
+      "resumed": {
+        "enabled": true,
+        "contextState": "running"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "mode": "garden-season",
+      "ids": [
+        "mode-garden-season"
+      ],
+      "before": {
+        "enabled": false,
+        "ready": false,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [],
+        "completed": [],
+        "oneMusicClock": true,
+        "contextState": "not-started",
+        "assets": 0,
+        "mode": "garden-season",
+        "narrationId": null,
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0,
+        "audioTime": 0,
+        "bufferSeconds": {}
+      },
+      "done": {
+        "enabled": true,
+        "ready": true,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [
+          "mode-garden-season"
+        ],
+        "completed": [
+          "mode-garden-season"
+        ],
+        "oneMusicClock": true,
+        "contextState": "running",
+        "assets": 11,
+        "mode": "garden-season",
+        "narrationId": null,
+        "gainTargets": {
+          "bright": 0.44,
+          "dark": 0,
+          "garden": 0.45,
+          "hell": 0
+        },
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0.007490330051855226,
+        "audioTime": 11.48,
+        "bufferSeconds": {
+          "r5-reveal.mp3": 7.3375208333333335,
+          "r5-return.mp3": 4.922645833333333,
+          "r5-arrival.mp3": 11.331333333333333,
+          "garden-ambience.mp3": 22,
+          "r5-mode-garden-light.mp3": 10.402541666666666,
+          "r5-mode-garden-season.mp3": 10.913375,
+          "r5-mode-hell-light.mp3": 9.891708333333334,
+          "r5-research.mp3": 14.48925,
+          "r5-mode-hell-season.mp3": 10.8669375,
+          "hell-ambience.mp3": 22,
+          "music.mp3": 115.9335
+        }
+      },
+      "muted": {
+        "enabled": false,
+        "userMuted": true,
+        "contextState": "suspended"
+      },
+      "resumed": {
+        "enabled": true,
+        "contextState": "running"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "mode": "hell-season",
+      "ids": [
+        "mode-hell-season"
+      ],
+      "before": {
+        "enabled": false,
+        "ready": false,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [],
+        "completed": [],
+        "oneMusicClock": true,
+        "contextState": "not-started",
+        "assets": 0,
+        "mode": "hell-season",
+        "narrationId": null,
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0,
+        "audioTime": 0,
+        "bufferSeconds": {}
+      },
+      "done": {
+        "enabled": true,
+        "ready": true,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 1,
+        "night": 0,
+        "played": [
+          "mode-hell-season"
+        ],
+        "completed": [
+          "mode-hell-season"
+        ],
+        "oneMusicClock": true,
+        "contextState": "running",
+        "assets": 11,
+        "mode": "hell-season",
+        "narrationId": null,
+        "gainTargets": {
+          "bright": 0,
+          "dark": 0.44,
+          "garden": 0,
+          "hell": 0.48
+        },
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0.00737430602513254,
+        "audioTime": 11.570666666666666,
+        "bufferSeconds": {
+          "r5-return.mp3": 4.922645833333333,
+          "r5-arrival.mp3": 11.331333333333333,
+          "r5-reveal.mp3": 7.3375208333333335,
+          "hell-ambience.mp3": 22,
+          "r5-mode-garden-light.mp3": 10.402541666666666,
+          "r5-mode-garden-season.mp3": 10.913375,
+          "r5-mode-hell-light.mp3": 9.891708333333334,
+          "r5-mode-hell-season.mp3": 10.8669375,
+          "r5-research.mp3": 14.48925,
+          "garden-ambience.mp3": 22,
+          "music.mp3": 115.9335
+        }
+      },
+      "muted": {
+        "enabled": false,
+        "userMuted": true,
+        "contextState": "suspended"
+      },
+      "resumed": {
+        "enabled": true,
+        "contextState": "running"
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "mode": "research",
+      "ids": [
+        "research"
+      ],
+      "before": {
+        "enabled": false,
+        "ready": false,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [],
+        "completed": [],
+        "oneMusicClock": true,
+        "contextState": "not-started",
+        "assets": 0,
+        "mode": "reveal",
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0,
+        "audioTime": 0,
+        "bufferSeconds": {}
+      },
+      "done": {
+        "enabled": true,
+        "ready": true,
+        "loading": false,
+        "userMuted": false,
+        "errors": [],
+        "mix": 0,
+        "night": 0,
+        "played": [
+          "arrival",
+          "research"
+        ],
+        "completed": [
+          "research"
+        ],
+        "oneMusicClock": true,
+        "contextState": "running",
+        "assets": 11,
+        "mode": "reveal",
+        "gainTargets": {
+          "bright": 0.44,
+          "dark": 0,
+          "garden": 0.45,
+          "hell": 0
+        },
+        "narrationId": null,
+        "voiceEnabled": true,
+        "captionsEnabled": true,
+        "volume": 0.7,
+        "rms": 0.023033885282871324,
+        "audioTime": 15.032,
+        "bufferSeconds": {
+          "garden-ambience.mp3": 22,
+          "r5-return.mp3": 4.922645833333333,
+          "r5-reveal.mp3": 7.3375208333333335,
+          "r5-arrival.mp3": 11.331333333333333,
+          "hell-ambience.mp3": 22,
+          "r5-mode-garden-light.mp3": 10.402541666666666,
+          "r5-mode-hell-light.mp3": 9.891708333333334,
+          "r5-mode-garden-season.mp3": 10.913375,
+          "r5-research.mp3": 14.48925,
+          "r5-mode-hell-season.mp3": 10.8669375,
+          "music.mp3": 115.9335
+        }
+      },
+      "muted": {
+        "enabled": false,
+        "userMuted": true,
+        "contextState": "suspended"
+      },
+      "resumed": {
+        "enabled": true,
+        "contextState": "running"
+      },
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

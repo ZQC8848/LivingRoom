@@ -1,0 +1,83 @@
+{
+  "initial": {
+    "mode": "inside",
+    "yaw": 0,
+    "pitch": 0,
+    "currentTime": 0,
+    "videoWidth": 2048,
+    "videoHeight": 1024,
+    "paused": true,
+    "playbackLoops": 0,
+    "live": false
+  },
+  "errors": [],
+  "api": [],
+  "headsetVerified": false,
+  "playing": true,
+  "night": {
+    "mode": "inside",
+    "yaw": 0,
+    "pitch": 0,
+    "currentTime": 15,
+    "videoWidth": 2048,
+    "videoHeight": 1024,
+    "paused": true,
+    "playbackLoops": 0,
+    "live": false
+  },
+  "look": {
+    "mode": "inside",
+    "yaw": 1.2,
+    "pitch": -0.312,
+    "currentTime": 0,
+    "videoWidth": 2048,
+    "videoHeight": 1024,
+    "paused": true,
+    "playbackLoops": 0,
+    "live": false
+  },
+  "center": {
+    "mode": "inside",
+    "yaw": 0,
+    "pitch": 0,
+    "currentTime": 0,
+    "videoWidth": 2048,
+    "videoHeight": 1024,
+    "paused": true,
+    "playbackLoops": 0,
+    "live": false
+  },
+  "painting": {
+    "mode": "painting",
+    "yaw": 0,
+    "pitch": 0,
+    "currentTime": 0,
+    "videoWidth": 1776,
+    "videoHeight": 888,
+    "paused": true,
+    "playbackLoops": 0,
+    "live": false
+  },
+  "sound": {
+    "paused": false,
+    "readyState": 4,
+    "currentTime": 15.0148
+  },
+  "muted": true,
+  "loop": {
+    "mode": "painting",
+    "yaw": 0,
+    "pitch": 0,
+    "currentTime": 0.6596,
+    "videoWidth": 1776,
+    "videoHeight": 888,
+    "paused": false,
+    "playbackLoops": 1,
+    "live": false
+  },
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  },
+  "pass": true
+}

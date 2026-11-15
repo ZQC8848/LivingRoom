@@ -1,0 +1,227 @@
+{
+  "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/",
+  "headsetVerified": false,
+  "scope": "Real released media and production build in desktop Chrome; synthetic controller events and XR session options are explicitly simulated.",
+  "initial": {
+    "playing": true,
+    "sourceIsBlob": true,
+    "fullyBuffered": true,
+    "storageMode": "blob",
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 0.7497,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 0.7497,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      0,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "playback": {
+    "wraps": 2,
+    "maxDriftFrames": 0,
+    "allPlaying": false,
+    "allVisible": true,
+    "presentedFrames": 104
+  },
+  "preciseSeek": {
+    "target": 5,
+    "actual": 5,
+    "mix": 1,
+    "seekable": [
+      [
+        0,
+        8
+      ]
+    ]
+  },
+  "resync": {
+    "singleClock": true,
+    "driftFrames": 0,
+    "keptVideoMix": 1
+  },
+  "open": {
+    "playing": true,
+    "sourceIsBlob": true,
+    "fullyBuffered": true,
+    "storageMode": "blob",
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 6.0207,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 6.0207,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      38,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "closed": {
+    "playing": false,
+    "sourceIsBlob": true,
+    "fullyBuffered": true,
+    "storageMode": "blob",
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 0,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 0,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      0,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "simulatedController": {
+    "openDegrees": 38,
+    "direction": [
+      1,
+      0,
+      -6.123233995736766e-17,
+      0.6632251157578453
+    ],
+    "closedDegrees": 0
+  },
+  "twoSlots": [
+    38,
+    38
+  ],
+  "focus": {
+    "horse": true,
+    "water": true,
+    "fire": true
+  },
+  "color": {
+    "expected": [
+      122.99999999999999,
+      157.48,
+      153.96000000000006
+    ],
+    "actual": [
+      123.87999999999998,
+      158.48,
+      154.95999999999995
+    ],
+    "meanError": 0.9599999999999606
+  },
+  "noAutomaticCameraMovement": true,
+  "translationDoesNotDistortPanorama": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "length": 5411193,
+    "client": "actual browser fetch"
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "posterFallback": {
+    "mix": 0,
+    "problemCount": 1,
+    "hasRetryOverlay": false,
+    "errors": []
+  },
+  "simulatedXRRequest": {
+    "mode": "immersive-vr",
+    "options": {
+      "optionalFeatures": [
+        "local-floor",
+        "bounded-floor",
+        "layers",
+        "hand-tracking"
+      ]
+    }
+  },
+  "errors": [],
+  "modelAPIRequests": [],
+  "transportContract": "Full checked Blob preload; HTTP Range is diagnostic only and is not required for playback.",
+  "checks": {
+    "realMediaLoaded": true,
+    "loopsAndPlayback": true,
+    "synced": true,
+    "mouseReveal": true,
+    "controllerWiring": true,
+    "twoHands": true,
+    "focus": true,
+    "headLocked": true,
+    "bufferedTransport": true,
+    "mobile": true,
+    "fallback": true,
+    "handTrackingRequested": true,
+    "color": true,
+    "preciseSeek": true,
+    "noModelCalls": true,
+    "noPageErrors": true
+  }
+}

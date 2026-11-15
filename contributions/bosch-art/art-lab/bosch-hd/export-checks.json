@@ -1,0 +1,97 @@
+{
+  "garden-equirect-8192.jpg": {
+    "pixels": [
+      8192,
+      4096
+    ],
+    "seam_mean_channel_difference": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "nearby_pixel_step_mean": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "top_row_extrema": [
+      [
+        29,
+        29
+      ],
+      [
+        52,
+        52
+      ],
+      [
+        46,
+        46
+      ]
+    ],
+    "bottom_row_extrema": [
+      [
+        21,
+        21
+      ],
+      [
+        33,
+        33
+      ],
+      [
+        19,
+        19
+      ]
+    ]
+  },
+  "hell-equirect-8192.jpg": {
+    "pixels": [
+      8192,
+      4096
+    ],
+    "seam_mean_channel_difference": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "nearby_pixel_step_mean": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "top_row_extrema": [
+      [
+        8,
+        8
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        7
+      ]
+    ],
+    "bottom_row_extrema": [
+      [
+        11,
+        11
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        5
+      ]
+    ]
+  },
+  "model_reference": {
+    "pixels": [
+      1536,
+      864
+    ],
+    "aspect": 1.7777777777777777
+  }
+}

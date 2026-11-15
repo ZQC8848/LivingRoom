@@ -1,0 +1,9 @@
+{
+  "tool": "Built-in imagegen, lighting-weather edit",
+  "input": "day-original.png",
+  "output": "night-imagegen.png",
+  "transparent_background": false,
+  "prompt": "Use case: lighting-weather edit. Edit target: the supplied wide Bosch-inspired painted garden panorama. Make a NIGHT lighting variant for a fixed-viewpoint VR day/night transition. Preserve the EXACT entire composition, framing, wide 2:1 aspect ratio, every building outline, spire, doorway, tree branch, person, animal, shoreline, mountain and its pixel position. Change ONLY illumination and sky/water colors: legible cool deep blue moonlit night, subdued silver reflections in the existing water, gentle warm light in EXISTING windows only. Retain the same delicate painted canvas texture and visible detail. Do not redesign or simplify any architecture. Do not add a moon, stars, clouds, flowers, structures or objects. No camera or perspective changes, no cropping, no zoom, no warping. The result must align with the day image for a dissolve, without doubled silhouettes. No text or border.",
+  "geometry_check": "reference-check.json",
+  "used_in_project": true
+}

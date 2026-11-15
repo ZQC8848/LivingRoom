@@ -1,0 +1,158 @@
+{
+  "checks": {
+    "garden-daynight-30s-flat.mp4": {
+      "geometry": [
+        1776,
+        888
+      ],
+      "fps": 30.0,
+      "frames": 900.0,
+      "pass": true
+    },
+    "garden-daynight-30s-panorama.mp4": {
+      "geometry": [
+        2048,
+        1024
+      ],
+      "fps": 30.0,
+      "frames": 900.0,
+      "pass": true
+    },
+    "garden-daynight-review-with-voice.mp4": {
+      "geometry": [
+        1776,
+        888
+      ],
+      "fps": 30.0,
+      "frames": 900.0,
+      "pass": true
+    },
+    "day_plate_preserved": {
+      "protected_mean_channel_error": 3.313664674758911,
+      "robust_matches": 3232,
+      "median_feature_displacement_pixels": 0.05210494250059128,
+      "p95_feature_displacement_pixels": 0.29874351620674133,
+      "scale": 0.999998753426693,
+      "centre_displacement_pixels": [
+        0.002204503718076012,
+        0.0006809889244436818
+      ],
+      "pass": true
+    },
+    "night_plate_preserved": {
+      "protected_mean_channel_error": 2.4021108150482178,
+      "robust_matches": 3181,
+      "median_feature_displacement_pixels": 0.051197730004787445,
+      "p95_feature_displacement_pixels": 0.25980979204177856,
+      "scale": 1.0000000078069664,
+      "centre_displacement_pixels": [
+        -0.0026367179988255884,
+        0.00022744812952169013
+      ],
+      "pass": true
+    },
+    "no_model_motion_on_fixed_plates": {
+      "pass": true
+    },
+    "seamless_loop": {
+      "pass": true
+    },
+    "decoded_panorama_seam": {
+      "pass": true
+    },
+    "owned_model_session_closed": {
+      "pass": true
+    },
+    "no_credentials_in_delivery": {
+      "pass": true
+    }
+  },
+  "headset_verified": false,
+  "production_reveal_modified": false,
+  "loop_boundary": {
+    "mean_channel_delta": 1.5034065246582031,
+    "p99_channel_delta": 6.0
+  },
+  "hold_phase": {
+    "protected_mean_delta": 1.493057131767273,
+    "water_mean_delta": 2.322289228439331
+  },
+  "rear_seam": [
+    {
+      "frame": 0,
+      "mean": 1.177734375,
+      "p99": 7.0
+    },
+    {
+      "frame": 240,
+      "mean": 0.9651692708333334,
+      "p99": 5.0
+    },
+    {
+      "frame": 450,
+      "mean": 0.8434244791666666,
+      "p99": 4.0
+    },
+    {
+      "frame": 660,
+      "mean": 1.0123697916666667,
+      "p99": 6.0
+    },
+    {
+      "frame": 899,
+      "mean": 1.078125,
+      "p99": 6.0
+    }
+  ],
+  "files": {
+    "ambience-music-loop.mp3": {
+      "bytes": 721196,
+      "sha256": "f7580a137636b578160932b45c68412a25f17535142b8ae887acef1ce17d20bb"
+    },
+    "garden-daynight-30s-flat.mp4": {
+      "bytes": 17167104,
+      "sha256": "b6a6657abab06a8fc0b4d4b6d10eb820bbeb7b21d63bf5df92a86acf085af6ca"
+    },
+    "garden-daynight-30s-panorama.mp4": {
+      "bytes": 14222626,
+      "sha256": "b10f4df53c44d77e3d171f2e5c58d7ca16a5d7a14fc73624f1bba822c7bf4e14"
+    },
+    "garden-daynight-review-with-voice.mp4": {
+      "bytes": 17917311,
+      "sha256": "a84bb3f9626a785acf715c7688b4d5da00f1e78ba447aae07a9a8a70389a36cf"
+    },
+    "raw-day-return.mp4": {
+      "bytes": 3696318,
+      "sha256": "890e522242824c0565dea4cd62b6be3b80dbc4e643b58ef378c3e94a911cc811"
+    },
+    "raw-day.mp4": {
+      "bytes": 3666084,
+      "sha256": "d7672ff50d06b84fbd192184750aac61bdd473bc8efcec6e83cc0a9fd8ce6076"
+    },
+    "raw-night.mp4": {
+      "bytes": 4789515,
+      "sha256": "ec347e368e3a8e797a518609402469d0f8498d8e59242dd0714c33430e5744d6"
+    },
+    "reanchor-evidence.mp4": {
+      "bytes": 4055408,
+      "sha256": "9ec8d9260ff214230fcafe6d8f45b9467a8df7eb1b024fc4a91539d09eb3133d"
+    },
+    "review-soundtrack.en.mp3": {
+      "bytes": 721196,
+      "sha256": "0738a7fa5d47283393b90b576eb16df30b336a981ecec0bea4a93b76885ec658"
+    },
+    "vo-day.mp3": {
+      "bytes": 81127,
+      "sha256": "9e907c88796116bf54ea396671885f190437f530e96d5106e98c4b897257eb0f"
+    },
+    "vo-dusk.mp3": {
+      "bytes": 50198,
+      "sha256": "80da665d3bbde5a735a08667f1aa476ae04343072b1a7ecefd3a55edcd263914"
+    },
+    "vo-night.mp3": {
+      "bytes": 77783,
+      "sha256": "4cc1ff362ebbea7ca2015e6cce759aef9c129429d5f944a8deeee70a871385b1"
+    }
+  },
+  "pass": true
+}

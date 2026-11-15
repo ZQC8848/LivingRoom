@@ -1,0 +1,41 @@
+{
+  "id": "garden-light",
+  "status": "captured",
+  "frames": 356,
+  "seconds": 23.08,
+  "hot_prompt_stages": [
+    {
+      "label": "Day",
+      "sent_after_first_frame_seconds": -6.609,
+      "ack_after_send_seconds": 0.047,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Dusk",
+      "sent_after_first_frame_seconds": 4.282,
+      "ack_after_send_seconds": 0.515,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Night",
+      "sent_after_first_frame_seconds": 13.813,
+      "ack_after_send_seconds": 0.094,
+      "reply_type": "prompt_accepted"
+    }
+  ],
+  "drift_first_to_last": {
+    "status": "estimated",
+    "matches": 51,
+    "inliers": 32,
+    "scale": 0.99984,
+    "rotation_degrees": 0.024,
+    "center_displacement_pixels_at_960w": [
+      0.27,
+      -0.19
+    ],
+    "note": "Architecture feature alignment is a drift proxy; human review still required."
+  },
+  "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+  "added_animation": false,
+  "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+}

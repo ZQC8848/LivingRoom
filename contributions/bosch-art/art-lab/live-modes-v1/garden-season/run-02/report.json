@@ -1,0 +1,1050 @@
+{
+  "id": "garden-season",
+  "label": "Garden · Seasons",
+  "folder": "C:\\Users\\zoezi\\Desktop\\hack\\immersetheBay\\art-lab\\live-modes-v1\\garden-season\\run-02",
+  "commands": [
+    {
+      "command": "set_resolution",
+      "stage": null,
+      "sent_t": 42.563,
+      "returned_t": 42.594,
+      "reply_type": "resolution_accepted"
+    },
+    {
+      "command": "set_image",
+      "stage": null,
+      "sent_t": 43.156,
+      "returned_t": 43.594,
+      "reply_type": "image_accepted"
+    },
+    {
+      "command": "set_prompt",
+      "stage": "Summer",
+      "sent_t": 43.594,
+      "prompt": "Green summer in a painted fantasy garden. Green grass and leafy trees, moving river. Keep the exact wide reference painting composition and all buildings in the same positions. Locked tripod camera, no pan, tilt, zoom, dolly, rotation, parallax or reframing. Only the weather and light change.",
+      "returned_t": 44.125,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "command": "start",
+      "stage": null,
+      "sent_t": 44.125,
+      "returned_t": 44.156,
+      "reply_type": null
+    },
+    {
+      "command": "set_prompt",
+      "stage": "Autumn",
+      "sent_t": 54.875,
+      "prompt": "AUTUMN. All tree leaves turn orange and yellow, many whole leaves fall in the wind. Golden grass, grey sky, moving river, the same painted buildings. Keep the exact wide reference painting composition and all buildings in the same positions. Locked tripod camera, no pan, tilt, zoom, dolly, rotation, parallax or reframing. Only the weather and light change.",
+      "returned_t": 55.578,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "command": "set_prompt",
+      "stage": "Winter",
+      "sent_t": 67.594,
+      "prompt": "SNOWY WINTER. Thick WHITE SNOW covers the grass, banks and roofs of the same painted garden. Bare trees, falling white snowflakes, cold grey sky. The river ripples between snow-covered banks. Keep the exact wide reference painting composition and all buildings in the same positions. Locked tripod camera, no pan, tilt, zoom, dolly, rotation, parallax or reframing. Only the weather and light change.",
+      "returned_t": 68.469,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "command": "pause",
+      "stage": null,
+      "sent_t": 80.469,
+      "returned_t": 81.516,
+      "reply_type": "generation_paused"
+    }
+  ],
+  "events": [
+    {
+      "t": 43.594,
+      "type": "image_accepted"
+    },
+    {
+      "t": 44.125,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 44.203,
+      "type": "generation_started"
+    },
+    {
+      "t": 46.281,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": null,
+        "chunk_index": 0.0,
+        "delivered": null,
+        "frames_emitted": 0.0
+      }
+    },
+    {
+      "t": 48.109,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": null,
+        "chunk_index": 1.0,
+        "delivered": null,
+        "frames_emitted": 0.0
+      }
+    },
+    {
+      "t": 50.594,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 2.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 51.859,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 3.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 53.656,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 4.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 55.578,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 5.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 55.578,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 57.563,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 6.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 59.203,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 7.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 61.063,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 8.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 62.906,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 9.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 64.75,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 10.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 66.609,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 11.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 68.469,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 12.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 68.469,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 70.344,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 13.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 72.203,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 14.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 74.078,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 15.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 75.922,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 16.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 77.781,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 17.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 79.641,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 18.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    },
+    {
+      "t": 81.5,
+      "type": "chunk_complete",
+      "data": {
+        "audio_samples": 88000.0,
+        "chunk_index": 19.0,
+        "delivered": "1920x1080",
+        "frames_emitted": 33.0
+      }
+    }
+  ],
+  "states": [
+    {
+      "t": 42.594,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 43.594,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 44.125,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 44.156,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 44.203,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 46.281,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 48.109,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 50.594,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 51.859,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 53.656,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 55.578,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 55.578,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 57.563,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 59.203,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 61.063,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 62.906,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 64.75,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 66.609,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 68.469,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 68.469,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 70.344,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 72.203,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 74.078,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 75.922,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 77.781,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 79.641,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 81.5,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    },
+    {
+      "t": 81.5,
+      "resolution": "1080p",
+      "available_resolutions": [
+        "native",
+        "1080p",
+        "2k",
+        "4k"
+      ]
+    }
+  ],
+  "errors": [],
+  "status": "captured",
+  "source_fraction": [
+    0,
+    0.06521739130434782,
+    1,
+    0.9347826086956522
+  ],
+  "first_frame_t": 51.359,
+  "delivered_pixels": [
+    1920,
+    1080
+  ],
+  "frame_timestamps": [
+    51.359,
+    51.375,
+    51.438,
+    51.5,
+    51.547,
+    51.609,
+    51.813,
+    51.859,
+    52.063,
+    52.203,
+    52.313,
+    52.438,
+    52.547,
+    52.609,
+    52.672,
+    52.797,
+    52.828,
+    52.891,
+    52.938,
+    53.0,
+    53.109,
+    53.172,
+    53.391,
+    53.609,
+    53.766,
+    53.875,
+    53.984,
+    54.047,
+    54.109,
+    54.156,
+    54.203,
+    54.266,
+    54.328,
+    54.375,
+    54.422,
+    54.484,
+    54.594,
+    54.688,
+    54.734,
+    54.797,
+    54.859,
+    54.906,
+    55.016,
+    55.125,
+    55.297,
+    55.406,
+    55.516,
+    55.563,
+    55.641,
+    55.734,
+    55.797,
+    55.844,
+    55.969,
+    56.078,
+    56.188,
+    56.234,
+    56.297,
+    56.344,
+    56.406,
+    56.469,
+    56.5,
+    56.563,
+    56.609,
+    56.781,
+    56.844,
+    56.891,
+    56.953,
+    57.063,
+    57.109,
+    57.172,
+    57.234,
+    57.281,
+    57.406,
+    57.516,
+    57.641,
+    57.781,
+    57.828,
+    57.891,
+    57.953,
+    58.016,
+    58.063,
+    58.109,
+    58.219,
+    58.328,
+    58.375,
+    58.5,
+    58.547,
+    58.594,
+    58.703,
+    58.766,
+    58.938,
+    58.984,
+    59.094,
+    59.203,
+    59.313,
+    59.359,
+    59.422,
+    59.469,
+    59.531,
+    59.578,
+    59.703,
+    59.75,
+    59.859,
+    59.922,
+    59.969,
+    60.031,
+    60.078,
+    60.125,
+    60.188,
+    60.25,
+    60.297,
+    60.344,
+    60.406,
+    60.453,
+    60.516,
+    60.563,
+    60.625,
+    60.734,
+    60.797,
+    60.844,
+    60.969,
+    61.063,
+    61.109,
+    61.172,
+    61.219,
+    61.281,
+    61.344,
+    61.453,
+    61.5,
+    61.563,
+    61.609,
+    61.734,
+    61.781,
+    61.844,
+    61.891,
+    61.953,
+    62.047,
+    62.109,
+    62.172,
+    62.219,
+    62.266,
+    62.328,
+    62.391,
+    62.438,
+    62.484,
+    62.547,
+    62.594,
+    62.766,
+    62.828,
+    62.938,
+    62.984,
+    63.094,
+    63.156,
+    63.219,
+    63.266,
+    63.313,
+    63.375,
+    63.422,
+    63.484,
+    63.531,
+    63.594,
+    63.688,
+    63.75,
+    63.797,
+    63.859,
+    63.906,
+    63.969,
+    64.016,
+    64.078,
+    64.125,
+    64.188,
+    64.25,
+    64.297,
+    64.359,
+    64.406,
+    64.469,
+    64.516,
+    64.578,
+    64.688,
+    64.734,
+    64.844,
+    64.906,
+    64.969,
+    65.016,
+    65.078,
+    65.125,
+    65.172,
+    65.234,
+    65.281,
+    65.344,
+    65.406,
+    65.453,
+    65.516,
+    65.563,
+    65.625,
+    65.734,
+    65.781,
+    65.828,
+    65.891,
+    65.953,
+    66.016,
+    66.063,
+    66.109,
+    66.172,
+    66.219,
+    66.281,
+    66.328,
+    66.391,
+    66.438,
+    66.5,
+    66.547,
+    66.609,
+    66.766,
+    66.813,
+    66.875,
+    66.938,
+    66.984,
+    67.047,
+    67.094,
+    67.156,
+    67.219,
+    67.266,
+    67.328,
+    67.375,
+    67.438,
+    67.484,
+    67.547,
+    67.594,
+    67.688,
+    67.75,
+    67.813,
+    67.875,
+    67.906,
+    67.969,
+    68.016,
+    68.078,
+    68.125,
+    68.188,
+    68.25,
+    68.297,
+    68.359,
+    68.406,
+    68.516,
+    68.578,
+    68.703,
+    68.828,
+    68.891,
+    68.953,
+    69.0,
+    69.047,
+    69.109,
+    69.172,
+    69.219,
+    69.266,
+    69.328,
+    69.375,
+    69.438,
+    69.5,
+    69.547,
+    69.609,
+    69.672,
+    69.734,
+    69.797,
+    69.844,
+    69.906,
+    69.953,
+    70.016,
+    70.063,
+    70.125,
+    70.172,
+    70.234,
+    70.297,
+    70.344,
+    70.406,
+    70.453,
+    70.516,
+    70.578,
+    70.656,
+    70.703,
+    70.766,
+    70.813,
+    70.875,
+    70.938,
+    70.984,
+    71.031,
+    71.094,
+    71.156,
+    71.203,
+    71.25,
+    71.313,
+    71.375,
+    71.438,
+    71.484,
+    71.547,
+    71.594,
+    71.672,
+    71.719,
+    71.781,
+    71.828,
+    71.891,
+    71.938,
+    72.0,
+    72.047,
+    72.109,
+    72.156,
+    72.219,
+    72.328,
+    72.391,
+    72.453,
+    72.5,
+    72.547,
+    72.609,
+    72.672,
+    72.719,
+    72.766,
+    72.828,
+    72.891,
+    72.938,
+    73.0,
+    73.047,
+    73.109,
+    73.172,
+    73.219,
+    73.266,
+    73.328,
+    73.391,
+    73.438,
+    73.5,
+    73.547,
+    73.594,
+    73.688,
+    73.734,
+    73.797,
+    73.844,
+    73.906,
+    73.953,
+    74.016,
+    74.078,
+    74.125,
+    74.188,
+    74.234,
+    74.297,
+    74.344,
+    74.406,
+    74.469,
+    74.516,
+    74.578,
+    74.625,
+    74.703,
+    74.766,
+    74.813,
+    74.875,
+    74.938,
+    74.984,
+    75.031,
+    75.094,
+    75.141,
+    75.203,
+    75.25,
+    75.313,
+    75.375,
+    75.438,
+    75.484,
+    75.531,
+    75.594,
+    75.656,
+    75.703,
+    75.75,
+    75.813,
+    75.875,
+    75.938,
+    75.984,
+    76.094,
+    76.156,
+    76.203,
+    76.266,
+    76.313,
+    76.375,
+    76.438,
+    76.469,
+    76.531,
+    76.578,
+    76.641,
+    76.688,
+    76.75,
+    76.813,
+    76.859,
+    76.922,
+    77.0,
+    77.031,
+    77.094,
+    77.141,
+    77.203,
+    77.25,
+    77.313,
+    77.359,
+    77.422,
+    77.469,
+    77.531,
+    77.594,
+    77.641,
+    77.703,
+    77.75,
+    77.813,
+    77.859,
+    77.922,
+    77.984,
+    78.031,
+    78.094,
+    78.141,
+    78.188,
+    78.25,
+    78.313,
+    78.359,
+    78.422,
+    78.469,
+    78.531,
+    78.594,
+    78.641,
+    78.688,
+    78.75,
+    78.813,
+    78.859,
+    78.906,
+    78.969,
+    79.031,
+    79.094,
+    79.125,
+    79.188,
+    79.234,
+    79.313,
+    79.375,
+    79.406,
+    79.469,
+    79.531,
+    79.594,
+    79.641,
+    79.656,
+    79.766,
+    79.828,
+    79.875,
+    79.938,
+    80.0,
+    80.047,
+    80.094,
+    80.156,
+    80.203,
+    80.266,
+    80.328,
+    80.375,
+    80.438,
+    80.484,
+    80.547,
+    80.594,
+    80.641,
+    80.688,
+    80.75,
+    80.797,
+    80.859,
+    80.922,
+    80.969,
+    81.031,
+    81.078,
+    81.141,
+    81.188,
+    81.25,
+    81.313,
+    81.359,
+    81.406,
+    81.469
+  ],
+  "frames": 470,
+  "recorded_wall_seconds": 30.11
+}

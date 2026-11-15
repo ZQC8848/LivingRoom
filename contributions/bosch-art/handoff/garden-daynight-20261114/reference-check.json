@@ -1,0 +1,23 @@
+{
+  "dimensions": [
+    1774,
+    887
+  ],
+  "matches": 287,
+  "inliers": 247,
+  "estimated_affine": [
+    [
+      1.0006325720420397,
+      8.633395213491792e-05,
+      -0.09637560028466573
+    ],
+    [
+      -8.633395213491792e-05,
+      1.0006325720420397,
+      0.3243963640734422
+    ]
+  ],
+  "median_inlier_displacement_pixels": 1.0421092510223389,
+  "p95_inlier_displacement_pixels": 2.0838239192962646,
+  "note": "Imagegen edited night reference, no geometry warping applied. These matched features are a proxy, not a guarantee for every silhouette."
+}

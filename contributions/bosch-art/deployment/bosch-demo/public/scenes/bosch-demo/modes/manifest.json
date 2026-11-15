@@ -1,0 +1,78 @@
+{
+  "release": "2026-11-14-r5",
+  "modes": [
+    {
+      "id": "garden-light",
+      "label": "Garden · Day / Night",
+      "shortLabel": "Garden\nDay / Night",
+      "world": "garden",
+      "packed": false,
+      "file": "garden-light.mp4",
+      "bytes": 4167118,
+      "sha256": "09c27c01351fb2817d7190d10699378c538fccc8defabc19fdbbf82b7791aaee",
+      "video": {
+        "width": 1536,
+        "height": 768,
+        "fps": 24.0,
+        "frame_count": 288,
+        "duration_seconds": 12.0
+      },
+      "description": "6 seconds per light change · 12-second loop"
+    },
+    {
+      "id": "hell-light",
+      "label": "Aftermath · Day / Night",
+      "shortLabel": "Aftermath\nDay / Night",
+      "world": "hell",
+      "packed": false,
+      "file": "hell-light.mp4",
+      "bytes": 3073177,
+      "sha256": "836f628f321adeaf209a4384a21c845cadcfdba2702976599275ad53586a09d5",
+      "video": {
+        "width": 1536,
+        "height": 768,
+        "fps": 24.0,
+        "frame_count": 288,
+        "duration_seconds": 12.0
+      },
+      "description": "6 seconds per light change · 12-second loop"
+    },
+    {
+      "id": "garden-season",
+      "label": "Garden · Seasons",
+      "shortLabel": "Garden\nSeasons",
+      "world": "garden",
+      "packed": false,
+      "file": "garden-season.mp4",
+      "bytes": 3432417,
+      "sha256": "abab3638f221a26791eb0a2f3033e352008747dc9eaa69097bb2c5ec6ba356ea",
+      "video": {
+        "width": 1536,
+        "height": 768,
+        "fps": 24.0,
+        "frame_count": 192,
+        "duration_seconds": 8.0
+      },
+      "description": "Four seasons · 8-second loop"
+    },
+    {
+      "id": "hell-season",
+      "label": "Aftermath · Seasons",
+      "shortLabel": "Aftermath\nSeasons",
+      "world": "hell",
+      "packed": false,
+      "file": "hell-season.mp4",
+      "bytes": 3671802,
+      "sha256": "3a8bac49c5b0e94dc31e7aab43f6fe55ad411e22e9f645aa219390f23c11ff04",
+      "video": {
+        "width": 1536,
+        "height": 768,
+        "fps": 24.0,
+        "frame_count": 192,
+        "duration_seconds": 8.0
+      },
+      "description": "Four seasons · 8-second loop"
+    }
+  ],
+  "method": "Authored fixed-viewpoint hybrid playback; r4 object motion retained. No live model calls in this public demo."
+}

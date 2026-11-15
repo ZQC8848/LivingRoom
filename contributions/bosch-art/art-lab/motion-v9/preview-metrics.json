@@ -1,0 +1,46 @@
+{
+  "G01": {
+    "mean_temporal_std": 3.174426794052124,
+    "all_finite": true
+  },
+  "G02": {
+    "mean_temporal_std": 5.664186000823975,
+    "all_finite": true
+  },
+  "G04": {
+    "mean_temporal_std": 2.3939642906188965,
+    "all_finite": true
+  },
+  "G06": {
+    "mean_temporal_std": 3.2871832847595215,
+    "all_finite": true
+  },
+  "G07": {
+    "mean_temporal_std": 3.7895660400390625,
+    "all_finite": true
+  },
+  "G14": {
+    "mean_temporal_std": 4.509081840515137,
+    "all_finite": true
+  },
+  "G20": {
+    "mean_temporal_std": 3.8357746601104736,
+    "all_finite": true
+  },
+  "WATER": {
+    "mean_temporal_std": 0.31350430846214294,
+    "all_finite": true
+  },
+  "FIRE-LEFT": {
+    "mean_temporal_std": 0.9969601631164551,
+    "all_finite": true
+  },
+  "FIRE-RIGHT": {
+    "mean_temporal_std": 0.604377269744873,
+    "all_finite": true
+  },
+  "PIPE": {
+    "mean_temporal_std": 0.08863889425992966,
+    "all_finite": true
+  }
+}

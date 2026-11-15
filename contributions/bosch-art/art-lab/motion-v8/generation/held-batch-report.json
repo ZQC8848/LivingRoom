@@ -1,0 +1,324 @@
+{
+  "reports": [
+    {
+      "job": "sky-birds",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 109,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 13.922
+    },
+    {
+      "job": "waterbird-large",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 104,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 13.969
+    },
+    {
+      "job": "waterbird-small",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 33,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 12.172
+    },
+    {
+      "job": "aerial-creature",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 104,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 13.578
+    },
+    {
+      "job": "bathers",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 105,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 13.468
+    },
+    {
+      "job": "stag",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 100,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 13.406
+    },
+    {
+      "job": "herd",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 59,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 13.687
+    },
+    {
+      "job": "bank-bird",
+      "model": "reactor/visko-orbis-dynamic",
+      "adopted_keeper": true,
+      "frames": 100,
+      "errors": [],
+      "status": "captured",
+      "captured_seconds": 13.562
+    }
+  ],
+  "commands": [
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794702909.2766926
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794702909.3045774
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794702909.7396245
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794702909.918409
+    },
+    {
+      "command": "start",
+      "job": "sky-birds",
+      "t": 1794702909.9545748
+    },
+    {
+      "command": "pause",
+      "job": "sky-birds",
+      "t": 1794702929.998034
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794702930.4466984
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794702930.4801986
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794702930.9654577
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794702931.4676754
+    },
+    {
+      "command": "start",
+      "job": "waterbird-large",
+      "t": 1794702931.4950733
+    },
+    {
+      "command": "pause",
+      "job": "waterbird-large",
+      "t": 1794702951.5282195
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794702952.0207365
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794702952.0468378
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794702952.5386138
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794702952.937277
+    },
+    {
+      "command": "start",
+      "job": "waterbird-small",
+      "t": 1794702952.9630945
+    },
+    {
+      "command": "pause",
+      "job": "waterbird-small",
+      "t": 1794702972.9954553
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794702973.564845
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794702973.6140497
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794702974.1333
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794702974.510725
+    },
+    {
+      "command": "start",
+      "job": "aerial-creature",
+      "t": 1794702974.536512
+    },
+    {
+      "command": "pause",
+      "job": "aerial-creature",
+      "t": 1794702994.572178
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794702995.205831
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794702995.230369
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794702995.7060344
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794702996.020527
+    },
+    {
+      "command": "start",
+      "job": "bathers",
+      "t": 1794702996.0464156
+    },
+    {
+      "command": "pause",
+      "job": "bathers",
+      "t": 1794703016.0847886
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794703016.8493388
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794703016.8803344
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794703017.372126
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794703018.031726
+    },
+    {
+      "command": "start",
+      "job": "stag",
+      "t": 1794703018.0593116
+    },
+    {
+      "command": "pause",
+      "job": "stag",
+      "t": 1794703038.0919018
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794703038.9004385
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794703038.930084
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794703040.378975
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794703040.505491
+    },
+    {
+      "command": "start",
+      "job": "herd",
+      "t": 1794703040.533518
+    },
+    {
+      "command": "pause",
+      "job": "herd",
+      "t": 1794703060.6333218
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794703061.351374
+    },
+    {
+      "command": "reset",
+      "job": null,
+      "t": 1794703061.3989577
+    },
+    {
+      "command": "set_image",
+      "job": null,
+      "t": 1794703061.9333196
+    },
+    {
+      "command": "set_prompt",
+      "job": null,
+      "t": 1794703061.9949129
+    },
+    {
+      "command": "start",
+      "job": "bank-bird",
+      "t": 1794703062.0199678
+    },
+    {
+      "command": "pause",
+      "job": "bank-bird",
+      "t": 1794703082.0511642
+    },
+    {
+      "command": "pause",
+      "job": null,
+      "t": 1794703082.811257
+    }
+  ],
+  "lifecycle": "No disconnect, end, stop-session, extension or release calls. Paused then terminated only this isolated WebRTC client process."
+}

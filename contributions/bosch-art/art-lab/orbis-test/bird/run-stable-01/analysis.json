@@ -1,0 +1,50 @@
+{
+  "job": "bird",
+  "run": "run-stable-01",
+  "frames": 109,
+  "raw_video_seconds": 6.055555555555555,
+  "metrics": [
+    {
+      "valid": true,
+      "matches": 18,
+      "inliers": 10,
+      "dx": 252.921,
+      "dy": 262.821,
+      "rotation_degrees": 0.0,
+      "scale": 0.0,
+      "frame": 0,
+      "mean_absolute_difference": 32.037
+    },
+    {
+      "valid": false,
+      "matches": 2,
+      "frame": 21,
+      "mean_absolute_difference": 64.724
+    },
+    {
+      "valid": false,
+      "matches": 6,
+      "frame": 43,
+      "mean_absolute_difference": 61.636
+    },
+    {
+      "valid": false,
+      "matches": 3,
+      "frame": 65,
+      "mean_absolute_difference": 61.159
+    },
+    {
+      "valid": false,
+      "matches": 4,
+      "frame": 87,
+      "mean_absolute_difference": 61.585
+    },
+    {
+      "valid": false,
+      "matches": 4,
+      "frame": 108,
+      "mean_absolute_difference": 61.298
+    }
+  ],
+  "scope": "Raw model frames compared against the supplied reference, excluding active region for camera matching. This is a diagnostic, not headset validation."
+}

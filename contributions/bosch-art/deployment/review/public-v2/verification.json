@@ -1,0 +1,229 @@
+{
+  "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/",
+  "headsetVerified": false,
+  "scope": "Real released media and production build in desktop Chrome; synthetic controller events and XR session options are explicitly simulated.",
+  "initial": {
+    "playing": true,
+    "sourceIsBlob": true,
+    "fullyBuffered": true,
+    "storageMode": "blob",
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 0.8493,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 0.8493,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      0,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "playback": {
+    "wraps": 2,
+    "maxDriftFrames": 0,
+    "allPlaying": false,
+    "allVisible": true,
+    "presentedFrames": 135
+  },
+  "preciseSeek": {
+    "target": 5,
+    "actual": 5,
+    "mix": 1,
+    "seekable": [
+      [
+        0,
+        8
+      ]
+    ]
+  },
+  "resync": {
+    "singleClock": true,
+    "driftFrames": 0,
+    "keptVideoMix": 1
+  },
+  "open": {
+    "playing": true,
+    "sourceIsBlob": true,
+    "fullyBuffered": true,
+    "storageMode": "blob",
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 6.8016,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 6.8016,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      38,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "closed": {
+    "playing": true,
+    "sourceIsBlob": true,
+    "fullyBuffered": true,
+    "storageMode": "blob",
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 0.3912,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 0.3912,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      0,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "simulatedController": {
+    "openDegrees": 38,
+    "direction": [
+      1,
+      0,
+      -6.123233995736766e-17,
+      0.6632251157578453
+    ],
+    "closedDegrees": 0
+  },
+  "twoSlots": [
+    38,
+    38
+  ],
+  "focus": {
+    "horse": true,
+    "water": true,
+    "fire": true
+  },
+  "color": {
+    "expected": [
+      123.88000000000001,
+      156.24,
+      155.67999999999998
+    ],
+    "actual": [
+      123.96,
+      156.99999999999997,
+      155.75999999999996
+    ],
+    "meanError": 0.30666666666664355
+  },
+  "noAutomaticCameraMovement": true,
+  "translationDoesNotDistortPanorama": true,
+  "range": {
+    "status": 200,
+    "contentRange": null,
+    "length": 4360153,
+    "client": "actual browser fetch",
+    "requiredForPlayback": false
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "posterFallback": {
+    "mix": 0,
+    "problemCount": 1,
+    "hasRetryOverlay": false,
+    "errors": []
+  },
+  "simulatedXRRequest": {
+    "mode": "immersive-vr",
+    "options": {
+      "optionalFeatures": [
+        "local-floor",
+        "bounded-floor",
+        "layers",
+        "hand-tracking"
+      ]
+    }
+  },
+  "errors": [],
+  "modelAPIRequests": [],
+  "checks": {
+    "realMediaLoaded": true,
+    "loopsAndPlayback": true,
+    "synced": true,
+    "mouseReveal": true,
+    "controllerWiring": true,
+    "twoHands": true,
+    "focus": true,
+    "headLocked": true,
+    "mobile": true,
+    "fallback": true,
+    "handTrackingRequested": true,
+    "color": true,
+    "preciseSeek": true,
+    "noModelCalls": true,
+    "noPageErrors": true,
+    "bufferedTransport": true
+  },
+  "transportContract": "Full checked Blob preload; HTTP Range is diagnostic only and is not required for playback.",
+  "acceptanceReview": "Captured application results re-evaluated after classifying HTTP Range as an optional host diagnostic. No raw test measurements changed."
+}

@@ -1,0 +1,113 @@
+{
+  "errors": [],
+  "initial": {
+    "layer": 0,
+    "flat": false,
+    "band": 64,
+    "feather": 6,
+    "motion": 0.35,
+    "animate": true,
+    "yaw": 0,
+    "pitch": 0,
+    "handU": 0.5,
+    "handV": 0.5,
+    "showRegions": false,
+    "reference": false,
+    "probe": 0,
+    "edition": "full",
+    "loaded": 2,
+    "frames": 3,
+    "maxTexture": 8192,
+    "sourceInstances": 1,
+    "sourceSpanDegrees": 360,
+    "sourcePixels": {
+      "garden": [
+        1774,
+        887
+      ],
+      "hell": [
+        1774,
+        887
+      ]
+    },
+    "imageGenerationCalled": true,
+    "videoGenerationCalled": false
+  },
+  "referenceShown": true,
+  "distinctCardinalViews": true,
+  "cardinalReveal": [
+    {
+      "direction": "front",
+      "changed": true
+    },
+    {
+      "direction": "left",
+      "changed": true
+    },
+    {
+      "direction": "right",
+      "changed": true
+    },
+    {
+      "direction": "back",
+      "changed": true
+    }
+  ],
+  "handMovesMask": true,
+  "handLeavesCameraFixed": true,
+  "capsDiffer": true,
+  "layoutAspect": 2,
+  "seam": {
+    "meanChannelDelta": 1.3051075268817205,
+    "maxChannelDelta": 7
+  },
+  "boundaryTests": [
+    {
+      "layer": "garden",
+      "changedInside": 12606,
+      "changedOutside": 0
+    },
+    {
+      "layer": "hell",
+      "changedInside": 24591,
+      "changedOutside": 0
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  },
+  "preview": {
+    "layer": 0,
+    "flat": false,
+    "band": 64,
+    "feather": 6,
+    "motion": 0.35,
+    "animate": true,
+    "yaw": 0,
+    "pitch": 0,
+    "handU": 0.5,
+    "handV": 0.5,
+    "showRegions": false,
+    "reference": false,
+    "probe": 0,
+    "edition": "preview",
+    "loaded": 2,
+    "frames": 3,
+    "maxTexture": 8192,
+    "sourceInstances": 1,
+    "sourceSpanDegrees": 360,
+    "sourcePixels": {
+      "garden": [
+        1536,
+        768
+      ],
+      "hell": [
+        1536,
+        768
+      ]
+    },
+    "imageGenerationCalled": true,
+    "videoGenerationCalled": false
+  }
+}

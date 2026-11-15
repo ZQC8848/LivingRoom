@@ -1,0 +1,26 @@
+{
+  "id": "appgdep_6af8f28d84008191909159bcfcb7e336",
+  "project_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4",
+  "title": "Living Room · 欲望的两面",
+  "version_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4~appgver_2f697a7cb3fc8191ab530df5b6460237",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "release---6af8ef87c8e481919fa858b23e70abd8",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-11-14T23:45:23.157177+00:00",
+  "upstream_commit": "a536ddae40071842912f5f5acdaf179dbaf8fa0f",
+  "source_commit": "6e82bcc880788843cd2a43c534943affc4d1bec3",
+  "media_release": "2026-11-14-r2",
+  "headset_verified": false,
+  "verification": {
+    "local": "deployment/review/buffered-local/verification.json",
+    "public": "deployment/review/public-v2/verification.json",
+    "independent_peer": "Confirmed blob mode, full buffer, precise paused seek to 5 seconds, reveal open/close, and no model/API requests.",
+    "headset": "Deferred by user; not physically verified."
+  },
+  "transport": "One checksum-verified packed video fully downloaded before Blob playback; host Range is not a playback dependency."
+}

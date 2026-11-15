@@ -1,0 +1,206 @@
+{
+  "job": "leaves",
+  "model": "reactor/visko-orbis-dynamic",
+  "prompt": "Locked static camera, identical framing and original painted brush texture throughout. A green tree crown above the pink shell-shaped building in the supplied painting. A gentle breeze visibly bends the tree crown left and right by about one tenth of its width; leaf clusters move together while the trunk base holds its position. All surrounding architecture and ground remain fixed in their original positions.",
+  "requested_capture_seconds": 6.0,
+  "frames": 114,
+  "events": [
+    {
+      "t": 2.609,
+      "type": "state"
+    },
+    {
+      "t": 2.609,
+      "type": "image_accepted"
+    },
+    {
+      "t": 2.625,
+      "type": "state"
+    },
+    {
+      "t": 2.625,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 2.656,
+      "type": "state"
+    },
+    {
+      "t": 2.656,
+      "type": "generation_started"
+    },
+    {
+      "t": 2.656,
+      "type": "state"
+    },
+    {
+      "t": 4.734,
+      "type": "state"
+    },
+    {
+      "t": 6.578,
+      "type": "state"
+    },
+    {
+      "t": 8.39,
+      "type": "state"
+    },
+    {
+      "t": 10.234,
+      "type": "state"
+    },
+    {
+      "t": 12.046,
+      "type": "state"
+    },
+    {
+      "t": 13.89,
+      "type": "state"
+    },
+    {
+      "t": 15.718,
+      "type": "state"
+    },
+    {
+      "t": 17.562,
+      "type": "state"
+    },
+    {
+      "t": 17.562,
+      "type": "state"
+    }
+  ],
+  "errors": [],
+  "attempt": "dynamic-v2",
+  "connect_seconds": 1.687,
+  "first_frame_latency_seconds": 6.328,
+  "delivered_pixels": [
+    2560,
+    1440
+  ],
+  "captured_seconds": 6.047,
+  "available_resolutions": [
+    "native",
+    "1080p",
+    "2k",
+    "4k"
+  ],
+  "status": "captured",
+  "client_elapsed_seconds": 17.703,
+  "received_timestamps_seconds": [
+    0.0,
+    0.109,
+    0.172,
+    0.203,
+    0.25,
+    0.265,
+    0.297,
+    0.328,
+    0.375,
+    0.39,
+    0.422,
+    0.453,
+    0.468,
+    0.484,
+    0.515,
+    0.547,
+    0.578,
+    0.593,
+    0.625,
+    0.703,
+    0.75,
+    0.765,
+    0.828,
+    0.875,
+    0.937,
+    1.0,
+    1.062,
+    1.109,
+    1.172,
+    1.25,
+    1.281,
+    1.547,
+    1.562,
+    1.593,
+    1.656,
+    1.718,
+    1.781,
+    1.828,
+    1.875,
+    1.922,
+    1.968,
+    2.031,
+    2.062,
+    2.125,
+    2.172,
+    2.234,
+    2.281,
+    2.328,
+    2.39,
+    2.437,
+    2.484,
+    2.531,
+    2.593,
+    2.64,
+    2.687,
+    2.75,
+    2.812,
+    2.859,
+    2.922,
+    2.968,
+    3.031,
+    3.093,
+    3.14,
+    3.218,
+    3.375,
+    3.39,
+    3.422,
+    3.468,
+    3.531,
+    3.593,
+    3.656,
+    3.703,
+    3.75,
+    3.812,
+    3.875,
+    3.922,
+    3.968,
+    4.015,
+    4.078,
+    4.125,
+    4.187,
+    4.234,
+    4.297,
+    4.343,
+    4.406,
+    4.453,
+    4.515,
+    4.562,
+    4.625,
+    4.687,
+    4.734,
+    4.797,
+    4.843,
+    4.906,
+    4.953,
+    5.015,
+    5.062,
+    5.218,
+    5.25,
+    5.281,
+    5.328,
+    5.39,
+    5.437,
+    5.5,
+    5.547,
+    5.609,
+    5.672,
+    5.718,
+    5.765,
+    5.828,
+    5.875,
+    5.937,
+    5.984,
+    6.047
+  ]
+}

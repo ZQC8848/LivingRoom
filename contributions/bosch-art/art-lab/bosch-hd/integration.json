@@ -1,0 +1,45 @@
+{
+  "projection": "equirectangular",
+  "mapping": "single-occurrence cylinder sector",
+  "source_instances": 1,
+  "horizontal_span_formula_radians": "2 * tan(band_half_height) * original_aspect",
+  "final_reference_resolution": [
+    8192,
+    4096
+  ],
+  "painting_band_latitude_deg": [
+    -30,
+    30
+  ],
+  "soft_transition_deg": 5,
+  "observer_translation": [
+    0,
+    0,
+    0
+  ],
+  "model_reference_resolution": [
+    1536,
+    864
+  ],
+  "model_reference_aspect": "16:9",
+  "model_reference_crop_in_right_panel": [
+    80,
+    100,
+    1616,
+    964
+  ],
+  "model_generation_resolution": [
+    832,
+    480
+  ],
+  "final_output_tracks": 1,
+  "static_base": "garden-equirect-8192.jpg",
+  "alternate_reference": "hell-equirect-8192.jpg",
+  "model_reference": "hell-fire-reference-16x9.png",
+  "post_support_mask": "hell-fire-support-mask.png",
+  "region_manifest": "regions/manifest.json",
+  "mask_status": "support areas only; subject segmentation and manual cleanup required; not an Orbis input",
+  "motion_prompt_status": "draft, not generated or evaluated",
+  "headset_performance": "not tested",
+  "surround_composition": "one occurrence of the original front sector; remaining azimuth is ambient and explicitly pending authored extension"
+}

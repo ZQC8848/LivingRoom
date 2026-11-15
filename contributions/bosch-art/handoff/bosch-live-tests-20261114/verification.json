@@ -1,0 +1,105 @@
+{
+  "pass": true,
+  "media_playback_only": true,
+  "artistic_and_fixed_viewpoint_acceptance": false,
+  "clips": [
+    {
+      "video": "garden-light/panorama-review.mp4",
+      "geometry": [
+        960.0,
+        480.0
+      ],
+      "fps": 24.0,
+      "seconds": 31.125,
+      "first_middle_last_decoded": [
+        true,
+        true,
+        true
+      ],
+      "expected_duration_seconds": 31.05,
+      "pass": true
+    },
+    {
+      "video": "garden-season/panorama-review.mp4",
+      "geometry": [
+        960.0,
+        480.0
+      ],
+      "fps": 24.0,
+      "seconds": 30.208,
+      "first_middle_last_decoded": [
+        true,
+        true,
+        true
+      ],
+      "expected_duration_seconds": 30.11,
+      "pass": true
+    },
+    {
+      "video": "aftermath-light/panorama-review.mp4",
+      "geometry": [
+        960.0,
+        480.0
+      ],
+      "fps": 24.0,
+      "seconds": 29.625,
+      "first_middle_last_decoded": [
+        true,
+        true,
+        true
+      ],
+      "expected_duration_seconds": 29.86,
+      "pass": true
+    },
+    {
+      "video": "aftermath-weather/panorama-review.mp4",
+      "geometry": [
+        960.0,
+        480.0
+      ],
+      "fps": 24.0,
+      "seconds": 31.417,
+      "first_middle_last_decoded": [
+        true,
+        true,
+        true
+      ],
+      "expected_duration_seconds": 31.31,
+      "pass": true
+    },
+    {
+      "video": "garden-season/full-season-cycle/panorama-review.mp4",
+      "geometry": [
+        960.0,
+        480.0
+      ],
+      "fps": 24.0,
+      "seconds": 68.0,
+      "first_middle_last_decoded": [
+        true,
+        true,
+        true
+      ],
+      "expected_duration_seconds": 67.86,
+      "pass": true
+    },
+    {
+      "video": "aftermath-weather/full-season-cycle/panorama-review.mp4",
+      "geometry": [
+        960.0,
+        480.0
+      ],
+      "fps": 24.0,
+      "seconds": 66.75,
+      "first_middle_last_decoded": [
+        true,
+        true,
+        true
+      ],
+      "expected_duration_seconds": 66.69,
+      "pass": true
+    }
+  ],
+  "overview_decoded": true,
+  "production_reveal_modified": false
+}

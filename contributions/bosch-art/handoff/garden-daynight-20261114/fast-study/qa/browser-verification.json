@@ -1,0 +1,118 @@
+{
+  "errors": [],
+  "api": [],
+  "modes": [
+    {
+      "mode": "garden-light",
+      "inside": false,
+      "time": 0.1307,
+      "duration": 12,
+      "playing": true,
+      "width": 1280,
+      "height": 640,
+      "wraps": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "live": false
+    },
+    {
+      "mode": "hell-light",
+      "inside": false,
+      "time": 0.1295,
+      "duration": 12,
+      "playing": true,
+      "width": 1280,
+      "height": 640,
+      "wraps": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "live": false
+    },
+    {
+      "mode": "garden-season",
+      "inside": false,
+      "time": 0.1288,
+      "duration": 8,
+      "playing": true,
+      "width": 1280,
+      "height": 640,
+      "wraps": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "live": false
+    },
+    {
+      "mode": "hell-season",
+      "inside": false,
+      "time": 0.1315,
+      "duration": 8,
+      "playing": true,
+      "width": 1280,
+      "height": 640,
+      "wraps": 0,
+      "yaw": 0,
+      "pitch": 0,
+      "live": false
+    }
+  ],
+  "headsetVerified": false,
+  "initial": {
+    "mode": "overview",
+    "inside": false,
+    "time": 0,
+    "duration": 19,
+    "playing": false,
+    "width": 1280,
+    "height": 720,
+    "wraps": 0,
+    "yaw": 0,
+    "pitch": 0,
+    "live": false
+  },
+  "overviewPlaying": true,
+  "mainLink": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/",
+  "inside": {
+    "mode": "hell-season",
+    "inside": true,
+    "time": 6,
+    "duration": 8,
+    "playing": false,
+    "width": 1536,
+    "height": 768,
+    "wraps": 0,
+    "yaw": 0,
+    "pitch": 0,
+    "live": false
+  },
+  "look": {
+    "mode": "hell-season",
+    "inside": true,
+    "time": 6,
+    "duration": 8,
+    "playing": false,
+    "width": 1536,
+    "height": 768,
+    "wraps": 0,
+    "yaw": 0.7344000244140625,
+    "pitch": 0.137699951171875,
+    "live": false
+  },
+  "loop": {
+    "mode": "hell-season",
+    "inside": true,
+    "time": 0.6057,
+    "duration": 8,
+    "playing": true,
+    "width": 1536,
+    "height": 768,
+    "wraps": 1,
+    "yaw": 0.7344000244140625,
+    "pitch": 0.137699951171875,
+    "live": false
+  },
+  "mobile": {
+    "w": 390,
+    "scroll": 390
+  },
+  "pass": true
+}

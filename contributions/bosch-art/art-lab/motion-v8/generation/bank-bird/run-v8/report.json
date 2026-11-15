@@ -1,0 +1,9 @@
+{
+  "job": "bank-bird",
+  "model": "reactor/visko-orbis-dynamic",
+  "adopted_keeper": true,
+  "frames": 100,
+  "errors": [],
+  "status": "captured",
+  "captured_seconds": 13.562
+}

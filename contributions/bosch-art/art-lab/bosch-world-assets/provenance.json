@@ -1,0 +1,37 @@
+{
+  "kind": "AI-assisted spatial composition study after Bosch",
+  "tool": "built-in image_gen.imagegen, not CLI",
+  "date": "2026-11-14",
+  "source_reference": "https://commons.wikimedia.org/wiki/File:Jheronimus_Bosch_023.jpg",
+  "garden": {
+    "file": "garden-generated.png",
+    "native_pixels": [
+      1774,
+      887
+    ],
+    "reference": "../bosch-hd/garden-preview.jpg",
+    "generated_original": "exec-ffe010d1-e190-4cd1-9d00-b9d0cdff0675.png"
+  },
+  "hell": {
+    "file": "hell-generated.png",
+    "native_pixels": [
+      1774,
+      887
+    ],
+    "reference": [
+      "garden-generated.png",
+      "../bosch-hd/hell-preview.jpg"
+    ],
+    "generated_original": "exec-5e94425a-cb46-43c6-b4db-bc29e652609a.png"
+  },
+  "reproduction": false,
+  "video_model_run": false,
+  "mapping": {
+    "horizontal_coverage_degrees": 360,
+    "instances": 1,
+    "painted_horizon_v": 0.36,
+    "band_half_height_degrees": 64,
+    "seam_blend_total_degrees": 10.8,
+    "export": "2:1 equirectangular RGB; output size does not increase native image detail"
+  }
+}

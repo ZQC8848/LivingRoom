@@ -1,0 +1,5 @@
+Draft; not generated.
+
+Locked-off view of the supplied painting crop. The selected foliage tips sway a tiny distance once and return. Branches and architecture hold their original positions. The surrounding paint, camera framing and the outer context hold their original shapes and positions.
+
+Geometric support only. Isolate foliage and protect neighbouring figures.

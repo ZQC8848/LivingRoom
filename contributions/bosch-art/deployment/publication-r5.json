@@ -1,0 +1,71 @@
+{
+  "id": "appgdep_6af9310aa38c8191ae14b64b584e2a0e",
+  "project_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4",
+  "title": "Living Room · 欲望的两面",
+  "version_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4~appgver_815db5db3f9c8191ba2ed8e7bf786452",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "release---6af8ef87c8e481919fa858b23e70abd8",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-11-15T04:12:06.850638+00:00",
+  "version_number": 5,
+  "source_commit": "c1361b7e343c3c97a9e90d1a2dba63e3f2461118",
+  "media_release": "2026-11-14-r5",
+  "default_mode": "reveal",
+  "optional_modes": [
+    {
+      "id": "garden-light",
+      "label": "Garden · Day / Night",
+      "seconds": 12
+    },
+    {
+      "id": "hell-light",
+      "label": "Aftermath · Day / Night",
+      "seconds": 12
+    },
+    {
+      "id": "garden-season",
+      "label": "Garden · Seasons",
+      "seconds": 8
+    },
+    {
+      "id": "hell-season",
+      "label": "Aftermath · Seasons",
+      "seconds": 8
+    }
+  ],
+  "packed_sha256": "8db9a9e774c31e94b46cf0a782c5a8dfb3f3c287bad0c535f08afd8ac640ece2",
+  "headset_verified": false,
+  "guide_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/guide/",
+  "transcript_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/audio/transcript.en.html",
+  "review_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/review/",
+  "audio": {
+    "narration": "ElevenLabs Lily — Velvety Actress; eight English scene-aware cues",
+    "research": "Margaret D. Carroll's interpretation of time and transformation is attributed in spoken narration. Recovery/rest are explicitly the experience's contemporary interpretation.",
+    "music": "User-exported Suno score",
+    "environment": "Authored procedural sound design",
+    "opt_in": true,
+    "runtime_model_calls": false
+  },
+  "playback": {
+    "transport": "One checksum-verified full Blob video per active mode, shared video decoder and VideoTexture, frozen old image while swapping.",
+    "mode_switch_preserves_view": true,
+    "automatic_camera_motion": false,
+    "optional_media": "Prepared hybrid loops using existing model captures, controlled object animation and authored light/weather; not live generation."
+  },
+  "verification": {
+    "local": "deployment/review/local-r5/verification.json",
+    "public": "deployment/review/public-r5/verification.json",
+    "modes_public": "deployment/review/modes-public-r5/verification.json",
+    "sound_public": "deployment/review/sound-public-r5/verification.json",
+    "peer": "deployment/review/peer-r5.json",
+    "browser_result": "16 default-player checks and five-mode integration passed; all eight voice cues completed with default autoplay policy; mute/resume passed when awaiting asynchronous AudioContext state.",
+    "environment_limits": "Headless desktop SwiftShader is not a Quest performance benchmark. Simulated XR targeting does not certify physical hand tracking.",
+    "headset": "Physical Quest acceptance remains for user."
+  },
+  "archive_content_hash": "sha256:4a666aaffac35e072175f5457416609ba132fa3bc701bd888ffc659ffe12174a"
+}

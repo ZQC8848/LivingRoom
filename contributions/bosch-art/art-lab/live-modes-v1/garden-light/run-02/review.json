@@ -1,0 +1,35 @@
+{
+  "id": "garden-light",
+  "status": "captured",
+  "frames": 494,
+  "seconds": 31.05,
+  "hot_prompt_stages": [
+    {
+      "label": "Day",
+      "sent_after_first_frame_seconds": -6.625,
+      "ack_after_send_seconds": 0.515,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Dusk",
+      "sent_after_first_frame_seconds": 4.578,
+      "ack_after_send_seconds": 0.703,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Night",
+      "sent_after_first_frame_seconds": 17.297,
+      "ack_after_send_seconds": 1.172,
+      "reply_type": "prompt_accepted"
+    }
+  ],
+  "drift_first_to_last": {
+    "status": "insufficient robust inliers",
+    "matches": 16,
+    "inliers": 5,
+    "note": "Do not interpret this estimate as a camera-motion measurement."
+  },
+  "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+  "added_animation": false,
+  "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+}

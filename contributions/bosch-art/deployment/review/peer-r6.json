@@ -1,0 +1,19 @@
+{
+  "task_id": "4b29d98a-8094-418a-8601-bd2a59f82444",
+  "status": "completed",
+  "agreement": {
+    "photorealistic_hillside": "Standalone teammate technical study",
+    "painted_world": "Main storytelling experience, approximately 80 percent narrative emphasis",
+    "religious_bridge": false,
+    "authored_transition": false,
+    "hillside_in_public_r6": false
+  },
+  "capacity_check": {
+    "task_id": "d412339c-5a9d-40e4-9f7c-13a460024c8d",
+    "checked_at": "2026-11-14T20:54:48-08:00",
+    "peer_keeper_running": false,
+    "released_at": "2026-11-14T20:36:10-08:00",
+    "interpretation": "Peer reports neither session held by their keeper. Public 429 indicates shared sponsor capacity unavailable; no always-available stream claim."
+  },
+  "mutations": "Peer made no code, keeper or model changes."
+}

@@ -1,0 +1,88 @@
+{
+  "errors": [],
+  "initial": {
+    "layer": 0,
+    "flat": false,
+    "band": 30,
+    "feather": 5,
+    "motion": 0.35,
+    "animate": true,
+    "yaw": 0,
+    "pitch": 0,
+    "handU": 0.5,
+    "handV": 0.5,
+    "showRegions": false,
+    "reference": false,
+    "probe": 0,
+    "edition": "full",
+    "loaded": 2,
+    "frames": 5,
+    "maxTexture": 8192,
+    "sourceInstances": 1,
+    "sourceSpanDegrees": 61.99536757349789,
+    "sourcePixels": {
+      "garden": [
+        3990,
+        4258
+      ],
+      "hell": [
+        1710,
+        1928
+      ]
+    },
+    "generationCalled": false
+  },
+  "referenceShown": true,
+  "boundaryTests": [
+    {
+      "layer": "garden",
+      "changedInside": 1639,
+      "changedOutside": 0
+    },
+    {
+      "layer": "hell",
+      "changedInside": 5822,
+      "changedOutside": 0
+    }
+  ],
+  "capViewsDiffer": true,
+  "revealChangesImage": true,
+  "handLeavesCameraFixed": true,
+  "layoutAspect": 2,
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  },
+  "preview": {
+    "layer": 0,
+    "flat": false,
+    "band": 30,
+    "feather": 5,
+    "motion": 0.35,
+    "animate": true,
+    "yaw": 0,
+    "pitch": 0,
+    "handU": 0.5,
+    "handV": 0.5,
+    "showRegions": false,
+    "reference": false,
+    "probe": 0,
+    "edition": "preview",
+    "loaded": 2,
+    "frames": 3,
+    "maxTexture": 8192,
+    "sourceInstances": 1,
+    "sourceSpanDegrees": 61.99536757349789,
+    "sourcePixels": {
+      "garden": [
+        1439,
+        1536
+      ],
+      "hell": [
+        1362,
+        1536
+      ]
+    },
+    "generationCalled": false
+  }
+}

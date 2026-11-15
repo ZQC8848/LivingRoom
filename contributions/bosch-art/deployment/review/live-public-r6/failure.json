@@ -1,0 +1,43 @@
+{
+  "base": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/",
+  "headsetVerified": false,
+  "startWasExplicit": true,
+  "initial": {
+    "phase": "idle",
+    "live": false,
+    "frames": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "XYZ"
+    ],
+    "mask": 0
+  },
+  "connected": {
+    "phase": "busy",
+    "model": "reactor/visko-orbis-dynamic",
+    "frames": 0,
+    "events": [],
+    "commands": [],
+    "live": false,
+    "error": "unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n",
+    "sessionId": null
+  },
+  "error": "unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n",
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 429 ()"
+  ],
+  "state": {
+    "phase": "busy",
+    "model": "reactor/visko-orbis-dynamic",
+    "frames": 0,
+    "events": [],
+    "commands": [],
+    "live": false,
+    "error": "unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n",
+    "sessionId": null
+  }
+}

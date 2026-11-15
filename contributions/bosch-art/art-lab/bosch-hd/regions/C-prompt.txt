@@ -1,0 +1,5 @@
+Draft; not generated.
+
+Locked-off view of the supplied painting crop. Select one figure inside this candidate area before generation. One small head inclination returns to the original pose; feet and hands hold position. The surrounding paint, camera framing and the outer context hold their original shapes and positions.
+
+Candidate location, not a finished figure segmentation. Move the region if any complete figure or its proposed motion would cross the edge.

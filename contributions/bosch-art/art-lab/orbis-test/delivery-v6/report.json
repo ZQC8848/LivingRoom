@@ -1,0 +1,36 @@
+{
+  "method": "complete hand-polygon original-paint sky objects; joined bird-wing articulation; original G03 held static; downward advected water and falling droplets; stronger rising fire and smoke; retained v7 horse and accepted prior motion outside corrected regions",
+  "new_model_calls": 0,
+  "frames": 240,
+  "fps": 30,
+  "duration_seconds": 8.0,
+  "notes": "User-reviewed correction. Complete object polygons intentionally include narrow safe background margins. No color-key holes through figures, mounts, fish tails, ornament wings or feet. Corrected regions use original paint with coherent articulation; G03 is intentionally static. Water falls down, smoke rises up. No camera movement. Not a physical fluid simulation or model-native loop.",
+  "headset_verified": false,
+  "horse_mouth_rgb_regenerated_per_frame": false,
+  "marked_motion_catalog": "art-lab/motion-v9/motion-catalog.json",
+  "intentionally_static": [
+    "G03"
+  ],
+  "revision": "r4 complete silhouettes, downward falling water, stronger rising fire/smoke",
+  "new_marked_regions": 51,
+  "prior_model_captures_reused": 8,
+  "new_model_rgb_layers_accepted": 0,
+  "new_model_flow_layers_accepted": [],
+  "architecture_changed_pixels_before_encoding": 0,
+  "fire_city_changed_values_before_encoding": 0,
+  "bird_pixels_changed_outside_matte_envelope": 0,
+  "water_mask_pixels": 97100,
+  "garden": {
+    "projection_difference": 1.9679198265075684,
+    "loop_difference": 0.08543676882982254
+  },
+  "hell": {
+    "projection_difference": 1.4682260751724243,
+    "loop_difference": 0.04542820155620575
+  },
+  "prior_model_flow_layers_used": [
+    "herd",
+    "stag",
+    "bathers"
+  ]
+}
