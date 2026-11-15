@@ -11,7 +11,7 @@ This branch starts from the latest `origin/main` observed during handoff (`636c3
 - `src/demoModes.js`: five authored modes, desktop controls, in-world mode panel, hand-only MODES target and captions.
 - `src/vrPanel.js`: controller/hand-ray selectable canvas panel. Menu selection must consume the gesture before Reveal.
 - `src/liveGarden.js`, `liveEnvironment.js`, `liveSession.js`: isolated true-live environment experiment, compositing shader, scoped connection and event/frame timing. They load only on the Live Lab route.
-- `public/audio/soundscape-r5.js`: one music clock, environmental mix, narration queue, English captions, mute/resume and per-mode cues.
+- `public/audio/soundscape-r7.js`: one music clock, environmental mix, narration queue, English captions, mute/resume and per-mode cues.
 
 Do not replace the root technical app's latest `live.js` with the older similarly named file inside the exported app. Those unused legacy source files are preserved as provenance; use the explicit r6 Live Lab modules above if integrating this experiment.
 
@@ -36,3 +36,8 @@ Two independent applications: realistic hillside technical study and painterly s
 The nested `.openai/hosting.json` records the existing art-side Site identity. Its hosted source repository is separate from this GitHub repository. Do not run the Site workflow helper from this handoff checkout to rewrite the GitHub remote.
 
 No merge, deployment change or keeper operation is requested by this handoff. The technical owner controls integration.
+
+
+## r7 follow-up
+
+The visitor brief at public/guide/artwork.html is intentionally short: work identity, gesture, authored layers/masks, optional bounded generation and reuse as a design method. Longer sources are collapsed. The first-screen credit and short English narration foreground Bosch. Follow sky light is authored scene relighting estimated from received sky pixels; geometry and viewing direction are not animated. Pole colour averaging replaces the old repeated-column lookup. Public offline replay verification is recorded in deployment/review/lighting-public-r7 and does not claim a new live model run.

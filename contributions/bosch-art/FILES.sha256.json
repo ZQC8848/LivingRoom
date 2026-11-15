@@ -18,8 +18,8 @@
     },
     {
       "path": "BUILD-VALIDATION.json",
-      "bytes": 595,
-      "sha256": "e5da5c9ad89430f68e6e456665e5a5e65377f22933e1f323e5bc7893a8b9b51e"
+      "bytes": 685,
+      "sha256": "d1612b7f85077f0d79bb8f1df9e1ed883cdcfffbb75f2c6d6fe3f90efbae9f86"
     },
     {
       "path": "EXPORT-REPORT.json",
@@ -28,13 +28,13 @@
     },
     {
       "path": "MERGE-NOTES.md",
-      "bytes": 4239,
-      "sha256": "bd5cd0682fe7b7043bcdde3a79ca199d739625f84717dfda88bf369b25d88e60"
+      "bytes": 4899,
+      "sha256": "78f2f320c035e8e87b01e25bd03a51de5b026165798babaa0fa12a923f9722f5"
     },
     {
       "path": "README.md",
-      "bytes": 7820,
-      "sha256": "5deeb6c12ab5a506fc358a5b224a8e0fcbe3bf506bfe8b6ea9b5a01c13d3b37f"
+      "bytes": 8470,
+      "sha256": "c1a63e3211dd63ba9004ead53650fb6f3c77abb38c76df3e7b8da60c14abfde1"
     },
     {
       "path": "art-lab/analyze_bosch_v8.py",
@@ -473,8 +473,8 @@
     },
     {
       "path": "deployment/production.json",
-      "bytes": 3127,
-      "sha256": "53d74ee476dfef09fcd7609d6585d908e01c2aa16e0d4fb2a7240cf7c1edb2a7"
+      "bytes": 2189,
+      "sha256": "b46a65147f917a50f81729a7866f096972cae4f78e5105d06554c0929216c1cb"
     },
     {
       "path": "deployment/publication-r3.json",
@@ -495,6 +495,11 @@
       "path": "deployment/publication-r6.json",
       "bytes": 3127,
       "sha256": "53d74ee476dfef09fcd7609d6585d908e01c2aa16e0d4fb2a7240cf7c1edb2a7"
+    },
+    {
+      "path": "deployment/publication-r7.json",
+      "bytes": 2189,
+      "sha256": "b46a65147f917a50f81729a7866f096972cae4f78e5105d06554c0929216c1cb"
     },
     {
       "path": "deployment/README.md",
@@ -537,6 +542,11 @@
       "sha256": "caee4230f24765843438fd46caf11157ddc0714695e8e71c36598490c3c087db"
     },
     {
+      "path": "tools/verify-bosch-audio-r7.cjs",
+      "bytes": 3442,
+      "sha256": "c30e41f87f8fb87ddb6658151401011a0212efe9065d5284660b6f7caef7ec3b"
+    },
+    {
       "path": "tools/verify-bosch-deployment.cjs",
       "bytes": 11680,
       "sha256": "56cae1853b73ab2ba2ae201b226381b3af93a4239c6507a9e6861eddff544cc0"
@@ -575,6 +585,11 @@
       "path": "tools/verify-garden-daynight.cjs",
       "bytes": 4012,
       "sha256": "f5fa73c5ff9041181bc64dedafb57221ac4b60e865e0349179d38cddfcbf6dba"
+    },
+    {
+      "path": "tools/verify-live-lighting.cjs",
+      "bytes": 4423,
+      "sha256": "cac0d8dfe25afc71b09674fc59961c34e57705870924ce9bf48f4cbb1fcac72f"
     },
     {
       "path": "art-lab/assets/ambassadors.jpg",
@@ -770,6 +785,71 @@
       "path": "art-lab/audio-v2/voice-candidates.json",
       "bytes": 12803,
       "sha256": "2904f33640526d73f8910a2998afb4e34c8b44984d8f7aaa3f0d47af3e59ff35"
+    },
+    {
+      "path": "art-lab/audio-v3/arrival-background-draft.mp3",
+      "bytes": 206096,
+      "sha256": "bb9a23e087609315df2ec08c4f14d1dcc80339ca50cb9769cdad9dc83a8e4c2a"
+    },
+    {
+      "path": "art-lab/audio-v3/arrival.mp3",
+      "bytes": 152598,
+      "sha256": "11fa14d11a8098efca0ff9c630be35b1ee5fabc29c71357edae909ee11c11bc6"
+    },
+    {
+      "path": "art-lab/audio-v3/generate.py",
+      "bytes": 1402,
+      "sha256": "c9f5cfacbbb551dfa48382f3398f0e1a241784c3d76f19541398eaa514bbf435"
+    },
+    {
+      "path": "art-lab/audio-v3/generation.json",
+      "bytes": 323,
+      "sha256": "6d31a2987f1a2d806c375262db6c09c6464e22ec8aa4e9b81b3fea8575f0d0c2"
+    },
+    {
+      "path": "art-lab/audio-v3/mode-garden-light.mp3",
+      "bytes": 160121,
+      "sha256": "af5a095d8a1a6000de6e624ced8edf65b46edb06d40965a519ca17ec278e37c7"
+    },
+    {
+      "path": "art-lab/audio-v3/mode-garden-season.mp3",
+      "bytes": 161375,
+      "sha256": "22504c25f29a27c8721b3cb2857b6028467ad65452fd1376813abed48dade688"
+    },
+    {
+      "path": "art-lab/audio-v3/mode-hell-light.mp3",
+      "bytes": 158449,
+      "sha256": "114601732a6f73e591eec5922db1a22dcdc241c5a8f1393d1e6e4a2f7a2d06c2"
+    },
+    {
+      "path": "art-lab/audio-v3/mode-hell-season.mp3",
+      "bytes": 165136,
+      "sha256": "cd3237885f040a38c1d61878aed4bde773bf140a2877ead387ffc36786a4663e"
+    },
+    {
+      "path": "art-lab/audio-v3/package.py",
+      "bytes": 5813,
+      "sha256": "da8bcba01fce2503bd769109e566eaf639dc8d25f0b877e7b7293cf1ec7a80e0"
+    },
+    {
+      "path": "art-lab/audio-v3/research.mp3",
+      "bytes": 265029,
+      "sha256": "2e5756c1cd22b2d516c652cbd1cdf9581bbf105b811bd52f7fcedbd5cd2182d9"
+    },
+    {
+      "path": "art-lab/audio-v3/return.mp3",
+      "bytes": 104532,
+      "sha256": "c21b8ac937d4d5412776c175c23870de311ca701f96816ba7625136e729f4015"
+    },
+    {
+      "path": "art-lab/audio-v3/reveal.mp3",
+      "bytes": 139223,
+      "sha256": "2bb10338352e17e9bdcd311928479fd3ccc9478f9071259cd2aee447c854c76d"
+    },
+    {
+      "path": "art-lab/audio-v3/script.en.json",
+      "bytes": 2263,
+      "sha256": "b64725a923926186a6e6fd436197ba6c1cd38f5aaac672d924ada4406bead59a"
     },
     {
       "path": "art-lab/bosch-hd/bosch-master-8533.jpg",
@@ -3913,8 +3993,8 @@
     },
     {
       "path": "deployment/bosch-demo/index.html",
-      "bytes": 2407,
-      "sha256": "acb7928e8fd99ed1f4109a965654cb676b016cb8dcebc0858b0995d81cd63ab8"
+      "bytes": 2453,
+      "sha256": "20433ed9680ba15de31504dcc4e7efa1a710d382b0037b3b89bc82f1060c0245"
     },
     {
       "path": "deployment/bosch-demo/package-lock.json",
@@ -3928,8 +4008,8 @@
     },
     {
       "path": "deployment/bosch-demo/README.md",
-      "bytes": 3781,
-      "sha256": "b8a7eadd21dd8d11ea3c62843dfec4cbd80a75e5a3ed94577989651904f09019"
+      "bytes": 4807,
+      "sha256": "6cb55168fa2c0f25f36c64aa563c3706bbb206cab46667c4db29dee1c2ca0b67"
     },
     {
       "path": "deployment/bosch-demo/SOURCE_PROVENANCE.json",
@@ -3974,12 +4054,12 @@
     {
       "path": "deployment/bosch-demo/src/demo.js",
       "bytes": 22887,
-      "sha256": "1e968564dffce3f2a2b7a59b6a131c1949ca7e7c21460c29a2eefbb9e4f2bbf3"
+      "sha256": "41bb85fda86760b4390894595b1b44a3013652038a38ff719a0385b62054846b"
     },
     {
       "path": "deployment/bosch-demo/src/demoModes.js",
-      "bytes": 9590,
-      "sha256": "2add01d289c662425805164824447cb4e9f84e529b13cbce14b32d67d61a2f78"
+      "bytes": 10052,
+      "sha256": "222b484c1c0039dea612a4e5dcf5adeae838c04f6bfe85c652aec23eb449d0c4"
     },
     {
       "path": "deployment/bosch-demo/src/live.js",
@@ -3988,13 +4068,18 @@
     },
     {
       "path": "deployment/bosch-demo/src/liveEnvironment.js",
-      "bytes": 1560,
-      "sha256": "84c1030fd64aa98fc7b17d15ac23d14c16ed8bd1b56b6ecf6d6114a49116d1c9"
+      "bytes": 2678,
+      "sha256": "c7f10c816b418672e0696d7da3daf8f90d6ac6b672ddbe7bdc14e2f52e7fefaf"
     },
     {
       "path": "deployment/bosch-demo/src/liveGarden.js",
-      "bytes": 12509,
-      "sha256": "ab8e77d5dad1b67b41ea2bc0b4002ac5c7b009f6203f27ed25002096acce7eae"
+      "bytes": 13863,
+      "sha256": "c6a826ccc8e387402c1637f8419eb1bc73986c3a28d216764483bb78bddb0b1c"
+    },
+    {
+      "path": "deployment/bosch-demo/src/liveLighting.js",
+      "bytes": 3626,
+      "sha256": "9ac70127bfd1d5b1136d5bab6cb915c548e2b7dc955f37d1dc683d85b9976837"
     },
     {
       "path": "deployment/bosch-demo/src/liveMain.js",
@@ -4032,6 +4117,11 @@
       "sha256": "f17d1990b5c606dea3792d740036bac22d67be42b6a6064ddedcd524feeafdd7"
     },
     {
+      "path": "deployment/bosch-demo/public/artwork/bosch-original-triptych.jpg",
+      "bytes": 494208,
+      "sha256": "37ea7eb0db310eee6e8bee4feae3f1671652c65b4f120e8ee2014a2cf5728650"
+    },
+    {
       "path": "deployment/bosch-demo/public/audio/arrival.mp3",
       "bytes": 150188,
       "sha256": "233dcdba34318407c09bd683eb15f7c42c8b38bcd339310402e9c1a38355e8fa"
@@ -4055,6 +4145,11 @@
       "path": "deployment/bosch-demo/public/audio/manifest-r5.json",
       "bytes": 6235,
       "sha256": "1d2ae409b55a0560adb920d366f4764c4f43002552cba524f42a1dae67ae3854"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/manifest-r7.json",
+      "bytes": 8477,
+      "sha256": "d86e33d79d3cd7dcb46948809afb46eb67b52fe4dab8a32a3f76353bd753a4d4"
     },
     {
       "path": "deployment/bosch-demo/public/audio/music.mp3",
@@ -4102,6 +4197,46 @@
       "sha256": "91ab0476657f12e930577f96ef564aa50442ed5ba33c39b63533db7741014de0"
     },
     {
+      "path": "deployment/bosch-demo/public/audio/r7-arrival.mp3",
+      "bytes": 152492,
+      "sha256": "408c69d40bc4c265ea4ff82cb4ddd5182374f03730a521f8ccd610bd1004baba"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/r7-mode-garden-light.mp3",
+      "bytes": 160172,
+      "sha256": "39d0ceebec405eae19bee67edbc21331b7ad3590e34fa6d6199c6dda081c385b"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/r7-mode-garden-season.mp3",
+      "bytes": 161324,
+      "sha256": "42782436e71b2cdd7a33541d26fefe8a67686716ef665f02a26ef70fcd2a476a"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/r7-mode-hell-light.mp3",
+      "bytes": 158636,
+      "sha256": "3ae878ee33a802068d24f1a0949dbbf903811ae1f082ba9fd5f53ac56e62b9dc"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/r7-mode-hell-season.mp3",
+      "bytes": 165164,
+      "sha256": "453c1c33e530004dd5e31645727163dd2bed39b9cdf23efdd9fb4f23a7e5672a"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/r7-research.mp3",
+      "bytes": 264620,
+      "sha256": "ea05cb272e89371628de7806b683fbfdbe3cc1ad31c8dcd3f52f979435d7849b"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/r7-return.mp3",
+      "bytes": 104108,
+      "sha256": "564c258ab0aca930200629d095ed3a6afe5a835e6ca2cb764210338467c777e5"
+    },
+    {
+      "path": "deployment/bosch-demo/public/audio/r7-reveal.mp3",
+      "bytes": 139052,
+      "sha256": "1e83800909857fc39e1addbf06cdfc77407da320a718d5a750a3b439e597c201"
+    },
+    {
       "path": "deployment/bosch-demo/public/audio/return.mp3",
       "bytes": 44204,
       "sha256": "82bf62aa83138cbd688437fc2941f9cae155b27c746556e9b2721f8d56778bd0"
@@ -4122,14 +4257,19 @@
       "sha256": "19cec86a5da433c00176eac7f3112cdf49e7c9637c76babaabb013fd77761bc6"
     },
     {
+      "path": "deployment/bosch-demo/public/audio/soundscape-r7.js",
+      "bytes": 11839,
+      "sha256": "007b511d3c63eefa8a1459cb08b37e8520ea954e46bbe921687759c94b8b1021"
+    },
+    {
       "path": "deployment/bosch-demo/public/audio/transcript.en.html",
-      "bytes": 3352,
-      "sha256": "7fe3ff9b486e398c1649ffcc44bb8cf64e29d71c8e609685c4d29d82435ea71c"
+      "bytes": 3996,
+      "sha256": "db87145dd59aff427f5112e00f341527bd1749541c861d0ed262e8e83792b70c"
     },
     {
       "path": "deployment/bosch-demo/public/audio/transcript.en.md",
-      "bytes": 1417,
-      "sha256": "940e7ae373f33cede76e2f5dca28d37f117190c44a7e53d29cb3f99e2e6dc17b"
+      "bytes": 1541,
+      "sha256": "246df2b368c5426a20c0b504ddb0c6b7a3897587a5685a5bd92b2de6e1d33bf7"
     },
     {
       "path": "deployment/bosch-demo/public/downloads/bosch-demo-r3.zip",
@@ -4142,19 +4282,24 @@
       "sha256": "293117da80b48e2d4ae6abd7c22bf1d9ac5ba494da5d20817aedc9c8bd84d856"
     },
     {
+      "path": "deployment/bosch-demo/public/guide/artwork.html",
+      "bytes": 4044,
+      "sha256": "74930771f2ee161accc705dba49cb8b779f2929a9e43054d3a82c05430884599"
+    },
+    {
       "path": "deployment/bosch-demo/public/guide/index.html",
-      "bytes": 5109,
-      "sha256": "d05dff220ecd063a92b59abb07cd78f9d42ddc7ba1304ef5bb8549f7494365a5"
+      "bytes": 5557,
+      "sha256": "9dc3fb90c82df63313a6128b9f16bae6915c214cf95bf48edab867aadc66a2ca"
     },
     {
       "path": "deployment/bosch-demo/public/guide/live.html",
-      "bytes": 5123,
-      "sha256": "5a18fb8846aa9758613d707bbae7060194376d408a5679d3ee78fbc1f795cc7c"
+      "bytes": 5595,
+      "sha256": "66bc96973890d2cc904cf8175f89770e65389c481174328fd63ac591722c0c9c"
     },
     {
       "path": "deployment/bosch-demo/public/review/index.html",
-      "bytes": 6159,
-      "sha256": "12e94901154ddb27187a367d6953e6229d45aba123f438d8a2e54dbe80198c38"
+      "bytes": 6189,
+      "sha256": "1995d10d727b863c9dfa1a5d1f9374149ebf6c9c6a51872dd2fcf226e28e1dee"
     },
     {
       "path": "deployment/bosch-demo/public/review/motion-catalog.json",
@@ -4165,6 +4310,11 @@
       "path": "deployment/bosch-demo/public/review/overview-19s-r5.mp4",
       "bytes": 6138632,
       "sha256": "bcf7524c2ac33b98c3d2256e5110f5bdf5137443fbbbae7135edd4a91ca17c04"
+    },
+    {
+      "path": "deployment/bosch-demo/public/review/overview-19s-r7.mp4",
+      "bytes": 6214690,
+      "sha256": "46f21348af88b3703c422ac4236e9eb7a894ff32f0ec5701d3a23a384cd6895a"
     },
     {
       "path": "deployment/bosch-demo/public/review/overview-19s.mp4",
@@ -4233,8 +4383,8 @@
     },
     {
       "path": "deployment/bosch-demo/public/scenes/bosch-demo/media/manifest.json",
-      "bytes": 5762,
-      "sha256": "1d0b329a14ae50f77fd2b586d188d768217359e0826be316cfcc3ceb707c3f9e"
+      "bytes": 6424,
+      "sha256": "992e0829eb51878b9eb908775669538f1cbfe2e6df6a859586a7e517e61e490a"
     },
     {
       "path": "deployment/bosch-demo/public/scenes/bosch-demo/media/motion-catalog.json",
@@ -4297,6 +4447,16 @@
       "sha256": "19f9eb2b565309f80f4b72f083b610567cc928c842a579603363341c57046475"
     },
     {
+      "path": "deployment/review/brief-local-r7/desktop.png",
+      "bytes": 983905,
+      "sha256": "4f1f827b5c5e82bffe83f2f4376f08840080af8ac3d96509bc4431fcb5eb1cd2"
+    },
+    {
+      "path": "deployment/review/brief-local-r7/mobile.png",
+      "bytes": 233114,
+      "sha256": "ebb1a0d831cf928a11de0500b7540a3973a290704bdfbac66c32380b38d0eaef"
+    },
+    {
       "path": "deployment/review/buffered-local/01-panorama.png",
       "bytes": 1350932,
       "sha256": "b6825d6051e8ce857afad844cf67e776e953d592345d2a68b87054f6948ae131"
@@ -4340,6 +4500,86 @@
       "path": "deployment/review/buffered-local/verification.json",
       "bytes": 4436,
       "sha256": "7f4b95d35c222eb9920fe05a68a91379c3880d648aff478c251a72dfc76e18e4"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/day.png",
+      "bytes": 1185606,
+      "sha256": "d91f279d6ac3c7b82a2e7daf5b2cf500eabbb874715e9a9c765f4cc9449cb976"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/dusk-without-scene-light.png",
+      "bytes": 1169476,
+      "sha256": "42db1193a2fff189335dcd0650bb7901ee2933d64a076386777f8d602be6082f"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/dusk-zenith.png",
+      "bytes": 353995,
+      "sha256": "5121358274f2a1a253a94664965bef747a88ce516d9c56b458fa24719a15e48f"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/dusk.png",
+      "bytes": 1022053,
+      "sha256": "b9600fc3937a381d70f030a1c6740f01122a2c0372ef56b0b78d64c0d85fed79"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/rain.png",
+      "bytes": 1292119,
+      "sha256": "c24da1b16425e0c0d111e904a56ebf06468f44f591e6e955649ccc0988f28ca0"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/stopped-base.png",
+      "bytes": 1262111,
+      "sha256": "45951cdbddaf0fee7e4fe036833eb71d707777a97733429f05479b3e68a77e3d"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/verification.json",
+      "bytes": 4999,
+      "sha256": "a8fc36d2564915b5eb127828831b01896b6b3fa19046e1778e2da085ee5d165e"
+    },
+    {
+      "path": "deployment/review/lighting-local-r7/winter.png",
+      "bytes": 1232553,
+      "sha256": "f8337604add7fc56dfb28a16422a0d3b5a413efb4e770aa8c831b2573d226fbb"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/day.png",
+      "bytes": 1185606,
+      "sha256": "d91f279d6ac3c7b82a2e7daf5b2cf500eabbb874715e9a9c765f4cc9449cb976"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/dusk-without-scene-light.png",
+      "bytes": 1169476,
+      "sha256": "42db1193a2fff189335dcd0650bb7901ee2933d64a076386777f8d602be6082f"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/dusk-zenith.png",
+      "bytes": 353995,
+      "sha256": "5121358274f2a1a253a94664965bef747a88ce516d9c56b458fa24719a15e48f"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/dusk.png",
+      "bytes": 1022053,
+      "sha256": "b9600fc3937a381d70f030a1c6740f01122a2c0372ef56b0b78d64c0d85fed79"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/rain.png",
+      "bytes": 1292119,
+      "sha256": "c24da1b16425e0c0d111e904a56ebf06468f44f591e6e955649ccc0988f28ca0"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/stopped-base.png",
+      "bytes": 1262111,
+      "sha256": "45951cdbddaf0fee7e4fe036833eb71d707777a97733429f05479b3e68a77e3d"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/verification.json",
+      "bytes": 4999,
+      "sha256": "a8fc36d2564915b5eb127828831b01896b6b3fa19046e1778e2da085ee5d165e"
+    },
+    {
+      "path": "deployment/review/lighting-public-r7/winter.png",
+      "bytes": 1232553,
+      "sha256": "f8337604add7fc56dfb28a16422a0d3b5a413efb4e770aa8c831b2573d226fbb"
     },
     {
       "path": "deployment/review/live-local-r6/day-raw.jpg",
@@ -4822,6 +5062,46 @@
       "sha256": "aec77094d3585ae091546f3d6dca985fede181adfedb066720a0946b1a99117e"
     },
     {
+      "path": "deployment/review/modes-local-r7/default-reveal.png",
+      "bytes": 1477863,
+      "sha256": "17f5c6853a8dc6248d9f2a5ada67fa91730c802c9d2a38f01131240eb744bb7a"
+    },
+    {
+      "path": "deployment/review/modes-local-r7/garden-light.png",
+      "bytes": 1197296,
+      "sha256": "80014c0c0c52a1f11460f8bbf0f9bd8a553679175ec70915c99ae953511c6bb5"
+    },
+    {
+      "path": "deployment/review/modes-local-r7/garden-season.png",
+      "bytes": 1201279,
+      "sha256": "7722ab896a7ec94d25ba1224aed50dcf60be5f54e99343ba212e97fed48d8037"
+    },
+    {
+      "path": "deployment/review/modes-local-r7/hell-light.png",
+      "bytes": 1115346,
+      "sha256": "a5008d5dfb8ac1d8ce424fb9f6fd390e38caf8cb61d8f5123965cd7620c7e31b"
+    },
+    {
+      "path": "deployment/review/modes-local-r7/hell-season.png",
+      "bytes": 1089128,
+      "sha256": "852fa6c0941cf3e21819ce48cd813bc3ab69397e770ad8ee261a760af536b6b4"
+    },
+    {
+      "path": "deployment/review/modes-local-r7/mobile.png",
+      "bytes": 256051,
+      "sha256": "8ba084222f2d97ed948cc930d0809308f04b1670c56fe4260b16cf3277275a47"
+    },
+    {
+      "path": "deployment/review/modes-local-r7/verification.json",
+      "bytes": 4219,
+      "sha256": "6ed44ad7b67bf4e4d58389ae44a8341afc54693dd1baf045847be2d2c87cfa0b"
+    },
+    {
+      "path": "deployment/review/modes-local-r7/vr-menu-desktop-preview.png",
+      "bytes": 1331903,
+      "sha256": "12e7ae72de29258dbbb1ec8b2aa6957ec3321de823d298af1f7814f885b288e8"
+    },
+    {
       "path": "deployment/review/modes-public-r5/default-reveal.png",
       "bytes": 1486039,
       "sha256": "8bd345ff0a5369e0ed43270b8221ecde1d3a2844578fe93cd2b953348c703587"
@@ -5235,6 +5515,11 @@
       "path": "deployment/review/sound-local-r5/verification.json",
       "bytes": 13200,
       "sha256": "1927bf8da9c8fe96508760f8efccf10b4a42804626e06eb72c097a8aa37c8150"
+    },
+    {
+      "path": "deployment/review/sound-local-r7/verification.json",
+      "bytes": 13248,
+      "sha256": "d9f3ba1927774209e32321e7c151267e6e970fb5c77c25e99f0e1da3c1dbe597"
     },
     {
       "path": "deployment/review/sound-public-r4/sound-controls.png",

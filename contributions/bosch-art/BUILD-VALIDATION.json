@@ -11,5 +11,7 @@
   },
   "installed_dependencies_committed": false,
   "generated_dist_committed": false,
-  "model_call_during_build": false
+  "model_call_during_build": false,
+  "r7_followup_build_exit_code": 0,
+  "r7_dependency_lock_changed": false
 }

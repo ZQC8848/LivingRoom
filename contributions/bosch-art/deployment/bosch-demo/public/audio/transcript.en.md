@@ -1,33 +1,35 @@
-# The Garden of Consequences
+# Inside Bosch’s Garden
+
+After Hieronymus Bosch, The Garden of Earthly Delights, c.1500. Original: Prado Museum, Madrid.
 
 ## arrival
 
-Five hundred years ago, Bosch painted a garden overflowing with pleasure. Look closely. What seems like paradise may already contain the beginning of its undoing.
+Enter Hieronymus Bosch's The Garden of Earthly Delights, painted around fifteen hundred and now in Madrid's Prado Museum. Point and pinch to reveal another side.
 
 ## reveal
 
-You are looking at the same place through another possibility. Is this a punishment, or a consequence we prefer not to see?
+In Bosch's triptych, earthly pleasure stands beside Hell. Your hand now reveals that contrast within the same landscape.
 
 ## return
 
-The garden returns. What you have seen remains part of it, even when it disappears.
+The garden returns. Its pleasures look untouched. But after seeing Hell, can you look at them in the same way?
 
 ## mode-garden-light
 
-Art historian Margaret Carroll reads Bosch through time and transformation. As this garden passes into night, the buildings remain. What changes is the way we see them.
+Bosch painted a world of intricate detail and unsettling invention. As daylight fades here, the composition stays fixed. You have time to look more closely.
 
 ## mode-garden-season
 
-Abundance has a season. Spring opens into summer, then autumn lets go. Here, winter offers a pause. Must a beautiful world remain forever in bloom?
+Bosch fills the central garden with enormous fruit and flowers. Their sweetness and beauty are fleeting. Our seasons extend that fragility into time.
 
 ## mode-hell-light
 
-In daylight, the ruins are exposed. At night, the fires take command. The light changes; the consequences remain. Stay with what the garden concealed.
+Bosch's right panel turns pleasure into torment, with burning buildings and instruments of punishment. Our changing light lets you dwell on that darker vision.
 
 ## mode-hell-season
 
-Rain crosses the ashes. Snow settles over the damage. This possibility of recovery is our reinterpretation of Bosch: a question left open, rather than a promised ending.
+Rain and winter are our additions. Bosch's Hell offers no such cycle of renewal. Here, changing weather lets you revisit its ruined world.
 
 ## research
 
-Carroll's reading follows a world in transformation: light, water, fire, and the earth's changing life. Our experience extends that reading into a question about desire, consequences, and the need for rest.
+Bosch's triptych is often read as a warning about desire and fleeting pleasure. Art historian Margaret Carroll also examines its world through time and transformation. Our aligned landscapes bring these readings into an interactive adaptation.

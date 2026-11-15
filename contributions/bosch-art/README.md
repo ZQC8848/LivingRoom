@@ -4,7 +4,7 @@ This directory contains the art-side work for Living Room. It is isolated from t
 
 ## Start here
 
-- **Current runnable prototype:** [deployment/bosch-demo](deployment/bosch-demo/). This is the source and shipped media for public release r6, based on the exact Site source snapshot `3c6a986025292f807773d50878eb442b0fc3d269`.
+- **Current runnable prototype:** [deployment/bosch-demo](deployment/bosch-demo/). This is the source and shipped media for public release r7; see deployment/publication-r7.json for the exact published source snapshot.
 - **Published experience:** https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/
 - **Controls and research:** [stable guide](deployment/bosch-demo/public/guide/index.html), [Live Lab guide](deployment/bosch-demo/public/guide/live.html), [English narration/credits](deployment/bosch-demo/public/audio/transcript.en.html).
 - **Integration notes:** [MERGE-NOTES.md](MERGE-NOTES.md).
@@ -73,3 +73,8 @@ Excluded: `.env` files, API keys, A2A/operator tokens, private runtime state, in
 - Controller/hand targeting checks are simulated browser tests. Physical Quest comfort, decoding performance, sound quality and hand tracking still need wearer acceptance. Weather rendering can remain stylized, especially rain/snow.
 
 Historical documents may describe earlier formats or limitations. This README, MERGE-NOTES and the current app manifests take precedence when choosing what to integrate.
+
+
+## r7 update
+
+The visitor brief is now concise and technology-led: original artwork identity, a hand-revealed relationship between layers, authored masks/layouts, and bounded generation. Sources are collapsed under the brief. The first screen and eight short English cues identify Bosch and the original artwork. Live sky-driven exposure/tint and gentle cloud lighting affect the approved composition without UV or geometric displacement; averaged poles remove the old single-column dome lookup. Rendering checks replay recorded model frames and make no new live-model claim.

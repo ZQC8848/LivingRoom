@@ -40,3 +40,10 @@ Eight Lily stock-voice narration cues cover the introduction, reveal/return, fou
 This public static deployment plays prepared hybrid loops. No model keys or realtime generation connection ship to the browser. Hardware Quest targeting and comfort still need the wearer's acceptance.
 
 Live Lab r6: open /?experience=live. Stable Reveal and four time studies remain the default, with no broker/model requests. Live Lab requires a private operator code and a running loopback broker/temporary HTTPS tunnel. The broker lives outside the published checkout at tools/live/broker.mjs; keys and operator state remain in ignored local files. One owned Dynamic session per connection, max_sessions=1, max duration 180 seconds, heartbeat cleanup and explicit server-side Stop. Generated environmental video is masked over the approved static plate; weather quality is experimental. No automatic camera transforms. See public/guide/live.html. The realistic sheep study is a separate teammate application. Scenario changes use a mode switch; no religious bridge or authored transition is planned. About 80 percent of the narrative focus remains on the painted world.
+
+
+## r7: concise artwork brief and live lighting
+
+The first screen attributes Hieronymus Bosch and The Garden of Earthly Delights (c.1500, Prado, Madrid). public/guide/artwork.html is a brief visitor-facing explanation: an artwork introduction, hand reveal, authored layouts/masks and optional bounded generation. Detailed sources are collapsed. Eight short English guide cues use manifest-r7.json / soundscape-r7.js; the opening identifies the artwork and invites the gesture.
+
+Live composition now calibrates incoming sky/ground colours to the approved plate, estimates exposure/tint from received video pixels, and applies gentle cloud-based scene lighting without geometric displacement. Averaged pole colours replace the old single-column polar lookup. Follow sky light compares the authored relighting. This is not full-frame model generation or a physical light simulation. Verification uses previously received frame fixtures and is labelled recorded replay; no new model session is used for that QA.
