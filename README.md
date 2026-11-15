@@ -27,7 +27,7 @@ without taking the headset off.
   </tr>
 </table>
 
-<sub>All pictures on this page are frames from a Quest 3 screen recording of the running app.</sub>
+<sub>The two live hillside pictures are screenshots of the page in a desktop browser; the others are frames from a Quest 3 screen recording. All show the running app.</sub>
 
 Built for the **Visko · Living Worlds** track (Orbis real-time video on the Reactor platform),
 2026-11-14/15. The project was called *Living Room* while it was being built; the repository
@@ -413,6 +413,22 @@ USB; the headset needs its own internet for the video stream.
 
 Live sessions are billed per second from the moment they are ready. **Stop**, switching to the
 Garden, or closing the tab ends them; the dev server caps any session at 15 minutes.
+
+### Public deployment (recorded)
+
+The public site is built from the `deploy/vercel` branch with `VITE_DEPLOY=1`. It shows the
+hillside only and generates nothing: every preset plays a 28-second clip **recorded from Orbis
+Dynamic** (`tools/orbis_test.py --mp4`), looped with the same cross-fade the live relay uses
+(`web/src/recorded.js`). Typing a custom scene is visible but switched off, and there is no
+API and no key in the build. The Garden is a link to its own site.
+
+```bash
+tools/.venv/bin/python tools/build_deploy.py hillside   # stills + clips -> web/deploy-public
+```
+
+```bash
+VITE_DEPLOY=1 npm --prefix web run build
+```
 
 ---
 

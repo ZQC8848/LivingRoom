@@ -3,12 +3,17 @@ import { SPHERE } from './config.js';
 import { createPanoSphere, measurePoles } from './panoMaterial.js';
 import { createPointerInput, directionToUv } from './pointer.js';
 import { createLive } from './live.js';
+import { createRecorded } from './recorded.js';
 import { createVrPanel } from './vrPanel.js';
 import { shell } from './shell.js';
 
 // The live hillside, one of the two experiences in the page (see shell.js): it borrows the
 // shell's renderer and XR session, and registers itself at the bottom of this file.
 const ID = 'hillside';
+// The public deployment (VITE_DEPLOY=1, static host): presets play clips recorded from Orbis
+// Dynamic (recorded.js) instead of opening sessions, custom prompts are shown but switched
+// off, and there is no /api -- the scene comes from a JSON file built by tools/build_deploy.py.
+const DEPLOY = import.meta.env.VITE_DEPLOY === '1';
 
 const sceneName = new URLSearchParams(location.search).get('scene') || import.meta.env.VITE_DEFAULT_SCENE || 'hillside';
 
@@ -32,10 +37,10 @@ const render = () => {
   vrPanel?.set({ status: lines.live.replace(/^live: /, '') || 'still panorama', detail: lines.last || lines.stream });
 };
 
-const config = await (await fetch(`/api/scene/${sceneName}`)).json();
+const config = await (await fetch(DEPLOY ? `/scenes/${sceneName}/scene.deploy.json` : `/api/scene/${sceneName}`)).json();
 // ?model=stable swaps in Orbis Stable (has spare capacity; its camera drifts) to test the pipeline.
 if (new URLSearchParams(location.search).get('model') === 'stable') config.model = 'reactor/visko-orbis-stable';
-lines.scene = `scene: ${config.name} · ${config.model}`;
+lines.scene = DEPLOY ? `scene: ${config.name} · recorded with Orbis Dynamic` : `scene: ${config.name} · ${config.model}`;
 render();
 
 // Still panorama first: it is what the viewer sees until (and if) the live stream arrives.
@@ -180,7 +185,7 @@ function burst() {
   }
 }
 
-const live = createLive({
+const liveOptions = {
   scene: config,
   onStatus(s, detail) {
     lines.live = `live: ${s}${detail ? ` — ${detail}` : ''}`;
@@ -249,7 +254,8 @@ const live = createLive({
   onMessage(m) {
     if (m?.type === 'chunk_complete' && m.data?.delivered) lines.stream = `stream: ${m.data.delivered}, chunk ${m.data.chunk_index}`;
   },
-});
+};
+const live = DEPLOY ? createRecorded({ ...liveOptions, videos, countFrames }) : createLive(liveOptions);
 
 function toggleLive() {
   if (live.active) live.stop();
@@ -260,6 +266,20 @@ function toggleLive() {
 ui.live.addEventListener('click', toggleLive);
 // Leave for the painted Garden without leaving VR (shell.js fades and swaps the scene).
 if (shell.has('garden')) ui.live.parentElement.appendChild(shell.switchButton('Garden ▸', 'garden'));
+if (DEPLOY) {
+  // Nothing to start or stop: the recording plays by itself. The Garden is not part of this
+  // build; it is a link to its own site (desktop only -- following it would leave VR).
+  ui.live.hidden = true;
+  if (config.garden_url) {
+    const a = Object.assign(document.createElement('a'), { href: config.garden_url, target: '_blank', rel: 'noopener', textContent: 'The Garden of Consequences ↗' });
+    a.style.cssText = 'align-self:center;color:#d9d2b6';
+    ui.live.parentElement.appendChild(a);
+  }
+  ui.prompt.disabled = true;
+  ui.prompt.placeholder = 'Custom scenes are generated live — available in the local build';
+  ui.steer.querySelector('button').disabled = true;
+  ui.steer.title = 'This public build plays recordings; typing a scene needs a live Orbis session.';
+}
 const eventButtons = [];
 for (const ev of config.events) {
   const b = Object.assign(document.createElement('button'), {
@@ -310,7 +330,7 @@ ui.steer.addEventListener('submit', (e) => {
 // leaves things in the picture that the prompt no longer mentions. To combine, say both.
 let customBusy = false;
 async function custom(text) {
-  if (customBusy) return false;
+  if (DEPLOY || customBusy) return false;
   customBusy = true;
   ui.prompt.disabled = true;
   lines.last = `painting "${text}"…`;
@@ -349,7 +369,7 @@ async function steer(text) {
 // In VR the HTML HUD is invisible: the same controls float on a panel in front of the viewer.
 vrPanel = createVrPanel({
   buttons: [
-    { id: 'live', label: 'Go live' },
+    ...(DEPLOY ? [] : [{ id: 'live', label: 'Go live' }]),
     ...config.events.map((e) => ({ id: e.label, label: e.label })),
     ...(shell.has('garden') ? [{ id: 'garden', label: 'Garden ▸' }] : []),
   ],
@@ -373,6 +393,7 @@ if (openingEvent) {
 }
 vrPanel.draw();
 render();
+if (DEPLOY) live.start(); // the opening preset's recording, right away
 const panelOnDesktop = new URLSearchParams(location.search).has('panel'); // check the panel without a headset
 let panelPlaced = false;
 let xrFrames = 0;
@@ -410,7 +431,7 @@ const pointer = createPointerInput({
 for (const c of pointer.controllers) scene.add(c);
 
 installDesktopLook(camera, renderer);
-if (import.meta.env.DEV) window.__lr = { THREE, scene, camera, renderer, pano, live, videos, get video() { return video; }, vrPanel };
+if (import.meta.env.DEV || DEPLOY) window.__lr = { THREE, scene, camera, renderer, pano, live, videos, get video() { return video; }, vrPanel };
 
 let lastPoleProbe = 0;
 let lastT = 0;

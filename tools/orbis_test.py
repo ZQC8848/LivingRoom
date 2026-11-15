@@ -68,6 +68,8 @@ async def main():
     ap.add_argument("--wait-minutes", type=float, default=5, help="keep retrying while Dynamic is busy")
     ap.add_argument("--reference", help="anchor on this image instead of the scene's reference.png (e.g. custom/<id>.jpg)")
     ap.add_argument("--prompt-text", help="use this prompt text instead of --prompt")
+    ap.add_argument("--mp4", help="encode the received frames to this file (H.264, 1920x1080), from the first frame on; "
+                                  "used to record presets for the static deployment")
     args = ap.parse_args()
     model = f"reactor/visko-orbis-{args.model}"
 
@@ -119,9 +121,28 @@ async def main():
     def on_err(err):
         print("error:", err, flush=True)
 
+    enc = {"proc": None}  # ffmpeg, fed raw RGB frames stamped by arrival time (the stream is ~18 fps, not exactly)
+
+    def encode(frame):
+        import subprocess
+        if enc["proc"] is None:
+            h, w = frame.shape[:2]
+            Path(args.mp4).parent.mkdir(parents=True, exist_ok=True)
+            enc["proc"] = subprocess.Popen(
+                ["ffmpeg", "-v", "error", "-y", "-use_wallclock_as_timestamps", "1", "-f", "rawvideo", "-pix_fmt", "rgb24",
+                 "-s", f"{w}x{h}", "-i", "-", "-vf", "scale=1920:1080:flags=lanczos", "-fps_mode", "cfr", "-r", "18",
+                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-maxrate", "5M", "-bufsize", "10M",
+                 "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-an", args.mp4], stdin=subprocess.PIPE)
+        try:
+            enc["proc"].stdin.write(np.ascontiguousarray(frame[..., :3]).tobytes())
+        except BrokenPipeError:
+            pass
+
     def on_frame(frame):
         if t_start is None:
             return
+        if args.mp4:
+            encode(frame)
         now = time.time() - t_start
         stats["frames"] += 1
         if stats["first_frame_s"] is None:
@@ -240,6 +261,10 @@ async def main():
         print(f"output -> {out}", flush=True)
     finally:
         await r.disconnect()  # never leave a billed session behind, even on a crash
+        if enc["proc"]:
+            enc["proc"].stdin.close()
+            enc["proc"].wait(timeout=120)
+            print(f"mp4 -> {args.mp4}", flush=True)
 
 
 if __name__ == "__main__":

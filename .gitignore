@@ -39,3 +39,6 @@ web/.static-public/
 
 # Curated art-side handoff; nested ignore rules still exclude local runtime state.
 !contributions/bosch-art/**
+
+# media of the public deployment (built by tools/build_deploy.py; committed only on deploy/vercel)
+web/deploy-public/

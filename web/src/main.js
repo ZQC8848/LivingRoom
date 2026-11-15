@@ -20,7 +20,7 @@ async function loadManifest(name) {
   }
 }
 
-const manifest = await loadManifest(sceneName);
+const manifest = import.meta.env.VITE_DEPLOY === '1' ? null : await loadManifest(sceneName);
 if (manifest) {
   const { startDemo } = await import('./demo.js');
   await startDemo(sceneName, manifest);
@@ -28,9 +28,12 @@ if (manifest) {
   document.getElementById('status').textContent = `scene "${sceneName}" has no media/manifest.json (live scenes need the dev server)`;
 } else {
   const { shell } = await import('./shell.js');
+  const deploy = import.meta.env.VITE_DEPLOY === '1'; // public build: the recorded hillside only
   // Declared before the hillside loads, so that it can offer the switch; loaded on first use.
-  shell.lazy('garden', () => import('./garden/garden.js').then((m) => m.startGarden()));
+  if (!deploy) shell.lazy('garden', () => import('./garden/garden.js').then((m) => m.startGarden()));
   await import('./liveMain.js'); // registers 'hillside', which becomes the active experience
-  if (params.get('exp') === 'garden') shell.switchTo('garden');
+  if (deploy) {
+    // nothing else to load
+  } else if (params.get('exp') === 'garden') shell.switchTo('garden');
   else setTimeout(() => shell.preload('garden'), 2500); // fetch it while the viewer looks at the hillside
 }

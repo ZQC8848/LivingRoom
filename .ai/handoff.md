@@ -130,6 +130,19 @@ switch, two sets of controller listeners, memory with both loaded); her sound af
 her Live Lab is not ported (needs her broker and tunnel). The standalone app in
 `contributions/.../bosch-demo` is untouched and still runs on its own (port 5182).
 
+## Public deployment, recorded (2026-11-14 22:50)
+
+Branch `deploy/vercel` = main + `web/deploy-public/` (stills and five clips, 48 MB) +
+`vercel.json`. `VITE_DEPLOY=1` builds the hillside only: presets play clips recorded from
+Orbis Dynamic (`~/Assets/.../clips/*.mp4`, 1920x1080, 18 fps, ~28 s each, made with
+`tools/orbis_test.py --mp4`), looped by `web/src/recorded.js` on the two video decks; custom
+prompts are disabled; no `/api`, no keys; the Garden is an external link. To refresh:
+record -> `tools/build_deploy.py hillside` -> commit `web/deploy-public` on that branch.
+**Verified locally** (production build, `vite preview`, desktop Chrome): autoplay, preset
+switches with a video-to-video fade, the end-of-clip loop, zero API requests.
+**Not verified:** the Vercel deployment itself (needs the user's Vercel login); the headset
+on the public URL; autoplay on the Quest browser.
+
 ## In flight / undecided
 
 - **Dynamic is one server for all of Reactor.** It was taken by someone else on every
