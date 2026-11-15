@@ -111,6 +111,15 @@ Reactor / Visko Orbis — docs: https://docs.reactor.inc/model-api-reference/vis
 - `download_recording` right after `pause` timed out (playlist not ready after 60 s).
 - `prompt_accepted` echoes the prompt as sent; the server-side rewrite (passthrough
   false) is not visible to the client.
+- **Things that should move need a motion sentence, and "time-lapse" must go** (2026-11-14 20:46,
+  Dynamic, 30 s each, same painted reference full of asteroids, `tests/pano-*-meteor{A,B,C}`):
+  A, a prompt describing only sky and light -> asteroids hang still. B, "time-lapse" frame +
+  "Burning asteroids ... streak down across the sky from upper right to lower left, one after
+  another" -> they fly within 10 s, but by 20 s smoke and fire bury the hill and the tree is
+  gone. C, the same without "time-lapse" -> they fly and hill, tree and craters still stand at
+  30 s. The words "everything stays exactly where it is and only light ... change" freeze
+  everything, including what was meant to move; use "The land, the hut and the tree stay
+  exactly where they are." plus the motion sentence (scene.json `frame` / `fixed_sentence`).
 - Write motion as what the camera sees ("trunks slide from right to left"), not intent
   words. For lateral walls use tracking, never "pan" (pan = rotation, no parallax).
 

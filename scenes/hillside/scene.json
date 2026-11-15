@@ -64,7 +64,18 @@
         "fade_seconds": 3,
         "notes": "Relay between the keeper's two Dynamic sessions (needs `keeper.py start --sessions 2`): each run is on the sphere ~live_seconds, the other session is anchored and started warmup_seconds before the hand-over, then a fade_seconds live-to-live cross-fade. Without a two-session hold this block is ignored."
       },
-      "custom_prompt": "A fixed equirectangular 360-degree panorama time-lapse from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, weather and water change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. {change}"
+      "frame": "A fixed equirectangular 360-degree panorama from the top of a grassy hill: the full surrounding view unwrapped into one wide image.",
+      "layout": "From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again.",
+      "fixed": [
+        "horizon",
+        "hill",
+        "hut",
+        "oak tree",
+        "lake",
+        "mountains"
+      ],
+      "fixed_sentence": "The land, the hut and the tree stay exactly where they are.",
+      "custom_notes": "Custom prompts (web/vite.config.js /api/edit): prompt = frame + layout + fixed_sentence + the director's motion and ambience sentences. `fixed` is what the director may never put in motion; the image model is told to keep the same things in place."
     }
   }
 }

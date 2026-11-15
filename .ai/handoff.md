@@ -1,6 +1,6 @@
 # Current state
 
-**Last updated: 2026-11-14 19:24 PST**
+**Last updated: 2026-11-14 20:51 PST**
 
 > This file **expires** — update it at the end of each working session. Earlier test logs
 > (per-wall Stable/Dynamic runs, four-wall capacity failure) are in git history; their
@@ -73,6 +73,27 @@ Model choice: `tools/image_edit_test.py`, contact sheets in `tests/edit-20261114
 submit -> faded in by 13.8 s; the next timed hand-over kept the snow. **Not verified:** the
 seam behind the viewer on painted references; chains of edits (snow on top of evening);
 the model sometimes adds objects (extra sheep in a fog test). No text input in VR yet.
+
+## Relay without the keeper + prompt director (2026-11-14 20:51)
+
+- **Loop needs two sessions; the page now opens its own second one** (`web/src/live.js`
+  `armRelay`): keeper holds two -> its slot 2; otherwise an own session ("relay · own sessions
+  ($2.5/min)" in the status line; takes all of Dynamic while live, Stop ends both). Second
+  server taken -> "no loop: second session busy, retrying" every 30 s. A line that ends from
+  outside (15-min cap, keeper hold over) is reopened (`statusChanged` -> `lineLost`).
+  **Verified live (desktop, no keeper):** busy at first, armed on the 30 s retry, timed
+  hand-over 22 s later. **Not verified:** that Stop really ends both own sessions (the user was
+  watching the page, so it was not stopped); recovery after the 15-min cap.
+- **Custom prompts go through a "director"** (`web/vite.config.js`: `DIRECTOR_INSTRUCTION`,
+  `lintPrompt`, `composePrompt`; scene.json `frame` / `layout` / `fixed` / `fixed_sentence`):
+  one claude-haiku-5.5 call returns `{moving, motion, ambience, static_request}`; hard checks
+  (no camera words, fixed things not in `moving`, motion present, length); one retry, then the
+  viewer's words. Runs in parallel with the picture (~4 s total). Cached prompts carry
+  `prompt_version`; an old one is rewritten without repainting. Why: the first version dropped
+  the asteroids from "asteroids fall from the sky" and the template froze everything (CLAUDE.md).
+  **Verified:** asteroids, snow, waterfall (with "the camera pans left" in the request, dropped
+  by the director), chalkboard -> lint clean; asteroids live end to end.
+  **Not verified:** the lint retry and fallback paths (no request has failed lint yet).
 
 ## In flight / undecided
 

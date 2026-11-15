@@ -25,6 +25,11 @@ import { LIVE } from './config.js';
 // first is still on the sphere; when it has frames the page cross-fades live -> live and the
 // first becomes the standby. No frozen frame, for the timed loop and for events alike. Each
 // line plays on its own video "deck" (0 or 1) so both can be decoded during the hand-over.
+// The standby is the keeper's slot 2 when it holds two sessions; otherwise the page opens a
+// second session of its own (Dynamic has two servers), which takes ALL of Dynamic while the
+// page is live and bills twice -- Stop ends both. If the second server is taken the page runs
+// one line without a loop and retries every 30 s. Own sessions are capped (15 min) by the dev
+// server: a line that ends is noticed (statusChanged) and reopened.
 
 export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFrames, onFreeze, onLine, onIdle }) {
   let line = null; // the line whose picture is on the sphere
@@ -38,6 +43,8 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
   let relayTimer = null;
   let idleTimer = null;
   let relayAgain = false; // an event arrived during a hand-over: relay once more when it is done
+  let armTimer = null; // retry opening a standby
+  let relayMode = null; // 'keeper' | 'own' | null (no loop)
   const loop = scene.loop;
   // What the picture is anchored to; a new line starts from the latest anchor, not the opening.
   let anchor = { reference: scene.reference, prompt: scene.opening, label: 'opening' };
@@ -66,11 +73,12 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
 
   // Open a line on `model`. Its tracks are held back until the line is promoted, so a probe
   // that connects never touches the picture until we decide to switch to it.
-  async function open(model, slot = 1) {
-    const l = { model, deck: slot - 1, reactor: new Reactor({ modelName: model }), uploads: new Map(), awaitingFrames: false, tracks: {} };
+  async function open(model, { slot = 1, own = false, deck = slot - 1 } = {}) {
+    const l = { model, deck, reactor: new Reactor({ modelName: model }), uploads: new Map(), awaitingFrames: false, tracks: {} };
     l.reactor.on('message', (m) => {
       if (l.awaitingFrames && m?.type === 'chunk_complete' && m.data?.frames_emitted > 0) {
         l.awaitingFrames = false;
+        if (!wanted) return; // Stop was pressed while this run warmed up: never put it on the sphere
         if (l === line) onFrames?.(anchor, label(l), l.deck);
         else if (l === incoming) handOver(l);
       }
@@ -81,7 +89,10 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
       l.tracks[name] = stream;
       if (l === line) (name === 'main_video' ? onVideo : onAudio)?.(stream, l.deck);
     });
-    const held = isOrbis(model) ? await keeper() : null;
+    l.reactor.on('statusChanged', (st) => {
+      if (st === 'disconnected' && !l.closing && wanted) lineLost(l);
+    });
+    const held = isOrbis(model) && !own ? await keeper() : null; // own: never the keeper's session
     if (slot > 1 && (held?.session_ids?.length ?? 0) < slot) throw new Error(`keeper holds no slot ${slot}`);
     const { jwt, sessionId } = await token(model, Boolean(held), slot);
     try {
@@ -102,11 +113,16 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
   // exists but the disconnect failed, end it server-side so it stops billing.
   async function cleanup(l) {
     const own = l.adopted ? null : l.reactor.getSessionId?.();
+    l.closing = true; // our own doing: not a lost line
     try {
       await l.reactor.disconnect();
     } catch {
       if (own) fetch(`/api/end-session/${own}?model=${encodeURIComponent(l.model)}`, { method: 'POST' });
     }
+    // A held (keeper) session lives on after we leave, and someone else may start it again:
+    // end our copies of its tracks so a stopped page can never show that picture.
+    for (const stream of Object.values(l.tracks)) stream?.getTracks?.().forEach((t) => t.stop());
+    l.tracks = {};
   }
 
   async function fileRef(l, url) {
@@ -144,29 +160,59 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     if (!isOrbis(l.model) && fallback?.reanchor_every_seconds) {
       refreshTimer = setInterval(() => reanchorTo(anchor, true), fallback.reanchor_every_seconds * 1000);
     }
-    if (isOrbis(l.model) && l.adopted && loop) armRelay(l);
+    if (isOrbis(l.model) && loop) armRelay(l);
+  }
+
+  // A line ended without us closing it: a capped own session ran out, or the keeper's hold did.
+  function lineLost(l) {
+    console.warn('[live] line ended from outside:', l.sessionId);
+    if (l === line) {
+      onFreeze?.(false);
+      dropRelay();
+      line = null;
+      status('connecting', 'the session ended; reconnecting');
+      attempt();
+    } else if (l === standby || l === incoming) {
+      const first = line;
+      dropRelay();
+      if (first) armTimer = setTimeout(() => line === first && wanted && armRelay(first), 3000);
+    }
   }
 
   // ---- relay between the keeper's two sessions ----
 
   async function armRelay(first) {
-    if ((first.held?.session_ids?.length ?? 0) < 2) return; // one-session hold: no relay
+    clearTimeout(armTimer);
+    const keeperHasTwo = first.adopted && (first.held?.session_ids?.length ?? 0) >= 2;
     try {
-      const l = await open(scene.model, first.deck === 0 ? 2 : 1);
+      const l = keeperHasTwo
+        ? await open(scene.model, { slot: first.deck === 0 ? 2 : 1 })
+        : await open(scene.model, { own: true, deck: 1 - first.deck });
       if (line !== first || !wanted) return cleanup(l);
       standby = l;
+      relayMode = keeperHasTwo ? 'keeper' : 'own';
       for (const e of scene.events) if (e.mode === 'reanchor' && e.reference) fileRef(l, e.reference).catch(() => {});
       fileRef(l, anchor.reference).catch(() => {});
-      console.info('[live] relay armed: standby on keeper slot', l.deck + 1);
+      console.info('[live] relay armed:', relayMode === 'keeper' ? `keeper slot ${l.deck + 1}` : 'own second session');
+      status('generating', `${anchor.label} · ${label(first)} · ${relayNote()}`);
       scheduleRelay();
     } catch (e) {
+      if (line !== first || !wanted) return;
+      const busyNow = busyError(e);
       console.warn('[live] relay not available:', String(e?.message ?? e));
+      status('generating', `${anchor.label} · ${label(first)} · no loop: ${busyNow ? 'second session busy' : 'second session failed'}, retrying`);
+      armTimer = setTimeout(() => line === first && wanted && armRelay(first), (fallback?.probe_primary_every_seconds ?? 30) * 1000);
     }
   }
+
+  const relayNote = () => (relayMode === 'own' ? 'relay · own sessions ($2.5/min)' : relayMode === 'keeper' ? 'relay · keeper' : 'no loop');
 
   function dropRelay() {
     clearTimeout(relayTimer);
     clearTimeout(idleTimer);
+    clearTimeout(armTimer);
+    idleTimer = null;
+    relayMode = null;
     for (const l of [standby, incoming]) if (l && l !== line) cleanup(l);
     standby = incoming = null;
     relayAgain = false;
@@ -199,7 +245,9 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     } catch (e) {
       console.warn('[live] relay failed, falling back to a plain re-anchor:', String(e?.message ?? e));
       incoming = null;
+      const first = line;
       dropRelay();
+      armTimer = setTimeout(() => line === first && wanted && armRelay(first), 5000); // get a standby again
       return reanchorTo(next, quiet);
     }
     return true;
@@ -208,6 +256,10 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
   // The standby has picture: it becomes the line on the sphere (the page cross-fades from the
   // old deck, which keeps playing), and the old line is reset once the fade is over.
   function handOver(l) {
+    if (!wanted || !line) {
+      incoming = null;
+      return;
+    }
     const old = line;
     const settle = (loop?.fade_seconds ?? 3) + 4; // the page may wait ~2.5 s for decoded frames before fading
     incoming = null;
@@ -216,7 +268,7 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     onLine?.(l.model);
     if (l.tracks.main_audio) onAudio?.(l.tracks.main_audio, l.deck);
     onFrames?.(anchor, label(l), l.deck);
-    status('generating', `${anchor.label} · ${label(l)} · relay, slot ${l.deck + 1}`);
+    status('generating', `${anchor.label} · ${label(l)} · ${relayNote()}`);
     idleTimer = setTimeout(async () => {
       idleTimer = null;
       try {
@@ -335,6 +387,7 @@ export function createLive({ scene, onStatus, onVideo, onAudio, onMessage, onFra
     get ready() { return Boolean(ready()); },
     get model() { return line?.model ?? null; },
     get relay() { return Boolean(standby || incoming); },
+    get relayMode() { return relayMode; },
     async steer(prompt) {
       if (!ready()) return false;
       await line.reactor.sendCommand('set_prompt', { prompt });

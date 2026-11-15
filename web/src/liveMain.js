@@ -133,6 +133,26 @@ function endStillFade() {
   liveMix = 0;
   u.uLiveMix.value = 0;
 }
+// Stop: the page must end on a real still. After a relay hand-over the layer underneath the
+// live picture is the other video deck, and a held (keeper) session keeps streaming whatever
+// its next user starts -- so put the current scene's still underneath before the live
+// picture fades out; the animation loop detaches both decks once it has.
+function goOffline() {
+  fadeWhenFrame = Infinity;
+  fadeDeadline = Infinity;
+  frozen = false;
+  stillFor(currentReference).then((tex) => {
+    if (live.active || stillFade) return;
+    pano.material.uniforms.uStill.value = tex;
+    measurePoles(tex.image, pano.material.uniforms.uZenith.value, pano.material.uniforms.uNadir.value);
+  });
+}
+function detachDecks() {
+  for (const v of videos) v.srcObject = null;
+  shown = 0;
+  video = videos[0];
+  pano.material.uniforms.uLive.value = liveTextures[0];
+}
 const freezeCanvas = document.createElement('canvas');
 const freezeTexture = prepStill(new THREE.CanvasTexture(freezeCanvas));
 function freezeLiveFrame() {
@@ -165,6 +185,10 @@ const live = createLive({
   onStatus(s, detail) {
     lines.live = `live: ${s}${detail ? ` — ${detail}` : ''}`;
     if (s === 'stopped' || s === 'busy' || s === 'error' || s === 'disconnected') liveTarget = 0;
+    if (s === 'stopped') {
+      goOffline();
+      lines.stream = ''; // no stale "18 fps · mix 1.00" under "live: stopped"
+    }
     setButtonsBusy(s === 'reanchoring');
     vrPanel?.set({ disabled: s === 'reanchoring' });
     vrPanel?.setButtonLabel('live', live?.active ? 'Stop' : 'Go live');
@@ -295,7 +319,9 @@ async function custom(text) {
     });
     const ev = await r.json();
     if (!r.ok) throw new Error(ev.error || `edit ${r.status}`);
-    console.info('[custom]', ev.cached ? 'cached' : `${ev.seconds}s`, ev.reference, '|', ev.seen);
+    console.info('[custom]', ev.cached ? `cached (${ev.cached})` : `${ev.seconds}s`, ev.reference, '| moving:', ev.moving, '|', ev.motion, ev.lint?.length ? `| lint: ${ev.lint.join('; ')}` : '');
+    lines.last = `moving: ${ev.moving?.length ? ev.moving.join(', ') : 'nothing'}${ev.fallback ? ' (director failed, using your words)' : ''}`;
+    render();
     await stillFor(ev.reference); // have the picture decoded before anything fades to it
     await reanchor(ev);
     return true;
@@ -378,6 +404,7 @@ renderer.setAnimationLoop(() => {
   liveMix = THREE.MathUtils.clamp(liveMix + Math.sign(target - liveMix) * (dt / (stillFade ? SPHERE.liveFadeSeconds : fadeSeconds)), 0, 1);
   u.uLiveMix.value = THREE.MathUtils.smoothstep(liveMix, 0, 1);
   if (stillFade && liveMix >= 1) endStillFade();
+  if (!live.active && !stillFade && liveMix <= 0 && videos.some((v) => v.srcObject)) detachDecks();
   if (liveTarget && t - lastPoleProbe > 0.5 && video.readyState >= 2) {
     lastPoleProbe = t;
     measurePoles(video, u.uZenith.value, u.uNadir.value);

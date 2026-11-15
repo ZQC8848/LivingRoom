@@ -66,15 +66,19 @@ async def main():
     ap.add_argument("--steer-every", type=float, help="re-send --steer-text every N seconds")
     ap.add_argument("--steer-text", default="The camera stays fixed on its tripod.")
     ap.add_argument("--wait-minutes", type=float, default=5, help="keep retrying while Dynamic is busy")
+    ap.add_argument("--reference", help="anchor on this image instead of the scene's reference.png (e.g. custom/<id>.jpg)")
+    ap.add_argument("--prompt-text", help="use this prompt text instead of --prompt")
     args = ap.parse_args()
     model = f"reactor/visko-orbis-{args.model}"
 
     load_env()
     scene_dir = ASSETS / args.scene
-    ref_path = scene_dir / "reference.png"
+    ref_path = Path(args.reference).expanduser() if args.reference else scene_dir / "reference.png"
+    if not ref_path.is_absolute():
+        ref_path = scene_dir / ref_path
     cfg = json.loads((Path(__file__).resolve().parent.parent / "scenes" / args.scene / "scene.json").read_text())
     pano_cfg = cfg["orbis"]["pano"]
-    prompt = pano_cfg["opening"] if args.prompt == "opening" else pano_cfg["variants"][args.prompt]
+    prompt = args.prompt_text or (pano_cfg["opening"] if args.prompt == "opening" else pano_cfg["variants"][args.prompt])
     tag = f"-{args.tag}" if args.tag else ""
     out = scene_dir / "tests" / f"pano-{time.strftime('%Y%m%d-%H%M%S')}{tag}"
     (out / "frames").mkdir(parents=True)
