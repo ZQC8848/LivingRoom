@@ -33,8 +33,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8756,
-      "sha256": "091243a9d2fc71339433465522798a731d752588267f9075a215a23e86c9fa61"
+      "bytes": 8866,
+      "sha256": "f5de00b1cf068afd08da27275ffc3e14fe1f30cfd5398d11fbc936a7e610d824"
     },
     {
       "path": "art-lab/analyze_bosch_v8.py",
@@ -597,14 +597,19 @@
       "sha256": "50e5ab66155a569fe2526cd4e3ee5d2fcc2371c34ad5b9b2a4380a0c52221661"
     },
     {
+      "path": "video-edit/edit_submission.py",
+      "bytes": 7964,
+      "sha256": "b0e6573ac69d318a51d7c06521f39aa024f71d4ac0b6488645e7a2bdbbeb39b1"
+    },
+    {
       "path": "video-edit/edit_vertical.py",
       "bytes": 3862,
       "sha256": "985bcb8b9ec23e7ef3cd62056ed17105e4c8774a9c1a6d0689ceebdd10ecffee"
     },
     {
       "path": "video-edit/README.txt",
-      "bytes": 3530,
-      "sha256": "5b1e9ac351f626e952843c86dca1bef2cdc4544a90221108e9b2c3ceb8e289e4"
+      "bytes": 3187,
+      "sha256": "9a2cf7bda59c75ba76fb08b8c26e7b5323ff3ec7a21187e54406e60fd9bc73fb"
     },
     {
       "path": "art-lab/assets/ambassadors.jpg",
@@ -7067,9 +7072,19 @@
       "sha256": "2bc1801c2fda73d2b5a13cb67c96a642b5820f6d1f44e9d8c0227510eceace8e"
     },
     {
+      "path": "video-edit/output/background-brief.en.srt",
+      "bytes": 439,
+      "sha256": "81928c46004ce8554235b39e71c7f9dcfa7c06d2bb46a7412a684bcffc714548"
+    },
+    {
       "path": "video-edit/output/devpost-brief.en.txt",
-      "bytes": 1232,
-      "sha256": "1b830aeb7e548e9b6aefd912a2679784695be59b0b43674fae71ed162afe8e1e"
+      "bytes": 1488,
+      "sha256": "dd1234a468ff7ae857470358d1ed0d6c7fdfaa0d81cb7c0e2836cd628c334189"
+    },
+    {
+      "path": "video-edit/output/edit-decision-list-final.json",
+      "bytes": 4812,
+      "sha256": "0f358dc19ea4db02e730e12a619ed625217d05e9dfbc48a805987c556cdb69e7"
     },
     {
       "path": "video-edit/output/edit-decision-list-vertical.json",
@@ -7080,6 +7095,16 @@
       "path": "video-edit/output/edit-decision-list.json",
       "bytes": 3855,
       "sha256": "98ea78cc458e10d0bd73e184b769d51578d035715fd76068e50e2261292f82f3"
+    },
+    {
+      "path": "video-edit/output/garden-of-consequences-30s-portrait-final.en.srt",
+      "bytes": 428,
+      "sha256": "9ca704ac6af6ee3a9292b3ec1c02beaa201ce26dfd0dd3636b797139961a3b76"
+    },
+    {
+      "path": "video-edit/output/garden-of-consequences-30s-portrait-final.mp4",
+      "bytes": 31666597,
+      "sha256": "6f61f9f1075322906b3310714caa7c3c03de9619e6857d1e3c523e1a30cb13de"
     },
     {
       "path": "video-edit/output/garden-of-consequences-30s-vertical.en.srt",
@@ -7100,6 +7125,11 @@
       "path": "video-edit/output/garden-of-consequences-30s.mp4",
       "bytes": 20096650,
       "sha256": "885a7e9248ef65690832013a39c62928a46db183f309ab0d8adb18c2cc280293"
+    },
+    {
+      "path": "video-edit/review/validation-final.json",
+      "bytes": 369,
+      "sha256": "d31756c0eb0cdb917951fa559dfdece39327c3c9d7cce136964666d9a5d360c6"
     },
     {
       "path": "video-edit/review/validation-vertical.json",

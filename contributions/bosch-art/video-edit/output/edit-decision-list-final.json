@@ -1,0 +1,170 @@
+{
+  "source": "source/Casting_Video_1794721792334.mp4",
+  "canvas": [
+    1080,
+    1920
+  ],
+  "fps": 30,
+  "total_frames": 900,
+  "duration": 30,
+  "crop": {
+    "width": 810,
+    "height": 1440,
+    "x": 268,
+    "y": 0,
+    "fixed": true
+  },
+  "segments": [
+    {
+      "id": "intro",
+      "source_start": 4.498,
+      "source_duration": 4.2,
+      "frames": 126,
+      "output_start": 0,
+      "output_duration": 4.2,
+      "speed": 1.0
+    },
+    {
+      "id": "reveal",
+      "source_start": 14.6,
+      "source_duration": 8,
+      "frames": 168,
+      "output_start": 4.2,
+      "output_duration": 5.6,
+      "speed": 1.4285714285714286
+    },
+    {
+      "id": "return",
+      "source_start": 23.428625,
+      "source_duration": 5,
+      "frames": 102,
+      "output_start": 9.8,
+      "output_duration": 3.4,
+      "speed": 1.4705882352941178
+    },
+    {
+      "id": "garden-daynight",
+      "source_start": 31.8,
+      "source_duration": 5.6,
+      "frames": 24,
+      "label": "Garden · Day / Night",
+      "note": "Prepared loop · 7× playback",
+      "output_start": 13.200000000000001,
+      "output_duration": 0.8,
+      "speed": 6.999999999999999
+    },
+    {
+      "id": "hell-daynight",
+      "source_start": 46.5,
+      "source_duration": 5.6,
+      "frames": 24,
+      "label": "Aftermath · Day / Night",
+      "note": "Prepared loop · 7× playback",
+      "output_start": 14.000000000000002,
+      "output_duration": 0.8,
+      "speed": 6.999999999999999
+    },
+    {
+      "id": "garden-seasons",
+      "source_start": 57,
+      "source_duration": 5.6,
+      "frames": 24,
+      "label": "Garden · Seasons",
+      "note": "Prepared loop · 7× playback",
+      "output_start": 14.800000000000002,
+      "output_duration": 0.8,
+      "speed": 6.999999999999999
+    },
+    {
+      "id": "hell-seasons",
+      "source_start": 69.5,
+      "source_duration": 5.6,
+      "frames": 24,
+      "label": "Aftermath · Seasons",
+      "note": "Prepared loop · 7× playback",
+      "output_start": 15.600000000000003,
+      "output_duration": 0.8,
+      "speed": 6.999999999999999
+    },
+    {
+      "id": "meadow",
+      "source_start": 88,
+      "source_duration": 3,
+      "frames": 90,
+      "label": "Live Lab · Starting meadow",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 16.400000000000002,
+      "output_duration": 3.0,
+      "speed": 1.0
+    },
+    {
+      "id": "aurora",
+      "source_start": 111,
+      "source_duration": 3.5,
+      "frames": 105,
+      "label": "Live Lab · Aurora",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 19.400000000000002,
+      "output_duration": 3.5,
+      "speed": 1.0
+    },
+    {
+      "id": "asteroids",
+      "source_start": 126,
+      "source_duration": 3.5,
+      "frames": 105,
+      "label": "Live Lab · Asteroids",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 22.900000000000002,
+      "output_duration": 3.5,
+      "speed": 1.0
+    },
+    {
+      "id": "snow",
+      "source_start": 149,
+      "source_duration": 3.6,
+      "frames": 108,
+      "label": "Live Lab · Return to snow",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 26.400000000000002,
+      "output_duration": 3.6,
+      "speed": 1.0
+    }
+  ],
+  "background_brief": [
+    {
+      "start": 0,
+      "end": 6.8,
+      "heading": "THE GARDEN OF CONSEQUENCES / BACKGROUND",
+      "lines": [
+        "Hieronymus Bosch’s The Garden",
+        "of Earthly Delights (c. 1500) is a",
+        "Northern Renaissance masterpiece,",
+        "now in Madrid’s Prado Museum."
+      ]
+    },
+    {
+      "start": 6.8,
+      "end": 10.8,
+      "heading": "THE INTERACTION",
+      "lines": [
+        "With a gesture, visitors reveal image layers",
+        "and discover another side of the painting."
+      ]
+    },
+    {
+      "start": 10.8,
+      "end": 16.4,
+      "heading": "THE PAINTING WORKFLOW",
+      "y": 185,
+      "lines": [
+        "Creators author panoramas, masks and layers.",
+        "Live AI adds environmental change",
+        "only within selected regions."
+      ]
+    }
+  ],
+  "narration": "Existing recorded voice excerpts; opening 1x, reveal 1.4x, return 1.470588x with pitch-preserving atempo. No new voiceover.",
+  "real_time_disclosure": "Four live-study excerpts, including its stopped starting meadow, play at 1x. Cuts omit waiting/menu time; no latency measurement. Live scenario is independent of the painterly case.",
+  "camera_note": "Fixed crop only. Original headset turns retained; no synthetic camera movements or interpolated frames."
+}

@@ -4,7 +4,7 @@ This directory contains the art-side work for Living Room. It is isolated from t
 
 ## Start here
 
-- **30-second 9:16 demo:** [MP4](video-edit/output/garden-of-consequences-30s-vertical.mp4), [English submission brief](video-edit/output/devpost-brief.en.txt), [edit notes and reproduction](video-edit/README.txt). Actual Quest recording; four optional prepared modes are labelled 3x.
+- **30-second 9:16 demo:** [MP4](video-edit/output/garden-of-consequences-30s-portrait-final.mp4), [English submission brief](video-edit/output/devpost-brief.en.txt), [edit notes and reproduction](video-edit/README.txt). Actual Quest recording with English background brief; the live study shows meadow, aurora, asteroids and snow over 13.6 seconds. Faster art segments are explicitly labelled.
 - **Current runnable prototype:** [deployment/bosch-demo](deployment/bosch-demo/). This is the source and shipped media for public release r7; see deployment/publication-r7.json for the exact published source snapshot.
 - **Published experience:** https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/
 - **Controls and research:** [stable guide](deployment/bosch-demo/public/guide/index.html), [Live Lab guide](deployment/bosch-demo/public/guide/live.html), [English narration/credits](deployment/bosch-demo/public/audio/transcript.en.html).

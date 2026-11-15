@@ -14,7 +14,11 @@ The prototype explores a method that could be adapted to other artworks through
 artwork-specific layouts, paired imagery, and carefully directed motion.
 
 VIDEO DISCLOSURE
-30-second 9:16 edited headset recording, with full-screen fixed center crop. Reveal plays at original speed. The four
-prepared modes play at 3x, as labelled. Live Lab is a recorded session excerpt;
-it does not establish prompt-to-frame latency. The panoramic reconstruction and
-aligned aftermath imagery are our reinterpretation of Bosch's original work.
+30-second 9:16 edited headset recording with full-screen fixed center crop.
+English background brief overlays communicate context, interaction and creator
+and model roles, without new voiceover. Reveal/return play at approximately
+1.43x / 1.47x; the four prepared modes play at 7x, as labelled.
+The independent realistic study gets 13.6 seconds: starting meadow, aurora,
+asteroids and return to snow, all at 1x. Cuts omit waiting/menu time; the initial
+meadow UI is stopped. This edit does not establish prompt-to-frame latency.
+The panoramic reconstruction and aligned aftermath imagery reinterpret Bosch.
