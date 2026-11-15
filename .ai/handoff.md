@@ -64,14 +64,14 @@ The page uses BOTH slots in relay mode, so a teammate attached to slot 2 gets re
 
 Typing a change ("heavy snow covers everything") no longer steers: the dev server's
 `POST /api/edit` has `google/gemini-3.1-flash-lite-image` (OpenRouter, `OPENROUTER_API_KEY`)
-edit the **current** reference into the new scene (3-4 s, ~$0.034) while
+paint the request onto the scene's **original** reference.png (always the original, never the scene on the sphere: edits do not stack, since 20:58; the server ignores any base the client sends) (3-4 s, ~$0.034) while
 `anthropic/claude-haiku-5.5` turns the words into the scene sentence of the Orbis prompt
 (`orbis.pano.custom_prompt` in scene.json); the page then re-anchors on the result like any
-event. Results are cached in `<assets>/custom/<hash>.{jpg,json}` by (base image, text).
+event. Results are cached in `<assets>/custom/<hash>.{jpg,json}` by text.
 Model choice: `tools/image_edit_test.py`, contact sheets in `tests/edit-20261114-19*/`.
 **Verified live (relay, desktop):** submit -> painted in 3.5 s -> hand-over 10.5 s after
 submit -> faded in by 13.8 s; the next timed hand-over kept the snow. **Not verified:** the
-seam behind the viewer on painted references; chains of edits (snow on top of evening);
+seam behind the viewer on painted references;
 the model sometimes adds objects (extra sheep in a fog test). No text input in VR yet.
 
 ## Relay without the keeper + prompt director (2026-11-14 20:51)
@@ -94,6 +94,16 @@ the model sometimes adds objects (extra sheep in a fog test). No text input in V
   **Verified:** asteroids, snow, waterfall (with "the camera pans left" in the request, dropped
   by the director), chalkboard -> lint clean; asteroids live end to end.
   **Not verified:** the lint retry and fallback paths (no request has failed lint yet).
+
+## Presets (2026-11-14 21:20)
+
+Buttons are **Morning, Snow, Asteroids, Saturn, Rain** (`scenes/hillside/scene.json` `events`;
+Golden hour / Evening / Night / Nebula are in `retired_events`, which the test tools still
+read). Each preset has a fixed picture and a prompt written from it; presets never go through
+the prompt director, only typed prompts do. The page opens on the Morning still with the
+Morning button highlighted. Snow / Asteroids / Saturn share a snowy night because they were
+stacked custom edits. **Verified:** buttons and stills offline. **Not verified:** Snow,
+Asteroids and Saturn live on Orbis (prompts untested); the seam behind the viewer on them.
 
 ## In flight / undecided
 

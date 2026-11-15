@@ -117,6 +117,9 @@ function startFadeIn() {
 // Offline: cross-fade from the current still to another one, borrowing the live slot.
 function crossfadeStill(texture) {
   const u = pano.material.uniforms;
+  // A still -> still fade is already running: land it first. Otherwise the new picture would
+  // be put underneath and the running fade would finish on the old target, over it.
+  if (stillFade) endStillFade();
   if (liveTarget || liveMix > 0 || u.uStill.value === texture) {
     u.uStill.value = texture; // live picture is (partly) up: just swap what is underneath
     return;
@@ -276,7 +279,7 @@ function runEvent(ev) {
 function setButtonsBusy(on) {
   for (const b of eventButtons) b.disabled = on;
 }
-let currentReference = config.reference; // what the picture is anchored to; custom prompts edit this
+let currentReference = config.reference; // what the picture is anchored to: the still shown after Stop
 async function reanchor(ev) {
   if (ev.reference) currentReference = ev.reference;
   burst();
@@ -303,6 +306,9 @@ ui.steer.addEventListener('submit', (e) => {
 // prompt: so an image model first edits the current reference into the new scene (~4 s, the
 // dev server's /api/edit), then the page re-anchors on that picture like any event. The
 // current scene keeps playing meanwhile; with the two-session relay there is no frozen frame.
+// The picture is always painted on the scene's ORIGINAL reference, never on the current one:
+// stacking edits (snow on top of the asteroid scene) drifts the layout a little each time and
+// leaves things in the picture that the prompt no longer mentions. To combine, say both.
 let customBusy = false;
 async function custom(text) {
   if (customBusy) return false;
@@ -315,7 +321,7 @@ async function custom(text) {
     const r = await fetch('/api/edit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ scene: config.name, base: currentReference, text }),
+      body: JSON.stringify({ scene: config.name, text }),
     });
     const ev = await r.json();
     if (!r.ok) throw new Error(ev.error || `edit ${r.status}`);
@@ -351,6 +357,16 @@ vrPanel = createVrPanel({
   },
 });
 scene.add(vrPanel.mesh);
+// Decode every preset's still now, so the first press of a button fades at once (the 1.5 MB
+// Morning reference took over 3 s to appear the first time).
+for (const e of config.events) if (e.reference) stillFor(e.reference).catch(() => {});
+// The page opens on the scene's own reference: mark the preset that shows it (Morning).
+const openingEvent = config.events.find((e) => e.reference === config.reference);
+if (openingEvent) {
+  vrPanel.set({ highlight: openingEvent.label });
+  lines.last = `still: ${openingEvent.label} (not live)`;
+  render();
+}
 vrPanel.draw();
 render();
 const panelOnDesktop = new URLSearchParams(location.search).has('panel'); // check the panel without a headset

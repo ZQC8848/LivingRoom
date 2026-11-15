@@ -23,27 +23,28 @@
           "prompt": "A fixed equirectangular 360-degree panorama time-lapse from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, haze and grass change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. A pale sun glows above the centre. Soft hazy morning light, muted greens."
         },
         {
-          "label": "Golden hour",
-          "mode": "steer",
-          "prompt": "The morning light turns warm and golden as the sun sinks lower, and long soft shadows stretch across the grass."
+          "label": "Snow",
+          "mode": "reanchor",
+          "reference": "events/snow.jpg",
+          "prompt": "A fixed equirectangular 360-degree panorama from the top of a snow-covered hill: the full surrounding view unwrapped into one wide image. From left to right: a dark frozen lake below snowy mountains with a streak of moonlight on the ice, the smooth white hill crest with tiny sheep just right of centre, a small hut and a lone frost-covered tree further right, then the lake again. The land, the hut and the tree stay exactly where they are. Fine snowflakes drift slowly down across the whole view and a thin veil of powder snow slides over the hill crest from left to right, while the stars twinkle faintly. A full moon glows above the centre in a deep blue night sky full of stars, with the pale band of the Milky Way arching to its right, and the snow lies in cold silver light."
         },
         {
-          "label": "Evening",
+          "label": "Asteroids",
           "mode": "reanchor",
-          "reference": "events/evening.png",
-          "prompt": "A fixed equirectangular 360-degree panorama time-lapse at dusk from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, weather and water change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. An orange and violet sky glows along the horizon above the setting sun at the centre and the land lies in soft dim light."
+          "reference": "events/asteroids.jpg",
+          "prompt": "A fixed equirectangular 360-degree panorama from the top of a snow-covered hill: the full surrounding view unwrapped into one wide image. From left to right: a frozen lake below snowy mountains, the snowy hill crest just right of centre, a small hut and a lone frost-covered tree further right, then the lake again; the snow in the foreground is torn open by dark scorched craters. The land, the hut and the tree stay exactly where they are. Burning asteroids with long bright trails streak down across the sky from upper right to lower left, one after another; small fires flicker in the craters and thin columns of dark smoke rise slowly and lean to the right. A large pale moon hangs above the centre in a smoky orange-brown sky, and the snow glows in warm, dusty light."
+        },
+        {
+          "label": "Saturn",
+          "mode": "reanchor",
+          "reference": "events/saturn.jpg",
+          "prompt": "A fixed equirectangular 360-degree panorama from the top of a snow-covered hill: the full surrounding view unwrapped into one wide image. From left to right: a lake of cracked blue ice below snowy mountains, the snowy hill crest, a small hut and two frost-covered trees right of centre, then the ice again; dark jagged fissures break the snow in the foreground. The land, the hut and the trees stay exactly where they are. Ribbons of pale green aurora ripple slowly across the sky from left to right, the stars twinkle, and fine powder snow blows low over the ground. A huge ringed planet hangs low in the starry night sky left of centre, its tilted rings glowing softly, and the snow lies in cold blue light."
         },
         {
           "label": "Rain",
           "mode": "reanchor",
           "reference": "events/rain.png",
           "prompt": "A fixed equirectangular 360-degree panorama time-lapse in light rain from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, weather and water change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. Low grey clouds cover the sky, soft rain falls across the hill and dimples the lake, and the light is cool and even."
-        },
-        {
-          "label": "Night",
-          "mode": "reanchor",
-          "reference": "events/night.png",
-          "prompt": "A fixed equirectangular 360-degree panorama time-lapse at night from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, weather and water change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. A deep blue sky full of bright stars arches overhead, a moon glows above the centre and the hill and lake lie in soft silver moonlight."
         }
       ],
       "variants": {
@@ -51,7 +52,7 @@
         "opening_v1": "Static wide panoramic view at eye level from the top of a grassy hill under a pale hazy sky. From left to right: a calm lake below green mountains with snowy peaks, the gentle hill crest with a few white sheep grazing just right of centre, a small dark hut and a large lone oak tree further right, then the lake again. A pale sun glows above the centre. The sheep graze in place, the grass ripples in the breeze and thin haze drifts slowly. Soft hazy morning light, muted greens."
       },
       "variants_notes": "Prompt experiments for keeping the equirect layout (2026-11-14, Dynamic, 40 s each, frames in ~/Assets/.../tests/pano-*): the 'fixed equirectangular 360-degree panorama time-lapse ... everything stays exactly where it is' wording (now 'opening') kept every landmark in place for 30 s; 'equirect' pulled sheep into the foreground; 'opening_v1' held in one headless run but pushed in within ~20 s in the browser run. Select with tools/orbis_test.py --prompt <name>.",
-      "events_notes": "mode 'steer' = set_prompt on the running session (fine for light changes; 'Evening' as a steer re-composed the panorama within 13 s, 2026-11-14). mode 'reanchor' = reset + set_image(reference) + set_prompt + start on the same session, hidden by a freeze-frame transition; also pulls the layout back after drift. References live in ~/Assets/LivingRoom/scenes/<scene>/ (events/*.png made by editing reference.png, then tools/pano_reference.py --event).",
+      "events_notes": "Presets are fixed: each has a hand-picked reference in ~/Assets/.../events/ and a prompt written from that picture (frame + layout + what stays put + what moves + sky and light; no 'time-lapse', see CLAUDE.md). They do not go through the prompt director; only typed custom prompts do. 2026-11-14 21:10: Snow, Asteroids and Saturn replaced Golden hour / Evening / Night; Morning is first and is what the page opens on (its reference.png and prompt are the scene's opening); Nebula was tried and retired (kept under retired_events for the test tools); their pictures are custom edits made earlier that evening (custom/b5f665c5d0a3, c66a58ca9783, da40a472b0d8, c42f2c35ba87), the last three stacked on the snowy night, which is why they share its snow.",
       "fallback": {
         "model": "reactor/lingbot-world-2",
         "reanchor_every_seconds": 40,
@@ -75,7 +76,32 @@
         "mountains"
       ],
       "fixed_sentence": "The land, the hut and the tree stay exactly where they are.",
-      "custom_notes": "Custom prompts (web/vite.config.js /api/edit): prompt = frame + layout + fixed_sentence + the director's motion and ambience sentences. `fixed` is what the director may never put in motion; the image model is told to keep the same things in place."
+      "custom_notes": "Custom prompts (web/vite.config.js /api/edit): prompt = frame + layout + fixed_sentence + the director's motion and ambience sentences. `fixed` is what the director may never put in motion; the image model is told to keep the same things in place.",
+      "retired_events": [
+        {
+          "label": "Golden hour",
+          "mode": "steer",
+          "prompt": "The morning light turns warm and golden as the sun sinks lower, and long soft shadows stretch across the grass."
+        },
+        {
+          "label": "Evening",
+          "mode": "reanchor",
+          "reference": "events/evening.png",
+          "prompt": "A fixed equirectangular 360-degree panorama time-lapse at dusk from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, weather and water change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. An orange and violet sky glows along the horizon above the setting sun at the centre and the land lies in soft dim light."
+        },
+        {
+          "label": "Night",
+          "mode": "reanchor",
+          "reference": "events/night.png",
+          "prompt": "A fixed equirectangular 360-degree panorama time-lapse at night from the top of a grassy hill: the full surrounding view unwrapped into one wide image, everything stays exactly where it is and only light, weather and water change. From left to right: a calm lake below snowy mountains, the hill crest with tiny white sheep just right of centre, a small dark hut and a lone oak tree further right, then the lake again. A deep blue sky full of bright stars arches overhead, a moon glows above the centre and the hill and lake lie in soft silver moonlight."
+        },
+        {
+          "label": "Nebula",
+          "mode": "reanchor",
+          "reference": "events/nebula.jpg",
+          "prompt": "A fixed equirectangular 360-degree panorama from the top of a snow-covered hill: the full surrounding view unwrapped into one wide image. From left to right: a lake of cracked blue ice below snowy mountains, the snowy hill crest, a small hut and two frost-covered trees right of centre, then the ice again; soft snowdrifts fill the foreground. The land, the hut and the trees stay exactly where they are. The glowing clouds of the nebula swirl and billow very slowly, their pink light drifts across the snow, and faint stars twinkle around them. A vast crimson and blue nebula fills the black sky above the centre and tints the snow below it rose and violet."
+        }
+      ]
     }
   }
 }

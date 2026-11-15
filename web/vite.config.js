@@ -201,13 +201,14 @@ function livingRoomApi(env) {
         }
       });
 
-      // POST /api/edit {scene, base, text}: edit the reference at `base` (a /scenes/<scene>/ URL)
-      // as `text` asks and return a new re-anchor event {label, reference, prompt}. Results are
-      // cached on disk by (base, text), so a repeated prompt is instant and costs nothing.
+      // POST /api/edit {scene, text}: paint what `text` asks onto the scene's original
+      // reference.png and return a new re-anchor event {label, reference, prompt}. Always the
+      // original, whatever is on the sphere now: edits do not stack. Results are cached on disk
+      // by text, so a repeated prompt is instant and costs nothing.
       server.middlewares.use('/api/edit', async (req, res) => {
         if (req.method !== 'POST') return send(res, 405, { error: 'POST only' });
         try {
-          const { scene: name = 'hillside', base, text } = await readJson(req);
+          const { scene: name = 'hillside', text } = await readJson(req);
           const change = String(text || '').trim().slice(0, 300);
           if (!/^[a-z0-9_-]+$/.test(name) || !change) return send(res, 400, { error: 'scene and text are required' });
           const sceneFile = path.join(ROOT, 'scenes', name, 'scene.json');
@@ -215,12 +216,10 @@ function livingRoomApi(env) {
           const pano = JSON.parse(fs.readFileSync(sceneFile, 'utf8')).orbis?.pano ?? {};
           const assets = fs.realpathSync(path.join(__dirname, 'public', 'scenes', name));
           const prefix = `/scenes/${name}/`;
-          const rel = String(base || `${prefix}reference.png`);
-          const baseFile = path.resolve(assets, rel.startsWith(prefix) ? rel.slice(prefix.length) : '\0');
-          if (!baseFile.startsWith(assets + path.sep) || !fs.existsSync(baseFile)) return send(res, 400, { error: 'bad base image' });
-
+          const baseFile = path.join(assets, 'reference.png');
+          if (!fs.existsSync(baseFile)) return send(res, 500, { error: 'the scene has no reference.png' });
           for (const k of ['frame', 'layout', 'fixed', 'fixed_sentence']) if (!pano[k]) return send(res, 500, { error: `scene.json orbis.pano.${k} is missing` });
-          const id = crypto.createHash('sha1').update(`${path.relative(assets, baseFile)}\n${change.toLowerCase()}`).digest('hex').slice(0, 12);
+          const id = crypto.createHash('sha1').update(change.toLowerCase()).digest('hex').slice(0, 12);
           const dir = path.join(assets, 'custom');
           const meta = path.join(dir, `${id}.json`);
           const key = env.OPENROUTER_API_KEY;

@@ -55,7 +55,7 @@ async def main():
 
     scene_dir = ASSETS / args.scene
     cfg = json.loads((ROOT / "scenes" / args.scene / "scene.json").read_text())["orbis"]["pano"]
-    events = {e["label"]: e for e in cfg["events"]}
+    events = {e["label"]: e for e in cfg.get("retired_events", []) + cfg["events"]}
     size = NATIVE[args.model]
     ref_bytes, ref_img = png_bytes(scene_dir / "reference.png", size)
     eve_bytes, eve_img = png_bytes(scene_dir / events["Evening"]["reference"], size)

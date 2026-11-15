@@ -178,7 +178,7 @@ async def main():
         t_start = time.time()
         await r.send_command("start", {})
 
-        events = {e["label"]: e for e in pano_cfg.get("events", [])}
+        events = {e["label"]: e for e in pano_cfg.get("retired_events", []) + pano_cfg.get("events", [])}
         steering = [(float(t), events[label]) for t, label in (x.split(":", 1) for x in args.steer.split(",") if x)]
         uploads = {}
         schedule = [] if args.no_steer else list(steering)
