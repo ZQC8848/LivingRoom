@@ -1,10 +1,11 @@
-# Only web/ and vercel.json are needed to build the site.
-contributions
-.ai
-.claude
-tools
-docs
-scenes
-web/public
-web/node_modules
-web/dist
+# Only web/ and vercel.json are needed to build the site. Patterns are anchored to the root:
+# an unanchored "scenes" would also drop web/deploy-public/scenes, the media itself.
+/contributions
+/.ai
+/.claude
+/tools
+/docs
+/scenes
+/web/public
+/web/node_modules
+/web/dist
