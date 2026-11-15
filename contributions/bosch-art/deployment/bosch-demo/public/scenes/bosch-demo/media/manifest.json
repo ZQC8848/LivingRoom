@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scene": "bosch-demo",
-  "release": "2026-11-14-r5",
+  "release": "2026-11-14-r7",
   "title": "The Garden of Consequences",
   "subtitle": "A garden. A gesture. A consequence.",
   "media": {
@@ -164,14 +164,30 @@
     "shared_clock": true
   },
   "audio": {
-    "manifest": "/audio/manifest-r5.json",
+    "manifest": "/audio/manifest-r7.json",
     "opt_in": true,
     "language": "en",
     "separate_from_visual_loop": true,
     "one_music_clock": true,
     "music": "Suno user export",
-    "narration": "Eight mode-aware English cues; Lily stock voice; research integrated into narration",
+    "narration": "Eight brief English cues, beginning with Bosch and the original artwork, followed by the interaction",
     "environmental_beds": "Authored procedural synthesis; unexported Suno SFX are not shipped"
   },
-  "optional_modes_manifest": "../modes/manifest.json"
+  "optional_modes_manifest": "../modes/manifest.json",
+  "source_work": {
+    "artist": "Hieronymus Bosch",
+    "artist_dates": "c.1450–1516",
+    "title": "The Garden of Earthly Delights",
+    "date_display": "c.1500",
+    "date_range": "1490–1500 (Prado/CODART)",
+    "period": "Early Netherlandish painting / Northern Renaissance",
+    "medium": "Oil on oak panels, triptych",
+    "current_location": "Museo Nacional del Prado, Madrid, Spain",
+    "panels": [
+      "Eden",
+      "Earthly pleasure",
+      "Hell"
+    ],
+    "adaptation": "Aligned panoramic layers, gesture reveal and optional controlled generative environments; not an exact scan of the original panels."
+  }
 }

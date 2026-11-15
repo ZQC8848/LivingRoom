@@ -1,0 +1,218 @@
+{
+  "base": "http://127.0.0.1:5182/",
+  "errors": [],
+  "api": [],
+  "headsetVerified": false,
+  "initial": {
+    "mode": "reveal",
+    "menu": false,
+    "playing": true,
+    "video": "blob:http://127.0.0.1:5182/87047623-5a9b-4469-8264-bf069b7dc4f0",
+    "blob": true,
+    "w": 2048,
+    "h": 2048,
+    "d": 8,
+    "oneVideo": true,
+    "oneTexture": true,
+    "pane": [
+      0.5,
+      0.5
+    ],
+    "rot": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "radii": [
+      0,
+      0
+    ],
+    "problems": [],
+    "mix": 0.1169999999925494
+  },
+  "options": 5,
+  "modes": [
+    {
+      "mode": "garden-light",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5182/01d31c36-4e0f-4333-9ef9-24d7b51ea890",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 12,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 1,
+      "expectedDuration": 12
+    },
+    {
+      "mode": "hell-light",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5182/ae23e482-b0db-402d-b177-b877b09eb3dc",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 12,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 0.9889999999850988,
+      "expectedDuration": 12
+    },
+    {
+      "mode": "garden-season",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5182/4856324e-450c-49f7-81c6-2bfc21fcbf47",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 8,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 1,
+      "expectedDuration": 8
+    },
+    {
+      "mode": "hell-season",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5182/e5521052-c435-4a53-9bf8-0575d189d7ae",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 8,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 1,
+      "expectedDuration": 8
+    }
+  ],
+  "standaloneNoReveal": true,
+  "returned": {
+    "mode": "reveal",
+    "menu": false,
+    "playing": true,
+    "video": "blob:http://127.0.0.1:5182/87047623-5a9b-4469-8264-bf069b7dc4f0",
+    "blob": true,
+    "w": 2048,
+    "h": 2048,
+    "d": 8,
+    "oneVideo": true,
+    "oneTexture": true,
+    "pane": [
+      0.5,
+      0.5
+    ],
+    "rot": [
+      0.1,
+      0.35,
+      0,
+      "YXZ"
+    ],
+    "radii": [
+      0,
+      0
+    ],
+    "problems": [],
+    "mix": 1
+  },
+  "revealRadius": 38,
+  "panelSelect": {
+    "menuBefore": true,
+    "radiusImmediately": 0,
+    "loading": true
+  },
+  "panelSelectedMode": "garden-light",
+  "handTarget": {
+    "consumed": true,
+    "opened": true,
+    "simulation": true
+  },
+  "gripOpensMenu": true,
+  "loopTime": 0.0456,
+  "visibleMenu": true,
+  "modeVoice": {
+    "mode": "hell-season",
+    "cue": "mode-hell-season",
+    "caption": "Rain and winter are our additions. Bosch's Hell offers no such cycle of renewal. Here, changing weather lets you revisit its ruined world.",
+    "gains": {
+      "bright": 0,
+      "dark": 0.2024,
+      "garden": 0,
+      "hell": 0.48
+    }
+  },
+  "researchCaption": "Bosch's triptych is often read as a warning about desire and fleeting pleasure. Art historian Margaret Carroll also examines its world through time and transformation. Our aligned landscapes bring these readings into an interactive adaptation.",
+  "xrCaption": {
+    "visible": true,
+    "simulation": true
+  },
+  "mobile": {
+    "w": 390,
+    "scroll": 390
+  },
+  "pass": true
+}

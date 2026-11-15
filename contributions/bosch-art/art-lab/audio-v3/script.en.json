@@ -1,0 +1,39 @@
+{
+  "language": "en",
+  "purpose": "Original-work-first narration for the immersive adaptation of Bosch's triptych.",
+  "narration": [
+    {
+      "id": "arrival",
+      "text": "Enter Hieronymus Bosch's The Garden of Earthly Delights, painted around fifteen hundred and now in Madrid's Prado Museum. Point and pinch to reveal another side."
+    },
+    {
+      "id": "reveal",
+      "text": "In Bosch's triptych, earthly pleasure stands beside Hell. Your hand now reveals that contrast within the same landscape."
+    },
+    {
+      "id": "return",
+      "text": "The garden returns. Its pleasures look untouched. But after seeing Hell, can you look at them in the same way?"
+    },
+    {
+      "id": "mode-garden-light",
+      "text": "Bosch painted a world of intricate detail and unsettling invention. As daylight fades here, the composition stays fixed. You have time to look more closely."
+    },
+    {
+      "id": "mode-garden-season",
+      "text": "Bosch fills the central garden with enormous fruit and flowers. Their sweetness and beauty are fleeting. Our seasons extend that fragility into time."
+    },
+    {
+      "id": "mode-hell-light",
+      "text": "Bosch's right panel turns pleasure into torment, with burning buildings and instruments of punishment. Our changing light lets you dwell on that darker vision."
+    },
+    {
+      "id": "mode-hell-season",
+      "text": "Rain and winter are our additions. Bosch's Hell offers no such cycle of renewal. Here, changing weather lets you revisit its ruined world."
+    },
+    {
+      "id": "research",
+      "text": "Bosch's triptych is often read as a warning about desire and fleeting pleasure. Art historian Margaret Carroll also examines its world through time and transformation. Our aligned landscapes bring these readings into an interactive adaptation."
+    }
+  ],
+  "interpretive_boundary": "The work is an immersive adaptation of Hieronymus Bosch's The Garden of Earthly Delights, circa 1500, held in the Museo Nacional del Prado, Madrid. The original central panel is earthly pleasure, distinct from Eden at left. Spatial alignment, hand reveal, seasons, weather and light cycles are contemporary additions. Interpretations of Bosch remain debated."
+}

@@ -11,7 +11,7 @@
 <div id="audio-controls"><button id="audio-world">Listen: Garden</button></div><p id="status" role="status">Loading the review film…</p>
 <video id="video" hidden muted loop playsinline preload="auto"></video>
 <script type="module">
-import {createSoundscape} from '../audio/soundscape-r5.js';
+import {createSoundscape} from '../audio/soundscape-r7.js';
 const $=id=>document.getElementById(id),v=$('video'),select=$('region'),seek=$('seek');
 const names={wind:'Foliage · breeze',flock:'Complete flock · small drift',water:'Water surface',waterfall:'Fountain · falling water','fire-smoke':'Distant city · flames and smoke',puppet:'Figures · small steps',static:'Intentionally still'};
 const labels={G01:'Complete rider, mounts & branch · sway',G02:'Complete fish-boat · float',G03:'Tiny detail · intentionally still',G04:'Complete flock · small drift',G05:'Roof creature · rock / hidden smoke',G06:'Complete ornament · float',G07:'Two complete birds · wings',G08:'Tree · breeze / hidden city fire',G11:'Deer group · small steps',G13:'Strawberry · elastic movement',G14:'Complete bank bird · wing ruffle',G16:'Long-necked creature · sway',G19:'Small waterbird · wing',G20:'Large waterbird · open wing',G21:'Little stag · small steps',G22:'Pool figures · small gestures',G23:'Fish · float',H01:'Complete dark fish-boat · float',H03:'Complete dark ornament · float'};

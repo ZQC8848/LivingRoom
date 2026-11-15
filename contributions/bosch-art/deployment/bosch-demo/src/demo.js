@@ -251,7 +251,7 @@ export async function startDemo(sceneName, manifest) {
   // The media decoder remains a single packed clock. Sound is a separate,
   // optional static layer; a failed audio fetch cannot interrupt the panorama.
   let sound = null;
-  import(/* @vite-ignore */ assetUrl('audio/soundscape-r5.js')).then(({ createSoundscape }) => {
+  import(/* @vite-ignore */ assetUrl('audio/soundscape-r7.js')).then(({ createSoundscape }) => {
     sound = createSoundscape({ base: assetUrl('audio/') });
     sound.setMode(modes?.active || 'reveal');
     window.__sound = sound;

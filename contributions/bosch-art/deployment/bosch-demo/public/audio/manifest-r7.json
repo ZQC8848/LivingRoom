@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "release": "2026-11-14-r7",
+  "language": "en",
+  "music": {
+    "file": "music.mp3",
+    "title": "A Garden Without a Price",
+    "provider": "Suno",
+    "source": "User-exported original music; one continuous source feeds bright and dark filter branches.",
+    "loop_crossfade_seconds": 4
+  },
+  "ambience": {
+    "garden": {
+      "file": "garden-ambience.mp3",
+      "provider": "Authored procedural sound design",
+      "description": "Falling fountain water, sparse distant chirps and light wind"
+    },
+    "hell": {
+      "file": "hell-ambience.mp3",
+      "provider": "Authored procedural sound design",
+      "description": "Quiet ember crackles, low wind and hollow resonance"
+    }
+  },
+  "narration": [
+    {
+      "id": "arrival",
+      "text": "Enter Hieronymus Bosch's The Garden of Earthly Delights, painted around fifteen hundred and now in Madrid's Prado Museum. Point and pinch to reveal another side.",
+      "file": "r7-arrival.mp3",
+      "seconds": 9.47375
+    },
+    {
+      "id": "reveal",
+      "text": "In Bosch's triptych, earthly pleasure stands beside Hell. Your hand now reveals that contrast within the same landscape.",
+      "file": "r7-reveal.mp3",
+      "seconds": 8.637833333333333
+    },
+    {
+      "id": "return",
+      "text": "The garden returns. Its pleasures look untouched. But after seeing Hell, can you look at them in the same way?",
+      "file": "r7-return.mp3",
+      "seconds": 6.455145833333333
+    },
+    {
+      "id": "mode-garden-light",
+      "text": "Bosch painted a world of intricate detail and unsettling invention. As daylight fades here, the composition stays fixed. You have time to look more closely.",
+      "file": "r7-mode-garden-light.mp3",
+      "seconds": 9.938145833333333
+    },
+    {
+      "id": "mode-garden-season",
+      "text": "Bosch fills the central garden with enormous fruit and flowers. Their sweetness and beauty are fleeting. Our seasons extend that fragility into time.",
+      "file": "r7-mode-garden-season.mp3",
+      "seconds": 10.031020833333333
+    },
+    {
+      "id": "mode-hell-light",
+      "text": "Bosch's right panel turns pleasure into torment, with burning buildings and instruments of punishment. Our changing light lets you dwell on that darker vision.",
+      "file": "r7-mode-hell-light.mp3",
+      "seconds": 9.845270833333334
+    },
+    {
+      "id": "mode-hell-season",
+      "text": "Rain and winter are our additions. Bosch's Hell offers no such cycle of renewal. Here, changing weather lets you revisit its ruined world.",
+      "file": "r7-mode-hell-season.mp3",
+      "seconds": 10.263229166666667
+    },
+    {
+      "id": "research",
+      "text": "Bosch's triptych is often read as a warning about desire and fleeting pleasure. Art historian Margaret Carroll also examines its world through time and transformation. Our aligned landscapes bring these readings into an interactive adaptation.",
+      "file": "r7-research.mp3",
+      "seconds": 16.486166666666666
+    }
+  ],
+  "voice": {
+    "name": "Lily — Velvety Actress",
+    "id": "pFZP5JQG7iQjIQuC4Bku",
+    "provider": "ElevenLabs stock voice",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.43,
+      "similarity_boost": 0.73,
+      "style": 0.12,
+      "use_speaker_boost": true,
+      "speed": 1.0
+    }
+  },
+  "attribution": "Music created in Suno. Narration generated with ElevenLabs. Environmental beds synthesized specifically for this prototype.",
+  "audio_assets": {
+    "music": {
+      "seconds": 115.9335,
+      "peak_dbfs": -9.799602508544922,
+      "target_lufs": -22,
+      "decoded_all_finite": true,
+      "bytes": 1855916,
+      "sha256": "4ba0b1bd1ec20632ff10c935690fb3321afe162acb9839df2730b41caf721ad0"
+    },
+    "garden-ambience": {
+      "seconds": 22.0,
+      "peak_dbfs": -14.351688385009766,
+      "target_lufs": -25,
+      "decoded_all_finite": true,
+      "bytes": 352940,
+      "sha256": "3225a1daba48a1aa72b19a4812d6add06aed61a4f226decd299157e9fb642460"
+    },
+    "hell-ambience": {
+      "seconds": 22.0,
+      "peak_dbfs": -13.84378433227539,
+      "target_lufs": -25,
+      "decoded_all_finite": true,
+      "bytes": 352940,
+      "sha256": "d3d9344da551da5017fda923d00fcb2da4f0202167f7cb9c4a67507013a2a086"
+    },
+    "arrival": {
+      "seconds": 9.47375,
+      "bytes": 152492,
+      "sha256": "408c69d40bc4c265ea4ff82cb4ddd5182374f03730a521f8ccd610bd1004baba",
+      "peak_dbfs": -5.470816612243652,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    },
+    "reveal": {
+      "seconds": 8.637833333333333,
+      "bytes": 139052,
+      "sha256": "1e83800909857fc39e1addbf06cdfc77407da320a718d5a750a3b439e597c201",
+      "peak_dbfs": -5.432758331298828,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    },
+    "return": {
+      "seconds": 6.455145833333333,
+      "bytes": 104108,
+      "sha256": "564c258ab0aca930200629d095ed3a6afe5a835e6ca2cb764210338467c777e5",
+      "peak_dbfs": -5.437285423278809,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    },
+    "mode-garden-light": {
+      "seconds": 9.938145833333333,
+      "bytes": 160172,
+      "sha256": "39d0ceebec405eae19bee67edbc21331b7ad3590e34fa6d6199c6dda081c385b",
+      "peak_dbfs": -5.296407699584961,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    },
+    "mode-garden-season": {
+      "seconds": 10.031020833333333,
+      "bytes": 161324,
+      "sha256": "42782436e71b2cdd7a33541d26fefe8a67686716ef665f02a26ef70fcd2a476a",
+      "peak_dbfs": -5.447118282318115,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    },
+    "mode-hell-light": {
+      "seconds": 9.845270833333334,
+      "bytes": 158636,
+      "sha256": "3ae878ee33a802068d24f1a0949dbbf903811ae1f082ba9fd5f53ac56e62b9dc",
+      "peak_dbfs": -5.412846565246582,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    },
+    "mode-hell-season": {
+      "seconds": 10.263229166666667,
+      "bytes": 165164,
+      "sha256": "453c1c33e530004dd5e31645727163dd2bed39b9cdf23efdd9fb4f23a7e5672a",
+      "peak_dbfs": -5.442104339599609,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    },
+    "research": {
+      "seconds": 16.486166666666666,
+      "bytes": 264620,
+      "sha256": "ea05cb272e89371628de7806b683fbfdbe3cc1ad31c8dcd3f52f979435d7849b",
+      "peak_dbfs": -5.408329963684082,
+      "decoded_all_finite": true,
+      "target_lufs": -18
+    }
+  },
+  "key_present": false,
+  "notes": "One continuous score, independently looping authored environmental beds, and once-per-encounter English narration.",
+  "research": [
+    {
+      "author": "Margaret D. Carroll",
+      "title": "Time and Transformation: Hieronymus Bosch’s Process",
+      "url": "https://yalebooks.yale.edu/2022/08/09/time-and-transformation-hieronymus-boschs-process/",
+      "scope": "An attributed scholarly interpretation of time, world history and changing material motifs; not established authorial intention."
+    },
+    {
+      "title": "The Garden of Earthly Delights, Bosch — Picture History",
+      "url": "https://www.afpradomuseum.org/the-garden-of-earthly-delights-bosch/history",
+      "scope": "Triptych, worldly pleasure, sin and fragility of earthly happiness."
+    }
+  ],
+  "interpretive_boundary": "The work is an immersive adaptation of Hieronymus Bosch's The Garden of Earthly Delights, circa 1500, held in the Museo Nacional del Prado, Madrid. The original central panel is earthly pleasure, distinct from Eden at left. Spatial alignment, hand reveal, seasons, weather and light cycles are contemporary additions. Interpretations of Bosch remain debated.",
+  "source_work": {
+    "artist": "Hieronymus Bosch",
+    "artist_dates": "c.1450–1516",
+    "title": "The Garden of Earthly Delights",
+    "date_display": "c.1500",
+    "date_range": "1490–1500 (Prado/CODART)",
+    "period": "Early Netherlandish painting / Northern Renaissance",
+    "medium": "Oil on oak panels, triptych",
+    "current_location": "Museo Nacional del Prado, Madrid, Spain",
+    "panels": [
+      "Eden",
+      "Earthly pleasure",
+      "Hell"
+    ],
+    "adaptation": "Aligned panoramic layers, gesture reveal and optional controlled generative environments; not an exact scan of the original panels."
+  }
+}

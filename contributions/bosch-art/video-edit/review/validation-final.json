@@ -1,0 +1,19 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30.0,
+  "frames": 900,
+  "bytes": 31666597,
+  "duration": 30.0,
+  "audio_integrated_lufs": -19.3,
+  "audio_true_peak_dbtp": -2.17,
+  "live_study_seconds": 13.6,
+  "live_stages": [
+    "meadow",
+    "aurora",
+    "asteroids",
+    "snow"
+  ],
+  "background_brief_burned_in": true,
+  "new_voiceover": false
+}

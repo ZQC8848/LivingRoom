@@ -1,0 +1,14 @@
+{
+  "provider": "ElevenLabs",
+  "voice": "Lily \u2014 Velvety Actress",
+  "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+  "model": "eleven_multilingual_v2",
+  "settings": {
+    "stability": 0.43,
+    "similarity_boost": 0.73,
+    "style": 0.12,
+    "use_speaker_boost": true,
+    "speed": 1.0
+  },
+  "key_saved": false
+}

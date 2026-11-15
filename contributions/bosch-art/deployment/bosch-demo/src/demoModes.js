@@ -5,6 +5,7 @@ import { createVrPanel } from './vrPanel.js';
 // HTML controls remain visible; XR has its own ray-selectable menu and hand target.
 export function createDemoModes({ renderer, scene, camera, hud, specs, initialUrl, onSwitch, getSound }) {
   const info = { active: 'reveal', loading: false, error: null, menuOpen: false, liveGeneration: false, switches: 0 };
+  const credit=document.createElement('div');credit.className='artwork-credit';credit.style.cssText='font:12px/1.5 system-ui;color:#e2decf;margin-bottom:7px';credit.innerHTML='<strong>After Hieronymus Bosch</strong> · <em>The Garden of Earthly Delights</em><br>c.1500 · Northern Renaissance · Original: Prado, Madrid · <a href="/guide/artwork.html" target="_blank" rel="noopener" style="color:#e3d2a7">About this experience</a>';hud.prepend(credit);
   const blobs = new Map(initialUrl ? [['reveal', Promise.resolve(initialUrl)]] : []);
   const raycaster = new THREE.Raycaster(), position = new THREE.Vector3(), quaternion = new THREE.Quaternion();
   const forward = new THREE.Vector3(), up = new THREE.Vector3(0,1,0);
@@ -39,7 +40,7 @@ export function createDemoModes({ renderer, scene, camera, hud, specs, initialUr
   const current=()=>specs.find(s=>s.id===info.active)||specs[0];
   function show(){
     const head=renderer.xr.isPresenting?renderer.xr.getCamera():camera;head.updateMatrixWorld(true);menu.placeInFront(head);info.menuOpen=true;
-    menu.set({status:'Choose an experience',detail:'Point, then pinch / trigger. Grip reopens menu.',highlight:info.active});
+    menu.set({status:'Bosch · Earthly Delights',detail:'c.1500 · Prado, Madrid · Point + pinch / trigger',highlight:info.active});
   }
   function hide(){menu.mesh.visible=false;info.menuOpen=false}
   function toggle(){if(info.menuOpen)hide();else show()}

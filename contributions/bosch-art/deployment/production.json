@@ -1,8 +1,8 @@
 {
-  "id": "appgdep_6af93ac7007c819180294ee7dcd9a1f2",
+  "id": "appgdep_6af948368c948191a575ac940b0aecc1",
   "project_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4",
   "title": "Living Room · 欲望的两面",
-  "version_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4~appgver_bbcc32782c1481918aa35d012f32ddf1",
+  "version_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4~appgver_acd9d9e2a8bc8191b8284fead623dc2a",
   "type": "publish",
   "status": "succeeded",
   "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site",
@@ -11,53 +11,39 @@
   "provider_deployment_id": "release---6af8ef87c8e481919fa858b23e70abd8",
   "failure_message": null,
   "env_set_revision": 0,
-  "updated_at": "2026-11-15T04:53:35.276302+00:00",
-  "version_number": 6,
-  "source_commit": "3c6a986025292f807773d50878eb442b0fc3d269",
-  "media_release": "2026-11-14-r5",
+  "updated_at": "2026-11-15T05:50:55.957971+00:00",
+  "version_number": 7,
+  "source_commit": "ca2ee6c31844aed897a1b4028df455829ea1aee4",
   "default_mode": "reveal",
-  "stable_optional_modes": [
-    "garden-light",
-    "hell-light",
-    "garden-season",
-    "hell-season"
-  ],
-  "live_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/?experience=live",
-  "live_guide_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/guide/live.html",
-  "live": {
-    "kind": "Actual opt-in Orbis Dynamic streaming; environment-only references, sky/foreground composited over approved painted plate",
-    "broker": "Operator-gated loopback server behind temporary HTTPS tunnel; computer and tunnel must remain online",
-    "model": "reactor/visko-orbis-dynamic",
-    "max_sessions_per_token": 1,
-    "max_session_duration_seconds": 180,
-    "server_heartbeat_cleanup_seconds": 45,
-    "api_keys_in_browser": false,
-    "automatic_camera_movement": false,
-    "default_page_model_calls": false,
-    "current_availability": "Public smoke test reached sponsor but got 429 no available capacity; not claimed as live frames.",
-    "quality_limit": "Experimental weather details can be stylized; protected composition stays on approved plate"
+  "brief_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/guide/artwork.html",
+  "narrative_position": "Concise, technology-led interactive adaptation of Bosch's original. Authored panoramic layouts and gesture masks supply the experience; bounded live generation is optional.",
+  "source_work": {
+    "artist": "Hieronymus Bosch",
+    "title": "The Garden of Earthly Delights",
+    "date": "c.1500; Prado/CODART range 1490–1500",
+    "period": "Early Netherlandish / Northern Renaissance",
+    "museum": "Museo Nacional del Prado, Madrid"
   },
-  "narrative": {
-    "applications": "Two independent styles: teammate photorealistic hillside technical study and painted Garden/Aftermath storytelling",
-    "painted_narrative_emphasis": 0.8,
-    "sheep_religious_bridge": false,
-    "authored_transition": false,
-    "scenario_switch": "Direct selection",
-    "hillside_live_in_this_public_build": false
+  "audio": {
+    "manifest": "/audio/manifest-r7.json",
+    "voice": "Lily",
+    "language": "en",
+    "cues": 8,
+    "arrival_seconds": 9.47375
+  },
+  "live_visual_revision": {
+    "source": "Real received sky/foreground frames drive colour calibration and scene exposure/tint",
+    "geometry": "No added camera path or UV/geometric displacement",
+    "poles": "Averaged colours replace repeated-column polar lookup",
+    "qa": "Recorded real-frame replay, not a newly generated live run",
+    "new_live_sessions_for_this_revision": 0
   },
   "verification": {
-    "live_local": "deployment/review/live-local-r6-final/verification.json",
-    "local_received_live_frames": 570,
-    "actual_stream_recording": "deployment/review/live-local-r6-final/received-live-stream.webm",
-    "stable_five_modes": "deployment/review/modes-local-r6/verification.json",
-    "public_live_attempt": "deployment/review/live-public-r6/failure.json",
-    "public_status": "Frontend, WASM, broker authentication and sponsor connection reached; sponsor rejected new session for capacity. Busy state and released broker lease verified.",
-    "headset": "Physical Quest remains unverified"
+    "modes": "deployment/review/modes-local-r7/verification.json",
+    "audio": "deployment/review/sound-local-r7/verification.json",
+    "lighting": "deployment/review/lighting-local-r7/verification.json",
+    "brief_screenshots": "deployment/review/brief-local-r7/",
+    "headset_verified": false
   },
-  "headset_verified": false,
-  "packed_sha256": "8db9a9e774c31e94b46cf0a782c5a8dfb3f3c287bad0c535f08afd8ac640ece2",
-  "audio": {
-    "narration": "Eight English Lily cues from r5 retained in stable experience",
-    "research": "Carroll attribution remains in painted narrative"
-  }
+  "packed_video_unchanged": true
 }

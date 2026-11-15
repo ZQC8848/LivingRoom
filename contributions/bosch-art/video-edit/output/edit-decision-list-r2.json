@@ -1,0 +1,180 @@
+{
+  "source": "source/Casting_Video_1794721792334.mp4",
+  "canvas": [
+    1080,
+    1920
+  ],
+  "fps": 30,
+  "total_frames": 900,
+  "duration": 30,
+  "artwork_seconds": 20,
+  "live_study_seconds": 10,
+  "segments": [
+    {
+      "id": "intro",
+      "source_start": 4.498,
+      "source_duration": 4.2,
+      "frames": 126,
+      "output_start": 0,
+      "output_duration": 4.2,
+      "speed": 1.0,
+      "crop": [
+        221,
+        0,
+        810,
+        1440
+      ]
+    },
+    {
+      "id": "reveal",
+      "source_start": 14.6,
+      "source_duration": 8,
+      "frames": 240,
+      "output_start": 4.2,
+      "output_duration": 8.0,
+      "speed": 1.0,
+      "crop": [
+        221,
+        0,
+        810,
+        1440
+      ]
+    },
+    {
+      "id": "return",
+      "source_start": 23.428625,
+      "source_duration": 5,
+      "frames": 150,
+      "output_start": 12.2,
+      "output_duration": 5.0,
+      "speed": 1.0,
+      "crop": [
+        221,
+        0,
+        810,
+        1440
+      ]
+    },
+    {
+      "id": "garden-daynight",
+      "source_start": 31.8,
+      "source_duration": 2.8,
+      "frames": 84,
+      "label": "Garden · Day / Night",
+      "note": "Prepared loop excerpt · 1×",
+      "output_start": 17.2,
+      "output_duration": 2.8,
+      "speed": 1.0,
+      "crop": [
+        221,
+        0,
+        810,
+        1440
+      ]
+    },
+    {
+      "id": "meadow",
+      "source_start": 89.6,
+      "source_duration": 1.5,
+      "frames": 45,
+      "crop": [
+        350,
+        0,
+        468,
+        832
+      ],
+      "label": "Live Lab · Starting meadow",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 20.0,
+      "output_duration": 1.5,
+      "speed": 1.0
+    },
+    {
+      "id": "aurora",
+      "source_start": 113,
+      "source_duration": 3.5,
+      "frames": 105,
+      "crop": [
+        400,
+        0,
+        468,
+        832
+      ],
+      "label": "Live Lab · Aurora",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 21.5,
+      "output_duration": 3.5,
+      "speed": 1.0
+    },
+    {
+      "id": "asteroids",
+      "source_start": 130.2,
+      "source_duration": 3,
+      "frames": 90,
+      "crop": [
+        268,
+        0,
+        810,
+        1440
+      ],
+      "label": "Live Lab · Asteroids",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 25.0,
+      "output_duration": 3.0,
+      "speed": 1.0
+    },
+    {
+      "id": "snow",
+      "source_start": 149.4,
+      "source_duration": 2,
+      "frames": 60,
+      "crop": [
+        350,
+        0,
+        594,
+        1056
+      ],
+      "label": "Live Lab · Return to snow",
+      "note": "Recorded excerpts · 1× · waits omitted",
+      "output_start": 28.0,
+      "output_duration": 2.0,
+      "speed": 1.0
+    }
+  ],
+  "background_brief": [
+    {
+      "start": 0,
+      "end": 7,
+      "heading": "THE GARDEN OF CONSEQUENCES / BACKGROUND",
+      "lines": [
+        "Hieronymus Bosch’s The Garden",
+        "of Earthly Delights (c. 1500) is a",
+        "Northern Renaissance masterpiece,",
+        "now in Madrid’s Prado Museum."
+      ]
+    },
+    {
+      "start": 7,
+      "end": 12.2,
+      "heading": "THE INTERACTION",
+      "lines": [
+        "With a gesture, visitors reveal image layers",
+        "and discover another side of the painting."
+      ]
+    },
+    {
+      "start": 12.2,
+      "end": 20,
+      "heading": "THE PAINTING WORKFLOW",
+      "y": 185,
+      "lines": [
+        "Creators author panoramas, masks and layers.",
+        "Live AI adds environmental change",
+        "only within selected regions."
+      ]
+    }
+  ],
+  "narration": "All recorded voice excerpts at original speed. No atempo, no new voiceover.",
+  "real_time_disclosure": "Four live-study excerpts at 1x, with menu actions omitted and fixed per-shot crops excluding UI. Starting meadow is the stopped baseline, not live generation. No latency measurement.",
+  "camera_note": "Fixed crop within each shot. The painting crop is aligned to the original narration-panel center; brief text and boxes are horizontally centered. Meadow, aurora and snow have tighter static crops to exclude baked-in menus. No synthetic camera movement or interpolated frames."
+}

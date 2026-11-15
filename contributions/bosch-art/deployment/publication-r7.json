@@ -1,0 +1,49 @@
+{
+  "id": "appgdep_6af948368c948191a575ac940b0aecc1",
+  "project_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4",
+  "title": "Living Room · 欲望的两面",
+  "version_id": "appgprj_6af8e79abfbc81918c4595fb38d498a4~appgver_acd9d9e2a8bc8191b8284fead623dc2a",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "release---6af8ef87c8e481919fa858b23e70abd8",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-11-15T05:50:55.957971+00:00",
+  "version_number": 7,
+  "source_commit": "ca2ee6c31844aed897a1b4028df455829ea1aee4",
+  "default_mode": "reveal",
+  "brief_url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/guide/artwork.html",
+  "narrative_position": "Concise, technology-led interactive adaptation of Bosch's original. Authored panoramic layouts and gesture masks supply the experience; bounded live generation is optional.",
+  "source_work": {
+    "artist": "Hieronymus Bosch",
+    "title": "The Garden of Earthly Delights",
+    "date": "c.1500; Prado/CODART range 1490–1500",
+    "period": "Early Netherlandish / Northern Renaissance",
+    "museum": "Museo Nacional del Prado, Madrid"
+  },
+  "audio": {
+    "manifest": "/audio/manifest-r7.json",
+    "voice": "Lily",
+    "language": "en",
+    "cues": 8,
+    "arrival_seconds": 9.47375
+  },
+  "live_visual_revision": {
+    "source": "Real received sky/foreground frames drive colour calibration and scene exposure/tint",
+    "geometry": "No added camera path or UV/geometric displacement",
+    "poles": "Averaged colours replace repeated-column polar lookup",
+    "qa": "Recorded real-frame replay, not a newly generated live run",
+    "new_live_sessions_for_this_revision": 0
+  },
+  "verification": {
+    "modes": "deployment/review/modes-local-r7/verification.json",
+    "audio": "deployment/review/sound-local-r7/verification.json",
+    "lighting": "deployment/review/lighting-local-r7/verification.json",
+    "brief_screenshots": "deployment/review/brief-local-r7/",
+    "headset_verified": false
+  },
+  "packed_video_unchanged": true
+}
