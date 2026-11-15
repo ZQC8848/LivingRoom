@@ -1,0 +1,218 @@
+{
+  "base": "http://127.0.0.1:5183/",
+  "errors": [],
+  "api": [],
+  "headsetVerified": false,
+  "initial": {
+    "mode": "reveal",
+    "menu": false,
+    "playing": true,
+    "video": "blob:http://127.0.0.1:5183/4ca5901f-4ffa-465a-a17a-79f866139be2",
+    "blob": true,
+    "w": 2048,
+    "h": 2048,
+    "d": 8,
+    "oneVideo": true,
+    "oneTexture": true,
+    "pane": [
+      0.5,
+      0.5
+    ],
+    "rot": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "radii": [
+      0,
+      0
+    ],
+    "problems": [],
+    "mix": 0.09987500000745057
+  },
+  "options": 5,
+  "modes": [
+    {
+      "mode": "garden-light",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5183/96b74969-7ac8-4c57-b8b7-965c23d73273",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 12,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 1,
+      "expectedDuration": 12
+    },
+    {
+      "mode": "hell-light",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5183/efd10d81-23d7-4ca5-9371-7ed555860221",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 12,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 1,
+      "expectedDuration": 12
+    },
+    {
+      "mode": "garden-season",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5183/b6d10223-2035-4078-8b08-51f6d3d99c68",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 8,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 1,
+      "expectedDuration": 8
+    },
+    {
+      "mode": "hell-season",
+      "menu": false,
+      "playing": true,
+      "video": "blob:http://127.0.0.1:5183/64f8d8ce-0ac4-4dbe-95d5-1ff119550411",
+      "blob": true,
+      "w": 1536,
+      "h": 768,
+      "d": 8,
+      "oneVideo": true,
+      "oneTexture": true,
+      "pane": [
+        0,
+        1
+      ],
+      "rot": [
+        0.1,
+        0.35,
+        0,
+        "YXZ"
+      ],
+      "radii": [
+        0,
+        0
+      ],
+      "problems": [],
+      "mix": 1,
+      "expectedDuration": 8
+    }
+  ],
+  "standaloneNoReveal": true,
+  "returned": {
+    "mode": "reveal",
+    "menu": false,
+    "playing": true,
+    "video": "blob:http://127.0.0.1:5183/4ca5901f-4ffa-465a-a17a-79f866139be2",
+    "blob": true,
+    "w": 2048,
+    "h": 2048,
+    "d": 8,
+    "oneVideo": true,
+    "oneTexture": true,
+    "pane": [
+      0.5,
+      0.5
+    ],
+    "rot": [
+      0.1,
+      0.35,
+      0,
+      "YXZ"
+    ],
+    "radii": [
+      0,
+      0
+    ],
+    "problems": [],
+    "mix": 1
+  },
+  "revealRadius": 38,
+  "panelSelect": {
+    "menuBefore": true,
+    "radiusImmediately": 0,
+    "loading": true
+  },
+  "panelSelectedMode": "garden-light",
+  "handTarget": {
+    "consumed": true,
+    "opened": true,
+    "simulation": true
+  },
+  "gripOpensMenu": true,
+  "loopTime": 0.0125,
+  "visibleMenu": true,
+  "modeVoice": {
+    "mode": "hell-season",
+    "cue": "mode-hell-season",
+    "caption": "Rain crosses the ashes. Snow settles over the damage. This possibility of recovery is our reinterpretation of Bosch: a question left open, rather than a promised ending.",
+    "gains": {
+      "bright": 0,
+      "dark": 0.2024,
+      "garden": 0,
+      "hell": 0.48
+    }
+  },
+  "researchCaption": "Carroll's reading follows a world in transformation: light, water, fire, and the earth's changing life. Our experience extends that reading into a question about desire, consequences, and the need for rest.",
+  "xrCaption": {
+    "visible": true,
+    "simulation": true
+  },
+  "mobile": {
+    "w": 390,
+    "scroll": 390
+  },
+  "pass": true
+}

@@ -1,0 +1,41 @@
+{
+  "errors": [],
+  "startsInGallery": true,
+  "selected": "bosch",
+  "galleryVariation": 447728,
+  "paintingClickEnters": true,
+  "revealPhase": 1,
+  "fireChangesAtFixedView": true,
+  "fireCanPause": true,
+  "apertureLeavesViewFixed": true,
+  "returnsToGallery": true,
+  "retainsTrace": true,
+  "singleVideoTrack": true,
+  "source": "one-video-stream",
+  "loop": [
+    {
+      "id": "cards",
+      "phase": 1,
+      "videoTracks": 1
+    },
+    {
+      "id": "levi",
+      "phase": 1,
+      "videoTracks": 1
+    },
+    {
+      "id": "repin",
+      "phase": 1,
+      "videoTracks": 1
+    },
+    {
+      "id": "mirror",
+      "phase": 1,
+      "videoTracks": 1
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  }
+}

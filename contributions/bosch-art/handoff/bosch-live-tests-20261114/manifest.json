@@ -1,0 +1,147 @@
+{
+  "title": "The Garden of Consequences — Live Model Tests",
+  "status": "Review only; none of these new modes has passed fixed-viewpoint and panorama seam acceptance.",
+  "source": "Actual Orbis Dynamic output with mid-run prompt changes. These files are recordings, not a currently connected live stream.",
+  "production_reveal": "Unchanged; no deployment modifications.",
+  "camera": "All requests specify a fixed viewpoint. The model still causes geometry/framing drift; no post camera movement or stabilization added.",
+  "projection": "2:1 review files undo the contain padding around the input. Raw files preserve the delivered composition. Full spherical seam and pole acceptance remains pending.",
+  "experiments": [
+    {
+      "id": "garden-light",
+      "label": "Garden / Day-Night",
+      "result": "Night appears clearly; architectural reshaping and apparent framing drift. Not accepted for fixed-viewpoint production.",
+      "accepted_for_production": false,
+      "frames": 494,
+      "recorded_seconds": 31.05,
+      "timeline": [
+        {
+          "target": "Day",
+          "sent_seconds": 0,
+          "ack_seconds": 0.515
+        },
+        {
+          "target": "Dusk",
+          "sent_seconds": 4.578,
+          "ack_seconds": 0.703
+        },
+        {
+          "target": "Night",
+          "sent_seconds": 17.297,
+          "ack_seconds": 1.172
+        }
+      ],
+      "prompt_file": "garden-light/report.json",
+      "video": "garden-light/panorama-review.mp4",
+      "raw_video": "garden-light/raw-received.mp4",
+      "sha256": "c412e0b7cf6f1b5fb4f19932a6d271cc89b5ab6f184d0307517146bfae0244e6"
+    },
+    {
+      "id": "garden-season",
+      "label": "Garden / Seasons",
+      "result": "Falling leaves are visible; convincing winter snow coverage is not achieved. Large white blobs and shape drift are defects.",
+      "accepted_for_production": false,
+      "frames": 470,
+      "recorded_seconds": 30.11,
+      "timeline": [
+        {
+          "target": "Summer",
+          "sent_seconds": 0,
+          "ack_seconds": 0.531
+        },
+        {
+          "target": "Autumn",
+          "sent_seconds": 3.516,
+          "ack_seconds": 0.703
+        },
+        {
+          "target": "Winter",
+          "sent_seconds": 16.235,
+          "ack_seconds": 0.875
+        }
+      ],
+      "prompt_file": "garden-season/report.json",
+      "video": "garden-season/panorama-review.mp4",
+      "raw_video": "garden-season/raw-received.mp4",
+      "sha256": "cec7f46ea7d3bc6480219027d8f4d30f7f6fa50819902b223dd0094dcb9efcf9"
+    },
+    {
+      "id": "aftermath-light",
+      "label": "Aftermath / Day-Night",
+      "result": "Night, fire and smoke are visible; final image is too dark and architecture detail changes. Not accepted for production.",
+      "accepted_for_production": false,
+      "frames": 481,
+      "recorded_seconds": 29.86,
+      "timeline": [
+        {
+          "target": "Day",
+          "sent_seconds": 0,
+          "ack_seconds": 0.703
+        },
+        {
+          "target": "Dusk",
+          "sent_seconds": 3.375,
+          "ack_seconds": 0.344
+        },
+        {
+          "target": "Night",
+          "sent_seconds": 15.734,
+          "ack_seconds": 1.407
+        }
+      ],
+      "prompt_file": "aftermath-light/report.json",
+      "video": "aftermath-light/panorama-review.mp4",
+      "raw_video": "aftermath-light/raw-received.mp4",
+      "sha256": "8432c21384fccb2969f550f46d4fe54d87665e584ab7ddb346ee1c5580424377"
+    },
+    {
+      "id": "aftermath-weather",
+      "label": "Aftermath / Weather-Seasons",
+      "result": "Rain, smoke and illumination change are visible; persistent ground snow is not achieved and architecture changes.",
+      "accepted_for_production": false,
+      "frames": 523,
+      "recorded_seconds": 31.31,
+      "timeline": [
+        {
+          "target": "Dry heat",
+          "sent_seconds": 0,
+          "ack_seconds": 0.641
+        },
+        {
+          "target": "Rain",
+          "sent_seconds": 4.578,
+          "ack_seconds": 0.937
+        },
+        {
+          "target": "Wet winter",
+          "sent_seconds": 17.531,
+          "ack_seconds": 0.797
+        }
+      ],
+      "prompt_file": "aftermath-weather/report.json",
+      "video": "aftermath-weather/panorama-review.mp4",
+      "raw_video": "aftermath-weather/raw-received.mp4",
+      "sha256": "a7cf1e566372a3fea081035d2b4eb94c0c86d5ef76946f5994ef342e3b04d6ba"
+    }
+  ],
+  "longer_season_followup": {
+    "status": "Capacity retry succeeded. Both full-season runs captured and rejected for geometric instability.",
+    "tests": [
+      {
+        "id": "garden-season",
+        "seconds": 67.86,
+        "video": "garden-season/full-season-cycle/panorama-review.mp4",
+        "accepted_for_production": false,
+        "result": "Long spring-summer-autumn-winter steering. Severe geometry/framing drift; winter remains unreliable."
+      },
+      {
+        "id": "aftermath-weather",
+        "seconds": 66.69,
+        "video": "aftermath-weather/full-season-cycle/panorama-review.mp4",
+        "accepted_for_production": false,
+        "result": "Long spring-summer-autumn-winter steering. Severe geometry/framing drift; winter remains unreliable."
+      }
+    ]
+  },
+  "overview": "four-tests-overview.mp4",
+  "next_technical_candidate": "Validated same-layout seasonal reference images, re-anchor/reset within one session, freeze last valid frame while priming, then deliberate visual transition. Not implemented or validated by this test."
+}

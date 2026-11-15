@@ -1,0 +1,492 @@
+{
+  "base": "http://127.0.0.1:5183/",
+  "headsetVerified": false,
+  "startWasExplicit": true,
+  "initial": {
+    "phase": "idle",
+    "live": false,
+    "frames": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "XYZ"
+    ],
+    "mask": 0
+  },
+  "connected": {
+    "phase": "streaming",
+    "model": "reactor/visko-orbis-dynamic",
+    "frames": 1,
+    "events": [
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:38:04.900Z"
+      },
+      {
+        "type": "generation_started",
+        "at": "2026-11-15T04:38:04.944Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:07.011Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:08.838Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:10.657Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "first_received_frame",
+        "at": "2026-11-15T04:38:10.941Z"
+      }
+    ],
+    "commands": [
+      {
+        "command": "reset",
+        "sent_at": "2026-11-15T04:38:03.768Z",
+        "returned_at": "2026-11-15T04:38:03.812Z",
+        "reply": "generation_reset"
+      },
+      {
+        "command": "set_resolution",
+        "sent_at": "2026-11-15T04:38:03.812Z",
+        "returned_at": "2026-11-15T04:38:03.845Z",
+        "reply": "resolution_accepted"
+      },
+      {
+        "command": "set_image",
+        "sent_at": "2026-11-15T04:38:04.282Z",
+        "returned_at": "2026-11-15T04:38:04.873Z",
+        "reply": "image_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:38:04.873Z",
+        "prompt": "An early Netherlandish painted garden with pale green foreground and a broad blue-green sky. The same pink shell buildings, central blue fountain, river, tiny figures and animals keep their positions and outlines. Soft daylight and thin drifting clouds in the sky. The foreground grass stirs in a light breeze. The painted middle band remains unchanged. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:38:04.900Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "start",
+        "sent_at": "2026-11-15T04:38:04.900Z",
+        "returned_at": "2026-11-15T04:38:04.944Z"
+      }
+    ],
+    "live": true,
+    "error": null,
+    "sessionId": "a9a0eff5-618a-427a-9d9f-c28d18d78f2d",
+    "started_at": "2026-11-15T04:38:03.768Z",
+    "ends_at": "2026-11-15T04:41:03.768Z",
+    "last_frame_at": "2026-11-15T04:38:10.940Z"
+  },
+  "stages": [
+    {
+      "id": "day",
+      "width": 1920,
+      "height": 1080,
+      "time": 0.456454,
+      "frames": 8,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "dusk",
+      "width": 1920,
+      "height": 1080,
+      "time": 10.431331,
+      "frames": 164,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "winter",
+      "width": 1920,
+      "height": 1080,
+      "time": 20.217601,
+      "frames": 317,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "rain",
+      "width": 1920,
+      "height": 1080,
+      "time": 29.96656,
+      "frames": 473,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    },
+    {
+      "id": "hell-rain",
+      "width": 1920,
+      "height": 1080,
+      "time": 46.562336,
+      "frames": 613,
+      "rotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    }
+  ],
+  "final": {
+    "phase": "streaming",
+    "model": "reactor/visko-orbis-dynamic",
+    "frames": 614,
+    "events": [
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:38:04.900Z"
+      },
+      {
+        "type": "generation_started",
+        "at": "2026-11-15T04:38:04.944Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:07.011Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:08.838Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:10.657Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "first_received_frame",
+        "at": "2026-11-15T04:38:10.941Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:12.518Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:38:12.525Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:38:12.525Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:14.361Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:16.183Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:18.010Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:19.875Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:21.679Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:38:21.687Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:38:21.687Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:23.530Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:25.367Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:27.205Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:29.048Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:30.884Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:32.729Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:38:32.735Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:38:32.735Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:34.574Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:36.409Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:38.250Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:40.090Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:41.945Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:38:42.835Z"
+      },
+      {
+        "type": "generation_started",
+        "at": "2026-11-15T04:38:42.860Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:44.937Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:46.786Z",
+        "frames_emitted": 0,
+        "delivered": null
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:48.632Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "first_received_frame",
+        "at": "2026-11-15T04:38:48.961Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:50.479Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "prompt_accepted",
+        "at": "2026-11-15T04:38:50.485Z"
+      },
+      {
+        "type": "prompt_sent",
+        "at": "2026-11-15T04:38:50.485Z"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:52.337Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:54.181Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      },
+      {
+        "type": "chunk_complete",
+        "at": "2026-11-15T04:38:56.023Z",
+        "frames_emitted": 33,
+        "delivered": "1920x1080"
+      }
+    ],
+    "commands": [
+      {
+        "command": "reset",
+        "sent_at": "2026-11-15T04:38:03.768Z",
+        "returned_at": "2026-11-15T04:38:03.812Z",
+        "reply": "generation_reset"
+      },
+      {
+        "command": "set_resolution",
+        "sent_at": "2026-11-15T04:38:03.812Z",
+        "returned_at": "2026-11-15T04:38:03.845Z",
+        "reply": "resolution_accepted"
+      },
+      {
+        "command": "set_image",
+        "sent_at": "2026-11-15T04:38:04.282Z",
+        "returned_at": "2026-11-15T04:38:04.873Z",
+        "reply": "image_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:38:04.873Z",
+        "prompt": "An early Netherlandish painted garden with pale green foreground and a broad blue-green sky. The same pink shell buildings, central blue fountain, river, tiny figures and animals keep their positions and outlines. Soft daylight and thin drifting clouds in the sky. The foreground grass stirs in a light breeze. The painted middle band remains unchanged. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:38:04.900Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "start",
+        "sent_at": "2026-11-15T04:38:04.900Z",
+        "returned_at": "2026-11-15T04:38:04.944Z"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:38:11.598Z",
+        "prompt": "An early Netherlandish painted garden with pale green foreground and a broad blue-green sky. The same pink shell buildings, central blue fountain, river, tiny figures and animals keep their positions and outlines. The open sky visibly turns deep violet and indigo dusk. Broad slow clouds cross the sky. Foreground grass darkens gently. The painted middle band remains unchanged. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:38:12.525Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:38:21.611Z",
+        "prompt": "An early Netherlandish painted garden with pale green foreground and a broad blue-green sky. The same pink shell buildings, central blue fountain, river, tiny figures and animals keep their positions and outlines. Overcast pale winter sky with many fine falling snowflakes. White snow visibly settles only on the low foreground ground. The painted middle band remains unchanged. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:38:21.687Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:38:31.318Z",
+        "prompt": "An early Netherlandish painted garden with pale green foreground and a broad blue-green sky. The same pink shell buildings, central blue fountain, river, tiny figures and animals keep their positions and outlines. Dark rain clouds gather across the open sky. Visible rain falls and the low foreground ground becomes wet with tiny reflective puddles. The painted middle band remains unchanged. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:38:32.735Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "reset",
+        "sent_at": "2026-11-15T04:38:41.038Z",
+        "returned_at": "2026-11-15T04:38:42.006Z",
+        "reply": "generation_reset"
+      },
+      {
+        "command": "set_resolution",
+        "sent_at": "2026-11-15T04:38:42.006Z",
+        "returned_at": "2026-11-15T04:38:42.040Z",
+        "reply": "resolution_accepted"
+      },
+      {
+        "command": "set_image",
+        "sent_at": "2026-11-15T04:38:42.524Z",
+        "returned_at": "2026-11-15T04:38:42.809Z",
+        "reply": "image_accepted"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:38:42.809Z",
+        "prompt": "An early Netherlandish painted ruined garden with brown ash foreground and a charcoal sky. The same cracked shell buildings, central face fountain, dark river and tiny figures keep their positions and outlines. Soft daylight and thin drifting clouds in the sky. The foreground grass stirs in a light breeze. The painted middle band remains unchanged. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:38:42.835Z",
+        "reply": "prompt_accepted"
+      },
+      {
+        "command": "start",
+        "sent_at": "2026-11-15T04:38:42.835Z",
+        "returned_at": "2026-11-15T04:38:42.859Z"
+      },
+      {
+        "command": "set_prompt",
+        "sent_at": "2026-11-15T04:38:49.013Z",
+        "prompt": "An early Netherlandish painted ruined garden with brown ash foreground and a charcoal sky. The same cracked shell buildings, central face fountain, dark river and tiny figures keep their positions and outlines. Dark rain clouds gather across the open sky. Visible rain falls and the low foreground ground becomes wet with tiny reflective puddles. The painted middle band remains unchanged. Stable composition and fixed horizon; weather moves in place.",
+        "returned_at": "2026-11-15T04:38:50.485Z",
+        "reply": "prompt_accepted"
+      }
+    ],
+    "live": true,
+    "error": null,
+    "sessionId": "a9a0eff5-618a-427a-9d9f-c28d18d78f2d",
+    "started_at": "2026-11-15T04:38:03.768Z",
+    "ends_at": "2026-11-15T04:41:03.768Z",
+    "last_frame_at": "2026-11-15T04:38:57.562Z"
+  },
+  "stopped": {
+    "phase": "stopped",
+    "live": false,
+    "session": null,
+    "mix": 0
+  },
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "pass": true
+}

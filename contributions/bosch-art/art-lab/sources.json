@@ -1,0 +1,74 @@
+{
+  "levi": {
+    "source": "https://commons.wikimedia.org/wiki/File:Paolo_Veronese_007.jpg",
+    "file": "Paolo Veronese 007.jpg",
+    "width": 960,
+    "height": 426
+  },
+  "cards": {
+    "source": "https://commons.wikimedia.org/wiki/File:Caravaggio_%28Michelangelo_Merisi%29_-_The_Cardsharps_-_Google_Art_Project.jpg",
+    "file": "Caravaggio (Michelangelo Merisi) - The Cardsharps - Google Art Project.jpg",
+    "width": 960,
+    "height": 691
+  },
+  "repin": {
+    "source": "https://commons.wikimedia.org/wiki/File:Ilya_Repin_Unexpected_visitors.jpg",
+    "file": "Ilya Repin Unexpected visitors.jpg",
+    "width": 834,
+    "height": 800
+  },
+  "bosch": {
+    "source": "https://commons.wikimedia.org/wiki/File:GardenED_edit3.jpg",
+    "file": "GardenED edit3.jpg",
+    "width": 960,
+    "height": 508
+  },
+  "spring": {
+    "source": "https://commons.wikimedia.org/wiki/File:Guo_Xi_-_Early_Spring_%28large%29.jpg",
+    "file": "Guo Xi - Early Spring (large).jpg",
+    "width": 550,
+    "height": 800
+  },
+  "meninas": {
+    "source": "https://commons.wikimedia.org/wiki/File:Las_Meninas_%281656%29%2C_by_Velazquez.jpg",
+    "file": "Las Meninas (1656), by Velazquez.jpg",
+    "width": 695,
+    "height": 800
+  },
+  "ambassadors": {
+    "source": "https://commons.wikimedia.org/wiki/File:Holbein-ambassadors.jpg",
+    "file": "Holbein-ambassadors.jpg",
+    "width": 811,
+    "height": 800
+  },
+  "arnolfini": {
+    "source": "https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg",
+    "file": "Van Eyck - Arnolfini Portrait.jpg",
+    "width": 585,
+    "height": 800
+  },
+  "bayeux": {
+    "source": "https://commons.wikimedia.org/wiki/File:BayeuxTapestryScene57.jpg",
+    "file": "BayeuxTapestryScene57.jpg",
+    "width": 960,
+    "height": 591
+  },
+  "harvest": {
+    "source": "https://commons.wikimedia.org/wiki/File:The_Harvesters.jpg",
+    "file": "The Harvesters.jpg",
+    "width": 960,
+    "height": 708
+  },
+  "han": {
+    "source": "https://commons.wikimedia.org/wiki/File:Gu_Hongzhong%27s_Night_Revels_1_complete_scene.jpg",
+    "file": "Gu Hongzhong's Night Revels 1 complete scene.jpg",
+    "width": 960,
+    "height": 83
+  },
+  "miser": {
+    "source": "https://commons.wikimedia.org/wiki/File:Hieronymus_Bosch_-_Death_and_the_Miser_-_WGA02625.jpg",
+    "file": "Hieronymus Bosch - Death and the Miser - WGA02625.jpg",
+    "width": 448,
+    "height": 800
+  }
+}

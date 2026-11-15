@@ -1,0 +1,204 @@
+{
+  "url": "http://127.0.0.1:5183/",
+  "headsetVerified": false,
+  "scope": "Real released media and production build in desktop Chrome; synthetic controller events and XR session options are explicitly simulated.",
+  "initial": {
+    "playing": true,
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 0.8506,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 0.8506,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      0,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "playback": {
+    "wraps": 2,
+    "maxDriftFrames": 0,
+    "allPlaying": false,
+    "allVisible": true,
+    "presentedFrames": 164
+  },
+  "resync": {
+    "singleClock": true,
+    "driftFrames": 0,
+    "keptVideoMix": 1
+  },
+  "open": {
+    "playing": true,
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 0.799,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 0.799,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      38,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "closed": {
+    "playing": true,
+    "oneDecoder": true,
+    "oneTexture": true,
+    "paused": false,
+    "problems": [],
+    "heaven": {
+      "t": 2.4589,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "hell": {
+      "t": 2.4589,
+      "w": 2048,
+      "h": 2048,
+      "duration": 8
+    },
+    "radii": [
+      0,
+      0
+    ],
+    "resyncs": 0,
+    "rotation": [
+      0,
+      0,
+      0,
+      "YXZ"
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "mix": 1
+  },
+  "simulatedController": {
+    "openDegrees": 38,
+    "direction": [
+      1,
+      0,
+      -6.123233995736766e-17,
+      0.6632251157578453
+    ],
+    "closedDegrees": 0
+  },
+  "twoSlots": [
+    38,
+    38
+  ],
+  "focus": {
+    "horse": true,
+    "water": true,
+    "fire": true
+  },
+  "color": {
+    "expected": [
+      124.03999999999998,
+      156.28,
+      155.68
+    ],
+    "actual": [
+      124.19999999999999,
+      157.16,
+      155.79999999999998
+    ],
+    "meanError": 0.3866666666666608
+  },
+  "noAutomaticCameraMovement": true,
+  "translationDoesNotDistortPanorama": true,
+  "range": {
+    "status": 206,
+    "contentRange": "bytes 0-1023/2689677",
+    "length": 1024
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "posterFallback": {
+    "mix": 0,
+    "problemCount": 1,
+    "hasRetryOverlay": false,
+    "errors": []
+  },
+  "simulatedXRRequest": {
+    "mode": "immersive-vr",
+    "options": {
+      "optionalFeatures": [
+        "local-floor",
+        "bounded-floor",
+        "layers",
+        "hand-tracking"
+      ]
+    }
+  },
+  "errors": [],
+  "modelAPIRequests": [],
+  "checks": {
+    "realMediaLoaded": true,
+    "loopsAndPlayback": true,
+    "synced": true,
+    "mouseReveal": true,
+    "controllerWiring": true,
+    "twoHands": true,
+    "focus": true,
+    "headLocked": true,
+    "range": true,
+    "mobile": true,
+    "fallback": true,
+    "handTrackingRequested": true,
+    "color": true,
+    "noModelCalls": true,
+    "noPageErrors": true
+  }
+}

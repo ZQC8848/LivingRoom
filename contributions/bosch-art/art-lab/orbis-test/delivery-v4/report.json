@@ -1,0 +1,22 @@
+{
+  "method": "fixed painted horse head; object mattes; stronger whole-river texture flow; keyed generated fire",
+  "new_model_calls": 0,
+  "frames": 240,
+  "fps": 30,
+  "duration_seconds": 8.0,
+  "notes": "Bird/fire reuse actual Orbis recordings. Horse head, trees and water are authored 2D motion. The horse mouth is a single fixed painted texture, with a fixed alpha, rotated about the neck anchor. No whole-environment optical flow or dynamic rectangular backgrounds.",
+  "headset_verified": false,
+  "horse_mouth_rgb_regenerated_per_frame": false,
+  "architecture_changed_pixels_before_encoding": 0,
+  "fire_city_changed_values_before_encoding": 0,
+  "bird_pixels_changed_outside_matte_envelope": 0,
+  "water_mask_pixels": 97100,
+  "garden": {
+    "projection_difference": 1.9679198265075684,
+    "loop_difference": 0.03665180131793022
+  },
+  "hell": {
+    "projection_difference": 1.4682260751724243,
+    "loop_difference": 5.592492743744515e-05
+  }
+}

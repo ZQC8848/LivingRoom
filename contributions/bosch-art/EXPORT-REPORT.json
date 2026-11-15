@@ -1,0 +1,12 @@
+{
+  "files": 1345,
+  "bytes": 1446992730,
+  "export_root": "contributions/bosch-art",
+  "source_public_site_commit": "3c6a986025292f807773d50878eb442b0fc3d269",
+  "exclusions": {
+    "installed dependencies, runtime state or frame directories": 51,
+    "local absolute frame-cache playlists": 21,
+    "secrets, runtime files or generated numerical caches": 14
+  },
+  "scope": "Authored prototypes, source art, concepts/deck, final and historical video/audio deliverables, production scripts, research, manifests and QA evidence. Excludes unrelated Raven starter, upstream duplicate clones, chat/session exports, installed dependencies, local tokens and frame/numerical caches."
+}

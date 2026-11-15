@@ -1,0 +1,5 @@
+Draft; not generated.
+
+Locked-off view of the supplied painting crop. A second small group of existing painted fire openings pulses gently, independently of the other fire region. Buildings stay fixed. The surrounding paint, camera framing and the outer context hold their original shapes and positions.
+
+Generate independently; keep context and outer guard band static.

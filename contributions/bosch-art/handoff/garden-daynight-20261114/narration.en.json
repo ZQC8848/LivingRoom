@@ -1,0 +1,24 @@
+{
+  "language": "en",
+  "status": "Original interpretive writing; not quotations from Bosch or a scholar.",
+  "lines": [
+    {
+      "id": "day",
+      "start_seconds": 0,
+      "text": "Everything seems to be in bloom. As though this moment could last forever.",
+      "duration_seconds": 5.016
+    },
+    {
+      "id": "dusk",
+      "start_seconds": 9,
+      "text": "Let the light fade. Look at what remains.",
+      "duration_seconds": 3.065
+    },
+    {
+      "id": "night",
+      "start_seconds": 18,
+      "text": "Night is not the garden's punishment. Even abundance needs a pause.",
+      "duration_seconds": 4.783
+    }
+  ]
+}

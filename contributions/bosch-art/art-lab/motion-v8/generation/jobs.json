@@ -1,0 +1,186 @@
+[
+  {
+    "id": "aerial-creature",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      0,
+      46,
+      454,
+      302
+    ],
+    "box": [
+      61,
+      103,
+      190,
+      245
+    ],
+    "action": "Only the small flying creature in the upper left flexes its two leaf-like wings twice in a gentle but clearly visible flying pose. It stays at the same position. Its rider and the tree remain attached and still. No forward flight.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the small flying creature in the upper left flexes its two leaf-like wings twice in a gentle but clearly visible flying pose. It stays at the same position. Its rider and the tree remain attached and still. No forward flight. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  },
+  {
+    "id": "sky-birds",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      1454,
+      155,
+      1774,
+      335
+    ],
+    "box": [
+      1649,
+      199,
+      1715,
+      291
+    ],
+    "action": "Only the blue bird and the small pale bird in the upper-right sky make one slow, visible wingbeat, then return to their original wing positions. Each bird stays in the same small patch of sky.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the blue bird and the small pale bird in the upper-right sky make one slow, visible wingbeat, then return to their original wing positions. Each bird stays in the same small patch of sky. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  },
+  {
+    "id": "herd",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      318,
+      341,
+      638,
+      521
+    ],
+    "box": [
+      421,
+      401,
+      534,
+      461
+    ],
+    "action": "Only the little group of deer makes tiny slow alternating steps and one small head turn. The herd remains together within its original grassy patch. All antlers, heads and bodies retain their original shapes.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the little group of deer makes tiny slow alternating steps and one small head turn. The herd remains together within its original grassy patch. All antlers, heads and bodies retain their original shapes. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  },
+  {
+    "id": "bank-bird",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      284,
+      422,
+      604,
+      602
+    ],
+    "box": [
+      407,
+      474,
+      481,
+      549
+    ],
+    "action": "Only the small blue bird-like creature beside the bank makes one visible folded-wing ruffle and settles. Its beak and head stay the same, its feet stay near their original positions.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the small blue bird-like creature beside the bank makes one visible folded-wing ruffle and settles. Its beak and head stay the same, its feet stay near their original positions. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  },
+  {
+    "id": "waterbird-small",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      936,
+      396,
+      1256,
+      576
+    ],
+    "box": [
+      1071,
+      460,
+      1120,
+      511
+    ],
+    "action": "Only the SMALL upper waterbird near the right shore makes one modest wing ruffle. Its long neck and beak remain unchanged. Its body remains at the same location. The larger bird below it stays completely still.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the SMALL upper waterbird near the right shore makes one modest wing ruffle. Its long neck and beak remain unchanged. Its body remains at the same location. The larger bird below it stays completely still. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  },
+  {
+    "id": "waterbird-large",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      910,
+      442,
+      1230,
+      622
+    ],
+    "box": [
+      1034,
+      502,
+      1107,
+      562
+    ],
+    "action": "Only the LARGE lower waterbird by the right shore opens its visible folded wing slightly, then closes it slowly. Its head, beak and neck stay unchanged. The smaller bird above remains completely still.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the LARGE lower waterbird by the right shore opens its visible folded wing slightly, then closes it slowly. Its head, beak and neck stay unchanged. The smaller bird above remains completely still. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  },
+  {
+    "id": "stag",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      1038,
+      346,
+      1358,
+      526
+    ],
+    "box": [
+      1174,
+      415,
+      1221,
+      456
+    ],
+    "action": "Only the little antlered deer behind the pool makes two slow tiny alternating steps without leaving its grassy patch. Its antlers and face retain their original shape.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the little antlered deer behind the pool makes two slow tiny alternating steps without leaving its grassy patch. Its antlers and face retain their original shape. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  },
+  {
+    "id": "bathers",
+    "layer": "garden",
+    "source_pixels": [
+      1774,
+      887
+    ],
+    "crop": [
+      1093,
+      382,
+      1413,
+      562
+    ],
+    "box": [
+      1168,
+      448,
+      1338,
+      495
+    ],
+    "action": "Only the five tiny painted bathers in the pool make a gentle head turn, a small arm gesture and a slight shift of weight. They remain in the pool at the same positions. This is a quiet museum painting tableau with nonsexual classical art figures.",
+    "model": "reactor/visko-orbis-dynamic",
+    "prompt": "A flat early-Netherlandish painted tableau. Static camera, absolutely locked framing, no camera movement, no zoom, no pan, no parallax. Only the five tiny painted bathers in the pool make a gentle head turn, a small arm gesture and a slight shift of weight. They remain in the pool at the same positions. This is a quiet museum painting tableau with nonsexual classical art figures. Keep the exact original painted colors, brushwork, lighting and composition. All buildings, banks, trees, grass, water and other figures are motionless and unchanged. Small bounded motion with an unchanged background. No added objects, no mouth changes, no glowing highlights. End near the original pose."
+  }
+]

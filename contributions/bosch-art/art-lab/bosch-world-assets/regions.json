@@ -1,0 +1,188 @@
+[
+  {
+    "id": "A",
+    "layer": "garden",
+    "label": "水面微波",
+    "active": [
+      0.26,
+      0.6,
+      0.39,
+      0.7
+    ],
+    "motion": "Only tiny water ripples. Lock all birds, figures, buildings and banks.",
+    "context": [
+      0.21138669673055244,
+      0.5219842164599775,
+      0.43855693348365277,
+      0.7779030439684329
+    ],
+    "reference_crop": [
+      375,
+      463,
+      778,
+      690
+    ],
+    "reference_pixels": [
+      1024,
+      576
+    ],
+    "mask_type": "rectangular support, requires semantic tracing",
+    "prompt": "Locked camera, unchanged composition and identities. A restrained 3-second painted tableau. Only tiny water ripples. Lock all birds, figures, buildings and banks. End close to the starting pose. Nothing crosses the active support boundary. No zoom, pan, dolly, parallax, morphing, new objects or scene cut. The reference context stays still. A seamless loop is desired but must be inspected and repaired in post.",
+    "video_generated": false
+  },
+  {
+    "id": "B",
+    "layer": "garden",
+    "label": "枝梢轻摆",
+    "active": [
+      0.585,
+      0.19,
+      0.635,
+      0.31
+    ],
+    "motion": "Only the selected leaf tips move slightly and return. No growth or new objects.",
+    "context": [
+      0.5169109357384442,
+      0.14543404735062007,
+      0.7034949267192785,
+      0.3551296505073281
+    ],
+    "reference_crop": [
+      917,
+      129,
+      1248,
+      315
+    ],
+    "reference_pixels": [
+      1024,
+      576
+    ],
+    "mask_type": "rectangular support, requires semantic tracing",
+    "prompt": "Locked camera, unchanged composition and identities. A restrained 3-second painted tableau. Only the selected leaf tips move slightly and return. No growth or new objects. End close to the starting pose. Nothing crosses the active support boundary. No zoom, pan, dolly, parallax, morphing, new objects or scene cut. The reference context stays still. A seamless loop is desired but must be inspected and repaired in post.",
+    "video_generated": false
+  },
+  {
+    "id": "C",
+    "layer": "garden",
+    "label": "远处人物候选",
+    "active": [
+      0.706,
+      0.5,
+      0.755,
+      0.55
+    ],
+    "motion": "One tiny head or hand adjustment and return. Bodies stay planted; no walking, no new people.",
+    "context": [
+      0.6877113866967306,
+      0.4768883878241263,
+      0.7733934611048479,
+      0.5727170236753101
+    ],
+    "reference_crop": [
+      1220,
+      423,
+      1372,
+      508
+    ],
+    "reference_pixels": [
+      1024,
+      576
+    ],
+    "mask_type": "rectangular support, requires semantic tracing",
+    "prompt": "Locked camera, unchanged composition and identities. A restrained 3-second painted tableau. One tiny head or hand adjustment and return. Bodies stay planted; no walking, no new people. End close to the starting pose. Nothing crosses the active support boundary. No zoom, pan, dolly, parallax, morphing, new objects or scene cut. The reference context stays still. A seamless loop is desired but must be inspected and repaired in post.",
+    "video_generated": false
+  },
+  {
+    "id": "D",
+    "layer": "hell",
+    "label": "远城火光",
+    "active": [
+      0.2,
+      0.3,
+      0.32,
+      0.37
+    ],
+    "motion": "A small distant flame flickers in place. Do not spread the fire or move the camera.",
+    "context": [
+      0.15501691093573844,
+      0.21645997745208567,
+      0.3652762119503946,
+      0.4532130777903044
+    ],
+    "reference_crop": [
+      275,
+      192,
+      648,
+      402
+    ],
+    "reference_pixels": [
+      1024,
+      576
+    ],
+    "mask_type": "rectangular support, requires semantic tracing",
+    "prompt": "Locked camera, unchanged composition and identities. A restrained 3-second painted tableau. A small distant flame flickers in place. Do not spread the fire or move the camera. End close to the starting pose. Nothing crosses the active support boundary. No zoom, pan, dolly, parallax, morphing, new objects or scene cut. The reference context stays still. A seamless loop is desired but must be inspected and repaired in post.",
+    "video_generated": false
+  },
+  {
+    "id": "E",
+    "layer": "hell",
+    "label": "远处烟气",
+    "active": [
+      0.69,
+      0.3,
+      0.81,
+      0.36
+    ],
+    "motion": "Faint smoke drifts a tiny distance inside the selected area and settles. Keep the ridge fixed.",
+    "context": [
+      0.644870349492672,
+      0.21195039458850057,
+      0.855129650507328,
+      0.447576099210823
+    ],
+    "reference_crop": [
+      1144,
+      188,
+      1517,
+      397
+    ],
+    "reference_pixels": [
+      1024,
+      576
+    ],
+    "mask_type": "rectangular support, requires semantic tracing",
+    "prompt": "Locked camera, unchanged composition and identities. A restrained 3-second painted tableau. Faint smoke drifts a tiny distance inside the selected area and settles. Keep the ridge fixed. End close to the starting pose. Nothing crosses the active support boundary. No zoom, pan, dolly, parallax, morphing, new objects or scene cut. The reference context stays still. A seamless loop is desired but must be inspected and repaired in post.",
+    "video_generated": false
+  },
+  {
+    "id": "F",
+    "layer": "hell",
+    "label": "黑水倒影",
+    "active": [
+      0.42,
+      0.64,
+      0.58,
+      0.72
+    ],
+    "motion": "A slight fire reflection shivers and settles on the black water. No shoreline change.",
+    "context": [
+      0.3602029312288613,
+      0.5219842164599775,
+      0.6397970687711386,
+      0.8376550169109357
+    ],
+    "reference_crop": [
+      639,
+      463,
+      1135,
+      743
+    ],
+    "reference_pixels": [
+      1024,
+      576
+    ],
+    "mask_type": "rectangular support, requires semantic tracing",
+    "prompt": "Locked camera, unchanged composition and identities. A restrained 3-second painted tableau. A slight fire reflection shivers and settles on the black water. No shoreline change. End close to the starting pose. Nothing crosses the active support boundary. No zoom, pan, dolly, parallax, morphing, new objects or scene cut. The reference context stays still. A seamless loop is desired but must be inspected and repaired in post.",
+    "video_generated": false
+  }
+]

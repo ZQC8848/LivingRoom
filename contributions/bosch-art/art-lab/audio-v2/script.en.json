@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "voice_direction": "A mature, intimate storyteller. Clear conversational phrasing, natural sentence stress, no theatrical whisper and no artificially slowed syllables.",
+  "narration": [
+    {"id":"arrival","text":"Five hundred years ago, Bosch painted a garden overflowing with pleasure. Look closely. What seems like paradise may already contain the beginning of its undoing."},
+    {"id":"reveal","text":"You are looking at the same place through another possibility. Is this a punishment, or a consequence we prefer not to see?"},
+    {"id":"return","text":"The garden returns. What you have seen remains part of it, even when it disappears."},
+    {"id":"mode-garden-light","text":"Art historian Margaret Carroll reads Bosch through time and transformation. As this garden passes into night, the buildings remain. What changes is the way we see them."},
+    {"id":"mode-garden-season","text":"Abundance has a season. Spring opens into summer, then autumn lets go. Here, winter offers a pause. Must a beautiful world remain forever in bloom?"},
+    {"id":"mode-hell-light","text":"In daylight, the ruins are exposed. At night, the fires take command. The light changes; the consequences remain. Stay with what the garden concealed."},
+    {"id":"mode-hell-season","text":"Rain crosses the ashes. Snow settles over the damage. This possibility of recovery is our reinterpretation of Bosch: a question left open, rather than a promised ending."},
+    {"id":"research","text":"Carroll's reading follows a world in transformation: light, water, fire, and the earth's changing life. Our experience extends that reading into a question about desire, consequences, and the need for rest."}
+  ],
+  "research": [
+    {"author":"Margaret D. Carroll","title":"Time and Transformation: Hieronymus Bosch’s Process","url":"https://yalebooks.yale.edu/2022/08/09/time-and-transformation-hieronymus-boschs-process/","scope":"An attributed scholarly interpretation of time, world history and changing material motifs; not established authorial intention."},
+    {"title":"The Garden of Earthly Delights, Bosch — Picture History","url":"https://www.afpradomuseum.org/the-garden-of-earthly-delights-bosch/history","scope":"Triptych, worldly pleasure, sin and fragility of earthly happiness."}
+  ],
+  "interpretive_boundary":"Rest, aligned alternate worlds and recovery are contemporary artistic extensions. The text does not claim that Bosch painted an ecological simulation or a literal cycle of redemption in Hell."
+}

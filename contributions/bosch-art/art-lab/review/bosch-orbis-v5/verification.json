@@ -1,0 +1,130 @@
+{
+  "errors": [],
+  "initial": {
+    "kind": "bosch-orbis-v5",
+    "layer": 0,
+    "flat": false,
+    "playing": true,
+    "motion": 1,
+    "yaw": -2.5,
+    "pitch": -0.68,
+    "handU": 0.5,
+    "handV": 0.5,
+    "raw": false,
+    "rawJob": "bird",
+    "rawReference": false,
+    "ready": 2,
+    "frames": 3,
+    "videoTimes": {
+      "garden": {
+        "currentTime": 0.1692,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      },
+      "hell": {
+        "currentTime": 0.1693,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      }
+    },
+    "actualOrbisGeneration": true,
+    "model": "Orbis Dynamic revisions",
+    "animalAnimationsAccepted": true
+  },
+  "videoAdvances": true,
+  "videoDoesNotMoveCamera": true,
+  "motionSamples": [
+    {
+      "look": "horse",
+      "frameChanges": true
+    },
+    {
+      "look": "bird",
+      "frameChanges": true
+    },
+    {
+      "look": "water",
+      "frameChanges": true
+    },
+    {
+      "look": "leaves",
+      "frameChanges": true
+    },
+    {
+      "look": "fire",
+      "frameChanges": true
+    }
+  ],
+  "revealChangesImage": true,
+  "handDoesNotMoveCamera": true,
+  "handMovesMask": true,
+  "layoutAspect": 2,
+  "rawTests": [
+    {
+      "job": "water",
+      "status": "原始场景保持未通过；合成版只提取模型的水面亮度波动。",
+      "reference": true
+    },
+    {
+      "job": "horse",
+      "status": "Dynamic 新版：保留小型独角兽，闭口低头；已替换旧版 Stable 片段。",
+      "reference": true
+    },
+    {
+      "job": "bird",
+      "status": "Dynamic 新版：有清楚的展翅与翼拍；活动蒙版已扩大。",
+      "reference": true
+    },
+    {
+      "job": "leaves",
+      "status": "Dynamic 树冠摆动；运动放大 4 倍，上限 7 个原图像素。",
+      "reference": true
+    },
+    {
+      "job": "fire",
+      "status": "原始结构较接近，仍有漂移；合成版只保留稳像后的局部火光亮度。",
+      "reference": true
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  },
+  "preview": {
+    "kind": "bosch-orbis-v5",
+    "layer": 0,
+    "flat": false,
+    "playing": true,
+    "motion": 1,
+    "yaw": -2.5,
+    "pitch": -0.68,
+    "handU": 0.5,
+    "handV": 0.5,
+    "raw": false,
+    "rawJob": "bird",
+    "rawReference": false,
+    "ready": 2,
+    "frames": 3,
+    "videoTimes": {
+      "garden": {
+        "currentTime": 0.141,
+        "paused": false,
+        "width": 1024,
+        "height": 512
+      },
+      "hell": {
+        "currentTime": 0.141,
+        "paused": false,
+        "width": 1024,
+        "height": 512
+      }
+    },
+    "actualOrbisGeneration": true,
+    "model": "Orbis Dynamic revisions",
+    "animalAnimationsAccepted": true
+  },
+  "pauseWorks": true,
+  "inlineBytes": 700117
+}

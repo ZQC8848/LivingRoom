@@ -1,0 +1,9 @@
+{
+  "job": "waterbird-small",
+  "model": "reactor/visko-orbis-dynamic",
+  "adopted_keeper": true,
+  "frames": 33,
+  "errors": [],
+  "status": "captured",
+  "captured_seconds": 12.172
+}

@@ -1,0 +1,413 @@
+{
+  "url": "https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/",
+  "headsetVerified": false,
+  "scope": "Real static MP3s decoded and played through Web Audio in Chrome; headset acoustics and comfort are not evaluated.",
+  "before": {
+    "enabled": false,
+    "ready": false,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [],
+    "completed": [],
+    "oneMusicClock": true,
+    "contextState": "not-started",
+    "assets": 0,
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0,
+    "audioTime": 0,
+    "bufferSeconds": {}
+  },
+  "audioRequestsBeforeOptIn": 0,
+  "garden": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival"
+    ],
+    "completed": [],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.2024,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": "arrival",
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.057960810111497514,
+    "audioTime": 3.6106666666666665,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "caption": "A garden offers everything. Clear water. Ripe fruit. Life without end. Look closely. Nothing here seems to ask a price.",
+  "hidden": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 1,
+    "played": [
+      "arrival"
+    ],
+    "completed": [],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0,
+      "dark": 0.2024,
+      "garden": 0.13500000000000004,
+      "hell": 0.48
+    },
+    "narrationId": "arrival",
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.05481376400853923,
+    "audioTime": 5.061333333333334,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "returned": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival"
+    ],
+    "completed": [],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.2024,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": "arrival",
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.02513813173486659,
+    "audioTime": 6.152,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "completed": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "completed": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.44,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": null,
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.017299273456762302,
+    "audioTime": 18.512,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "afterAnotherLoop": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "completed": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.44,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": null,
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.01923270354540929,
+    "audioTime": 21.050666666666668,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "muted": {
+    "enabled": false,
+    "ready": true,
+    "loading": false,
+    "userMuted": true,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "completed": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "oneMusicClock": true,
+    "contextState": "suspended",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.44,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": null,
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.000795092877101155,
+    "audioTime": 21.381333333333334,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "resumed": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "completed": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.44,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": null,
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.00006388216653886746,
+    "audioTime": 21.56,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "voiceOff": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "completed": [
+      "arrival",
+      "reveal",
+      "return"
+    ],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.44,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": null,
+    "voiceEnabled": false,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.012811663483449226,
+    "audioTime": 21.72,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "replay": {
+    "enabled": true,
+    "ready": true,
+    "loading": false,
+    "userMuted": false,
+    "errors": [],
+    "mix": 0,
+    "played": [
+      "arrival"
+    ],
+    "completed": [],
+    "oneMusicClock": true,
+    "contextState": "running",
+    "assets": 6,
+    "gainTargets": {
+      "bright": 0.2024,
+      "dark": 0,
+      "garden": 0.45,
+      "hell": 0
+    },
+    "narrationId": "arrival",
+    "voiceEnabled": true,
+    "captionsEnabled": true,
+    "volume": 0.7,
+    "rms": 0.05952149427862997,
+    "audioTime": 22.490666666666666,
+    "bufferSeconds": {
+      "arrival.mp3": 9.334416666666666,
+      "return.mp3": 2.6935208333333334,
+      "reveal.mp3": 3.2507916666666667,
+      "hell-ambience.mp3": 22,
+      "garden-ambience.mp3": 22,
+      "music.mp3": 115.9335
+    }
+  },
+  "captionOff": "",
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "panel": {
+      "x": 14,
+      "y": 673,
+      "width": 362,
+      "height": 93,
+      "top": 673,
+      "right": 376,
+      "bottom": 766,
+      "left": 14
+    }
+  },
+  "musicFetches": 1,
+  "modelCalls": [],
+  "englishOnly": true,
+  "audioFailure": {
+    "playing": true,
+    "videoMix": 1,
+    "audioErrors": [
+      "Failed to fetch"
+    ],
+    "pageErrors": []
+  },
+  "errors": [],
+  "checks": {
+    "optIn": true,
+    "actualDecodedAudio": true,
+    "revealMix": true,
+    "caption": true,
+    "oncePerEncounter": true,
+    "muteResume": true,
+    "separateVoiceAndCaptions": true,
+    "oneMusicFetch": true,
+    "mobile": true,
+    "englishOnly": true,
+    "visualSurvivesAudioFailure": true,
+    "noModelCalls": true,
+    "noPageErrors": true
+  }
+}

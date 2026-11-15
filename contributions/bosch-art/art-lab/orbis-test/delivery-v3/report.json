@@ -1,0 +1,21 @@
+{
+  "method": "object mattes + exposure normalization; articulated cutouts, whole-river texture flow, keyed generated fire",
+  "new_model_calls": 0,
+  "frames": 180,
+  "fps": 30,
+  "duration_seconds": 6.0,
+  "notes": "Bird/horse/fire reuse actual Orbis recordings. Trees and water are authored 2D motion. No whole-environment optical flow. No dynamic rectangular RGB background patches.",
+  "headset_verified": false,
+  "architecture_changed_pixels_before_encoding": 0,
+  "fire_city_changed_values_before_encoding": 0,
+  "bird_pixels_changed_outside_matte_envelope": 0,
+  "water_mask_pixels": 97100,
+  "garden": {
+    "projection_difference": 1.9679198265075684,
+    "loop_difference": 0.02291608601808548
+  },
+  "hell": {
+    "projection_difference": 1.4682260751724243,
+    "loop_difference": 0.0001025290330289863
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "garden-season",
+  "status": "captured",
+  "frames": 470,
+  "seconds": 30.11,
+  "hot_prompt_stages": [
+    {
+      "label": "Summer",
+      "sent_after_first_frame_seconds": -7.765,
+      "ack_after_send_seconds": 0.531,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Autumn",
+      "sent_after_first_frame_seconds": 3.516,
+      "ack_after_send_seconds": 0.703,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Winter",
+      "sent_after_first_frame_seconds": 16.235,
+      "ack_after_send_seconds": 0.875,
+      "reply_type": "prompt_accepted"
+    }
+  ],
+  "drift_first_to_last": {
+    "status": "insufficient robust inliers",
+    "matches": 14,
+    "inliers": 4,
+    "note": "Do not interpret this estimate as a camera-motion measurement."
+  },
+  "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+  "added_animation": false,
+  "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+}

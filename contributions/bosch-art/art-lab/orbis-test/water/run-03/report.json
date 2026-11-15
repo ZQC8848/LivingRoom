@@ -1,0 +1,16 @@
+{
+  "job": "water",
+  "model": "reactor/visko-orbis-dynamic",
+  "prompt": "Static camera, locked framing and deep focus throughout. The blue pond beneath the distant blue fountain, between painted grassy banks. Only the blue pond surface makes fine, shallow ripples that settle in place. The original painted brush texture, daylight, banks, buildings, horizon and every other figure remain fixed in their reference positions and shapes. The entire action stays inside the existing silhouette and its immediate surroundings. The opening and ending poses are nearly identical; the composition holds as a painted tableau.",
+  "requested_capture_seconds": 6.0,
+  "frames": 0,
+  "events": [],
+  "errors": [
+    "RateLimitedError: connect: [RATE_LIMITED] unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n",
+    "connect: [RATE_LIMITED] unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n"
+  ],
+  "attempt": "03",
+  "status": "failed",
+  "client_elapsed_seconds": 0.296,
+  "received_timestamps_seconds": []
+}

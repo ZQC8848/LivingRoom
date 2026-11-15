@@ -1,0 +1,191 @@
+{
+  "job": "leaves",
+  "model": "reactor/visko-orbis-stable",
+  "prompt": "A flat early-Netherlandish oil painting holds the exact composition and fine painted brushwork of the reference image. Only the green leaf tips at the top of the small tree bend by a tiny amount in a faint breeze and settle back. Every painted building, figure, animal, bank and branch holds its established shape and position; the painting stays flat, with the original mineral colors. Static camera, locked frame, identical framing throughout. A tiny local painted movement, with the rest of the painting still.",
+  "requested_capture_seconds": 6.0,
+  "frames": 108,
+  "events": [
+    {
+      "t": 2.609,
+      "type": "state"
+    },
+    {
+      "t": 2.609,
+      "type": "image_accepted"
+    },
+    {
+      "t": 2.625,
+      "type": "state"
+    },
+    {
+      "t": 2.625,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 2.656,
+      "type": "state"
+    },
+    {
+      "t": 2.672,
+      "type": "generation_started"
+    },
+    {
+      "t": 2.672,
+      "type": "state"
+    },
+    {
+      "t": 4.672,
+      "type": "state"
+    },
+    {
+      "t": 6.375,
+      "type": "state"
+    },
+    {
+      "t": 8.094,
+      "type": "state"
+    },
+    {
+      "t": 9.859,
+      "type": "state"
+    },
+    {
+      "t": 11.687,
+      "type": "state"
+    },
+    {
+      "t": 13.531,
+      "type": "state"
+    },
+    {
+      "t": 13.562,
+      "type": "state"
+    }
+  ],
+  "errors": [],
+  "attempt": "stable-01",
+  "connect_seconds": 1.594,
+  "first_frame_latency_seconds": 3.937,
+  "delivered_pixels": [
+    2560,
+    1440
+  ],
+  "captured_seconds": 6.0,
+  "available_resolutions": [
+    "1080p",
+    "2k",
+    "4k"
+  ],
+  "status": "captured",
+  "client_elapsed_seconds": 13.719,
+  "received_timestamps_seconds": [
+    0.0,
+    0.125,
+    0.172,
+    0.203,
+    0.235,
+    0.266,
+    0.297,
+    0.344,
+    0.375,
+    0.438,
+    0.5,
+    0.563,
+    0.625,
+    0.672,
+    0.719,
+    0.782,
+    0.828,
+    0.875,
+    0.938,
+    0.985,
+    1.032,
+    1.094,
+    1.157,
+    1.203,
+    1.297,
+    1.36,
+    1.422,
+    1.485,
+    1.547,
+    1.594,
+    1.672,
+    1.735,
+    1.797,
+    1.875,
+    1.938,
+    2.0,
+    2.063,
+    2.11,
+    2.188,
+    2.25,
+    2.297,
+    2.36,
+    2.422,
+    2.485,
+    2.532,
+    2.578,
+    2.625,
+    2.688,
+    2.735,
+    2.797,
+    2.844,
+    2.891,
+    2.953,
+    3.0,
+    3.063,
+    3.094,
+    3.157,
+    3.219,
+    3.282,
+    3.328,
+    3.375,
+    3.438,
+    3.485,
+    3.547,
+    3.61,
+    3.657,
+    3.719,
+    3.766,
+    3.828,
+    3.891,
+    3.938,
+    4.0,
+    4.063,
+    4.11,
+    4.172,
+    4.219,
+    4.282,
+    4.328,
+    4.391,
+    4.453,
+    4.5,
+    4.547,
+    4.625,
+    4.657,
+    4.719,
+    4.766,
+    4.828,
+    4.875,
+    4.938,
+    5.0,
+    5.063,
+    5.11,
+    5.157,
+    5.219,
+    5.282,
+    5.328,
+    5.375,
+    5.453,
+    5.5,
+    5.563,
+    5.61,
+    5.672,
+    5.719,
+    5.782,
+    5.828,
+    5.891,
+    5.938,
+    6.0
+  ]
+}

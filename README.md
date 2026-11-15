@@ -86,3 +86,7 @@ Quest over Wi-Fi (HTTPS, self-signed) still works when the LAN allows it:
 `?model=stable` swaps in Orbis Stable to test the plumbing when Dynamic is busy (its camera
 drifts, so it is not the look). Live sessions are billed per second from `ready`; **Stop**
 or closing the tab ends them, and the token caps any session at 15 minutes.
+
+## Art and storytelling handoff
+
+The independent painted Garden/Aftermath experience, shipped media, narration, concepts, production scripts and QA evidence are in [contributions/bosch-art](contributions/bosch-art/README.md). Read its merge notes before integrating; the existing technical app is preserved. Large media requires Git LFS.

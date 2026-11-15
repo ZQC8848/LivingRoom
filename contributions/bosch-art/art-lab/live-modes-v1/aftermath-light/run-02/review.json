@@ -1,0 +1,33 @@
+{
+  "id": "aftermath-light",
+  "status": "captured",
+  "frames": 481,
+  "seconds": 29.86,
+  "hot_prompt_stages": [
+    {
+      "label": "Day",
+      "sent_after_first_frame_seconds": -8.5,
+      "ack_after_send_seconds": 0.703,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Dusk",
+      "sent_after_first_frame_seconds": 3.375,
+      "ack_after_send_seconds": 0.344,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Night",
+      "sent_after_first_frame_seconds": 15.734,
+      "ack_after_send_seconds": 1.407,
+      "reply_type": "prompt_accepted"
+    }
+  ],
+  "drift_first_to_last": {
+    "status": "insufficient matches",
+    "matches": 7
+  },
+  "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+  "added_animation": false,
+  "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+}

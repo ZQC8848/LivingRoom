@@ -1,0 +1,103 @@
+{
+  "status": "Garden day/night re-anchor tested. A fixed-viewpoint composed 30-second loop is prepared for review; the public live frontend is not integrated. Existing r4 Reveal production remains unchanged.",
+  "garden_daynight_study": {
+    "delivery": "handoff/garden-daynight-20261114",
+    "live_evidence": "reanchor-evidence.mp4",
+    "latency_seconds": [6.36, 6.25, 6.516],
+    "raw_model_limit": "Re-anchor still reinterprets architecture.",
+    "review_method": "Aligned day/night structural plates, water-only Orbis temporal detail, authored 30-second light transition.",
+    "playback_is_recorded": true,
+    "public_live_controls_shipped": false,
+    "brush_interaction": "Deferred"
+  },
+  "title": "The Garden of Consequences",
+  "narrative_question": "What happens when a garden is never allowed to rest?",
+  "decision": {
+    "keep_reveal_as_narrative_core": true,
+    "day_night_is_not_a_good_evil_switch": true,
+    "worlds_are_two_readings_of_the_same_place": true,
+    "gesture_history_should_eventually_inform_both_worlds": true,
+    "free_running_model_streams_are_not_assumed_pixel_aligned": true
+  },
+  "modes": [
+    {
+      "id": "reveal",
+      "label": "Reveal",
+      "purpose": "Understand the relationship between abundance and its possible aftermath.",
+      "input": "Keep the existing pinch/trigger reveal.",
+      "media": "Spatially aligned, approved paired panoramas.",
+      "live_generation_required": false
+    },
+    {
+      "id": "living-garden",
+      "label": "Living Garden",
+      "purpose": "Experience the garden as a changing environment rather than a small moving picture.",
+      "cycle_choices": ["Day / Night", "Seasons"],
+      "changes": ["whole-scene illumination", "cloud motion", "moving water and reflections", "canopy movement and seasonal foliage", "snow settling in winter"],
+      "media": "One active Orbis generated stream, fixed viewpoint.",
+      "v1_cross_world_reveal": "Use the separate approved Reveal mode. Do not claim the comparison is a pixel-aligned live counterfactual of an unconstrained generated frame."
+    },
+    {
+      "id": "living-aftermath",
+      "label": "Living Aftermath",
+      "purpose": "Explore consequences and possible recovery through time.",
+      "cycle_choices": ["Day / Night", "Seasons"],
+      "changes": ["changing visibility of embers by day and night", "smoke responding to wind", "rain and changing water surface", "snow or wet ash accumulating", "sparse possible regrowth"],
+      "media": "One active Orbis generated stream, fixed viewpoint.",
+      "v1_cross_world_reveal": "Use the separate approved Reveal mode until spatial correspondence has been validated."
+    }
+  ],
+  "brush_phase_2": {
+    "label": "Cultivate",
+    "initial_scope": "One designated grass/island region; vines or flowers first.",
+    "gesture": "Explicitly select Cultivate, then pinch-drag. Exit that tool before using pinch to reveal.",
+    "immediate_feedback": "Locally render the stroke/seed trail immediately.",
+    "video_model_role": "Interpret stroke density, repetition and pace as bounded semantic requests for growth, ripening or excess.",
+    "precise_stroke_shape": "If required, test a compatible ComfyUI/ControlNet Scribble image workflow, then use its result as a new Orbis reference after reset/start. This is a separate image-to-video update, not hot image conditioning of the current run.",
+    "meaning": "Modest cultivation can support growth; repeatedly forcing abundance can accumulate a fictional pressure state. Rest allows recovery. These are authored interpretive rules, not a validated ecological simulation.",
+    "future_reveal": "Only publish a linked intervention-to-consequence reveal after both views share a validated spatial anchor and intervention state."
+  },
+  "provider_boundary": {
+    "hot_control": "set_prompt steers a running Orbis session at a chunk boundary.",
+    "reference_images": "set_image conditions the opening; replacing it mid-run requires reset and start to take effect.",
+    "no_assumed_controls": ["live scribble conditioning", "pixel-accurate paint masks", "guaranteed landmark preservation", "guaranteed two-world correspondence"],
+    "capabilities": "Read the connected session schema; do not assume all deployment versions expose the same controls.",
+    "latency": "Record actual gesture-to-visible-generated-change time. A documented chunk boundary is not an end-to-end latency guarantee.",
+    "projection": "Retain the approved sky/floor and panorama mapping; validate live reference/output framing rather than stretching 16:9 into 2:1.",
+    "session_policy": "Plan serial world tests from the previously observed shared Dynamic capacity. Never reset or end somebody else's keeper session."
+  },
+  "first_live_tests": [
+    {
+      "id": "garden-light",
+      "change": "Day to dusk to night",
+      "prompt": "The same early-Netherlandish painted garden surrounds a fixed observer: the same pink shell buildings, blue fountain, river banks, trees and small figures retain their established layout. The whole garden visibly transitions from warm late afternoon into deep blue night. Broad cloud banks move across the sky, a clear breeze passes through complete tree crowns, and the flowing water reflects the changing sky. Moonlit water and luminous flowers become visible. Locked camera, unchanged viewpoint and field of view, no pan, zoom, dolly or rotation."
+    },
+    {
+      "id": "garden-season",
+      "change": "Summer to autumn to winter",
+      "prompt": "The same early-Netherlandish painted garden and its shell buildings, fountain and shorelines keep their established positions around a fixed observer. A clearly visible seasonal change unfolds across the entire landscape: green canopies turn ochre, complete leaves detach and drift in the wind, then fine snow settles on the banks and branches. Water and sky remain visibly alive. Preserve recognizable architecture and figures. Locked camera, unchanged viewpoint and field of view, no camera movement."
+    },
+    {
+      "id": "aftermath-light",
+      "change": "Ashen daylight to ember-lit night",
+      "prompt": "The same ruined painted garden surrounds a fixed observer: cracked shell buildings, the central face fountain, dark river and charred trees retain their established positions. Ashen daylight slowly falls into night. Distinct flames rise behind fixed distant city silhouettes, smoke visibly climbs and drifts with the wind, and moving ember reflections spread across the dark water. Night changes visibility without adding buildings or moving the viewpoint. Locked camera and field of view, no pan, zoom, dolly or rotation."
+    },
+    {
+      "id": "aftermath-weather",
+      "change": "Dry heat to rain to wet winter",
+      "prompt": "The same ruined early-Netherlandish painted garden retains its cracked shell buildings, dark river, central face fountain and charred trees in the same layout. Weather changes visibly across the scene: wind carries ash, steady rain falls and raises ripples on the water, flames retreat into scattered embers, and pale wet snow begins to settle on the banks. A few small new shoots may appear near the damp shore. The landscape changes while its architecture stays recognizable. Locked camera, fixed observer and field of view, no camera movement."
+    }
+  ],
+  "validation": [
+    "Input is logged and a fresh generated response is visible; recorded playback is explicitly labeled.",
+    "Measure command accepted time and first visibly changed generated frame separately.",
+    "Changes affect at least several environmental features, rather than only a color filter.",
+    "Check camera/landmark drift, rear seam, poles, frame exposure and long-run degradation.",
+    "Check whether viewers describe the two worlds as linked, rather than unrelated scene skins."
+  ],
+  "research_sources": [
+    "https://dataland.art/exhibitions/machine-dreams-rainforest",
+    "https://www.reactor.inc/models/visko-orbis-dynamic/api",
+    "https://github.com/Comfy-Org/workflow_templates/blob/main/site/knowledge/examples/tutorial-controlnet-scribble.md"
+  ]
+}

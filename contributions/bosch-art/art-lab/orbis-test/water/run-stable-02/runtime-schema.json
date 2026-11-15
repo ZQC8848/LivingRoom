@@ -1,0 +1,917 @@
+{
+  "components": {
+    "schemas": {
+      "AudioEnabledAccepted": {
+        "properties": {
+          "audio_enabled": {
+            "description": "The value that was accepted. False means runs started from now on skip the audio model and `main_audio` carries silence; applies from the next `start` \u2014 a running generation keeps the setting it started with.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "audio_enabled"
+        ],
+        "type": "object"
+      },
+      "AudioPromptAccepted": {
+        "properties": {
+          "audio_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The sound description that was accepted, or null if it was cleared \u2014 which puts the audio model in its video-only mode, generating sound from the picture alone."
+          }
+        },
+        "required": [
+          "audio_prompt"
+        ],
+        "type": "object"
+      },
+      "ChunkComplete": {
+        "properties": {
+          "audio_samples": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Number of audio samples emitted on `main_audio` for this chunk, at 48 kHz mono, or null when this deployment has no audio track. Always equals `frames_emitted / fps * 48000` rounded, so a client can check A/V alignment without decoding anything."
+          },
+          "chunk_index": {
+            "description": "Zero-based index of the chunk that just completed.",
+            "type": "integer"
+          },
+          "frames_emitted": {
+            "description": "Number of pixel frames emitted by this chunk.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chunk_index",
+          "frames_emitted",
+          "audio_samples"
+        ],
+        "type": "object"
+      },
+      "CommandError": {
+        "properties": {
+          "command": {
+            "description": "Name of the command that was rejected.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "Human-readable explanation of why the command was rejected.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "command",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "ConditionsReady": {
+        "properties": {
+          "has_image": {
+            "description": "True once a reference image has been set for the session. Optional \u2014 with no image the model generates from the prompt alone (text-to-video).",
+            "type": "boolean"
+          },
+          "has_prompt": {
+            "description": "True once a prompt has been set for the session.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "has_prompt",
+          "has_image"
+        ],
+        "type": "object"
+      },
+      "GenerationComplete": {
+        "properties": {
+          "total_chunks": {
+            "description": "Total number of chunks produced by the run.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "total_chunks"
+        ],
+        "type": "object"
+      },
+      "GenerationPaused": {
+        "properties": {
+          "chunk_index": {
+            "description": "Index of the last completed chunk before pausing.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chunk_index"
+        ],
+        "type": "object"
+      },
+      "GenerationReset": {
+        "properties": {
+          "reason": {
+            "description": "Short human-readable reason the reset was issued.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "GenerationResumed": {
+        "properties": {
+          "chunk_index": {
+            "description": "Index of the last completed chunk before resuming.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chunk_index"
+        ],
+        "type": "object"
+      },
+      "GenerationStarted": {
+        "properties": {
+          "audio_enabled": {
+            "description": "Whether this run generates sound. False either because the session set `set_audio_enabled(false)` \u2014 `main_audio` then carries silence \u2014 or because this deployment has no `main_audio` track at all; read the schema to tell the two apart. Fixed for the run, like `resolution`.",
+            "type": "boolean"
+          },
+          "fps": {
+            "description": "Frame rate the video is generated at.",
+            "type": "integer"
+          },
+          "frames_per_chunk": {
+            "description": "Number of pixel frames each chunk emits on `main_video`.",
+            "type": "integer"
+          },
+          "height": {
+            "description": "Height in pixels of every frame this run emits on `main_video`.",
+            "type": "integer"
+          },
+          "image_conditioned": {
+            "description": "True when a reference image anchors this run (image-to-video); false for text-to-video.",
+            "type": "boolean"
+          },
+          "max_chunks": {
+            "description": "Maximum number of chunks this run will produce before `generation_complete` fires. 0 means the run is unlimited: it continues until `pause`/`reset` or the session ends, and `generation_complete` is never emitted.",
+            "type": "integer"
+          },
+          "resolution": {
+            "description": "The delivery resolution this run generates at \u2014 a named tier such as `1080p`, `2k`, `4k`. Fixed for the run; `set_resolution` applies from the next `start`.",
+            "type": "string"
+          },
+          "width": {
+            "description": "Width in pixels of every frame this run emits on `main_video`.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "image_conditioned",
+          "max_chunks",
+          "frames_per_chunk",
+          "fps",
+          "resolution",
+          "width",
+          "height",
+          "audio_enabled"
+        ],
+        "type": "object"
+      },
+      "ImageAccepted": {
+        "properties": {
+          "height": {
+            "description": "Height in pixels of the decoded reference image.",
+            "type": "integer"
+          },
+          "width": {
+            "description": "Width in pixels of the decoded reference image.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "width",
+          "height"
+        ],
+        "type": "object"
+      },
+      "PromptAccepted": {
+        "properties": {
+          "prompt": {
+            "description": "The prompt text that was accepted, exactly as the client sent it.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt"
+        ],
+        "type": "object"
+      },
+      "ReactorUploadReference": {
+        "description": "Reference to a file uploaded via the Reactor upload protocol.",
+        "format": "reactor-upload-reference",
+        "properties": {
+          "mime_type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "upload_id": {
+            "format": "uuid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "upload_id",
+          "name",
+          "mime_type",
+          "size"
+        ],
+        "type": "object"
+      },
+      "ResolutionAccepted": {
+        "properties": {
+          "height": {
+            "description": "Height in pixels `main_video` will deliver at once a run starts with this tier.",
+            "type": "integer"
+          },
+          "resolution": {
+            "description": "The delivery resolution that was accepted. Applies from the next `start` \u2014 a running generation keeps the resolution it started with.",
+            "type": "string"
+          },
+          "width": {
+            "description": "Width in pixels `main_video` will deliver at once a run starts with this tier \u2014 so a client can size its canvas without a name-to-size lookup table.",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "resolution",
+          "width",
+          "height"
+        ],
+        "type": "object"
+      },
+      "State": {
+        "properties": {
+          "audio_enabled": {
+            "description": "Whether the next `start` will generate sound \u2014 the client's `set_audio_enabled` choice, or true if it has not spoken. Like `seed`, the value driving a RUNNING generation was captured when `start` fired. Always false on a deployment with no `main_audio` track.",
+            "type": "boolean"
+          },
+          "audio_prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The sound description currently conditioning the audio, or null. Null means one of two things and the distinction does not matter to a client: either no `set_audio_prompt` has been sent, so this deployment's configured default is in force, or the caption was cleared and the audio is generated from the picture alone. Always null on a deployment with no `main_audio` track."
+          },
+          "available_resolutions": {
+            "description": "The delivery resolutions this deployment offers, in its configured order \u2014 the valid inputs to `set_resolution`. Fixed at startup; the named tiers are upscaler-delivered (1080p = 1920x1080, 2k = 2560x1440, 4k = 3840x2160).",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "current_chunk": {
+            "description": "Zero-based index of the last completed chunk. 0 before the first chunk has completed, and back to 0 on `reset`.",
+            "type": "integer"
+          },
+          "has_image": {
+            "description": "True once a reference image has been set for the session.",
+            "type": "boolean"
+          },
+          "has_prompt": {
+            "description": "True once a prompt has been set for the session.",
+            "type": "boolean"
+          },
+          "paused": {
+            "description": "True while generation is paused via `pause`.",
+            "type": "boolean"
+          },
+          "resolution": {
+            "description": "The delivery resolution the next `start` will use \u2014 the client's `set_resolution` choice, or the deployment's default if it has not spoken. Like `seed`, the value driving a RUNNING generation was captured when `start` fired.",
+            "type": "string"
+          },
+          "running": {
+            "description": "True while the chunk loop is actively producing frames \u2014 equivalent to `started and not paused`. False both before `start` and while paused; read `started` to tell those apart.",
+            "type": "boolean"
+          },
+          "seed": {
+            "description": "Current value of the `seed` input field. The seed actually driving a running generation was captured when `start` fired \u2014 later changes take effect only after `reset` and a new `start`.",
+            "type": "integer"
+          },
+          "started": {
+            "description": "True once `start` has been accepted. Stays true while paused; cleared by `reset`.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "running",
+          "started",
+          "paused",
+          "current_chunk",
+          "has_prompt",
+          "audio_prompt",
+          "has_image",
+          "seed",
+          "resolution",
+          "available_resolutions",
+          "audio_enabled"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "",
+    "title": "visko-orbis-stable",
+    "version": "v0.0.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/events/pause": {
+      "post": {
+        "operationId": "pause",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationPaused"
+                }
+              }
+            },
+            "description": "GenerationPaused"
+          }
+        },
+        "summary": "Pause generation after the current chunk finishes. Frames stop streaming on `main_video` until `resume` is called; the model keeps its place, so resuming continues the same shot rather than starting a new one. Emits `generation_paused` and `state` on success, or `command_error` if not generating or already paused."
+      }
+    },
+    "/events/reset": {
+      "post": {
+        "operationId": "reset",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationReset"
+                }
+              }
+            },
+            "description": "GenerationReset"
+          }
+        },
+        "summary": "Abort the current run, clear the active prompt and starting image, and return to the waiting state. Valid at any time. After `reset`, call `set_prompt` (and optionally `set_image`) again before `start`. Emits `generation_reset` and `state`."
+      }
+    },
+    "/events/resume": {
+      "post": {
+        "operationId": "resume",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerationResumed"
+                }
+              }
+            },
+            "description": "GenerationResumed"
+          }
+        },
+        "summary": "Resume generation from a previous `pause`. Requires the session to be paused. Emits `generation_resumed` and `state` on success, or `command_error` if not paused."
+      }
+    },
+    "/events/set_audio_enabled": {
+      "post": {
+        "operationId": "set_audio_enabled",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "audio_enabled": {
+                    "default": true,
+                    "description": "True to generate sound on `main_audio` (the default), false to skip the audio model and deliver silence from the next `start` on.",
+                    "type": "boolean",
+                    "x-reactor-moderate": false
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioEnabledAccepted"
+                }
+              }
+            },
+            "description": "AudioEnabledAccepted"
+          }
+        },
+        "summary": "Enable or disable sound for runs started from now on. When false the audio model is skipped entirely \u2014 `main_audio` carries silence and each chunk is cheaper to produce. Session-scoped like `set_resolution`: read when `start` fires, and it survives `reset`. Emits `audio_enabled_accepted` and `state` on success; rejected with `command_error` on a deployment that has no audio track. A client that never wants audio can also simply omit `main_audio` from its track mapping when connecting \u2014 that needs no command, but still spends the compute; this command is how the compute is saved."
+      }
+    },
+    "/events/set_audio_prompt": {
+      "post": {
+        "operationId": "set_audio_prompt",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "prompt": {
+                    "default": "",
+                    "description": "What the scene should SOUND like \u2014 instruments, voices, materials, ambience. Not a description of what is on screen: sending a scene description here makes the audio worse than leaving it empty. Keep it to about one sentence; roughly the first 128 tokens are used and the rest is dropped without warning. Example: \"Acoustic guitar strums a rhythmic melody, with soft finger noise on the strings and quiet room ambience.\" Empty clears it, and the audio is then generated from the picture alone.",
+                    "type": "string",
+                    "x-reactor-moderate": true
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioPromptAccepted"
+                }
+              }
+            },
+            "description": "AudioPromptAccepted"
+          }
+        },
+        "summary": "Set the sound description the audio is generated from. Valid at any time \u2014 call before `start`, or during generation to change the sound from the next chunk on. Pass an empty string to clear it, which switches the audio model to generating sound from the picture alone. Emits `audio_prompt_accepted` and `state` on success; rejected with `command_error` on a deployment that has no audio track."
+      }
+    },
+    "/events/set_image": {
+      "post": {
+        "operationId": "set_image",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "image": {
+                    "$ref": "#/components/schemas/ReactorUploadReference",
+                    "default": null,
+                    "description": "Starting frame, uploaded via the Reactor presigned-URL protocol. PNG or JPEG. Any size \u2014 it is resized to the model's 832x480 without cropping, so a frame of a different aspect ratio is squashed rather than trimmed.",
+                    "x-reactor-moderate": false
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageAccepted"
+                }
+              }
+            },
+            "description": "ImageAccepted"
+          }
+        },
+        "summary": "Provide a starting frame the video grows out of (image-to-video). Optional \u2014 with no image the model generates from the prompt alone. Call before `start`; the image anchors the first chunk and every later chunk inherits it through the model's own history, so a change during generation has no effect until `reset` and a new `start`. Emits `image_accepted`, `conditions_ready`, and `state` on success, or `command_error` if the file is missing, is not an image, or cannot be decoded."
+      }
+    },
+    "/events/set_prompt": {
+      "post": {
+        "operationId": "set_prompt",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "passthrough": {
+                    "default": false,
+                    "description": "Send this prompt to the model exactly as written. This deployment prepares `set_prompt` text server-side first; true skips that, and the text sent is what conditions generation, byte for byte \u2014 for prompts already authored the way the model wants them. Decided per call, so prepared and verbatim prompts mix freely in one session \u2014 a prompt sent this way still carries its characters and setting into the next one. Inert on a deployment that prepares nothing, where every prompt is already verbatim.",
+                    "type": "boolean",
+                    "x-reactor-moderate": false
+                  },
+                  "prompt": {
+                    "default": "",
+                    "description": "Natural-language description of the scene to generate. Replaces the previously active prompt. Applied on the next chunk when generating; otherwise takes effect when `start` fires.",
+                    "type": "string",
+                    "x-reactor-moderate": true
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromptAccepted"
+                }
+              }
+            },
+            "description": "PromptAccepted"
+          }
+        },
+        "summary": "Set the scene prompt that guides generation. Valid at any time \u2014 call before `start` to arm generation, or hot-swap during generation to steer the next chunk. The picture morphs into the new prompt at the next chunk boundary rather than cutting. Characters and setting persist across prompts until `reset`. This deployment prepares the text server-side before it conditions generation; pass `passthrough=true` for a prompt that is already written the way the model wants it. Emits `prompt_accepted`, `conditions_ready`, and `state` on success."
+      }
+    },
+    "/events/set_resolution": {
+      "post": {
+        "operationId": "set_resolution",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "resolution": {
+                    "default": "",
+                    "description": "One of the deployment's offered resolutions, exactly as listed in the `state` snapshot's `available_resolutions` \u2014 named delivery tiers (1080p = 1920x1080, 2k = 2560x1440, 4k = 3840x2160).",
+                    "type": "string",
+                    "x-reactor-moderate": false
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResolutionAccepted"
+                }
+              }
+            },
+            "description": "ResolutionAccepted"
+          }
+        },
+        "summary": "Choose the delivery resolution for `main_video` from this deployment's offered list (`available_resolutions` in the `state` snapshot \u2014 e.g. `1080p`, `2k`, `4k`). Session-scoped: read when `start` fires, so the track's geometry never jumps mid-shot \u2014 call it before `start`, or any time to arm the next run. Unlike the prompt it survives `reset`. Emits `resolution_accepted` and `state` on success, or `command_error` naming the offered list when the value is not on it."
+      }
+    },
+    "/events/set_seed": {
+      "post": {
+        "operationId": "set_seed",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "seed": {
+                    "default": 42.0,
+                    "description": "Seed for the noise the first chunk is sampled from. Must be a non-negative integer; the model never draws its own seed, so the same seed with the same prompts reproduces the same video. Read once when `start` fires \u2014 later changes take effect only after `reset` followed by a new `start`.",
+                    "minimum": 0.0,
+                    "type": "integer",
+                    "x-reactor-moderate": false
+                  }
+                },
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Command accepted"
+          }
+        },
+        "summary": "Seed for the noise the first chunk is sampled from. Must be a non-negative integer; the model never draws its own seed, so the same seed with the same prompts reproduces the same video. Read once when `start` fires \u2014 later changes take effect only after `reset` followed by a new `start`."
+      }
+    },
+    "/events/start": {
+      "post": {
+        "operationId": "start",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Command accepted"
+          }
+        },
+        "summary": "Begin generating video on `main_video`. Requires a prompt (via `set_prompt`); a starting image is optional. Emits `generation_started` and `state` on success, or `command_error` if no prompt is set. Has no effect while already generating."
+      }
+    }
+  },
+  "webhooks": {
+    "audio_enabled_accepted": {
+      "post": {
+        "operationId": "audio_enabled_accepted",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AudioEnabledAccepted"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted after `set_audio_enabled` is accepted."
+      }
+    },
+    "audio_prompt_accepted": {
+      "post": {
+        "operationId": "audio_prompt_accepted",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AudioPromptAccepted"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted after `set_audio_prompt` is accepted."
+      }
+    },
+    "chunk_complete": {
+      "post": {
+        "operationId": "chunk_complete",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChunkComplete"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted once per completed chunk of `main_video`."
+      }
+    },
+    "command_error": {
+      "post": {
+        "operationId": "command_error",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommandError"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted when a command is rejected because its preconditions are not met, or its\narguments could not be processed."
+      }
+    },
+    "conditions_ready": {
+      "post": {
+        "operationId": "conditions_ready",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConditionsReady"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted after `set_prompt` or `set_image` so the client can tell at a glance whether\n`start` will succeed."
+      }
+    },
+    "generation_complete": {
+      "post": {
+        "operationId": "generation_complete",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerationComplete"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted when the run reaches `max_chunks`.\n\nThe session returns to the waiting state rather than rolling straight into another run \u2014\na new run begins at chunk 0, which is a hard visual cut, and issuing one unasked would be\na surprise. Call `start` again to continue, or `reset` to clear the conditions first.\nNever emitted on a deployment with `max_chunks: 0` (unlimited runs)."
+      }
+    },
+    "generation_paused": {
+      "post": {
+        "operationId": "generation_paused",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerationPaused"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted in response to `pause`, once the current chunk finishes."
+      }
+    },
+    "generation_reset": {
+      "post": {
+        "operationId": "generation_reset",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerationReset"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted after `reset` clears session state and returns to the waiting state."
+      }
+    },
+    "generation_resumed": {
+      "post": {
+        "operationId": "generation_resumed",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerationResumed"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted in response to `resume` when leaving the paused state."
+      }
+    },
+    "generation_started": {
+      "post": {
+        "operationId": "generation_started",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerationStarted"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted once when `start` succeeds and frames begin streaming."
+      }
+    },
+    "image_accepted": {
+      "post": {
+        "operationId": "image_accepted",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImageAccepted"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted after `set_image` successfully decodes the uploaded file."
+      }
+    },
+    "prompt_accepted": {
+      "post": {
+        "operationId": "prompt_accepted",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PromptAccepted"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted after `set_prompt` is accepted."
+      }
+    },
+    "resolution_accepted": {
+      "post": {
+        "operationId": "resolution_accepted",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolutionAccepted"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Emitted after `set_resolution` is accepted."
+      }
+    },
+    "state": {
+      "post": {
+        "operationId": "state",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/State"
+              }
+            }
+          },
+          "required": true
+        },
+        "summary": "Snapshot of the session's observable state.\n\nEmitted on connect, after every command that mutates session state (`set_prompt`,\n`set_audio_prompt`, `set_image`, `set_seed`, `set_resolution`, `set_audio_enabled`,\n`start`, `pause`, `resume`, `reset`), and after each\n`chunk_complete`. A client can treat this as the single source of truth for driving UI\ninstead of tracking every individual message."
+      }
+    }
+  },
+  "x-reactor": {
+    "tracks": [
+      {
+        "direction": "out",
+        "kind": "video",
+        "name": "main_video"
+      },
+      {
+        "direction": "out",
+        "kind": "audio",
+        "name": "main_audio"
+      }
+    ]
+  }
+}

@@ -36,3 +36,6 @@ web/public/scenes
 
 # staged static-site media (tools/build_static.sh)
 web/.static-public/
+
+# Curated art-side handoff; nested ignore rules still exclude local runtime state.
+!contributions/bosch-art/**

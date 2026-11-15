@@ -1,0 +1,180 @@
+<div id="bosch-world-room">
+  <style>
+    #bosch-world-room{--br-bg:light-dark(#eae7dc,#141913);--br-fg:light-dark(#253026,#e6e8da);--br-muted:light-dark(#63715d,#a3ae98);--br-line:light-dark(#bbc7b3,#394632);--br-active:light-dark(#d0ddc4,#2b3b25);--br-accent:light-dark(#587140,#b1cb89);background:var(--br-bg);color:var(--br-fg);font:14px/1.6 system-ui,"Microsoft YaHei",sans-serif;width:100%;box-sizing:border-box;color-scheme:light dark}
+    #bosch-world-room *{box-sizing:border-box}
+    #bosch-world-room button,#bosch-world-room select,#bosch-world-room input{font:inherit}
+    #bosch-world-room button{color:inherit;background:transparent;border:1px solid var(--br-line);padding:7px 12px;border-radius:4px;min-height:38px;cursor:var(--cursor-interaction, pointer)}
+    #bosch-world-room button:hover,#bosch-world-room button[aria-pressed=true]{background:var(--br-active);border-color:var(--br-accent)}
+    #bosch-world-room button:focus-visible,#bosch-world-room input:focus-visible{outline:2px solid var(--br-accent);outline-offset:3px}
+    #bosch-world-room .mast{padding:17px 21px;border-bottom:1px solid var(--br-line);display:flex;align-items:center;justify-content:space-between;gap:15px;padding-right:95px}
+    #bosch-world-room .mast strong{font:500 24px/1.3 Georgia,"Songti SC","SimSun",serif;letter-spacing:1px}
+    #bosch-world-room .eyebrow{font:11px/1.5 ui-monospace,monospace;letter-spacing:1.4px;color:var(--br-muted)}
+    #bosch-world-room .body{padding:18px 20px}
+    #bosch-world-room .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:12px}
+    #bosch-world-room .toolbar .projection{margin-left:auto}
+    #bosch-world-room .stage{position:relative;height:520px;overflow:hidden;background:#1c271d;touch-action:none;isolation:isolate}
+    #bosch-world-room[data-flat=true] .stage{height:auto;aspect-ratio:2/1}
+    #bosch-world-room canvas{display:block;width:100%;height:100%;cursor:grab}
+    #bosch-world-room canvas:active{cursor:grabbing}
+    #bosch-world-room .corner{position:absolute;top:12px;left:13px;right:13px;display:flex;justify-content:space-between;gap:10px;font:11px/1.5 ui-monospace,monospace;color:#e2e7d4;pointer-events:none;text-shadow:0 1px 5px #000}
+    #bosch-world-room .corner span{background:#172013b5;padding:4px 6px}
+    #bosch-world-room .world-caption{position:absolute;bottom:18px;left:8%;right:8%;text-align:center;color:#edf0df;font:15px/1.8 Georgia,"Songti SC","SimSun",serif;pointer-events:none;text-shadow:0 2px 8px #10180f}
+    #bosch-world-room .world-caption span{background:#1720139c;padding:4px 8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+    #bosch-world-room .layout-labels{position:absolute;inset:0;display:none;pointer-events:none;color:#eff1df;font:12px/1.5 ui-monospace,monospace;text-shadow:0 1px 5px #111}
+    #bosch-world-room[data-flat=true] .layout-labels{display:block}
+    #bosch-world-room .layout-labels span{position:absolute;left:16px;background:#172013a8;padding:4px 6px}
+    #bosch-world-room .layout-labels span:nth-child(1){top:16%}#bosch-world-room .layout-labels span:nth-child(2){top:48%}#bosch-world-room .layout-labels span:nth-child(3){top:81%}
+    #bosch-world-room[data-flat=true] .world-caption{display:none}
+    #bosch-world-room .hint{display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px;color:var(--br-muted);font-size:11px;margin-top:8px}
+    #bosch-world-room .controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:15px}
+    #bosch-world-room .views{display:flex;flex-wrap:wrap;gap:5px}
+    #bosch-world-room .views button{padding:5px 10px;font-size:12px;min-height:34px}
+    #bosch-world-room .setting{display:flex;gap:8px;align-items:center;color:var(--br-muted);font-size:12px}
+    #bosch-world-room .setting input[type=range]{width:115px;accent-color:var(--br-accent)}
+    #bosch-world-room .setting input[type=checkbox]{accent-color:var(--br-accent)}
+    #bosch-world-room .setup{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px;padding-top:13px;border-top:1px solid var(--br-line)}
+    #bosch-world-room .setup .setting{flex-wrap:wrap}
+    #bosch-world-room .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center;margin-top:16px;color:var(--br-muted);font-size:11px}
+    #bosch-world-room .foot button{font-size:11px;min-height:30px;padding:3px 8px}
+    #bosch-world-room .notes{margin-top:13px;padding-top:12px;border-top:1px solid var(--br-line);font-size:12px;color:var(--br-muted)}
+    #bosch-world-room .notes p{margin:0 0 8px}
+    #bosch-world-room .notes a{color:var(--br-fg)}
+    #bosch-world-room .error{position:absolute;inset:15px;padding:15px;background:#1b2017;color:#efddad}
+    #bosch-world-room .reference-panel{position:absolute;inset:0;background:var(--br-bg);padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:3}
+    #bosch-world-room .reference-panel[hidden]{display:none}
+    #bosch-world-room .reference-panel img{display:block;max-width:100%;max-height:80%;object-fit:contain}
+    #bosch-world-room .reference-panel p{margin:0;color:var(--br-muted);font-size:12px;text-align:center}
+    @media(max-width:650px){#bosch-world-room .body{padding:12px}#bosch-world-room .mast{padding-left:13px}#bosch-world-room .mast strong{font-size:21px}#bosch-world-room .mast .eyebrow{display:none}#bosch-world-room .stage{height:380px}#bosch-world-room .toolbar .projection{margin-left:0}#bosch-world-room .setup{grid-template-columns:1fr}#bosch-world-room .world-caption{font-size:14px}#bosch-world-room .setting{flex-wrap:wrap}}
+  </style>
+  <div class="mast"><strong>欲望的两面 · 站进画里</strong><span class="eyebrow">SPATIAL STUDY / AFTER BOSCH</span></div>
+  <div class="body">
+    <div class="toolbar" aria-label="观看方式"><button type="button" data-layer="0" aria-pressed="true">花园</button><button type="button" data-layer="1" aria-pressed="false">举手揭示</button><button type="button" data-layer="2" aria-pressed="false">地狱参照</button><button type="button" class="reference-toggle" aria-pressed="false">核对原作</button><button type="button" class="projection" aria-pressed="false">查看 2:1 排版</button></div>
+    <div class="stage">
+      <canvas class="viewer" role="img" aria-label="可以拖动环顾四周的花园与地狱空间改编；移动手势蒙版揭示另一层环境"></canvas>
+      <div class="corner"><span class="source-tag">载入空间改编样片</span><span class="bearing">正前 / 000°</span></div>
+      <div class="layout-labels" aria-hidden="true"><span>安静的天空</span><span>完整 360° 环绕场景</span><span>安静的地面</span></div>
+      <div class="world-caption" aria-live="polite"><span>同一片水岸，两种代价。</span></div>
+      <div class="reference-panel" hidden><img alt="博斯《人间乐园》三联画原作参考，左联伊甸园、中联人间乐园、右联地狱"><p>环绕版本是参考博斯的空间构图草稿。建筑、地形和人物经过 AI 改编，并非原作逐像素还原；善恶空间的对应关系也是本项目的策展设计。</p></div>
+      <div class="error" hidden></div>
+    </div>
+    <div class="hint"><span>拖动转头；“举手揭示”后移动鼠标或轻触</span><span class="resolution-note"></span></div>
+    <div class="controls"><div class="views" aria-label="转头方向"><button type="button" data-look="front">前方</button><button type="button" data-look="left">左侧</button><button type="button" data-look="right">右侧</button><button type="button" data-look="back">身后</button><button type="button" data-look="up">仰头</button><button type="button" data-look="down">脚下</button></div><label class="setting"><input type="checkbox" class="animate" checked>氛围微动</label><label class="setting"><input type="checkbox" class="regions">局部生成区</label><label class="setting">动势 <input type="range" class="motion" min="0" max="1" step="0.01" value="0.35"><output class="motion-value">35%</output></label></div>
+    <div class="setup"><label class="setting">场景纬度 <input type="range" class="band" min="52" max="72" step="1" value="64"><output class="band-value">±64°</output></label><label class="setting">天地融入 <input type="range" class="feather" min="2" max="10" step="0.5" value="6"><output class="feather-value">6°</output></label></div>
+    <div class="foot"><span class="geometry-note">中间 60° 为画带，上下独立填充。</span><button type="button" class="show-notes" aria-expanded="false">图源与制作说明</button></div>
+    <div class="notes" hidden><p>将竖幅改为完整环绕，需要重新安排景物的方位与远近。本稿用 imagegen 生成连续环境，再校正地平线、球面排版和天地衔接。花园与地狱采用相同岸线和建筑位置进行配对，但生成结果仍有轮廓误差。</p><p>这是空间设计样片：含有新生成的建筑和人物，不能用作博斯图像学细节的证据。研究版应锁定原作叙事锚点、保留其真实图像，再只扩展连接它们的环境。</p><p>横向只使用整幅环境一次；接缝设在身后，约 11° 的窄带交融，未复制或镜像整幅。天地使用边缘平均色过渡。模型输出并不保证严格的全景投影，本稿已做垂直地平线重映射，仍需头显内校准空间尺度。</p><p>生成区内框为活动支持区，外框为参考上下文。当前仅展示分区合成与氛围亮度占位；尚未调用视频模型，人物静止。实际片段需保持相机固定、人物不触边、外部像素锁定，并在 ComfyUI 或剪辑合成工具中回贴为一个 2:1 RGB 视频。</p><a href="https://commons.wikimedia.org/wiki/File:Jheronimus_Bosch_023.jpg" target="_blank" rel="noopener noreferrer">原作参考与公有领域标记</a></div>
+  </div>
+  <script>
+  (()=>{
+    const root=document.getElementById('bosch-world-room'),$=s=>root.querySelector(s),$$=s=>[...root.querySelectorAll(s)];
+    const ASSETS=/*__ROOM_ASSETS__*/;
+    const EDITION=/*__EDITION__*/;
+    const REGIONS=/*__REGIONS__*/;
+    const TAU=Math.PI*2,PI=Math.PI;
+    let state={layer:0,flat:false,band:64,feather:6,motion:.35,animate:!matchMedia('(prefers-reduced-motion: reduce)').matches,yaw:0,pitch:0,handU:.5,handV:.5,showRegions:false,reference:false,probe:0};
+    const saved=window.openai?.widgetState?.modelContent;
+    if(saved?.kind==='bosch-world-v3')Object.assign(state,saved.controls);
+    let dirty=true,frames=0,last=0,time=0,loaded=0,drag=null;
+    const images={},canvas=$('.viewer');
+    const gl=canvas.getContext('webgl',{alpha:false,antialias:false,preserveDrawingBuffer:true});
+    const VERTEX='attribute vec2 p;varying vec2 v;void main(){v=p;gl_Position=vec4(p,0.,1.);}';
+    const FRAGMENT=`precision highp float;varying vec2 v;
+    uniform sampler2D garden;uniform sampler2D hell;uniform float aspect;uniform vec2 view;uniform float projectionMode;uniform float band;uniform float feather;uniform float layer;uniform vec2 hand;uniform float clock;uniform float motion;uniform float dayAspect;uniform float hellAspect;uniform float showRegions;uniform float probe;
+    const float PI=3.141592653589793;const float TAU=6.283185307179586;
+    vec3 direction(float lon,float lat){return vec3(sin(lon)*cos(lat),sin(lat),cos(lon)*cos(lat));}
+    // The complete, newly composed scene covers all 360 degrees exactly once.
+    // A generated landscape is not assumed to be projection-correct: set its
+    // painted horizon at world latitude zero, then make an equirectangular master.
+    vec2 worldUV(float lon,float lat){float t=tan(clamp(lat,-band,band))/tan(band);float y=.36-t*(lat>=0.?.36:.64);return vec2(lon/TAU+.5,clamp(y,.001,.999));}
+    vec3 seamless(sampler2D tex,vec2 uv){
+      const float s=.015;float p=uv.x<.5?uv.x:uv.x-1.;
+      if(abs(p)>=s)return texture2D(tex,uv).rgb;
+      vec3 left=texture2D(tex,vec2(clamp(1.+p,1.-s,.9999),uv.y)).rgb;
+      vec3 right=texture2D(tex,vec2(clamp(p,.0001,s),uv.y)).rgb;
+      return mix(left,right,smoothstep(-s,s,p));
+    }
+    /*__REGION_CONSTANTS__*/
+    float support(vec2 p,vec4 r){vec2 a=smoothstep(vec2(0.),vec2(.006),p-r.xy);vec2 b=smoothstep(vec2(0.),vec2(.006),r.zw-p);return a.x*a.y*b.x*b.y;}
+    float boxLine(vec2 p,vec4 r,float w){float outer=step(r.x-w,p.x)*step(p.x,r.z+w)*step(r.y-w,p.y)*step(p.y,r.w+w);float inner=step(r.x+w,p.x)*step(p.x,r.z-w)*step(r.y+w,p.y)*step(p.y,r.w-w);return max(0.,outer-inner);}
+    vec3 boundary(vec3 c,vec2 p,vec4 r,vec4 context){c=mix(c,vec3(.75,.77,.68),.75*boxLine(p,context,.0015));return mix(c,vec3(.62,.83,.35),boxLine(p,r,.002));}
+    vec3 caps(vec3 ray,float lat,float warm){
+      float k=clamp((abs(lat)-band+feather)/(PI*.5-band+feather),0.,1.);
+      vec3 sky=mix(/*__DAY_SKY__*/,/*__HELL_SKY__*/,warm),earth=mix(/*__DAY_GROUND__*/,/*__HELL_GROUND__*/,warm);
+      vec3 base=lat>0.?sky:earth;vec3 c=base*(1.-.16*smoothstep(0.,1.,k));
+      float breath=sin(dot(ray,vec3(1.7,2.4,1.3))*3.+clock*.18)*.5+.5;
+      float rings=pow(max(0.,sin(26.*length(ray.xz))),12.);
+      c+=motion*(lat>0.?vec3(.013,.021,.018)*breath:vec3(.009,.013,.006)*rings)*(1.-warm*.5);return c;
+    }
+    vec3 scene(vec3 ray,float lon,float lat){
+      vec3 hdir=direction((hand.x-.5)*TAU,(.5-hand.y)*PI);float angle=acos(clamp(dot(ray,hdir),-1.,1.));float reveal=layer>1.5?1.:layer>.5?1.-smoothstep(.24,.30,angle):0.;
+      float edge=1.-smoothstep(band-feather,band,abs(lat));vec3 cap=caps(ray,lat,reveal);
+      if(edge<.001)return cap;
+      vec2 duv=worldUV(lon,lat),huv=duv;
+      vec3 d=seamless(garden,duv),h=seamless(hell,huv);
+      // A small, fixed part of the painted inferno changes luminance. Geometry is held.
+      float daySupport=min(1.,support(duv,A)+support(duv,B)+support(duv,C));float hellSupport=min(1.,support(huv,D)+support(huv,E)+support(huv,F));
+      float orange=clamp((h.r-h.g*.92)*5.,0.,1.)*(1.-smoothstep(.40,.66,huv.y))*hellSupport;
+      float pulse=.56+.22*sin(clock*1.65+huv.x*19.)+.12*sin(clock*2.3+huv.y*13.);
+      h+=vec3(.20,.07,.008)*orange*motion*pulse;
+      float ember=pow(max(0.,sin(huv.x*170.+floor(huv.y*17.)*8.)),32.)*pow(max(0.,sin(huv.y*140.+clock*.35)),26.);
+      h+=vec3(.18,.055,.008)*ember*motion*(1.-smoothstep(.25,.60,huv.y))*hellSupport;
+      d+=vec3(.003,.008,.004)*motion*sin(clock*.7+duv.x*13.)*support(duv,A);
+      // Synthetic patch probe used by verification: all changes are clipped to supports.
+      d+=vec3(.015,.07,.015)*probe*daySupport;h+=vec3(.07,.015,.005)*probe*hellSupport;
+      if(showRegions>.5){d=boundary(boundary(boundary(d,duv,A,CA),duv,B,CB),duv,C,CC);h=boundary(boundary(boundary(h,huv,D,CD),huv,E,CE),huv,F,CF);}
+      vec3 dayView=mix(caps(ray,lat,0.),d,edge);vec3 hellView=mix(caps(ray,lat,1.),h,edge);
+      return mix(dayView,hellView,reveal);
+    }
+    void main(){vec3 ray;float lon;float lat;
+      if(projectionMode>.5){lon=v.x*PI;lat=v.y*PI*.5;ray=direction(lon,lat);}
+      else{float f=tan(34.*PI/180.);ray=normalize(vec3(v.x*aspect*f,v.y*f,1.));float cp=cos(view.y),sp=sin(view.y);ray=vec3(ray.x,ray.y*cp+ray.z*sp,-ray.y*sp+ray.z*cp);float cy=cos(view.x),sy=sin(view.x);ray=vec3(ray.x*cy+ray.z*sy,ray.y,-ray.x*sy+ray.z*cy);lon=atan(ray.x,ray.z);lat=asin(clamp(ray.y,-1.,1.));}
+      vec3 c=scene(ray,lon,lat);gl_FragColor=vec4(c,1.);
+    }`;
+    let renderer;
+    function compile(g,type,src){const s=g.createShader(type);g.shaderSource(s,src);g.compileShader(s);if(!g.getShaderParameter(s,g.COMPILE_STATUS))throw Error(g.getShaderInfoLog(s));return s;}
+    function createRenderer(c,g){
+      const p=g.createProgram();g.attachShader(p,compile(g,g.VERTEX_SHADER,VERTEX));g.attachShader(p,compile(g,g.FRAGMENT_SHADER,FRAGMENT));g.linkProgram(p);if(!g.getProgramParameter(p,g.LINK_STATUS))throw Error(g.getProgramInfoLog(p));g.useProgram(p);
+      const b=g.createBuffer();g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),g.STATIC_DRAW);const a=g.getAttribLocation(p,'p');g.enableVertexAttribArray(a);g.vertexAttribPointer(a,2,g.FLOAT,false,0,0);
+      const names=['aspect','view','projectionMode','band','feather','layer','hand','clock','motion','dayAspect','hellAspect','showRegions','probe'];const u=Object.fromEntries(names.map(n=>[n,g.getUniformLocation(p,n)]));const textures={};
+      function upload(name,index){if(!images[name])return;g.activeTexture(g.TEXTURE0+index);const t=g.createTexture();g.bindTexture(g.TEXTURE_2D,t);g.texParameteri(g.TEXTURE_2D,g.TEXTURE_MIN_FILTER,g.LINEAR);g.texParameteri(g.TEXTURE_2D,g.TEXTURE_MAG_FILTER,g.LINEAR);g.texParameteri(g.TEXTURE_2D,g.TEXTURE_WRAP_S,g.CLAMP_TO_EDGE);g.texParameteri(g.TEXTURE_2D,g.TEXTURE_WRAP_T,g.CLAMP_TO_EDGE);let im=images[name];const max=g.getParameter(g.MAX_TEXTURE_SIZE);if(Math.max(im.width,im.height)>max){const cc=document.createElement('canvas');const scale=max/Math.max(im.width,im.height);cc.width=Math.round(im.width*scale);cc.height=Math.round(im.height*scale);cc.getContext('2d').drawImage(im,0,0,cc.width,cc.height);im=cc;}g.texImage2D(g.TEXTURE_2D,0,g.RGB,g.RGB,g.UNSIGNED_BYTE,im);g.uniform1i(g.getUniformLocation(p,name),index);textures[name]=t;}
+      upload('garden',0);upload('hell',1);
+      return {g,p,u,textures,draw(opts={}){const s={...state,...opts};g.useProgram(p);for(const [index,name]of ['garden','hell'].entries()){g.activeTexture(g.TEXTURE0+index);g.bindTexture(g.TEXTURE_2D,textures[name]);}g.viewport(0,0,c.width,c.height);g.uniform1f(u.aspect,c.width/c.height);g.uniform2f(u.view,s.yaw,s.pitch);g.uniform1f(u.projectionMode,s.flat?1:0);g.uniform1f(u.band,s.band*PI/180);g.uniform1f(u.feather,s.feather*PI/180);g.uniform1f(u.layer,s.layer);g.uniform2f(u.hand,s.handU,s.handV);g.uniform1f(u.clock,time);g.uniform1f(u.motion,s.animate?s.motion:0);g.uniform1f(u.dayAspect,ASSETS.garden.aspect);g.uniform1f(u.hellAspect,ASSETS.hell.aspect);g.uniform1f(u.showRegions,s.showRegions?1:0);g.uniform1f(u.probe,s.probe||0);g.drawArrays(g.TRIANGLE_STRIP,0,4);}};
+    }
+    function save(){if(window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{kind:'bosch-world-v3',controls:{...state}},privateContent:null}).catch(()=>{});}
+    function ui(){
+      root.dataset.flat=state.flat;$$('[data-layer]').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.layer)===state.layer));
+      $('.projection').textContent=state.flat?'回到画中视角':'查看 2:1 排版';$('.projection').setAttribute('aria-pressed',state.flat);
+      $('.reference-toggle').setAttribute('aria-pressed',state.reference);$('.reference-panel').hidden=!state.reference;
+      $('.animate').checked=state.animate;$('.regions').checked=state.showRegions;$('.motion').value=state.motion;$('.motion-value').textContent=Math.round(state.motion*100)+'%';$('.band').value=state.band;$('.band-value').textContent='±'+state.band+'°';$('.feather').value=state.feather;$('.feather-value').textContent=state.feather+'°';
+      $('.geometry-note').textContent=state.showRegions?'内框：活动支持区；外框：静止上下文。':'360° 连续构图 · 固定观察点 · 原作空间改编';
+      $('.world-caption span').textContent=state.layer===0?'同一片水岸，两种代价。':state.layer===1?'举起手，看繁盛如何成为荒芜。':'花园的结构仍在，曾经的繁盛已经消失。';
+      if(loaded===2)$('.source-tag').textContent=state.layer===2?'地狱 / 空间改编样片':'花园 / 空间改编样片';dirty=true;
+    }
+    function resize(){const r=$('.stage').getBoundingClientRect(),d=Math.min(devicePixelRatio||1,1.75);canvas.width=Math.max(1,Math.round(r.width*d));canvas.height=Math.max(1,Math.round(r.height*d));dirty=true;}
+    function bearing(){let deg=((Math.round(state.yaw*180/PI)%360)+360)%360;$('.bearing').textContent=state.flat?'360° × 180° / 2:1':Math.abs(state.pitch)>.8?(state.pitch>0?'穹顶':'地面')+' / '+Math.round(state.pitch*180/PI)+'°':'转头 / '+String(deg).padStart(3,'0')+'°';}
+    function tick(t){time=t/1000;if(renderer&&loaded===2&&(dirty||state.animate)&&t-last>40){renderer.draw();dirty=false;frames++;last=t;bearing();}requestAnimationFrame(tick);}
+    function rayUV(e){const r=canvas.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width*2-1,ny=1-(e.clientY-r.top)/r.height*2;if(state.flat)return {u:(nx+1)/2,v:(1-ny)/2};const f=Math.tan(34*PI/180);let x=nx*r.width/r.height*f,y=ny*f,z=1;let yy=y*Math.cos(state.pitch)+z*Math.sin(state.pitch);z=-y*Math.sin(state.pitch)+z*Math.cos(state.pitch);y=yy;let xx=x*Math.cos(state.yaw)+z*Math.sin(state.yaw);z=-x*Math.sin(state.yaw)+z*Math.cos(state.yaw);x=xx;const length=Math.hypot(x,y,z);return {u:(Math.atan2(x,z)/TAU+.5+1)%1,v:.5-Math.asin(y/length)/PI};}
+    $$('[data-layer]').forEach(b=>b.addEventListener('click',()=>{state.reference=false;state.layer=Number(b.dataset.layer);state.handU=(state.yaw/TAU+.5+1)%1;state.handV=.5-state.pitch/PI;ui();save()}));
+    $('.projection').addEventListener('click',()=>{state.reference=false;state.flat=!state.flat;ui();requestAnimationFrame(resize);save()});
+    $('.reference-toggle').addEventListener('click',()=>{state.reference=!state.reference;ui();save()});
+    $('.regions').addEventListener('change',e=>{state.showRegions=e.target.checked;ui();save()});
+    $('.animate').addEventListener('change',e=>{state.animate=e.target.checked;ui();save()});
+    for(const [cls,key]of [['motion','motion'],['band','band'],['feather','feather']])$('.'+cls).addEventListener('input',e=>{state[key]=Number(e.target.value);ui();save()});
+    $$('[data-look]').forEach(b=>b.addEventListener('click',()=>{state.reference=false;state.flat=false;const look=b.dataset.look;if(look==='up')state.pitch=PI*.44;else if(look==='down')state.pitch=-PI*.44;else{state.yaw=look==='back'?PI:look==='left'?-PI*.5:look==='right'?PI*.5:0;state.pitch=0;}state.handU=(state.yaw/TAU+.5+1)%1;state.handV=.5-state.pitch/PI;ui();requestAnimationFrame(resize);save()}));
+    $('.show-notes').addEventListener('click',()=>{const open=$('.notes').hidden;$('.notes').hidden=!open;$('.show-notes').setAttribute('aria-expanded',open)});
+    canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);drag={x:e.clientX,y:e.clientY,total:0};const p=rayUV(e);state.handU=p.u;state.handV=p.v;dirty=true;});
+    canvas.addEventListener('pointermove',e=>{if(drag){const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.total+=Math.abs(dx)+Math.abs(dy);if(!state.flat){state.yaw-=dx*.0035;state.pitch=Math.max(-PI*.49,Math.min(PI*.49,state.pitch+dy*.0035));}drag.x=e.clientX;drag.y=e.clientY;dirty=true;}else if(state.layer===1){const p=rayUV(e);state.handU=p.u;state.handV=p.v;dirty=true;}});
+    canvas.addEventListener('pointerup',e=>{if(drag&&drag.total<7){const p=rayUV(e);state.handU=p.u;state.handV=p.v;dirty=true;}drag=null;save()});canvas.addEventListener('pointercancel',()=>{drag=null});
+    window.addEventListener('openai:set_globals',e=>{const saved=e.detail?.globals?.widgetState?.modelContent;if(saved?.kind==='bosch-world-v3'){Object.assign(state,saved.controls);ui();resize();}});
+    new ResizeObserver(resize).observe($('.stage'));
+    function showError(e){$('.error').hidden=false;$('.error').textContent=e.message||String(e);}
+    try{
+      if(!gl)throw Error('当前环境无法使用 WebGL，请打开本地浏览器版本。');
+      $('.reference-panel img').src=ASSETS.reference.src;
+      for(const name of ['garden','hell']){const im=new Image();im.onload=()=>{images[name]=im;loaded++;if(loaded===2){renderer=createRenderer(canvas,gl);const p=ASSETS.garden.pixels;$('.resolution-note').textContent=`构图草稿 ${p[0]} × ${p[1]} · 人物静止`;ui();resize();}};im.onerror=()=>showError(Error('图像载入失败'));im.src=ASSETS[name].src;}
+      ui();resize();requestAnimationFrame(tick);
+    }catch(e){showError(e);}
+    // Export samples the SAME spherical scene into a single standard 2:1 RGB frame.
+    root.boschRoom={state:()=>({...state,edition:EDITION,loaded,frames,maxTexture:gl?.getParameter(gl.MAX_TEXTURE_SIZE),sourceInstances:1,sourceSpanDegrees:360,sourcePixels:{garden:ASSETS.garden.pixels,hell:ASSETS.hell.pixels},imageGenerationCalled:true,videoGenerationCalled:false}),regions:REGIONS,set:next=>{Object.assign(state,next);ui();resize();},exportMaster:(width=4096,layer=0)=>{if(loaded!==2)throw Error('Images not ready');const c=document.createElement('canvas');c.width=width;c.height=width/2;const g=c.getContext('webgl',{alpha:false,antialias:false,preserveDrawingBuffer:true});if(!g)throw Error('Export WebGL unavailable');const r=createRenderer(c,g);r.draw({flat:true,layer,animate:false,showRegions:false,probe:0});const result=c.toDataURL('image/jpeg',.95);g.getExtension('WEBGL_lose_context')?.loseContext();return result;}};
+  })();
+  </script>
+</div>

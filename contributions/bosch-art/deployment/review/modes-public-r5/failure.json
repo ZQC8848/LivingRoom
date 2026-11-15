@@ -1,0 +1,32 @@
+{
+  "error": "page.waitForFunction: Timeout 45000ms exceeded.",
+  "errors": [],
+  "state": {
+    "mode": "garden-light",
+    "menu": false,
+    "playing": true,
+    "video": "blob:https://livingroom-bosch-demo.sandy-toad-8179.chatgpt.site/02b8114f-9c25-4740-a884-a89f5131facb",
+    "blob": true,
+    "w": 1536,
+    "h": 768,
+    "d": 12,
+    "oneVideo": true,
+    "oneTexture": true,
+    "pane": [
+      0,
+      1
+    ],
+    "rot": [
+      0.1,
+      0.35,
+      0,
+      "YXZ"
+    ],
+    "radii": [
+      0,
+      0
+    ],
+    "problems": [],
+    "mix": 1
+  }
+}

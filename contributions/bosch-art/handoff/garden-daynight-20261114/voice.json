@@ -1,0 +1,8 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+  "voice_name": "George - Warm, Captivating Storyteller",
+  "model": "eleven_multilingual_v2",
+  "language": "en",
+  "key_saved": false
+}

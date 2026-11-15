@@ -1,0 +1,82 @@
+[
+  {
+    "job": "aerial-creature",
+    "recorded_frames": 104,
+    "generated_rgb_accepted": false,
+    "flow_accepted": false,
+    "mean_object_displacement_pixels": 0.8229790329933167,
+    "static_context_color_fit_MAE": 6.885907476124727,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  },
+  {
+    "job": "sky-birds",
+    "recorded_frames": 109,
+    "generated_rgb_accepted": false,
+    "flow_accepted": false,
+    "mean_object_displacement_pixels": 0.3042595684528351,
+    "static_context_color_fit_MAE": 7.724493382961125,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  },
+  {
+    "job": "herd",
+    "recorded_frames": 59,
+    "generated_rgb_accepted": false,
+    "flow_accepted": true,
+    "mean_object_displacement_pixels": 0.2559150755405426,
+    "static_context_color_fit_MAE": 13.63453421130387,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  },
+  {
+    "job": "bank-bird",
+    "recorded_frames": 100,
+    "generated_rgb_accepted": false,
+    "flow_accepted": true,
+    "mean_object_displacement_pixels": 0.28457701206207275,
+    "static_context_color_fit_MAE": 12.314448930212325,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  },
+  {
+    "job": "waterbird-small",
+    "recorded_frames": 33,
+    "generated_rgb_accepted": false,
+    "flow_accepted": false,
+    "mean_object_displacement_pixels": 0.13200969994068146,
+    "static_context_color_fit_MAE": 10.664992984376868,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  },
+  {
+    "job": "waterbird-large",
+    "recorded_frames": 104,
+    "generated_rgb_accepted": false,
+    "flow_accepted": false,
+    "mean_object_displacement_pixels": 0.16050252318382263,
+    "static_context_color_fit_MAE": 9.72890182567027,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  },
+  {
+    "job": "stag",
+    "recorded_frames": 100,
+    "generated_rgb_accepted": false,
+    "flow_accepted": true,
+    "mean_object_displacement_pixels": 0.16469085216522217,
+    "static_context_color_fit_MAE": 11.397414674974426,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  },
+  {
+    "job": "bathers",
+    "recorded_frames": 105,
+    "generated_rgb_accepted": false,
+    "flow_accepted": true,
+    "mean_object_displacement_pixels": 0.28974011540412903,
+    "static_context_color_fit_MAE": 12.176303804906713,
+    "method": "registered, exposure-normalized, temporally smoothed Orbis flow applied only to original object RGBA; <=2.5 native pixels; source wing/leg articulation supplements motion",
+    "reason": "Generated RGB changes exposure and does not provide a reliable isolated wingbeat. No generated rectangular background is composited."
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "job": "water",
+  "model": "reactor/visko-orbis-dynamic",
+  "prompt": "A flat early-Netherlandish oil painting holds the exact composition and fine painted brushwork of the reference image. Only the blue pond surface makes fine, shallow ripples that settle in place. Every painted building, figure, animal, bank and branch holds its established shape and position; the painting stays flat, with the original mineral colors. Static camera, locked frame, identical framing throughout. A tiny local painted movement, with the rest of the painting still.",
+  "requested_capture_seconds": 6.0,
+  "frames": 0,
+  "events": [],
+  "errors": [
+    "RateLimitedError: connect: [RATE_LIMITED] unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n",
+    "connect: [RATE_LIMITED] unexpected HTTP status 429 from create session: {\"error\":\"no available capacity: no available servers to handle the request\"}\n"
+  ],
+  "attempt": "04",
+  "status": "failed",
+  "client_elapsed_seconds": 0.359,
+  "received_timestamps_seconds": []
+}

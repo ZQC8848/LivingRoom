@@ -1,0 +1,79 @@
+{
+  "title": "Fast time studies",
+  "overview_seconds": 19,
+  "outline": [
+    {
+      "seconds": [
+        0,
+        7
+      ],
+      "mode": "Reveal, recorded illustration"
+    },
+    {
+      "seconds": [
+        7,
+        13
+      ],
+      "mode": "Day / Night, two worlds"
+    },
+    {
+      "seconds": [
+        13,
+        19
+      ],
+      "mode": "Seasons, two worlds"
+    }
+  ],
+  "modes": [
+    {
+      "id": "garden-light",
+      "world": "garden",
+      "kind": "light",
+      "seconds": 12,
+      "transition_seconds": 6,
+      "flat": "garden-light-flat.mp4",
+      "panorama": "garden-light-panorama.mp4",
+      "source_object_motion": "r4 approved 8s object loop, 2x playback",
+      "live_generation": false
+    },
+    {
+      "id": "garden-season",
+      "world": "garden",
+      "kind": "season",
+      "seconds": 8,
+      "transition_seconds": 2,
+      "flat": "garden-season-flat.mp4",
+      "panorama": "garden-season-panorama.mp4",
+      "source_object_motion": "r4 approved 8s object loop, 2x playback",
+      "live_generation": false
+    },
+    {
+      "id": "hell-light",
+      "world": "hell",
+      "kind": "light",
+      "seconds": 12,
+      "transition_seconds": 6,
+      "flat": "hell-light-flat.mp4",
+      "panorama": "hell-light-panorama.mp4",
+      "source_object_motion": "r4 approved 8s object loop, 2x playback",
+      "live_generation": false
+    },
+    {
+      "id": "hell-season",
+      "world": "hell",
+      "kind": "season",
+      "seconds": 8,
+      "transition_seconds": 2,
+      "flat": "hell-season-flat.mp4",
+      "panorama": "hell-season-panorama.mp4",
+      "source_object_motion": "r4 approved 8s object loop, 2x playback",
+      "live_generation": false
+    }
+  ],
+  "primary_narrative": "Original live Reveal remains the main interaction.",
+  "production_reveal_modified": false,
+  "new_video_model_calls": 0,
+  "method": "Quick hybrid pacing study. Existing Orbis captures and authored object animation reused from r4. Time-of-day grades, weather particles and season transitions are authored. One imagegen winter aftermath reference.",
+  "not_a_live_model_connection": true,
+  "headset_verified": false
+}

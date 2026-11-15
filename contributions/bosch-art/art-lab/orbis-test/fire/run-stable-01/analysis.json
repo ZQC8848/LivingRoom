@@ -1,0 +1,75 @@
+{
+  "job": "fire",
+  "run": "run-stable-01",
+  "frames": 108,
+  "raw_video_seconds": 6.0,
+  "metrics": [
+    {
+      "valid": true,
+      "matches": 55,
+      "inliers": 23,
+      "dx": 0.694,
+      "dy": -2.539,
+      "rotation_degrees": -0.1109,
+      "scale": 0.99983,
+      "frame": 0,
+      "mean_absolute_difference": 12.138
+    },
+    {
+      "valid": true,
+      "matches": 51,
+      "inliers": 19,
+      "dx": 2.679,
+      "dy": -2.314,
+      "rotation_degrees": -0.1384,
+      "scale": 1.00022,
+      "frame": 21,
+      "mean_absolute_difference": 12.737
+    },
+    {
+      "valid": true,
+      "matches": 53,
+      "inliers": 21,
+      "dx": 7.957,
+      "dy": -9.29,
+      "rotation_degrees": -0.0693,
+      "scale": 0.99977,
+      "frame": 43,
+      "mean_absolute_difference": 15.333
+    },
+    {
+      "valid": true,
+      "matches": 37,
+      "inliers": 15,
+      "dx": 6.86,
+      "dy": -9.4,
+      "rotation_degrees": -0.0327,
+      "scale": 0.99884,
+      "frame": 64,
+      "mean_absolute_difference": 15.295
+    },
+    {
+      "valid": true,
+      "matches": 45,
+      "inliers": 16,
+      "dx": 7.696,
+      "dy": -9.711,
+      "rotation_degrees": -0.0507,
+      "scale": 1.00023,
+      "frame": 86,
+      "mean_absolute_difference": 15.385
+    },
+    {
+      "valid": true,
+      "matches": 45,
+      "inliers": 15,
+      "dx": 13.112,
+      "dy": -9.634,
+      "rotation_degrees": 0.0295,
+      "scale": 0.99897,
+      "frame": 107,
+      "mean_absolute_difference": 16.649
+    }
+  ],
+  "scope": "Raw model frames compared against the supplied reference, excluding active region for camera matching. This is a diagnostic, not headset validation."
+}

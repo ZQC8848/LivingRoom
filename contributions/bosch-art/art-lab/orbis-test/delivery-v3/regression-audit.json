@@ -1,0 +1,59 @@
+{
+  "scope": "36 decoded samples per video; encoded working-space strips, resized to native artwork size. Compression can change fixed pixels slightly. These checks accompany visual review; they do not prove all perceptual quality.",
+  "before": {
+    "garden_fps": 18.0,
+    "hell_fps": 18.0,
+    "bird_surrounding_grass": {
+      "mean_pixel_temporal_std": 7.2081,
+      "region_mean_brightness_range": 21.7281
+    },
+    "architecture_under_tree": {
+      "mean_pixel_temporal_std": 0.8676,
+      "region_mean_brightness_range": 0.7397
+    },
+    "central_blue_architecture": {
+      "mean_pixel_temporal_std": 0.0,
+      "region_mean_brightness_range": 0.0
+    },
+    "water_foreground": {
+      "mean_pixel_temporal_std": 2.4095,
+      "region_mean_brightness_range": 2.0485
+    },
+    "distant_flames": {
+      "mean_pixel_temporal_std": 2.4224,
+      "region_mean_brightness_range": 1.1544
+    }
+  },
+  "after": {
+    "garden_fps": 30.0,
+    "hell_fps": 30.0,
+    "bird_surrounding_grass": {
+      "mean_pixel_temporal_std": 0.0219,
+      "region_mean_brightness_range": 0.0203
+    },
+    "architecture_under_tree": {
+      "mean_pixel_temporal_std": 0.0073,
+      "region_mean_brightness_range": 0.0201
+    },
+    "central_blue_architecture": {
+      "mean_pixel_temporal_std": 0.0,
+      "region_mean_brightness_range": 0.0
+    },
+    "water_foreground": {
+      "mean_pixel_temporal_std": 3.6417,
+      "region_mean_brightness_range": 0.6675
+    },
+    "distant_flames": {
+      "mean_pixel_temporal_std": 1.2219,
+      "region_mean_brightness_range": 1.5798
+    }
+  },
+  "checks": {
+    "bird_background_exposure_reduced": true,
+    "architecture_under_tree_stable": true,
+    "blue_architecture_stable": true,
+    "river_has_visible_texture_variation": true,
+    "fire_is_active": true,
+    "thirty_fps": true
+  }
+}

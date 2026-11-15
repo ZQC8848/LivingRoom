@@ -1,0 +1,37 @@
+STATUS: Draft prompts for image-to-video tests. These have not been run on Orbis or ComfyUI.
+Use one crop and one main action per generation. Duration is enforced by recording/trimming, not by prompt text alone.
+
+FIRE — use hell-fire-reference-16x9.png
+A locked-off, eye-level close view of the supplied Bosch painting detail. The ruined buildings retain their painted edges and positions. A dim orange glow in the existing distant fire openings slowly brightens and settles back to its starting level. The surrounding architecture and painted figures hold their existing forms and poses. Fine painted surface detail stays steady. The framing remains fixed throughout this quiet, restrained cycle.
+
+SMOKE — generate separately from the fire
+A locked-off view of the supplied painted building detail. One faint wisp of smoke rises a short distance from the existing opening, thins and dissipates. The buildings, figures and surrounding paint remain still in their original positions. The smoke is sparse and translucent, with a very small visible displacement.
+
+ONE FIGURE — first select a tight 16:9 reference crop around one figure
+A locked-off, eye-level view of the selected standing figure in the supplied painting detail. The figure inclines its head a few degrees once, pauses briefly, and eases back to its opening pose. The feet remain planted at their original painted positions. The torso, hands, surrounding figures and architecture hold their existing shapes and positions. The small movement is slow and contained within the original silhouette.
+
+AUTHORING START POINTS — suggestions, not model guarantees
+Fire: record 2–4 seconds of useful, stable motion after warm-up.
+One figure: record 4–6 seconds; use one completed gesture followed by a hold.
+Start with 1–3 regions affecting at most about 5% of the painted band.
+Reject a take with camera drift, changing figure identity, expanding geometry or altered scene structure.
+
+COMPOSITING
+Keep the high-resolution original as the base.
+Register/stabilize each generated crop against its reference before applying its mask.
+Use the support mask only in the compositor; Orbis does not accept this as a local editing mask.
+The supplied fire mask is a rough color-based starting mask, not a finished segmentation.
+For flames and smoke, use a short overlap between end and start and inspect for ghosting.
+For a small reversible head gesture, a forward/backward edit may work; inspect the timing.
+Do not reverse smoke or locomotion to manufacture a loop.
+Preload and warm the media before revealing it. A short clip alone does not guarantee smooth decoding.
+
+INPUT / OUTPUT
+Model reference: 16:9 crop. Current Orbis generation: 832 × 480; larger delivery sizes are upscaled.
+Final panorama: 2:1 equirectangular, e.g. 8192 × 4096.
+Reproject the masked, registered crop into the same cylindrical painting coordinates before panorama output.
+Never send the full 2:1 panorama to a 16:9 model as if it were an ordinary camera frame.
+
+SOURCES
+https://docs.reactor.inc/model-api-reference/visko-orbis-stable/schema
+https://docs.reactor.inc/model-api-reference/visko-orbis-stable/prompt-guide

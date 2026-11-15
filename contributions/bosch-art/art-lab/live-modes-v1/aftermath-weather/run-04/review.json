@@ -1,0 +1,42 @@
+{
+  "id": "aftermath-weather",
+  "status": "captured",
+  "frames": 902,
+  "excluded_untimed_tail_frames": 1,
+  "seconds": 66.69,
+  "hot_prompt_stages": [
+    {
+      "label": "Spring",
+      "sent_after_first_frame_seconds": -8.422,
+      "ack_after_send_seconds": 0.5,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Summer",
+      "sent_after_first_frame_seconds": 4.656,
+      "ack_after_send_seconds": 0.703,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Autumn",
+      "sent_after_first_frame_seconds": 25.359,
+      "ack_after_send_seconds": 0.453,
+      "reply_type": "prompt_accepted"
+    },
+    {
+      "label": "Winter",
+      "sent_after_first_frame_seconds": 45.828,
+      "ack_after_send_seconds": 0.469,
+      "reply_type": "prompt_accepted"
+    }
+  ],
+  "drift_first_to_last": {
+    "status": "insufficient robust inliers",
+    "matches": 23,
+    "inliers": 3,
+    "note": "Do not interpret this estimate as a camera-motion measurement."
+  },
+  "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+  "added_animation": false,
+  "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+}

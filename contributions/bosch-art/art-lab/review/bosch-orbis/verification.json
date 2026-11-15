@@ -1,0 +1,122 @@
+{
+  "errors": [],
+  "initial": {
+    "kind": "bosch-orbis-v4",
+    "layer": 0,
+    "flat": false,
+    "playing": true,
+    "motion": 1,
+    "yaw": 0,
+    "pitch": -0.4,
+    "handU": 0.5,
+    "handV": 0.5,
+    "raw": false,
+    "rawJob": "water",
+    "rawReference": false,
+    "ready": 2,
+    "frames": 3,
+    "videoTimes": {
+      "garden": {
+        "currentTime": 0.1735,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      },
+      "hell": {
+        "currentTime": 0.1708,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      }
+    },
+    "actualOrbisGeneration": true,
+    "model": "reactor/visko-orbis-stable",
+    "animalAnimationsAccepted": false
+  },
+  "videoAdvances": true,
+  "videoDoesNotMoveCamera": true,
+  "motionSamples": [
+    {
+      "look": "water",
+      "frameChanges": true
+    },
+    {
+      "look": "leaves",
+      "frameChanges": true
+    },
+    {
+      "look": "fire",
+      "frameChanges": true
+    }
+  ],
+  "revealChangesImage": true,
+  "handDoesNotMoveCamera": true,
+  "handMovesMask": true,
+  "layoutAspect": 2,
+  "rawTests": [
+    {
+      "job": "water",
+      "status": "原始场景保持未通过；合成版只提取模型的水面亮度波动。",
+      "reference": true
+    },
+    {
+      "job": "horse",
+      "status": "未通过：白马被放大、改形，并出现走动。全景中保持原画静止。",
+      "reference": true
+    },
+    {
+      "job": "bird",
+      "status": "未通过：鸟和背景被重构。全景中保持原画静止。",
+      "reference": true
+    },
+    {
+      "job": "leaves",
+      "status": "原始输出有缩放与漂移；经稳像后，只把小幅光流转移到原画枝叶。",
+      "reference": true
+    },
+    {
+      "job": "fire",
+      "status": "原始结构较接近，仍有漂移；合成版只保留稳像后的局部火光亮度。",
+      "reference": true
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  },
+  "preview": {
+    "kind": "bosch-orbis-v4",
+    "layer": 0,
+    "flat": false,
+    "playing": true,
+    "motion": 1,
+    "yaw": 0,
+    "pitch": -0.4,
+    "handU": 0.5,
+    "handV": 0.5,
+    "raw": false,
+    "rawJob": "water",
+    "rawReference": false,
+    "ready": 2,
+    "frames": 3,
+    "videoTimes": {
+      "garden": {
+        "currentTime": 0.1502,
+        "paused": false,
+        "width": 1024,
+        "height": 512
+      },
+      "hell": {
+        "currentTime": 0.15,
+        "paused": false,
+        "width": 1024,
+        "height": 512
+      }
+    },
+    "actualOrbisGeneration": true,
+    "model": "reactor/visko-orbis-stable",
+    "animalAnimationsAccepted": false
+  },
+  "pauseWorks": true,
+  "inlineBytes": 719433
+}

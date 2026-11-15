@@ -1,0 +1,14 @@
+{
+  "before": {
+    "water_temporal_std": 3.6509766578674316,
+    "tracked_mouth_brightness_range": 45.888893127441406
+  },
+  "after": {
+    "water_temporal_std": 6.840104579925537,
+    "tracked_mouth_brightness_range": 3.6046295166015625
+  },
+  "checks": {
+    "water_motion_increased": true,
+    "fixed_mouth_has_no_large_flash": true
+  }
+}

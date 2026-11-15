@@ -1,0 +1,32 @@
+{
+  "error": "page.waitForFunction: Timeout 45000ms exceeded.",
+  "errors": [],
+  "state": {
+    "mode": "reveal",
+    "menu": true,
+    "playing": true,
+    "video": "blob:http://127.0.0.1:5183/2e556d65-da73-4958-805b-46427c6d79ac",
+    "blob": true,
+    "w": 2048,
+    "h": 2048,
+    "d": 8,
+    "oneVideo": true,
+    "oneTexture": true,
+    "pane": [
+      0.5,
+      0.5
+    ],
+    "rot": [
+      0.1,
+      0.35,
+      0,
+      "YXZ"
+    ],
+    "radii": [
+      0,
+      0
+    ],
+    "problems": [],
+    "mix": 1
+  }
+}

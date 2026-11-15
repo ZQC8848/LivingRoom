@@ -1,0 +1,200 @@
+{
+  "job": "bird",
+  "model": "reactor/visko-orbis-dynamic",
+  "prompt": "Locked static camera, identical framing and original painted brush texture throughout. One blue long-legged bird, with a cream neck and folded blue wings, in the supplied painting. The standing blue bird lifts both wings halfway out from its body, makes one clear short wingbeat, and folds both wings back. Its two feet stay planted at the same points. All surrounding architecture and ground remain fixed in their original positions.",
+  "requested_capture_seconds": 6.0,
+  "frames": 108,
+  "events": [
+    {
+      "t": 3.547,
+      "type": "state"
+    },
+    {
+      "t": 3.547,
+      "type": "image_accepted"
+    },
+    {
+      "t": 3.61,
+      "type": "state"
+    },
+    {
+      "t": 3.61,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 3.688,
+      "type": "state"
+    },
+    {
+      "t": 3.688,
+      "type": "generation_started"
+    },
+    {
+      "t": 3.688,
+      "type": "state"
+    },
+    {
+      "t": 5.735,
+      "type": "state"
+    },
+    {
+      "t": 7.563,
+      "type": "state"
+    },
+    {
+      "t": 9.391,
+      "type": "state"
+    },
+    {
+      "t": 11.219,
+      "type": "state"
+    },
+    {
+      "t": 13.063,
+      "type": "state"
+    },
+    {
+      "t": 14.891,
+      "type": "state"
+    },
+    {
+      "t": 16.719,
+      "type": "state"
+    },
+    {
+      "t": 18.563,
+      "type": "state"
+    },
+    {
+      "t": 18.563,
+      "type": "state"
+    }
+  ],
+  "errors": [],
+  "attempt": "dynamic-v2",
+  "connect_seconds": 2.422,
+  "first_frame_latency_seconds": 6.218,
+  "delivered_pixels": [
+    2560,
+    1440
+  ],
+  "captured_seconds": 6.032,
+  "available_resolutions": [
+    "native",
+    "1080p",
+    "2k",
+    "4k"
+  ],
+  "status": "captured",
+  "client_elapsed_seconds": 18.735,
+  "received_timestamps_seconds": [
+    0.0,
+    0.047,
+    0.11,
+    0.141,
+    0.157,
+    0.188,
+    0.219,
+    0.25,
+    0.297,
+    0.36,
+    0.391,
+    0.422,
+    0.469,
+    0.516,
+    0.563,
+    0.594,
+    0.641,
+    0.688,
+    0.735,
+    0.782,
+    0.844,
+    0.907,
+    0.953,
+    1.016,
+    1.11,
+    1.125,
+    1.203,
+    1.266,
+    1.328,
+    1.391,
+    1.453,
+    1.735,
+    1.782,
+    1.891,
+    1.938,
+    1.985,
+    2.047,
+    2.078,
+    2.141,
+    2.172,
+    2.219,
+    2.266,
+    2.313,
+    2.375,
+    2.422,
+    2.469,
+    2.516,
+    2.563,
+    2.61,
+    2.657,
+    2.703,
+    2.766,
+    2.813,
+    2.875,
+    2.922,
+    2.969,
+    3.016,
+    3.078,
+    3.125,
+    3.188,
+    3.25,
+    3.297,
+    3.344,
+    3.391,
+    3.719,
+    3.735,
+    3.766,
+    3.782,
+    3.813,
+    3.891,
+    3.938,
+    4.016,
+    4.063,
+    4.125,
+    4.172,
+    4.219,
+    4.266,
+    4.328,
+    4.391,
+    4.438,
+    4.485,
+    4.532,
+    4.578,
+    4.641,
+    4.688,
+    4.75,
+    4.813,
+    4.86,
+    4.907,
+    4.969,
+    5.016,
+    5.063,
+    5.125,
+    5.172,
+    5.235,
+    5.282,
+    5.422,
+    5.469,
+    5.532,
+    5.61,
+    5.672,
+    5.735,
+    5.782,
+    5.828,
+    5.875,
+    5.938,
+    5.985,
+    6.032
+  ]
+}

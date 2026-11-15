@@ -1,0 +1,638 @@
+{
+  "source_dimensions": [
+    1774,
+    887
+  ],
+  "camera": "locked; no movement",
+  "period_seconds": 8,
+  "items": [
+    {
+      "id": "G01",
+      "layer": "garden",
+      "box": [
+        61,
+        103,
+        190,
+        245
+      ],
+      "action": "Flying pose, wing/fins flap; stay in the same location",
+      "method": "orbis",
+      "job": "aerial-creature"
+    },
+    {
+      "id": "G02",
+      "layer": "garden",
+      "box": [
+        449,
+        134,
+        550,
+        208
+      ],
+      "action": "Boat gently floats up and down",
+      "method": "cutout"
+    },
+    {
+      "id": "G03",
+      "layer": "garden",
+      "box": [
+        617,
+        157,
+        664,
+        220
+      ],
+      "action": "Translucent wing gently flutters",
+      "method": "cutout"
+    },
+    {
+      "id": "G04",
+      "layer": "garden",
+      "box": [
+        954,
+        126,
+        1233,
+        197
+      ],
+      "action": "Distant birds flap with small bounded flight",
+      "method": "flock"
+    },
+    {
+      "id": "G05",
+      "layer": "garden",
+      "box": [
+        1092,
+        234,
+        1167,
+        275
+      ],
+      "action": "Roof fish gently rocks, building fixed",
+      "method": "cutout"
+    },
+    {
+      "id": "G06",
+      "layer": "garden",
+      "box": [
+        1566,
+        121,
+        1631,
+        210
+      ],
+      "action": "Suspended ornament gently floats",
+      "method": "cutout"
+    },
+    {
+      "id": "G07",
+      "layer": "garden",
+      "box": [
+        1649,
+        199,
+        1715,
+        291
+      ],
+      "action": "Two birds flap in the same small area",
+      "method": "orbis",
+      "job": "sky-birds"
+    },
+    {
+      "id": "G08",
+      "layer": "garden",
+      "box": [
+        120,
+        285,
+        202,
+        417
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G09",
+      "layer": "garden",
+      "box": [
+        370,
+        334,
+        470,
+        388
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G10",
+      "layer": "garden",
+      "box": [
+        0,
+        383,
+        85,
+        490
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G11",
+      "layer": "garden",
+      "box": [
+        421,
+        401,
+        534,
+        461
+      ],
+      "action": "Deer make small slow steps inside this patch",
+      "method": "orbis",
+      "job": "herd"
+    },
+    {
+      "id": "G12",
+      "layer": "garden",
+      "box": [
+        533,
+        381,
+        650,
+        430
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G13",
+      "layer": "garden",
+      "box": [
+        558,
+        436,
+        612,
+        488
+      ],
+      "action": "Strawberry gently squashes and stretches",
+      "method": "cutout"
+    },
+    {
+      "id": "G14",
+      "layer": "garden",
+      "box": [
+        407,
+        474,
+        481,
+        549
+      ],
+      "action": "Bank bird makes a small wing ruffle",
+      "method": "orbis",
+      "job": "bank-bird"
+    },
+    {
+      "id": "G15",
+      "layer": "garden",
+      "box": [
+        477,
+        516,
+        545,
+        582
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G16",
+      "layer": "garden",
+      "box": [
+        636,
+        504,
+        757,
+        565
+      ],
+      "action": "Long neck gently sways, body stays near the bank",
+      "method": "cutout"
+    },
+    {
+      "id": "G17",
+      "layer": "garden",
+      "box": [
+        760,
+        372,
+        826,
+        578
+      ],
+      "action": "Left fountain flows downward",
+      "method": "waterfall"
+    },
+    {
+      "id": "G18",
+      "layer": "garden",
+      "box": [
+        943,
+        371,
+        1033,
+        578
+      ],
+      "action": "Right fountain flows downward",
+      "method": "waterfall"
+    },
+    {
+      "id": "G19",
+      "layer": "garden",
+      "box": [
+        1071,
+        460,
+        1120,
+        511
+      ],
+      "action": "Small waterbird ruffles its wings",
+      "method": "orbis",
+      "job": "waterbird-small"
+    },
+    {
+      "id": "G20",
+      "layer": "garden",
+      "box": [
+        1034,
+        502,
+        1107,
+        562
+      ],
+      "action": "Large waterbird makes a small half flap",
+      "method": "orbis",
+      "job": "waterbird-large"
+    },
+    {
+      "id": "G21",
+      "layer": "garden",
+      "box": [
+        1174,
+        415,
+        1221,
+        456
+      ],
+      "action": "Stag makes small planted steps",
+      "method": "orbis",
+      "job": "stag"
+    },
+    {
+      "id": "G22",
+      "layer": "garden",
+      "box": [
+        1168,
+        448,
+        1338,
+        495
+      ],
+      "action": "Bathers make small head and arm gestures in the pool",
+      "method": "orbis",
+      "job": "bathers"
+    },
+    {
+      "id": "G23",
+      "layer": "garden",
+      "box": [
+        1129,
+        600,
+        1225,
+        649
+      ],
+      "action": "Fish gently bobs in the water",
+      "method": "cutout"
+    },
+    {
+      "id": "G24",
+      "layer": "garden",
+      "box": [
+        1692,
+        306,
+        1774,
+        425
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G25",
+      "layer": "garden",
+      "box": [
+        0,
+        587,
+        182,
+        724
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G26",
+      "layer": "garden",
+      "box": [
+        179,
+        675,
+        281,
+        762
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G27",
+      "layer": "garden",
+      "box": [
+        978,
+        712,
+        1063,
+        786
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G28",
+      "layer": "garden",
+      "box": [
+        1095,
+        745,
+        1198,
+        816
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G29",
+      "layer": "garden",
+      "box": [
+        1367,
+        620,
+        1453,
+        705
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G30",
+      "layer": "garden",
+      "box": [
+        1507,
+        578,
+        1563,
+        666
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G31",
+      "layer": "garden",
+      "box": [
+        1652,
+        579,
+        1774,
+        715
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G32",
+      "layer": "garden",
+      "box": [
+        1446,
+        756,
+        1525,
+        845
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G33",
+      "layer": "garden",
+      "box": [
+        1512,
+        704,
+        1598,
+        789
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G34",
+      "layer": "garden",
+      "box": [
+        1621,
+        694,
+        1692,
+        768
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G35",
+      "layer": "garden",
+      "box": [
+        552,
+        234,
+        579,
+        268
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G36",
+      "layer": "garden",
+      "box": [
+        561,
+        273,
+        603,
+        311
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G37",
+      "layer": "garden",
+      "box": [
+        724,
+        229,
+        766,
+        266
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G38",
+      "layer": "garden",
+      "box": [
+        724,
+        265,
+        766,
+        300
+      ],
+      "action": "Wind moves foliage; roots and buildings remain fixed",
+      "method": "wind"
+    },
+    {
+      "id": "G39",
+      "layer": "garden",
+      "box": [
+        77,
+        370,
+        131,
+        409
+      ],
+      "action": "Small figures walk slowly within the group",
+      "method": "puppet"
+    },
+    {
+      "id": "H01",
+      "layer": "hell",
+      "box": [
+        451,
+        137,
+        548,
+        209
+      ],
+      "action": "Boat floats up and down; small wing flutter",
+      "method": "cutout"
+    },
+    {
+      "id": "H02",
+      "layer": "hell",
+      "box": [
+        953,
+        118,
+        1174,
+        209
+      ],
+      "action": "Dark birds fly with small bounded displacement",
+      "method": "flock"
+    },
+    {
+      "id": "H03",
+      "layer": "hell",
+      "box": [
+        1564,
+        121,
+        1632,
+        212
+      ],
+      "action": "Suspended ornament gently floats",
+      "method": "cutout"
+    },
+    {
+      "id": "H04",
+      "layer": "hell",
+      "box": [
+        62,
+        367,
+        101,
+        410
+      ],
+      "action": "Two small figures take slow small steps",
+      "method": "puppet"
+    },
+    {
+      "id": "H05",
+      "layer": "hell",
+      "box": [
+        0,
+        253,
+        106,
+        326
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke"
+    },
+    {
+      "id": "H06",
+      "layer": "hell",
+      "box": [
+        383,
+        270,
+        440,
+        334
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke"
+    },
+    {
+      "id": "H07",
+      "layer": "hell",
+      "box": [
+        458,
+        249,
+        545,
+        325
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke"
+    },
+    {
+      "id": "H08",
+      "layer": "hell",
+      "box": [
+        749,
+        276,
+        837,
+        338
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke"
+    },
+    {
+      "id": "H09",
+      "layer": "hell",
+      "box": [
+        938,
+        273,
+        1020,
+        339
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke"
+    },
+    {
+      "id": "H10",
+      "layer": "hell",
+      "box": [
+        1247,
+        246,
+        1370,
+        331
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke"
+    },
+    {
+      "id": "H11",
+      "layer": "hell",
+      "box": [
+        1624,
+        235,
+        1746,
+        328
+      ],
+      "action": "Flames lick behind a fixed skyline; smoke drifts upward",
+      "method": "fire-smoke"
+    },
+    {
+      "id": "H12",
+      "layer": "hell",
+      "box": [
+        0,
+        425,
+        1774,
+        691
+      ],
+      "action": "Dark river and pools ripple with moving fire reflections",
+      "method": "water"
+    }
+  ],
+  "retained": [
+    "fixed painted horse muzzle and horn",
+    "Orbis blue foreground bird",
+    "existing tree cutouts",
+    "garden whole-river ripples",
+    "keyed central-right Orbis fire"
+  ],
+  "annotations_are_not_model_inputs": true
+}

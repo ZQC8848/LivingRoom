@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "release": "2026-11-14-r5",
+  "language": "en",
+  "music": {
+    "file": "music.mp3",
+    "title": "A Garden Without a Price",
+    "provider": "Suno",
+    "source": "User-exported original music; one continuous source feeds bright and dark filter branches.",
+    "loop_crossfade_seconds": 4
+  },
+  "ambience": {
+    "garden": {
+      "file": "garden-ambience.mp3",
+      "provider": "Authored procedural sound design",
+      "description": "Falling fountain water, sparse distant chirps and light wind"
+    },
+    "hell": {
+      "file": "hell-ambience.mp3",
+      "provider": "Authored procedural sound design",
+      "description": "Quiet ember crackles, low wind and hollow resonance"
+    }
+  },
+  "narration": [
+    {
+      "id": "arrival",
+      "text": "Five hundred years ago, Bosch painted a garden overflowing with pleasure. Look closely. What seems like paradise may already contain the beginning of its undoing.",
+      "file": "r5-arrival.mp3",
+      "seconds": 11.331333333333333
+    },
+    {
+      "id": "reveal",
+      "text": "You are looking at the same place through another possibility. Is this a punishment, or a consequence we prefer not to see?",
+      "file": "r5-reveal.mp3",
+      "seconds": 7.3375208333333335
+    },
+    {
+      "id": "return",
+      "text": "The garden returns. What you have seen remains part of it, even when it disappears.",
+      "file": "r5-return.mp3",
+      "seconds": 4.922645833333333
+    },
+    {
+      "id": "mode-garden-light",
+      "text": "Art historian Margaret Carroll reads Bosch through time and transformation. As this garden passes into night, the buildings remain. What changes is the way we see them.",
+      "file": "r5-mode-garden-light.mp3",
+      "seconds": 10.402541666666666
+    },
+    {
+      "id": "mode-garden-season",
+      "text": "Abundance has a season. Spring opens into summer, then autumn lets go. Here, winter offers a pause. Must a beautiful world remain forever in bloom?",
+      "file": "r5-mode-garden-season.mp3",
+      "seconds": 10.913375
+    },
+    {
+      "id": "mode-hell-light",
+      "text": "In daylight, the ruins are exposed. At night, the fires take command. The light changes; the consequences remain. Stay with what the garden concealed.",
+      "file": "r5-mode-hell-light.mp3",
+      "seconds": 9.891708333333334
+    },
+    {
+      "id": "mode-hell-season",
+      "text": "Rain crosses the ashes. Snow settles over the damage. This possibility of recovery is our reinterpretation of Bosch: a question left open, rather than a promised ending.",
+      "file": "r5-mode-hell-season.mp3",
+      "seconds": 10.8669375
+    },
+    {
+      "id": "research",
+      "text": "Carroll's reading follows a world in transformation: light, water, fire, and the earth's changing life. Our experience extends that reading into a question about desire, consequences, and the need for rest.",
+      "file": "r5-research.mp3",
+      "seconds": 14.48925
+    }
+  ],
+  "voice": {
+    "name": "Lily \u2014 Velvety Actress",
+    "id": "pFZP5JQG7iQjIQuC4Bku",
+    "provider": "ElevenLabs stock voice",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.43,
+      "similarity_boost": 0.73,
+      "style": 0.12,
+      "use_speaker_boost": true,
+      "speed": 1.0
+    }
+  },
+  "attribution": "Music created in Suno. Narration generated with ElevenLabs. Environmental beds synthesized specifically for this prototype.",
+  "audio_assets": {
+    "music": {
+      "seconds": 115.9335,
+      "peak_dbfs": -9.799602508544922,
+      "target_lufs": -22,
+      "decoded_all_finite": true,
+      "bytes": 1855916,
+      "sha256": "4ba0b1bd1ec20632ff10c935690fb3321afe162acb9839df2730b41caf721ad0"
+    },
+    "garden-ambience": {
+      "seconds": 22.0,
+      "peak_dbfs": -14.351688385009766,
+      "target_lufs": -25,
+      "decoded_all_finite": true,
+      "bytes": 352940,
+      "sha256": "3225a1daba48a1aa72b19a4812d6add06aed61a4f226decd299157e9fb642460"
+    },
+    "hell-ambience": {
+      "seconds": 22.0,
+      "peak_dbfs": -13.84378433227539,
+      "target_lufs": -25,
+      "decoded_all_finite": true,
+      "bytes": 352940,
+      "sha256": "d3d9344da551da5017fda923d00fcb2da4f0202167f7cb9c4a67507013a2a086"
+    },
+    "arrival": {
+      "seconds": 9.334416666666666,
+      "peak_dbfs": -6.160070419311523,
+      "target_lufs": -18,
+      "decoded_all_finite": true,
+      "bytes": 150188,
+      "sha256": "233dcdba34318407c09bd683eb15f7c42c8b38bcd339310402e9c1a38355e8fa"
+    },
+    "reveal": {
+      "seconds": 3.2507916666666667,
+      "peak_dbfs": -6.409562110900879,
+      "target_lufs": -18,
+      "decoded_all_finite": true,
+      "bytes": 53036,
+      "sha256": "5b8711b74de8962a15922bdfc93cace4ea94998cd6a4b29a300db6383e5ca6b4"
+    },
+    "return": {
+      "seconds": 2.6935208333333334,
+      "peak_dbfs": -6.423266410827637,
+      "target_lufs": -18,
+      "decoded_all_finite": true,
+      "bytes": 44204,
+      "sha256": "82bf62aa83138cbd688437fc2941f9cae155b27c746556e9b2721f8d56778bd0"
+    }
+  },
+  "key_present": false,
+  "notes": "One continuous score, independently looping authored environmental beds, and once-per-encounter English narration.",
+  "research": [
+    {
+      "author": "Margaret D. Carroll",
+      "title": "Time and Transformation: Hieronymus Bosch\u2019s Process",
+      "url": "https://yalebooks.yale.edu/2022/08/09/time-and-transformation-hieronymus-boschs-process/",
+      "scope": "An attributed scholarly interpretation of time, world history and changing material motifs; not established authorial intention."
+    },
+    {
+      "title": "The Garden of Earthly Delights, Bosch \u2014 Picture History",
+      "url": "https://www.afpradomuseum.org/the-garden-of-earthly-delights-bosch/history",
+      "scope": "Triptych, worldly pleasure, sin and fragility of earthly happiness."
+    }
+  ],
+  "interpretive_boundary": "Rest, aligned alternate worlds and recovery are contemporary artistic extensions. The text does not claim that Bosch painted an ecological simulation or a literal cycle of redemption in Hell."
+}

@@ -1,0 +1,5 @@
+Draft; not generated.
+
+Locked-off view of the supplied painting crop. One faint wisp of smoke rises a short distance from the selected opening and dissipates. Surrounding painted forms remain fixed. The surrounding paint, camera framing and the outer context hold their original shapes and positions.
+
+Candidate smoke region. Manual mask refinement and endpoint inspection required.

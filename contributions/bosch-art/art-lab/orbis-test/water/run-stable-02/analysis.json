@@ -1,0 +1,50 @@
+{
+  "job": "water",
+  "run": "run-stable-02",
+  "frames": 111,
+  "raw_video_seconds": 6.166666666666667,
+  "metrics": [
+    {
+      "valid": true,
+      "matches": 29,
+      "inliers": 9,
+      "dx": 7.894,
+      "dy": 4.057,
+      "rotation_degrees": 0.2745,
+      "scale": 0.98778,
+      "frame": 0,
+      "mean_absolute_difference": 17.413
+    },
+    {
+      "valid": false,
+      "matches": 3,
+      "frame": 22,
+      "mean_absolute_difference": 66.794
+    },
+    {
+      "valid": false,
+      "matches": 3,
+      "frame": 44,
+      "mean_absolute_difference": 64.902
+    },
+    {
+      "valid": false,
+      "matches": 3,
+      "frame": 66,
+      "mean_absolute_difference": 64.458
+    },
+    {
+      "valid": false,
+      "matches": 2,
+      "frame": 88,
+      "mean_absolute_difference": 64.28
+    },
+    {
+      "valid": false,
+      "matches": 4,
+      "frame": 110,
+      "mean_absolute_difference": 63.745
+    }
+  ],
+  "scope": "Raw model frames compared against the supplied reference, excluding active region for camera matching. This is a diagnostic, not headset validation."
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "scene": "bosch-demo",
+  "release": "2026-11-14-r1",
+  "title": "欲望的两面",
+  "subtitle": "The Garden of Consequences",
+  "media": {
+    "heaven": "heaven.mp4",
+    "hell": "hell.mp4",
+    "poster": "poster.jpg",
+    "hellPoster": "hell-poster.jpg",
+    "fps": 30,
+    "loop": true
+  },
+  "video": {
+    "width": 2048,
+    "height": 1024,
+    "aspect_ratio": "2:1",
+    "projection": "equirectangular",
+    "fps": 30,
+    "frame_count": 240,
+    "duration_seconds": 8,
+    "codec": "h264",
+    "profile": "High",
+    "level": "4.0",
+    "pixel_format": "yuv420p",
+    "color_space": "BT.709",
+    "color_primaries": "BT.709",
+    "transfer": "BT.709",
+    "range": "limited",
+    "audio": false,
+    "faststart": true,
+    "gop_frames": 60
+  },
+  "orientation": {
+    "front_longitude_degrees": 0,
+    "front_u": 0.5,
+    "image_origin": "top-left",
+    "zenith_v": 0,
+    "nadir_v": 1,
+    "right_is_increasing_u": true,
+    "camera_motion": "none",
+    "already_projected": true,
+    "geometry": "head-locked sphere; translation removed"
+  },
+  "sampling": {
+    "notes": "Direct 2:1 equirect sampling. No 16:9 stretch, model edge crop, or new cylindrical-band projection. The sky/floor and narrow rear blend are already baked in. Apply texture flipY exactly once for Three.js UV convention.",
+    "paired_pixels_aligned": true
+  },
+  "loop": {
+    "method": "authored periodic motion and eased forward/reverse reuse of generated bird/fire clips",
+    "native_model_loop": false
+  },
+  "production": {
+    "horse": "Fixed original painted head/closed muzzle and horn, small anchored nod. Mouth texture and alpha are not regenerated.",
+    "water": "Whole-river controlled travelling ripples and small elliptical rings, with architecture/islands/figures excluded.",
+    "bird": "Retained Orbis Dynamic poses, exposure matched object mattes.",
+    "fire": "Retained Orbis Stable flame shapes, keyed behind a fixed skyline.",
+    "new_model_calls": 0,
+    "headset_verified": false
+  },
+  "focus": {
+    "horse": {
+      "u": 0.07271702367531004,
+      "v": 0.7092182429417313,
+      "longitude_degrees": -153.8218714768884,
+      "latitude_degrees": -37.659283729511635
+    },
+    "bird": {
+      "u": 0.1245772266065389,
+      "v": 0.741020868660744,
+      "longitude_degrees": -135.15219842164598,
+      "latitude_degrees": -43.38375635893393
+    },
+    "water": {
+      "u": 0.52423900789177,
+      "v": 0.7672717524728203,
+      "longitude_degrees": 8.72604284103721,
+      "latitude_degrees": -48.10891544510767
+    },
+    "leaves": {
+      "u": 0.625140924464487,
+      "v": 0.32517731049635346,
+      "longitude_degrees": 45.05073280721532,
+      "latitude_degrees": 31.468084110656378
+    },
+    "fire": {
+      "u": 0.7536640360766629,
+      "v": 0.4251363106944212,
+      "longitude_degrees": 91.31905298759864,
+      "latitude_degrees": 13.475464075004185
+    }
+  },
+  "files": {
+    "heaven.mp4": {
+      "bytes": 2689677,
+      "sha256": "9aea77f26f904ca27f8c3d1d9515691e1470c89e630236e7b6fa446ff0e94612"
+    },
+    "poster.jpg": {
+      "bytes": 427737,
+      "sha256": "5cb40344a97cccd35812f9d20ee4c31b5e9855c76b4cb1ee1bd429d42c854072"
+    },
+    "hell.mp4": {
+      "bytes": 1984729,
+      "sha256": "1e0dd476c4063e8962910bcae279eda12002893ea5c1f159130bc3f3d4be5694"
+    },
+    "hell-poster.jpg": {
+      "bytes": 318057,
+      "sha256": "3459247b8d298530812319716802b3d8ca0d1359dd81105b2e4baacf17d5f143"
+    }
+  }
+}

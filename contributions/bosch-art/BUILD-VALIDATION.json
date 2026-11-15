@@ -1,0 +1,15 @@
+{
+  "validation": "Clean dependency install and production build in the exported checkout",
+  "npm_ci_exit_code": 0,
+  "npm_run_build_exit_code": 0,
+  "build_tool": "Vite 5.4.11",
+  "source_dependencies": "Original r6 package-lock preserved; no dependency upgrade during handoff",
+  "npm_install_audit_report": {
+    "moderate": 1,
+    "high": 1,
+    "status": "Reported by npm ci; not remediated in this handoff. Review dependency updates during technical integration."
+  },
+  "installed_dependencies_committed": false,
+  "generated_dist_committed": false,
+  "model_call_during_build": false
+}

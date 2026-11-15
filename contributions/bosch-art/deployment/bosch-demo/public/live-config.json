@@ -1,0 +1,7 @@
+{
+  "broker": "https://intend-testimony-limousines-often.trycloudflare.com",
+  "model": "reactor/visko-orbis-dynamic",
+  "max_session_seconds": 180,
+  "operator_required": true,
+  "note": "Live generation requires the operator's computer and temporary HTTPS tunnel to remain running. Stable Reveal and time studies work independently."
+}

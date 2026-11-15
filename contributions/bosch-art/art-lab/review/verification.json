@@ -1,0 +1,241 @@
+{
+  "errors": [],
+  "studies": [
+    {
+      "id": "levi",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 11027989,
+        "variance": 1130239
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "cards",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 5631953,
+        "variance": 641706
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "repin",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 6783663,
+        "variance": 482170
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "damage",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 6370061,
+        "variance": 357706
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "meninas",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 2704421,
+        "variance": 200997
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "mirror",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 3248979,
+        "variance": 244930
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "skull",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 4074600,
+        "variance": 592081
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "bayeux",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 15657198,
+        "variance": 872517
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "harvest",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 5325079,
+        "variance": 407408
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "miser",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 4037643,
+        "variance": 204581
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "escher",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 14930360,
+        "variance": 330348
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "bosch",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 7260624,
+        "variance": 617082
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "han",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 7314631,
+        "variance": 444918
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    },
+    {
+      "id": "spring",
+      "phase": 1,
+      "changed": true,
+      "render": {
+        "sum": 5597261,
+        "variance": 260318
+      },
+      "source": "one-video-stream",
+      "videoTracks": 1
+    }
+  ],
+  "completion": [
+    {
+      "id": "levi",
+      "finalPhase": 4,
+      "expected": 4
+    },
+    {
+      "id": "cards",
+      "finalPhase": 3,
+      "expected": 3
+    },
+    {
+      "id": "repin",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "damage",
+      "finalPhase": 3,
+      "expected": 3
+    },
+    {
+      "id": "meninas",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "mirror",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "skull",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "bayeux",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "harvest",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "miser",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "escher",
+      "finalPhase": 3,
+      "expected": 3
+    },
+    {
+      "id": "bosch",
+      "finalPhase": 2,
+      "expected": 2
+    },
+    {
+      "id": "han",
+      "finalPhase": 5,
+      "expected": 5
+    },
+    {
+      "id": "spring",
+      "finalPhase": 4,
+      "expected": 4,
+      "weather": 0
+    }
+  ],
+  "turningChangesView": true,
+  "backYaw": 3.141592653589793,
+  "ratingSaved": "true",
+  "mobile": {
+    "width": 390,
+    "scroll": 390,
+    "title": "修复还是编造",
+    "visible": 364
+  }
+}

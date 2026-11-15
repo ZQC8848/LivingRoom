@@ -1,0 +1,31 @@
+{
+  "method": "original-paint object RGBA rigs; registered bounded Orbis motion fields for herd, stag, bank bird and bathers; retained Orbis foreground bird and fire; authored wind, waterfall, floating objects, both rivers and horizon smoke",
+  "new_model_calls": 8,
+  "frames": 240,
+  "fps": 30,
+  "duration_seconds": 8.0,
+  "notes": "New model RGB was rejected for exposure drift and weak articulation. Four generated motion fields are applied only to isolated original-paint cutouts, bounded to 2.5 pixels. Source wing and leg rigs supplement those fields. Sky, ground, buildings and camera remain anchored. Native generated loops are not claimed.",
+  "headset_verified": false,
+  "horse_mouth_rgb_regenerated_per_frame": false,
+  "marked_motion_catalog": "art-lab/motion-v8/motion-catalog.json",
+  "new_marked_regions": 51,
+  "new_model_rgb_layers_accepted": 0,
+  "new_model_flow_layers_accepted": [
+    "herd",
+    "bank-bird",
+    "stag",
+    "bathers"
+  ],
+  "architecture_changed_pixels_before_encoding": 0,
+  "fire_city_changed_values_before_encoding": 0,
+  "bird_pixels_changed_outside_matte_envelope": 0,
+  "water_mask_pixels": 97100,
+  "garden": {
+    "projection_difference": 1.9679198265075684,
+    "loop_difference": 0.07595812529325485
+  },
+  "hell": {
+    "projection_difference": 1.4682260751724243,
+    "loop_difference": 0.03629739582538605
+  }
+}

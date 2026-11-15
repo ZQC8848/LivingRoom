@@ -1,0 +1,146 @@
+[
+  {
+    "id": "aftermath-light",
+    "status": "captured",
+    "frames": 481,
+    "seconds": 29.86,
+    "hot_prompt_stages": [
+      {
+        "label": "Day",
+        "sent_after_first_frame_seconds": -8.5,
+        "ack_after_send_seconds": 0.703,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Dusk",
+        "sent_after_first_frame_seconds": 3.375,
+        "ack_after_send_seconds": 0.344,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Night",
+        "sent_after_first_frame_seconds": 15.734,
+        "ack_after_send_seconds": 1.407,
+        "reply_type": "prompt_accepted"
+      }
+    ],
+    "drift_first_to_last": {
+      "status": "insufficient matches",
+      "matches": 7
+    },
+    "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+    "added_animation": false,
+    "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+  },
+  {
+    "id": "aftermath-weather",
+    "status": "captured",
+    "frames": 523,
+    "seconds": 31.31,
+    "hot_prompt_stages": [
+      {
+        "label": "Dry heat",
+        "sent_after_first_frame_seconds": -8.61,
+        "ack_after_send_seconds": 0.641,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Rain",
+        "sent_after_first_frame_seconds": 4.578,
+        "ack_after_send_seconds": 0.937,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Wet winter",
+        "sent_after_first_frame_seconds": 17.531,
+        "ack_after_send_seconds": 0.797,
+        "reply_type": "prompt_accepted"
+      }
+    ],
+    "drift_first_to_last": {
+      "status": "estimated",
+      "matches": 34,
+      "inliers": 16,
+      "scale": 1.00065,
+      "rotation_degrees": 0.109,
+      "center_displacement_pixels_at_960w": [
+        0.02,
+        2.66
+      ],
+      "note": "Architecture feature alignment is a drift proxy; human review still required."
+    },
+    "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+    "added_animation": false,
+    "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+  },
+  {
+    "id": "garden-light",
+    "status": "captured",
+    "frames": 494,
+    "seconds": 31.05,
+    "hot_prompt_stages": [
+      {
+        "label": "Day",
+        "sent_after_first_frame_seconds": -6.625,
+        "ack_after_send_seconds": 0.515,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Dusk",
+        "sent_after_first_frame_seconds": 4.578,
+        "ack_after_send_seconds": 0.703,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Night",
+        "sent_after_first_frame_seconds": 17.297,
+        "ack_after_send_seconds": 1.172,
+        "reply_type": "prompt_accepted"
+      }
+    ],
+    "drift_first_to_last": {
+      "status": "insufficient robust inliers",
+      "matches": 16,
+      "inliers": 5,
+      "note": "Do not interpret this estimate as a camera-motion measurement."
+    },
+    "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+    "added_animation": false,
+    "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+  },
+  {
+    "id": "garden-season",
+    "status": "captured",
+    "frames": 470,
+    "seconds": 30.11,
+    "hot_prompt_stages": [
+      {
+        "label": "Summer",
+        "sent_after_first_frame_seconds": -7.765,
+        "ack_after_send_seconds": 0.531,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Autumn",
+        "sent_after_first_frame_seconds": 3.516,
+        "ack_after_send_seconds": 0.703,
+        "reply_type": "prompt_accepted"
+      },
+      {
+        "label": "Winter",
+        "sent_after_first_frame_seconds": 16.235,
+        "ack_after_send_seconds": 0.875,
+        "reply_type": "prompt_accepted"
+      }
+    ],
+    "drift_first_to_last": {
+      "status": "insufficient robust inliers",
+      "matches": 14,
+      "inliers": 4,
+      "note": "Do not interpret this estimate as a camera-motion measurement."
+    },
+    "projection_note": "Review crop restores the 2:1 reference band. It does not guarantee periodic seam consistency or constitute an approved immersive panorama.",
+    "added_animation": false,
+    "source": "Actual Orbis Dynamic stream, live prompt changes; replay recording."
+  }
+]

@@ -1,0 +1,134 @@
+{
+  "errors": [],
+  "initial": {
+    "kind": "bosch-orbis-v6",
+    "layer": 0,
+    "flat": false,
+    "zoom": false,
+    "playing": true,
+    "motion": 1,
+    "yaw": -2.5,
+    "pitch": -0.68,
+    "handU": 0.5,
+    "handV": 0.5,
+    "raw": false,
+    "rawJob": "bird",
+    "rawReference": false,
+    "ready": 2,
+    "frames": 3,
+    "videoTimes": {
+      "garden": {
+        "currentTime": 0.1549,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      },
+      "hell": {
+        "currentTime": 0.1551,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      }
+    },
+    "actualOrbisGeneration": true,
+    "model": "Hybrid object mattes: Orbis animals/fire; authored foliage/water",
+    "animalAnimationsAccepted": true,
+    "wholeEnvironmentFlow": false
+  },
+  "videoAdvances": true,
+  "videoDoesNotMoveCamera": true,
+  "motionSamples": [
+    {
+      "look": "horse",
+      "frameChanges": true
+    },
+    {
+      "look": "bird",
+      "frameChanges": true
+    },
+    {
+      "look": "water",
+      "frameChanges": true
+    },
+    {
+      "look": "leaves",
+      "frameChanges": true
+    },
+    {
+      "look": "fire",
+      "frameChanges": true
+    }
+  ],
+  "revealChangesImage": true,
+  "handDoesNotMoveCamera": true,
+  "handMovesMask": true,
+  "layoutAspect": 2,
+  "rawTests": [
+    {
+      "job": "water",
+      "status": "此处保留历史原始试片供对照；新版河面采用整片原画纹理流动，不使用这段亮度残差。",
+      "reference": true
+    },
+    {
+      "job": "horse",
+      "status": "沿用 Dynamic 闭口低头动作；新版逐帧分离白马并匹配曝光。",
+      "reference": true
+    },
+    {
+      "job": "bird",
+      "status": "沿用 Dynamic 展翅动作；新版逐帧分离主体，保留固定环境，消除矩形曝光变化。",
+      "reference": true
+    },
+    {
+      "job": "leaves",
+      "status": "此处是历史模型试片；新版树冠使用独立抠图与枝干摆动，已停用光流形变。",
+      "reference": true
+    },
+    {
+      "job": "fire",
+      "status": "沿用这段真实火焰，稳像与曝光匹配后按火焰色彩抠出；城墙保持固定。",
+      "reference": true
+    }
+  ],
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  },
+  "preview": {
+    "kind": "bosch-orbis-v6",
+    "layer": 0,
+    "flat": false,
+    "zoom": false,
+    "playing": true,
+    "motion": 1,
+    "yaw": -2.5,
+    "pitch": -0.68,
+    "handU": 0.5,
+    "handV": 0.5,
+    "raw": false,
+    "rawJob": "bird",
+    "rawReference": false,
+    "ready": 2,
+    "frames": 3,
+    "videoTimes": {
+      "garden": {
+        "currentTime": 0.2853,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      },
+      "hell": {
+        "currentTime": 0.2561,
+        "paused": false,
+        "width": 2048,
+        "height": 1024
+      }
+    },
+    "actualOrbisGeneration": true,
+    "model": "Hybrid object mattes: Orbis animals/fire; authored foliage/water",
+    "animalAnimationsAccepted": true,
+    "wholeEnvironmentFlow": false
+  },
+  "pauseWorks": true,
+  "inlineBytes": 991900
+}

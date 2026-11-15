@@ -1,0 +1,195 @@
+{
+  "job": "water",
+  "model": "reactor/visko-orbis-stable",
+  "prompt": "Static camera, locked framing and deep focus throughout. The blue pond beneath the distant blue fountain, between painted grassy banks. Only the blue pond surface makes fine, shallow ripples that settle in place. The original painted brush texture, daylight, banks, buildings, horizon and every other figure remain fixed in their reference positions and shapes. The entire action stays inside the existing silhouette and its immediate surroundings. The opening and ending poses are nearly identical; the composition holds as a painted tableau.",
+  "requested_capture_seconds": 6.0,
+  "frames": 112,
+  "events": [
+    {
+      "t": 2.75,
+      "type": "state"
+    },
+    {
+      "t": 2.75,
+      "type": "image_accepted"
+    },
+    {
+      "t": 2.797,
+      "type": "state"
+    },
+    {
+      "t": 2.797,
+      "type": "prompt_accepted"
+    },
+    {
+      "t": 2.829,
+      "type": "state"
+    },
+    {
+      "t": 2.86,
+      "type": "generation_started"
+    },
+    {
+      "t": 2.86,
+      "type": "state"
+    },
+    {
+      "t": 4.922,
+      "type": "state"
+    },
+    {
+      "t": 6.61,
+      "type": "state"
+    },
+    {
+      "t": 8.313,
+      "type": "state"
+    },
+    {
+      "t": 10.125,
+      "type": "state"
+    },
+    {
+      "t": 11.938,
+      "type": "state"
+    },
+    {
+      "t": 13.797,
+      "type": "state"
+    },
+    {
+      "t": 13.829,
+      "type": "state"
+    }
+  ],
+  "errors": [],
+  "attempt": "stable-01",
+  "connect_seconds": 1.766,
+  "first_frame_latency_seconds": 4.219,
+  "delivered_pixels": [
+    2560,
+    1440
+  ],
+  "captured_seconds": 6.016,
+  "available_resolutions": [
+    "1080p",
+    "2k",
+    "4k"
+  ],
+  "status": "captured",
+  "client_elapsed_seconds": 13.985,
+  "received_timestamps_seconds": [
+    0.0,
+    0.125,
+    0.156,
+    0.172,
+    0.219,
+    0.234,
+    0.266,
+    0.313,
+    0.344,
+    0.375,
+    0.406,
+    0.438,
+    0.469,
+    0.516,
+    0.547,
+    0.594,
+    0.641,
+    0.703,
+    0.734,
+    0.781,
+    0.891,
+    0.922,
+    1.0,
+    1.063,
+    1.125,
+    1.188,
+    1.25,
+    1.297,
+    1.359,
+    1.422,
+    1.484,
+    1.531,
+    1.609,
+    1.672,
+    1.734,
+    1.797,
+    1.859,
+    1.922,
+    1.984,
+    2.031,
+    2.094,
+    2.156,
+    2.219,
+    2.266,
+    2.328,
+    2.375,
+    2.422,
+    2.484,
+    2.531,
+    2.578,
+    2.641,
+    2.688,
+    2.75,
+    2.797,
+    2.844,
+    2.906,
+    2.953,
+    3.016,
+    3.063,
+    3.125,
+    3.172,
+    3.234,
+    3.297,
+    3.344,
+    3.406,
+    3.469,
+    3.516,
+    3.563,
+    3.625,
+    3.688,
+    3.734,
+    3.781,
+    3.844,
+    3.891,
+    3.953,
+    4.016,
+    4.063,
+    4.125,
+    4.188,
+    4.234,
+    4.297,
+    4.344,
+    4.406,
+    4.453,
+    4.516,
+    4.563,
+    4.625,
+    4.672,
+    4.734,
+    4.781,
+    4.844,
+    4.906,
+    4.953,
+    5.016,
+    5.063,
+    5.125,
+    5.172,
+    5.234,
+    5.313,
+    5.344,
+    5.406,
+    5.469,
+    5.516,
+    5.578,
+    5.641,
+    5.688,
+    5.734,
+    5.797,
+    5.844,
+    5.906,
+    5.969,
+    6.016
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "headset_verified": false,
+  "regions": [
+    {
+      "id": "G01",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 2405,
+      "mean_temporal_std": 2.9779484272003174,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G02",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3006,
+      "mean_temporal_std": 6.97009801864624,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G03",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 356,
+      "mean_temporal_std": 1.200636386871338,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G04",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 1252,
+      "mean_temporal_std": 0.8409618735313416,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G05",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 1944,
+      "mean_temporal_std": 7.724076271057129,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G06",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 1437,
+      "mean_temporal_std": 3.8386688232421875,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G07",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 2296,
+      "mean_temporal_std": 7.441404342651367,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G08",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 7387,
+      "mean_temporal_std": 9.669169425964355,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G09",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3811,
+      "mean_temporal_std": 5.722721099853516,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G10",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 6507,
+      "mean_temporal_std": 7.240808963775635,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G11",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 4511,
+      "mean_temporal_std": 8.800819396972656,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G12",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 4029,
+      "mean_temporal_std": 5.875813007354736,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G13",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 1705,
+      "mean_temporal_std": 4.817339897155762,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G14",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 2527,
+      "mean_temporal_std": 6.906806945800781,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G15",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3866,
+      "mean_temporal_std": 10.019482612609863,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G16",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3310,
+      "mean_temporal_std": 4.752842903137207,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G17",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 5547,
+      "mean_temporal_std": 3.659093141555786,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G18",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 6356,
+      "mean_temporal_std": 2.8003268241882324,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G19",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 1270,
+      "mean_temporal_std": 7.352972507476807,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G20",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 2076,
+      "mean_temporal_std": 8.826693534851074,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G21",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 886,
+      "mean_temporal_std": 6.275076389312744,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G22",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 5968,
+      "mean_temporal_std": 11.255037307739258,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G23",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 4584,
+      "mean_temporal_std": 12.157676696777344,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G24",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 6635,
+      "mean_temporal_std": 8.409524917602539,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G25",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 18156,
+      "mean_temporal_std": 8.557292938232422,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G26",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3893,
+      "mean_temporal_std": 4.034120559692383,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G27",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 1518,
+      "mean_temporal_std": 2.603400945663452,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G28",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3373,
+      "mean_temporal_std": 3.5223119258880615,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G29",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 5326,
+      "mean_temporal_std": 7.308524131774902,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G30",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3810,
+      "mean_temporal_std": 5.6938042640686035,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G31",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 12071,
+      "mean_temporal_std": 8.111478805541992,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G32",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 2476,
+      "mean_temporal_std": 2.37152099609375,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G33",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 3368,
+      "mean_temporal_std": 3.401674509048462,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G34",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 2656,
+      "mean_temporal_std": 4.207956314086914,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G35",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 223,
+      "mean_temporal_std": 1.9617555141448975,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G36",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 834,
+      "mean_temporal_std": 4.1903977394104,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G37",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 636,
+      "mean_temporal_std": 3.7669601440429688,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G38",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 597,
+      "mean_temporal_std": 4.051095962524414,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "G39",
+      "layer": "garden",
+      "pixels_with_temporal_std_above_2": 1376,
+      "mean_temporal_std": 11.466824531555176,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H01",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 3311,
+      "mean_temporal_std": 4.5337605476379395,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H02",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 1086,
+      "mean_temporal_std": 0.3946213722229004,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H03",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 1544,
+      "mean_temporal_std": 3.534586191177368,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H04",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 573,
+      "mean_temporal_std": 5.721627712249756,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H05",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 3057,
+      "mean_temporal_std": 1.9506458044052124,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H06",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 1886,
+      "mean_temporal_std": 2.4759573936462402,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H07",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 2106,
+      "mean_temporal_std": 1.6160537004470825,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H08",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 2748,
+      "mean_temporal_std": 2.4715161323547363,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H09",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 3010,
+      "mean_temporal_std": 2.7171943187713623,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H10",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 2151,
+      "mean_temporal_std": 2.169525384902954,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H11",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 4470,
+      "mean_temporal_std": 1.934869647026062,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    },
+    {
+      "id": "H12",
+      "layer": "hell",
+      "pixels_with_temporal_std_above_2": 182631,
+      "mean_temporal_std": 2.297363042831421,
+      "note": "Temporal difference is a coverage diagnostic, not a claim of human-approved gesture quality."
+    }
+  ],
+  "stable_controls": {
+    "pink-shell": {
+      "mean_rgb_temporal_std": 0.0016833441331982613,
+      "mean_frame_exposure_std": 0.0007832697592675686
+    },
+    "blue-fountain": {
+      "mean_rgb_temporal_std": 0.007767767645418644,
+      "mean_frame_exposure_std": 0.0010448145912960172
+    },
+    "hell-left-building": {
+      "mean_rgb_temporal_std": 0.0,
+      "mean_frame_exposure_std": 1.52587890625e-05
+    },
+    "hell-skyline": {
+      "mean_rgb_temporal_std": 0.8850180506706238,
+      "mean_frame_exposure_std": 0.3105572462081909
+    }
+  }
+}
