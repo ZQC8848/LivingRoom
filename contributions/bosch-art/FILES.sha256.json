@@ -33,8 +33,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8866,
-      "sha256": "f5de00b1cf068afd08da27275ffc3e14fe1f30cfd5398d11fbc936a7e610d824"
+      "bytes": 8828,
+      "sha256": "6018bfd46116afc996c25de8fc1baab1237a03a42f368a250cd829ce6da9ecab"
     },
     {
       "path": "art-lab/analyze_bosch_v8.py",
@@ -598,8 +598,8 @@
     },
     {
       "path": "video-edit/edit_submission.py",
-      "bytes": 7964,
-      "sha256": "b0e6573ac69d318a51d7c06521f39aa024f71d4ac0b6488645e7a2bdbbeb39b1"
+      "bytes": 7992,
+      "sha256": "5db9cad482dac7ecb90dd38b676884ed6b2d2315f0c65e259d0f506bd30c7b96"
     },
     {
       "path": "video-edit/edit_vertical.py",
@@ -608,8 +608,8 @@
     },
     {
       "path": "video-edit/README.txt",
-      "bytes": 3187,
-      "sha256": "9a2cf7bda59c75ba76fb08b8c26e7b5323ff3ec7a21187e54406e60fd9bc73fb"
+      "bytes": 3035,
+      "sha256": "7f29995383069cac38f8b920cb14ae2de6fbcc40949dd784531fadd42d58060d"
     },
     {
       "path": "art-lab/assets/ambassadors.jpg",
@@ -7074,17 +7074,22 @@
     {
       "path": "video-edit/output/background-brief.en.srt",
       "bytes": 439,
-      "sha256": "81928c46004ce8554235b39e71c7f9dcfa7c06d2bb46a7412a684bcffc714548"
+      "sha256": "87fb9268cda5198a10891590cb8fe065437a6a31a14f41fa8307cb0f448e239f"
     },
     {
       "path": "video-edit/output/devpost-brief.en.txt",
-      "bytes": 1488,
-      "sha256": "dd1234a468ff7ae857470358d1ed0d6c7fdfaa0d81cb7c0e2836cd628c334189"
+      "bytes": 1558,
+      "sha256": "ce066dca04399ff206629d76d6dc27e8d12ec44944a394078fd4cfd33ad1e769"
     },
     {
       "path": "video-edit/output/edit-decision-list-final.json",
       "bytes": 4812,
       "sha256": "0f358dc19ea4db02e730e12a619ed625217d05e9dfbc48a805987c556cdb69e7"
+    },
+    {
+      "path": "video-edit/output/edit-decision-list-r2.json",
+      "bytes": 4449,
+      "sha256": "4091498fcf3488ceb4316f63d3f2fb88d5018148cf913d98cd5821a067364947"
     },
     {
       "path": "video-edit/output/edit-decision-list-vertical.json",
@@ -7105,6 +7110,16 @@
       "path": "video-edit/output/garden-of-consequences-30s-portrait-final.mp4",
       "bytes": 31666597,
       "sha256": "6f61f9f1075322906b3310714caa7c3c03de9619e6857d1e3c523e1a30cb13de"
+    },
+    {
+      "path": "video-edit/output/garden-of-consequences-30s-portrait-r2.en.srt",
+      "bytes": 428,
+      "sha256": "bb5d39e7676660f658098a2007912bb7039afff2a4913c0db7cdcd3bd98fd98c"
+    },
+    {
+      "path": "video-edit/output/garden-of-consequences-30s-portrait-r2.mp4",
+      "bytes": 29219485,
+      "sha256": "fe6ff5a7b1cd7359fd73e8997ee3b2a13d49e0bf3f7c51f68a0d3845444672dc"
     },
     {
       "path": "video-edit/output/garden-of-consequences-30s-vertical.en.srt",
@@ -7130,6 +7145,11 @@
       "path": "video-edit/review/validation-final.json",
       "bytes": 369,
       "sha256": "d31756c0eb0cdb917951fa559dfdece39327c3c9d7cce136964666d9a5d360c6"
+    },
+    {
+      "path": "video-edit/review/validation-r2.json",
+      "bytes": 535,
+      "sha256": "766617f4ce7d421403497bd838b38f180638f0a54f63cb74a5a2e9d2dd97202e"
     },
     {
       "path": "video-edit/review/validation-vertical.json",

@@ -14,11 +14,12 @@ The prototype explores a method that could be adapted to other artworks through
 artwork-specific layouts, paired imagery, and carefully directed motion.
 
 VIDEO DISCLOSURE
-30-second 9:16 edited headset recording with full-screen fixed center crop.
-English background brief overlays communicate context, interaction and creator
-and model roles, without new voiceover. Reveal/return play at approximately
-1.43x / 1.47x; the four prepared modes play at 7x, as labelled.
-The independent realistic study gets 13.6 seconds: starting meadow, aurora,
-asteroids and return to snow, all at 1x. Cuts omit waiting/menu time; the initial
-meadow UI is stopped. This edit does not establish prompt-to-frame latency.
+30-second 9:16 edited headset recording: 20 seconds on the painting and
+10 seconds on the independent realistic sheep / Orbis study.
+All picture and narration play at original speed. English background brief
+text is centered above the footage. The painting section retains reveal,
+return and one prepared Garden Day/Night excerpt; rapid mode shots are removed.
+The realistic study shows meadow, aurora, asteroids and return to snow, with
+menu actions omitted and fixed crops excluding baked-in UI. The initial meadow
+is a stopped baseline. Cuts omit waiting time and do not measure prompt latency.
 The panoramic reconstruction and aligned aftermath imagery reinterpret Bosch.

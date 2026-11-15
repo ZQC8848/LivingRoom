@@ -1,11 +1,11 @@
 1
-00:00:00,000 --> 00:00:06,800
+00:00:00,000 --> 00:00:07,000
 Hieronymus Bosch’s The Garden of Earthly Delights (c. 1500) is a Northern Renaissance masterpiece, now in Madrid’s Prado Museum.
 
 2
-00:00:06,800 --> 00:00:10,800
+00:00:07,000 --> 00:00:12,200
 With a gesture, visitors reveal image layers and discover another side of the painting.
 
 3
-00:00:10,800 --> 00:00:16,400
+00:00:12,200 --> 00:00:20,000
 Creators author panoramas, masks and layers. Live AI adds environmental change only within selected regions.

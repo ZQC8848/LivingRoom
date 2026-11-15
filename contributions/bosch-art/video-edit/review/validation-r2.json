@@ -1,0 +1,17 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30.0,
+  "frames": 900,
+  "bytes": 29219485,
+  "duration": 30.0,
+  "audio_integrated_lufs": -18.34,
+  "audio_true_peak_dbtp": -2.17,
+  "artwork_seconds": 20,
+  "live_study_seconds": 10,
+  "all_picture_speed": 1,
+  "all_voice_speed": 1,
+  "new_voiceover": false,
+  "centering": "Editorial boxes/text centered at x=540; painting crop x=221 aligns opening baked-in narration box.",
+  "artwork_selected_mode": "Garden Day/Night excerpt, 2.8s at 1x; three rapid modes removed."
+}

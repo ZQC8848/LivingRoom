@@ -1,60 +1,59 @@
 LIVINGROOM / THE GARDEN OF CONSEQUENCES
-Preferred 30-second submission cut — November 14, 2026
+Preferred submission cut r2 — November 14, 2026
 
 CURRENT DELIVERY
-output/garden-of-consequences-30s-portrait-final.mp4
+output/garden-of-consequences-30s-portrait-r2.mp4
 1080 x 1920 (9:16), 30 fps, exactly 900 frames / 30.000 seconds.
-Full-screen fixed center crop; no side panel and no new voiceover.
+20 seconds artwork + 10 seconds realistic sheep / Orbis study.
+All picture and narration play at original speed. No atempo or new voiceover.
 
 TIMELINE
-00.000–04.200  Opening garden, original opening sentence (1x).
-04.200–09.800  Gesture reveal, visual 1.428571x; voice 1.4x.
-09.800–13.200  Return, visual and voice approximately 1.47x.
-13.200–16.400  Four prepared modes, 0.8 seconds each, labelled 7x.
-16.400–19.400  Starting meadow / sheep (1x).
-19.400–22.900  Aurora (1x).
-22.900–26.400  Asteroids (1x).
-26.400–30.000  Return to snow (1x).
+00.000–04.200  Opening garden, first complete opening sentence.
+04.200–12.200  Gesture reveal.
+12.200–17.200  Return.
+17.200–20.000  Garden Day/Night excerpt, 2.8 seconds at 1x.
+20.000–21.500  Starting meadow / sheep, 1x.
+21.500–25.000  Aurora, 1x.
+25.000–28.000  Asteroids, 1x.
+28.000–30.000  Return to snow, 1x.
 
-BACKGROUND BRIEF
-00.000–06.800  Bosch, full painting title, c. 1500, Northern Renaissance,
-              and Prado Museum, Madrid.
-06.800–10.800  Gesture reveal discovers another side of the painting.
-10.800–16.400  Creators author panorama, masks and layers; live AI adds
+EDIT CHANGES
+Three rapid optional-mode shots are removed; one readable day/night excerpt
+remains. All three selected recorded voice excerpts are at their original speed.
+Brief boxes, headings and body text are centered on the 1080-pixel canvas.
+The artwork crop is aligned to the opening baked-in narration panel center.
+The sheep study omits menu actions; tighter fixed crops exclude baked-in UI.
+Original headset turns remain; no moving crop, synthetic camera path, optical
+flow, frame interpolation or generated fill is added.
+
+ENGLISH BACKGROUND BRIEF
+00.000–07.000  Bosch, The Garden of Earthly Delights, c. 1500,
+              Northern Renaissance, Prado Museum, Madrid.
+07.000–12.200  Gesture reveal discovers another side of the painting.
+12.200–20.000  Creators author panorama, masks and layers; live AI adds
               environmental changes only within selected regions.
-The user's brief is condensed into three English black-background overlays.
-No new voiceover. Prepared media remain explicitly labelled as prepared.
-The selected-regions statement describes the painting workflow, while the
-following realistic Live Lab is an independent scenario.
+The last card describes the painting workflow. The realistic live scenario is
+independent, and the retained day/night excerpt is explicitly labelled prepared.
 
-LIVE STUDY DISCLOSURE
-The 13.6-second live study includes all four requested stages, at 1x.
-Its initial meadow UI is stopped and establishes the starting landscape.
-Later excerpts show the recorded Orbis Dynamic study. Cuts omit waiting/menu
-time; the edit does not measure prompt-to-frame latency.
-No synthetic camera movement, digital zoom or interpolated frames are added.
-Original headset turns remain visible. Pitch-preserving atempo speeds up
-existing voice excerpts. The score is the user's exported Suno recording.
+DISCLOSURE
+The starting meadow is the stopped baseline. Later excerpts show recorded
+Orbis Dynamic activity. Cuts omit waiting/menu time; the edit is not a latency
+measurement. The panoramic garden/aftermath imagery reinterprets Bosch, rather
+than reproducing the triptych exactly. Earlier edits are superseded drafts.
 
 REPRODUCTION
-Run edit_submission.py with the original Casting_Video_1794721792334.mp4
-in video-edit/source/. The untrimmed personal recording stays local.
-Requires Python, Pillow, imageio-ffmpeg, Windows Segoe UI fonts, and the
-existing deployment/bosch-demo/public/audio/music.mp3 file.
-output/edit-decision-list-final.json records all source in-points and timing.
-output/background-brief.en.srt contains the editorial brief text.
-output/garden-of-consequences-30s-portrait-final.en.srt contains voice captions.
-review/validation-final.json records video and audio measurements.
-Earlier landscape/portrait edits are retained as superseded drafts.
+Run edit_submission.py with Casting_Video_1794721792334.mp4 in video-edit/source/.
+The untrimmed personal recording stays local. Requires Python, Pillow,
+imageio-ffmpeg, Windows Segoe UI fonts and the existing user-exported Suno music
+at deployment/bosch-demo/public/audio/music.mp3.
+output/edit-decision-list-r2.json gives per-shot crops, in-points and timing.
+output/background-brief.en.srt is editorial text; the matching video .en.srt
+contains voice captions. review/validation-r2.json contains media measurements.
 
 SUBMISSION
 User-confirmed: 30-second demo, GitHub before Sunday 09:00, Devpost,
-final instructions via Discord. Current online rules could not be retrieved
-independently. No Devpost form is submitted by this script.
+final instructions via Discord. No Devpost form is submitted by this script.
 
-ARTWORK
-The Garden of Earthly Delights by Hieronymus Bosch, c. 1500,
-Northern Renaissance, Museo Nacional del Prado, Madrid.
-Our aligned panoramic reconstruction is an adaptation, not an exact scan.
+ARTWORK SOURCES
 https://canon.codart.nl/artwork/garden-of-earthly-delights/
 https://www.museodelprado.es/en/the-collection/art-work/the-garden-of-earthly-delights-triptych/02388242-6d6a-4e9e-a992-e1311eab3609
