@@ -1,0 +1,20 @@
+The Garden of Consequences — an interactive painting inside LivingRoom
+
+Step inside Hieronymus Bosch's The Garden of Earthly Delights, painted around
+1500 and now in Madrid's Prado Museum. Point and pinch to uncover a darker
+possibility within the same landscape; release, and the garden returns.
+
+We adapt Bosch's contrast between earthly pleasure and Hell through aligned
+panoramic layers, gesture-controlled masks, AI-generated motion, and narration.
+Four optional prepared loops explore day, night, and seasons. A separate
+realistic Live Lab scenario demonstrates prompt-steered Orbis Dynamic generation.
+
+Our question is simple: can an interaction change how we read a painting?
+The prototype explores a method that could be adapted to other artworks through
+artwork-specific layouts, paired imagery, and carefully directed motion.
+
+VIDEO DISCLOSURE
+30-second edited headset recording. Reveal plays at original speed. The four
+prepared modes play at 3x, as labelled. Live Lab is a recorded session excerpt;
+it does not establish prompt-to-frame latency. The panoramic reconstruction and
+aligned aftermath imagery are our reinterpretation of Bosch's original work.
