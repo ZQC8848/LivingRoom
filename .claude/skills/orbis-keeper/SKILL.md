@@ -1,6 +1,6 @@
 ---
 name: orbis-keeper
-description: Hold one or both Orbis Dynamic sessions for Living Room for a limited time (1 h per hold, extendable on request; --sessions 2 for both) so the web page and tests can attach to it back to back without losing the server to someone else. Use when the user asks to hold, keep, reserve, extend, check or release the Orbis / Dynamic session or "the line", or before a demo or live testing round.
+description: Hold one or both Orbis Dynamic sessions for Paradise (the LivingRoom repo) for a limited time (1 h per hold, extendable on request; --sessions 2 for both) so the web page and tests can attach to it back to back without losing the server to someone else. Use when the user asks to hold, keep, reserve, extend, check or release the Orbis / Dynamic session or "the line", or before a demo or live testing round.
 ---
 
 # Orbis keeper

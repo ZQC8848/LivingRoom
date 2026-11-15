@@ -347,7 +347,7 @@ export async function startGarden() {
   let soundWasOn = false;
   ui.hud.querySelector('.mode-controls')?.appendChild(shell.switchButton('◂ Hillside', 'hillside'));
   shell.register(ID, {
-    title: 'Living Room — The Garden of Consequences',
+    title: 'Paradise — The Garden of Consequences',
     scene,
     camera,
     frame,

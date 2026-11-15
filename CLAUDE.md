@@ -1,4 +1,6 @@
-# Living Room — entry point
+# Paradise — entry point
+
+(Formerly "Living Room": the repository, folder paths and agent names still say LivingRoom.)
 
 Read [README.md](README.md) for what this is, then [.ai/README.md](.ai/README.md) for
 where project knowledge lives (the Fieldnotes skill in `.claude/skills/fieldnotes`

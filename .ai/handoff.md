@@ -6,6 +6,9 @@
 > (per-wall Stable/Dynamic runs, four-wall capacity failure) are in git history; their
 > conclusions are in CLAUDE.md and `decisions/`.
 
+> **Project name: Paradise** (renamed from Living Room on 2026-11-14, 21:55). Paths, the repo and
+> the teammate's own site still say Living Room / LivingRoom; the page titles say Paradise.
+
 ## Where things stand
 
 | Item | State |

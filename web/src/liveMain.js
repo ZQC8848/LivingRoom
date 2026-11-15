@@ -451,7 +451,7 @@ function frame() {
 }
 
 shell.register(ID, {
-  title: 'Living Room',
+  title: 'Paradise — The Living Hillside',
   scene,
   camera,
   frame,
